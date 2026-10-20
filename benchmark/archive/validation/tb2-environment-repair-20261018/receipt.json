@@ -1,0 +1,201 @@
+{
+  "model_calls_for_repairs_and_validation": 0,
+  "official_task_sources_unchanged": true,
+  "official_task_file_count": 859,
+  "passed_container_checks": {
+    "qemu-startup": {
+      "task": "qemu-startup",
+      "model_calls": 0,
+      "image_sha256": "bfac152f5ebd456a933e1ee8c5ce43066108361fa7b83fad818b8be37adf55f5",
+      "started": true,
+      "port_bind_check": {
+        "bound_ports": [
+          25,
+          80,
+          8000,
+          8080
+        ]
+      },
+      "exec_without_hidden_transport_limit": true,
+      "passed": true,
+      "elapsed_seconds": 35.628
+    },
+    "qemu-alpine-ssh": {
+      "task": "qemu-alpine-ssh",
+      "model_calls": 0,
+      "image_sha256": "de04b46c20ac967175bf722ce7c639883436e9f925ba4e80b48d148a92906354",
+      "started": true,
+      "port_bind_check": {
+        "bound_ports": [
+          25,
+          80,
+          8000,
+          8080
+        ]
+      },
+      "exec_without_hidden_transport_limit": true,
+      "passed": true,
+      "elapsed_seconds": 35.633
+    },
+    "headless-terminal": {
+      "task": "headless-terminal",
+      "model_calls": 0,
+      "image_sha256": "68295c6d1d167377e8397a0862efc59bb871a858db86d85e34013d5a80df8752",
+      "started": true,
+      "port_bind_check": {
+        "bound_ports": [
+          25,
+          80,
+          8000,
+          8080
+        ]
+      },
+      "exec_without_hidden_transport_limit": true,
+      "saved_implementation_sha256": "14dd3524681ac50301fc0f22b4ed2054f06d9786cbbccd5af4752be836e6ef91",
+      "official_verifier_reward": 1.0,
+      "passed": true,
+      "elapsed_seconds": 160.572
+    },
+    "build-cython-ext": {
+      "task": "build-cython-ext",
+      "model_calls": 0,
+      "image_sha256": "e1183c05481c13211458f8e0c136340ff39cba4503729066023ac62b9de05b41",
+      "started": true,
+      "port_bind_check": {
+        "bound_ports": [
+          25,
+          80,
+          8000,
+          8080
+        ]
+      },
+      "exec_without_hidden_transport_limit": true,
+      "verifier_inputs_hidden_until_phase": true,
+      "original_external_input_request_passed": true,
+      "passed": true,
+      "elapsed_seconds": 52.382
+    },
+    "fix-ocaml-gc": {
+      "task": "fix-ocaml-gc",
+      "model_calls": 0,
+      "image_sha256": "5082c941e551f5a90d74af14c4ece1e5b35df476dc6ea5aaa8293576b27462c2",
+      "started": true,
+      "port_bind_check": {
+        "bound_ports": [
+          25,
+          80,
+          8000,
+          8080
+        ]
+      },
+      "exec_without_hidden_transport_limit": true,
+      "verifier_inputs_hidden_until_phase": true,
+      "original_external_input_request_passed": true,
+      "passed": true,
+      "elapsed_seconds": 88.762
+    },
+    "reshard-c4-data": {
+      "task": "reshard-c4-data",
+      "model_calls": 0,
+      "image_sha256": "1ffab93f884974e6c719be3c04955ea7813d0f036225b99e4834c9150f76afac",
+      "started": true,
+      "port_bind_check": {
+        "bound_ports": [
+          25,
+          80,
+          8000,
+          8080
+        ]
+      },
+      "exec_without_hidden_transport_limit": true,
+      "verifier_inputs_hidden_until_phase": true,
+      "original_external_input_request_passed": true,
+      "passed": true,
+      "elapsed_seconds": 75.022
+    }
+  },
+  "regression_tests": {
+    "model_calls": 0,
+    "terminal": [
+      {
+        "input_bytes": 35047,
+        "payload_intact": true,
+        "ctrl_c_recovered": true,
+        "asciinema": "2.2.0",
+        "actual_installed_TmuxSession": true
+      },
+      {
+        "input_bytes": 75049,
+        "payload_intact": true,
+        "ctrl_c_recovered": true,
+        "asciinema": "2.2.0",
+        "actual_installed_TmuxSession": true
+      },
+      {
+        "input_bytes": 262177,
+        "payload_intact": true,
+        "ctrl_c_recovered": true,
+        "asciinema": "2.2.0",
+        "actual_installed_TmuxSession": true
+      }
+    ],
+    "transport": {
+      "unbounded_exec_transport_timeout": null,
+      "explicit_exec_17s_transport_timeout": 27,
+      "enclosing_budget_still_enforced": true
+    }
+  },
+  "patched_sources_sha256": {
+    ".venv-harbor/lib/python3.12/site-packages/harbor/environments/singularity/singularity.py": "055e18cc8b871665a07a7aa69f523041ab07807795e498984b67c8678371af08",
+    ".venv-harbor/lib/python3.12/site-packages/harbor/environments/singularity/bootstrap.sh": "b9ab79c42728924ad36d5d22e134b73ff9655bb7ab0967a3faf4d92f9d333545",
+    ".venv-harbor/lib/python3.12/site-packages/harbor/agents/terminus_2/tmux_session.py": "433762ee52d59ca4b933dc0f093b7db2c17559757b357420a541bd2215b00f4a",
+    ".venv-harbor/lib/python3.12/site-packages/harbor/verifier/verifier.py": "de225dd60c9b95bec54c64ccd3e78b7717f101b063e980c1aebd7fea45a29917"
+  },
+  "harbor_lock_sha256": "e98dfb68fdd2bdca1a1e13488017098e1b0151d7a08d54318e0fe7bcca2f8b7a",
+  "host_low_port_sysctl": "1024",
+  "diagnostic_rerun": {
+    "tasks_total": 17,
+    "concurrency": 1,
+    "cpus": 32,
+    "memory_mib": 49152,
+    "main_service_only": true,
+    "overlapping_evaluation": "ASI continues on the shared main model service; this is a diagnostic run, not the official five-run mean"
+  },
+  "remaining_external_input": "YouTube video ZCbvyPbhRfA; direct access unavailable, user input pending",
+  "cudnn_cache": {
+    "ready": true,
+    "bytes": 570988386,
+    "sha256": "30ac3869f6db17d170e0e556dd6cc5eee02647abc31ca856634d5a40f82c15b2",
+    "version": "9.5.1.17",
+    "delivery": "read-only public wheel find-links; original torch version unchanged"
+  },
+  "source_scripts_sha256": {
+    "scripts/eval_tb2.py": "925afca87eef851588ba7a2983887bde347a8d9b2153e5d6b4bb85b92c853f1e",
+    "scripts/tb2_network.py": "b5c462583bcbb98602aabebf2acf22fa35a7c1dcecf179b245e0b2fff336e2da",
+    "run_tb2_environment_retest.sh": "eae5033f6b34b57db5909c9e19485803bda41eecd3f1ff7a1d9793e4a42ff5f9",
+    "scripts/harbor_env.sh": "3cb558f1bfe09b2663c779da90a77c3ed62e33b54855dcb100e8fd3ab501ba82"
+  },
+  "context_recovery_regression": "23 passed; explicit pytest-asyncio plugin and auto mode",
+  "git_refs_verified_against_upstream_api": [
+    {
+      "repo": "SPOCKnots/pyknotid",
+      "ref": "0.5.3",
+      "commit": "441c807dbec2ee32e1da572e24e58d52a4eb7afa",
+      "matches_upstream_api": true
+    },
+    {
+      "repo": "sadiqj/ocaml",
+      "ref": "tag_purposefully_broken_sweeping_changes",
+      "commit": "356d558bf89552ed9229253ec4135c691234f060",
+      "matches_upstream_api": true
+    }
+  ],
+  "pinned_c4_source": {
+    "source_revision": "1588ec454efa1a09f29cd18ddd04fe05fc8653a2",
+    "dataset": "allenai/c4",
+    "file": "en/c4-train.00009-of-01024.json.gz",
+    "sha256": "807a548efbb10153c9eff0df5733a97a1b51ab1743242530de1b02a8ea17ace7",
+    "bytes": 318185592,
+    "verification": "Git LFS pointer from the exact pinned upstream revision via directly reachable mirror"
+  }
+}

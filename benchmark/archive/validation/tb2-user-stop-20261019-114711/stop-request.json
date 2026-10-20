@@ -1,0 +1,8 @@
+{
+  "requested_at": "2026-10-19T11:47:11.633058+00:00",
+  "units": [
+    "coding-agent-eval-queue.service",
+    "coding-agent-tb2-prefix-isolated89.service"
+  ],
+  "vllm_job": "coding-agent-qwen36-35b-a3b-tp4-1016133720"
+}

@@ -1,0 +1,13 @@
+test_candidate_direct_fine_grained_lookup (__main__.CacheContracts.test_candidate_direct_fine_grained_lookup) ... ok
+test_extra_mamba_drop_discards_another_valid_checkpoint (__main__.CacheContracts.test_extra_mamba_drop_discards_another_valid_checkpoint) ... ok
+test_mamba_ignores_flag_in_isolation (__main__.CacheContracts.test_mamba_ignores_flag_in_isolation) ... ok
+test_native_attention_drops_trailing_block (__main__.CacheContracts.test_native_attention_drops_trailing_block) ... ok
+test_native_coordinator_already_reduces_mamba_bound (__main__.CacheContracts.test_native_coordinator_already_reduces_mamba_bound) ... ok
+test_zero_gdn_hit_forces_zero_global_hit (__main__.CacheContracts.test_zero_gdn_hit_forces_zero_global_hit) ... ok
+test_left_overlap_allows_corrupt_interleaving_without_barrier (__main__.StatePrinciples.test_left_overlap_allows_corrupt_interleaving_without_barrier) ... ok
+test_unrestored_recurrent_state_changes_next_step (__main__.StatePrinciples.test_unrestored_recurrent_state_changes_next_step) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.002s
+
+OK

@@ -1,0 +1,77 @@
+{
+  "created_at": "2026-10-18T13:39:25.137346+00:00",
+  "model_calls_in_validation": 0,
+  "official_task_files_verified_unchanged": 859,
+  "headless_prompt": {
+    "checked_at": "2026-10-18T13:37:05.950625+00:00",
+    "model_calls": 0,
+    "runtime_prompt_normalization_passed": true,
+    "same_model_source_sha256": "5f97cd4b72c3fde997b50cd78a7a43890753cc42d0163cceb16a2ddf8729a378",
+    "old_full_verifier": {
+      "passed": 1,
+      "failed": 6,
+      "log": "results/Qwen3.6-35B-A3B/terminal-bench-2.0/apptainer-environment-retest17/seed42/headless-terminal/attempt1/headless-terminal__8vaCe9F/verifier/test-stdout.txt"
+    },
+    "after_prompt_normalization": {
+      "passed": 6,
+      "failed": 1,
+      "reward": 0,
+      "log": "archive/validation/tb2-residual-environment-20261018/headless-terminal/verifier/test-stdout.txt"
+    },
+    "remaining_failure": "Background HTTP service connection refused; zero-model full verifier still reward 0. Do not count as a recovered model pass.",
+    "only_proven_effect": "All six constructor prompt timeouts disappeared after clearing the Apptainer-injected PS1/PROMPT_COMMAND defaults."
+  },
+  "qemu_setup": {
+    "task": "qemu-startup",
+    "model_calls": 0,
+    "image_sha256": "bfac152f5ebd456a933e1ee8c5ce43066108361fa7b83fad818b8be37adf55f5",
+    "started": true,
+    "port_bind_check": {
+      "bound_ports": [
+        25,
+        80,
+        8000,
+        8080
+      ]
+    },
+    "exec_without_hidden_transport_limit": true,
+    "original_grader_setup_prefix_sha256": "806f3934c37be9f6d2597c96f16b3be2de6222f5ad1a5a4a1fa0c4ef858a8e1f",
+    "original_grader_dependencies_passed": true,
+    "passed": true,
+    "elapsed_seconds": 152.342
+  },
+  "bootstrap_patch": {
+    "path": "archive/patches/harbor-0.24.0-runtime-prompt-normalization.patch",
+    "patch_sha256": "850a66a7665385c08e64f3cad01f006ce74a3b73770ca81ef5f536129054ed18",
+    "purpose": "Remove only known Apptainer/Singularity-injected PS1 and PROMPT_COMMAND defaults before starting the control service; preserve user startup configuration",
+    "source_file": ".venv-harbor/lib/python3.12/site-packages/harbor/environments/singularity/bootstrap.sh",
+    "base_source_sha256": "b9ab79c42728924ad36d5d22e134b73ff9655bb7ab0967a3faf4d92f9d333545",
+    "installed_source_sha256": "af21033edac6757fba2e112e6eb73b97a635dd397405d885f391da8162fd77e2",
+    "validation_receipt": "archive/validation/tb2-residual-environment-20261018/headless-prompt-validation.json"
+  },
+  "live_qemu_alpine_source_updates": [
+    {
+      "path": "/mnt/data/rui.yan/projects/coding_agent/data/benchmark/results/Qwen3.6-35B-A3B/terminal-bench-2.0/apptainer-environment-retest17/seed42/qemu-alpine-ssh/runtime/sources.list",
+      "before_sha256": "a576e68a77915a659e71b6706c68bf86c4e567b011523d43eb768fbb80094789",
+      "after_sha256": "6f230d6f98f390472adf1b7761c0fb7c81d9a64d4683b55263de8385f772ce29",
+      "in_place_update_preserves_bind_mount": true
+    }
+  ],
+  "resources_per_model_trial": {
+    "cpus": 8,
+    "memory_mib": 32768
+  },
+  "max_combined_model_trials": 4,
+  "fresh_followup_tasks": [
+    "headless-terminal",
+    "qemu-startup"
+  ],
+  "fresh_followup_waits_for_original_running_at_most": 2,
+  "headless_counterfactual_is_not_a_pass": true,
+  "inference_parameters_unchanged": true,
+  "scripts_sha256": {
+    "scripts/eval_tb2.py": "feb80b66b12f7c25aa29d2077de19a2ae8c958c8cb82eb7d8b6ab4f979e08fea",
+    "scripts/preflight_tb2_environment.py": "4373e4219220de6876793b2bbfdbe8d75fe5b7e760206415297c9d311582e2c4",
+    "run_tb2_residual_environment_retest.sh": "cd257222546b7cf261afe1f8e50ef900aa8e5e0f081f4173c70e041ad232013c"
+  }
+}

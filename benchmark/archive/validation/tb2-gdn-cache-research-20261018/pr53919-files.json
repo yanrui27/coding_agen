@@ -1,0 +1,26 @@
+[
+  {
+    "sha": "c28062c9b96437dbf3c914b1303a466b8edb81ba",
+    "filename": "tests/v1/worker/test_gpu_model_runner.py",
+    "status": "modified",
+    "additions": 24,
+    "deletions": 0,
+    "changes": 24,
+    "blob_url": "https://github.com/vllm-project/vllm/blob/d172b7f5ddc52c05cf58c26227d164756544fac1/tests%2Fv1%2Fworker%2Ftest_gpu_model_runner.py",
+    "raw_url": "https://github.com/vllm-project/vllm/raw/d172b7f5ddc52c05cf58c26227d164756544fac1/tests%2Fv1%2Fworker%2Ftest_gpu_model_runner.py",
+    "contents_url": "https://api.github.com/repos/vllm-project/vllm/contents/tests%2Fv1%2Fworker%2Ftest_gpu_model_runner.py?ref=d172b7f5ddc52c05cf58c26227d164756544fac1",
+    "patch": "@@ -499,6 +499,30 @@ def test_update_states_new_request(model_runner, dist_init):\n     assert _is_req_state_block_table_match(model_runner, req_id)\n \n \n+def test_update_states_syncs_accepted_counts_before_row_moves(model_runner, dist_init):\n+    # add_request and condense permute the same pinned buffer the previous step's\n+    # accepted-token D2H writes into, so the copy has to be awaited first.\n+    calls = []\n+    input_batch = model_runner.input_batch\n+    model_runner.num_accepted_tokens_event = SimpleNamespace(\n+        synchronize=lambda: calls.append(\"sync\")\n+    )\n+\n+    def record(name, func):\n+        def wrapper(*args, **kwargs):\n+            calls.append(name)\n+            return func(*args, **kwargs)\n+\n+        return wrapper\n+\n+    for name in (\"add_request\", \"condense\"):\n+        setattr(input_batch, name, record(name, getattr(input_batch, name)))\n+\n+    model_runner._update_states(_schedule_new_request(\"req_0\"))\n+\n+    assert calls == [\"sync\", \"add_request\", \"condense\"]\n+\n+\n def test_update_states_request_finished(model_runner, dist_init):\n     req_id = \"req_0\"\n "
+  },
+  {
+    "sha": "1b1e943265751e5d93d9e178e22082bb53538a2f",
+    "filename": "vllm/v1/worker/gpu_model_runner.py",
+    "status": "modified",
+    "additions": 11,
+    "deletions": 18,
+    "changes": 29,
+    "blob_url": "https://github.com/vllm-project/vllm/blob/d172b7f5ddc52c05cf58c26227d164756544fac1/vllm%2Fv1%2Fworker%2Fgpu_model_runner.py",
+    "raw_url": "https://github.com/vllm-project/vllm/raw/d172b7f5ddc52c05cf58c26227d164756544fac1/vllm%2Fv1%2Fworker%2Fgpu_model_runner.py",
+    "contents_url": "https://api.github.com/repos/vllm-project/vllm/contents/vllm%2Fv1%2Fworker%2Fgpu_model_runner.py?ref=d172b7f5ddc52c05cf58c26227d164756544fac1",
+    "patch": "@@ -1557,6 +1557,12 @@ def _update_states(self, scheduler_output: \"SchedulerOutput\") -> Callable | None\n                 if orig != req_state.prev_num_draft_len:\n                     req_state.prev_num_draft_len = orig\n \n+        # The previous step's D2H fills num_accepted_tokens_cpu_tensor in that\n+        # step's row order, and the row moves below permute the same pinned\n+        # buffer. Wait here so the copy always lands first.\n+        if self.num_accepted_tokens_event is not None:\n+            self.num_accepted_tokens_event.synchronize()\n+\n         # Add the new or resumed requests to the persistent batch.\n         # The smaller empty indices are filled first.\n         for request in reqs_to_add:\n@@ -2171,24 +2177,11 @@ def _prepare_inputs(\n         if needs_cpu_accepted_counts:\n             assert self.num_accepted_tokens_event is not None\n             self.num_accepted_tokens_event.synchronize()\n-            # Async mode: condense() reordered indices, use prev_positions mapping\n-            if self.use_async_scheduling and prev_req_id_to_index:\n-                prev_idx = self.prev_positions.np[:num_reqs]\n-                new_mask = prev_idx < 0\n-                self.num_accepted_tokens.np[:num_reqs] = (\n-                    self.input_batch.num_accepted_tokens_cpu[\n-                        np.where(new_mask, 0, prev_idx)\n-                    ]\n-                )\n-                self.num_accepted_tokens.np[:num_reqs][new_mask] = 1\n-                self.input_batch.num_accepted_tokens_cpu[:num_reqs] = (\n-                    self.num_accepted_tokens.np[:num_reqs]\n-                )\n-            else:\n-                # Non-async mode: use values directly\n-                self.num_accepted_tokens.np[:num_reqs] = (\n-                    self.input_batch.num_accepted_tokens_cpu[:num_reqs]\n-                )\n+            # _update_states waits for the copy before moving rows, so the counts\n+            # are already in current order; gathering again would permute twice.\n+            self.num_accepted_tokens.np[:num_reqs] = (\n+                self.input_batch.num_accepted_tokens_cpu[:num_reqs]\n+            )\n             self.num_accepted_tokens.np[num_reqs:].fill(1)\n             self.num_accepted_tokens.copy_to_gpu()\n         else:"
+  }
+]

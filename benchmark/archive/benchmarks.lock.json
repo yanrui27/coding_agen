@@ -1,0 +1,86 @@
+{
+  "datasets": {
+    "swe_bench_pro_v2_hard": {
+      "code_commit": "66f92766bba642462d4bbe5479e83f91f9211862",
+      "hf_repo": "ScaleAI/SWE-bench_Pro",
+      "hf_revision": "2d52cb3df914a3fcf80c7f66738b3a88ae37fc50",
+      "full_v2_tasks": 642,
+      "full_v2_parquet_retained": false,
+      "code_directory": "third_party/swe-bench-pro",
+      "code_checkout": "sparse: V2 locked-protocol tooling, documentation and release checksums; V1 assets and duplicate task trees excluded",
+      "source_task_copies_retained": false,
+      "hard_tasks": 51,
+      "task_ids": "archive/manifests/swe-hard51-task-ids.txt",
+      "hard_directory": "datasets/swe-bench-pro-v2-hard51"
+    },
+    "hle": {
+      "code_commit": "22ed3074b1e7b134bcbc09028d0ba320839b0655",
+      "code_directory": "third_party/hle",
+      "hf_repo": "cais/hle",
+      "hf_revision": "5a81a4c7271a2a2a312b9a690f0c2fde837e4c29",
+      "split": "test",
+      "tasks": 2500,
+      "image_tasks": 342,
+      "text_only_tasks": 2158,
+      "task_ids": "archive/manifests/hle-task-ids.txt",
+      "parquet_sha256": "6d0ee0602e8aea6b159509577e884f48ecac7b8e3f6822a35f51335a446c726a",
+      "official_snapshot_verified": true,
+      "source_verification": {
+        "source": "https://modelscope.cn/datasets/AI-ModelScope/hle/resolve/master/data/test-00000-of-00001.parquet",
+        "official_repo": "cais/hle",
+        "official_revision": "5a81a4c7271a2a2a312b9a690f0c2fde837e4c29",
+        "path": "data/test-00000-of-00001.parquet",
+        "bytes": 274276147,
+        "sha256": "6d0ee0602e8aea6b159509577e884f48ecac7b8e3f6822a35f51335a446c726a",
+        "official_pointer_oid": "77d6c29d0f2477d73b14be89d1cbf635efa46592",
+        "computed_pointer_oid": "77d6c29d0f2477d73b14be89d1cbf635efa46592",
+        "verified_byte_identical_to_official_snapshot": true
+      },
+      "jsonl_export": {
+        "full_jsonl": "datasets/hle/test.jsonl",
+        "text_only_jsonl": "datasets/hle/text_only.jsonl",
+        "full_rows": 2500,
+        "text_only_rows": 2158,
+        "text_only_filter": "not bool(original image field); preserve original row order",
+        "text_only_removed_columns": [
+          "image_preview",
+          "rationale_image"
+        ],
+        "text_only_task_ids": "archive/manifests/hle-text-only-task-ids.txt",
+        "media_directory": "datasets/hle/images",
+        "unique_media_files": 1015,
+        "verification": "archive/manifests/hle-jsonl-export.json"
+      }
+    },
+    "asi_bench": {
+      "code_commit": "cf07cb89d8590d958ff42db7ae3d6608f5eb9dbc",
+      "code_directory": "third_party/asi-bench",
+      "hf_repo": "Apexintelligence-AI/ASI-Bench-seed42",
+      "hf_revision": "4533397770a85ef79afe31e0361cbd9c42d5b50d",
+      "seed": 42,
+      "tasks": 60,
+      "prompt_levels": [
+        "b1",
+        "b2",
+        "b3",
+        "b4"
+      ],
+      "task_conditions": 240,
+      "private_reference_answers_included": false,
+      "tasks_with_inline_inputs_only": [
+        "computer_science.euclidean_tsp_tour_optimization__seed42",
+        "computer_science.max3sat_assignment_optimization__seed42"
+      ],
+      "task_ids": "archive/manifests/asi-seed42-task-ids.txt",
+      "code_checkout": "sparse: runtime, tasks, configuration, tests and guides; large documentation image excluded"
+    },
+    "terminal_bench": {
+      "version": "2.0",
+      "code_commit": "69671fbaac6d67a7ef0dfec016cc38a64ef7a77c",
+      "tasks": 89,
+      "source_git_metadata_retained": false,
+      "task_ids": "archive/manifests/terminal-bench-2.0-task-ids.txt",
+      "container_images_prepulled": false
+    }
+  }
+}

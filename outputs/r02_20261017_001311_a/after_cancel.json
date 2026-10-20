@@ -1,0 +1,5 @@
+{
+  "name": "batch-r02-20261017-001311",
+  "state": "DELETED",
+  "verification": "GET exact job returned HTTP 404 trainingJobNotFound after delete"
+}

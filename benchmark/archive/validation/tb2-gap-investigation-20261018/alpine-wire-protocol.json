@@ -1,0 +1,110 @@
+{
+  "model_calls_added": 0,
+  "started_unix": 1792332694.5955248,
+  "elapsed_seconds": 30.36284065246582,
+  "response_packets": 303,
+  "captured_payload_bytes": 429928,
+  "complete_responses": [
+    {
+      "id": "chatcmpl-939db4e0eb58ca14",
+      "created": 1792333249,
+      "model": "Qwen3.6-35B-A3B",
+      "http_status": "HTTP/1.1 200 OK",
+      "finish_reason": "stop",
+      "stop_reason": null,
+      "usage": {
+        "prompt_tokens": 56285,
+        "total_tokens": 56812,
+        "completion_tokens": 527,
+        "prompt_tokens_details": {
+          "cached_tokens": 55488,
+          "created_cache_tokens": 0,
+          "multimodal_tokens": null
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        }
+      },
+      "content_characters": 0,
+      "reasoning_characters": 663,
+      "content_excerpt": "",
+      "reasoning_tail_excerpt": "23Ase122A\\21Bse2,si22A\n5\\2B13A EUROA2B\\3in\\B\\12Dse2B Europeansse3112L51A1B\nB12U18A欧洲慢S32,18European慢13D532B4B2qK一米B158\n1amyse12a Europeans慢1amy2A1,慢\\11\namyA111\nKse4U1+11\nB\nA31European14MAMYB2\\3M2in\\1\\se2A2B11+\nB1D2\\2B12AEuropean3u1\nBsi2\nFseBUA Europeans,3,2汽车d\namyA3 3EsienA1European2D2,3B2A1qB\\A\n 2SB1A1\\2 231\n\\1sese11B21\n EuropeanA\n1L4\n 2B\n1B\n2LS132\nB\\12Tse2B一米S2A1B2\n1U12\\L3D2s\\2B2\\seA1B1\n2Mseinse2\n\\1se2siA2B1\n2TimT2B12\n2\nU11A1U 6se2B 2U  2 5DinS  \\-L5E1P1A\\22  美国D  22S2A1\n汽车, 2S2\n23E3,0\n21B\n2U12D\\B汽车21\\B\\2U\n2S2慢\\2S31A2D12M3Ein1EinSL11+2B\n1Fse2AL2U1EB12,1A\n2L2\n1F1S2,12B 12B1,1\n23, 12B3A2\n4A11B",
+      "response_sha256": "91f82ef8f686f66e84f8a6a7918804afc64cef27990c42c52f719e973cd35899"
+    },
+    {
+      "id": "chatcmpl-94fb9e2304089171",
+      "created": 1792333268,
+      "model": "Qwen3.6-35B-A3B",
+      "http_status": "HTTP/1.1 200 OK",
+      "finish_reason": "stop",
+      "stop_reason": 248044,
+      "usage": {
+        "prompt_tokens": 56332,
+        "total_tokens": 56574,
+        "completion_tokens": 242,
+        "prompt_tokens_details": {
+          "cached_tokens": 55488,
+          "created_cache_tokens": 0,
+          "multimodal_tokens": null
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        }
+      },
+      "content_characters": 0,
+      "reasoning_characters": 298,
+      "content_excerpt": "",
+      "reasoning_tail_excerpt": "U\\0U12WAU2B011E11\\A12ES2MamiU113\\\\\\LL,12MseAse2S\\U13\\A12A1\\\n5\\B3WU1A European\\amiL1A1B\\\\2E\\1A13欧洲X\n15Bse2Bse11a12A\\seS2U11B12A1\n5\\urE3A04B2汽车KS218\n1Uin72U Europeansse汽车\n181u11A1se15A1A11\n2, 144111A1,2Bse31\n14\nS\\12A13U12, das\\seA2A11B汽车11B\n12\nF+Dse12skAse2B\nseB1U1A3\n�se2汽车2B\namyin1sse 3B\n14European",
+      "response_sha256": "df27d86dac5b4117670192c330da5e8a40ca2b2a9ab46b450e107d71b6b40e3a"
+    }
+  ],
+  "request_metadata": [
+    {
+      "request_parameters": {
+        "model": "Qwen3.6-35B-A3B",
+        "max_tokens": 81920,
+        "seed": 42,
+        "temperature": 1.0,
+        "top_p": 0.95,
+        "top_k": 20,
+        "chat_template_kwargs": {
+          "enable_thinking": true
+        }
+      },
+      "body_sha256": "0a4a9de365ec1e74f8c18ab23a000162bb0ef48ea5214fabd6eda0ff2e298b44",
+      "message_count": 959,
+      "role_counts": {
+        "user": 480,
+        "assistant": 479
+      },
+      "empty_assistant_messages": 410,
+      "history_reasoning_characters": 0,
+      "last_user_excerpt": "Previous response had parsing errors:\nERROR: No valid JSON found in response\nWARNINGS: - No valid JSON object found\n\nPlease fix these issues and provide a proper JSON response."
+    },
+    {
+      "request_parameters": {
+        "model": "Qwen3.6-35B-A3B",
+        "max_tokens": 81920,
+        "seed": 42,
+        "temperature": 1.0,
+        "top_p": 0.95,
+        "top_k": 20,
+        "chat_template_kwargs": {
+          "enable_thinking": true
+        }
+      },
+      "body_sha256": "8b2e440615892b47133dbc948fc126a57604ff73ddbcce72fec5dc3b012c04ce",
+      "message_count": 961,
+      "role_counts": {
+        "user": 481,
+        "assistant": 480
+      },
+      "empty_assistant_messages": 411,
+      "history_reasoning_characters": 0,
+      "last_user_excerpt": "Previous response had parsing errors:\nERROR: No valid JSON found in response\nWARNINGS: - No valid JSON object found\n\nPlease fix these issues and provide a proper JSON response."
+    }
+  ],
+  "scope": "tap0: 10.119.27.14:8200 only",
+  "saved_request": "data/benchmark/archive/validation/tb2-gap-investigation-20261018/alpine-replay-request.json",
+  "note": "Passive sample of an existing trial; incomplete TCP/HTTP messages excluded. Full request retained only with explicit --save-first-request."
+}

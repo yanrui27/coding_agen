@@ -1,0 +1,29 @@
+{
+  "at": "2026-10-18T14:32:22.321778+00:00",
+  "service_active": true,
+  "combined_running_trials": 4,
+  "fresh_native_trial": "qemu-alpine-ssh/attempt2",
+  "fresh_recorded_agent_steps": 1,
+  "fresh_cached_tokens": 0,
+  "first_command_count": 3,
+  "uniform_status_counts": {
+    "queued": 80,
+    "ready": 8,
+    "running": 1
+  },
+  "original17_status_counts": {
+    "failed": 5,
+    "infrastructure_error": 4,
+    "passed": 4,
+    "running": 3,
+    "timeout": 1
+  },
+  "allocation": {
+    "updated_at": "2026-10-18T14:32:19.299422+00:00",
+    "legacy_running": 3,
+    "new_trial_concurrency": 1,
+    "combined_trial_limit": 4,
+    "cpus_per_trial": 8,
+    "memory_mib_per_trial": 32768
+  }
+}

@@ -1,0 +1,36 @@
+--- a/.venv-harbor/lib/python3.12/site-packages/harbor/llms/lite_llm.py
++++ b/.venv-harbor/lib/python3.12/site-packages/harbor/llms/lite_llm.py
+@@ -1,5 +1,6 @@
+ import hashlib
+ import json
++import secrets
+ from pathlib import Path
+ from typing import Any, NoReturn, override
+ 
+@@ -74,6 +75,9 @@
+     ):
+         super().__init__()
+         self._model_name = model_name
++        self._prefix_cache_policy = kwargs.pop("prefix_cache_policy", "shared")
++        if self._prefix_cache_policy not in {"shared", "isolated"}:
++            raise ValueError("prefix_cache_policy must be shared or isolated")
+         self._llm_kwargs = kwargs
+         self._temperature = temperature
+         self._model_info = model_info
+@@ -334,6 +338,16 @@
+                 kwargs["extra_body"] = {**kwargs["extra_body"]}
+             completion_kwargs.update(kwargs)
+ 
++            if self._prefix_cache_policy == "isolated":
++                # Work around the reproduced vLLM hybrid Mamba/MTP cache-hit
++                # corruption without changing model prompts or sampling.
++                # A fresh salt per API call prevents recurrent-state reuse,
++                # including between successive turns of the same trial.
++                completion_kwargs["extra_body"] = {
++                    **completion_kwargs.get("extra_body", {}),
++                    "cache_salt": secrets.token_hex(32),
++                }
++
+             # Add thinking parameter for Anthropic models if max_thinking_tokens is set
+             if self._max_thinking_tokens is not None and (
+                 "anthropic" in self._model_name.lower()

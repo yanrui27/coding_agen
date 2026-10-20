@@ -1,0 +1,13 @@
+{
+  "checked_at": "2026-10-19T04:52:23.948617+00:00",
+  "shared_sources_unchanged": {
+    "v1/attention/backends/utils.py": true,
+    "v1/worker/gpu_input_batch.py": true,
+    "v1/worker/gpu_model_runner.py": true,
+    "v1/worker/mamba_utils.py": true,
+    "third_party/flash_linear_attention/ops/fused_sigmoid_gating.py": true,
+    "v1/sample/rejection_sampler.py": true
+  },
+  "candidate_only_in_research_directory": true,
+  "live_model_modified": false
+}

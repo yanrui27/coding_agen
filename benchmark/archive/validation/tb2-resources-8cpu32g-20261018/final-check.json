@@ -1,0 +1,32 @@
+{
+  "checked_at": "2026-10-18T11:55:25.785638+00:00",
+  "resources_per_trial": {
+    "cpus": 8,
+    "memory_mib": 32768
+  },
+  "concurrency": 4,
+  "active_scopes": {
+    "fix-ocaml-gc": {
+      "CPUQuotaPerSecUSec": "8s",
+      "MemoryMax": "34359738368",
+      "ActiveState": "active"
+    },
+    "mailman": {
+      "CPUQuotaPerSecUSec": "8s",
+      "MemoryMax": "34359738368",
+      "ActiveState": "active"
+    },
+    "make-mips-interpreter": {
+      "CPUQuotaPerSecUSec": "8s",
+      "MemoryMax": "34359738368",
+      "ActiveState": "active"
+    },
+    "pypi-server": {
+      "CPUQuotaPerSecUSec": "8s",
+      "MemoryMax": "34359738368",
+      "ActiveState": "active"
+    }
+  },
+  "asi_swe_paused": true,
+  "queued_or_ready": 6
+}

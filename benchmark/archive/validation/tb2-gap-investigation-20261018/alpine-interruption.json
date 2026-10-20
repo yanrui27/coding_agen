@@ -1,0 +1,13 @@
+{
+  "at": "2026-10-18T14:15:40.387505+00:00",
+  "task": "qemu-alpine-ssh",
+  "harbor_pid": 95590,
+  "action": "SIGINT to Harbor trial process only; preserve existing results and diagnostics",
+  "reason": "More than 400 invalid API responses after last terminal action; passive samples show HTTP 200 empty content and gibberish reasoning. Interrupt to free one of four slots for exact-context cache comparison. Backend cause not yet proven.",
+  "scoring": "Interrupted native attempt is not a completed benchmark trial or a pass; prior failure remains zero in full89 composite. No manually injected terminal actions.",
+  "evidence": [
+    "alpine-response-sample.json",
+    "alpine-wire-protocol.json",
+    "alpine-replay-request.json"
+  ]
+}

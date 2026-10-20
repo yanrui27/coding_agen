@@ -1,0 +1,17 @@
+{
+  "network_mode": "per-trial namespace with slirp4netns NAT",
+  "parent_network_namespace": "net:[4026531840]",
+  "trial_network_namespace": "net:[4026539154]",
+  "dns": "10.0.2.3",
+  "host_loopback_forwarding": false,
+  "runtime": "/mnt/data/rui.yan/projects/coding_agent/data/benchmark/.cache/tb2-runtime-net/root/usr/bin/slirp4netns",
+  "command": [
+    "python",
+    "data/benchmark/scripts/preflight_tb2_environment.py",
+    "install-windows-3.11",
+    "--control-cleanup",
+    "protected",
+    "--output-dir",
+    "data/benchmark/archive/validation/tb2-gap-investigation-20261018/control-protected"
+  ]
+}

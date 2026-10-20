@@ -1,0 +1,17 @@
+{
+  "checked_at": "2026-10-18T13:42:26.883056+00:00",
+  "cases": [
+    {
+      "prompt": "Apptainer> ",
+      "passed": true
+    },
+    {
+      "prompt": "Singularity> ",
+      "passed": true
+    },
+    {
+      "prompt": "custom> ",
+      "passed": true
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+[
+  {
+    "resource": "cython_repo",
+    "error_type": "URLError",
+    "error": "<urlopen error timed out>",
+    "seconds": 12.08
+  },
+  {
+    "resource": "ocaml_repo",
+    "error_type": "URLError",
+    "error": "<urlopen error _ssl.c:983: The handshake operation timed out>",
+    "seconds": 13.2
+  },
+  {
+    "resource": "c4_mirror",
+    "error_type": "HTTPError",
+    "error": "HTTP Error 403: Forbidden",
+    "seconds": 0.71
+  },
+  {
+    "resource": "required_video",
+    "error_type": "URLError",
+    "error": "<urlopen error [Errno 101] Network is unreachable>",
+    "seconds": 12.09
+  }
+]

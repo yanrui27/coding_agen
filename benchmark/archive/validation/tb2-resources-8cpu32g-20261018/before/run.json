@@ -1,0 +1,96 @@
+{
+  "created_at": "2026-10-18T07:12:51.477481+00:00",
+  "protocol": {
+    "seeds": [
+      42
+    ],
+    "tasks_per_seed": 17,
+    "trials_total": 17,
+    "task_ids": [
+      "build-cython-ext",
+      "configure-git-webserver",
+      "count-dataset-tokens",
+      "extract-moves-from-video",
+      "feal-differential-cryptanalysis",
+      "fix-ocaml-gc",
+      "headless-terminal",
+      "install-windows-3.11",
+      "mailman",
+      "make-mips-interpreter",
+      "pypi-server",
+      "qemu-alpine-ssh",
+      "qemu-startup",
+      "query-optimize",
+      "regex-chess",
+      "reshard-c4-data",
+      "torch-pipeline-parallelism"
+    ],
+    "full_dataset_tasks_total": 89,
+    "is_full_task_set": false,
+    "base_urls": [
+      "http://10.119.27.14:8200/v1"
+    ],
+    "endpoint_assignment": "least-active service at task start; fixed for the entire task attempt",
+    "agent_timeout_sec": 10800,
+    "custom_max_turns": null,
+    "verifier_timeout_source": "official per-task task.toml",
+    "cpu_quota_cores": 32,
+    "memory_mib_per_trial": 49152,
+    "dataset_commit": "69671fbaac6d67a7ef0dfec016cc38a64ef7a77c",
+    "task_manifest_sha256": "96481770752e55bdaa78f8fe5d8949b69bc26764ac724faa4890174d710fa9b4",
+    "agent_configs": [
+      {
+        "name": "terminus-2",
+        "model_name": "openai/Qwen3.6-35B-A3B",
+        "override_timeout_sec": 10800,
+        "override_setup_timeout_sec": 300,
+        "kwargs": {
+          "api_base": "http://10.119.27.14:8200/v1",
+          "temperature": 1.0,
+          "model_info": {
+            "max_input_tokens": 262144,
+            "max_output_tokens": 81920,
+            "input_cost_per_token": 0,
+            "output_cost_per_token": 0,
+            "litellm_provider": "openai",
+            "mode": "chat"
+          },
+          "llm_kwargs": {
+            "api_key": "EMPTY",
+            "timeout": 10800,
+            "max_retries": 0
+          },
+          "llm_call_kwargs": {
+            "max_tokens": 81920,
+            "top_p": 0.95,
+            "seed": 42,
+            "extra_body": {
+              "top_k": 20,
+              "chat_template_kwargs": {
+                "enable_thinking": true
+              }
+            }
+          }
+        }
+      }
+    ],
+    "image_build_concurrency": 2,
+    "run_order": "complete one seed at a time, rolling concurrency within each seed",
+    "prior_pilot_results_included": false,
+    "network_isolation": "per-trial",
+    "reference_hardware_compliant": true,
+    "hardware_deviation": null,
+    "memory_unit_interpretation": "Official says 48 GB; nominal alignment allocates 48 GiB (49152 MiB). Exact official byte limit is undisclosed."
+  },
+  "launches": [
+    {
+      "started_at": "2026-10-18T07:12:51.477559+00:00",
+      "scripts": {
+        "scripts/eval_tb2.py": "925afca87eef851588ba7a2983887bde347a8d9b2153e5d6b4bb85b92c853f1e",
+        "run_tb2.sh": "f519002b5aa88a9b50f87b63f29f290b5ada91e582357bba4ba884c611bcee56",
+        "scripts/harbor_env.sh": "3cb558f1bfe09b2663c779da90a77c3ed62e33b54855dcb100e8fd3ab501ba82"
+      },
+      "harbor_lock_sha256": "e98dfb68fdd2bdca1a1e13488017098e1b0151d7a08d54318e0fe7bcca2f8b7a"
+    }
+  ]
+}

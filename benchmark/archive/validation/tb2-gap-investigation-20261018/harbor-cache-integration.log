@@ -1,0 +1,14 @@
+22:19:43 - LiteLLM:WARNING: utils.py:3395 - register_model: model=openai/Qwen3.6-35B-A3B has custom pricing but not in built-in cost map and no prefix/region variant matched; cache_creation_input_token_cost and cache_read_input_token_cost will default to 0 for this model (input/output cost tracking is unaffected). To track cache cost, add them to model_info
+Traceback (most recent call last):
+  File "<stdin>", line 17, in <module>
+  File "/usr/lib/python3.12/asyncio/runners.py", line 194, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/base_events.py", line 687, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "<stdin>", line 13, in main
+AttributeError: 'LLMResponse' object has no attribute 'model_dump_json'

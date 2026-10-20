@@ -1,0 +1,136 @@
+{
+  "recorded_at": "2026-10-18T11:43:13.102127+00:00",
+  "reason": "User explicitly paused ASI/SWE to prioritize TB2 concurrency 4",
+  "containers": [
+    {
+      "id": "e3392d7c100af1d6a0059fc32118283a50d4424c18dab9494e773c5a4d981149",
+      "name": "/ai4sci-agent-3b21134d381b",
+      "image": "sha256:320709ca40b9f8678535d47de3652aecd88066384fc2fc93e581325b12cff853",
+      "mounts": [
+        {
+          "Type": "bind",
+          "Source": "/tmp/ai4sci_ws_q6aa909_/workspace",
+          "Destination": "/workspace",
+          "Mode": "rw",
+          "RW": true,
+          "Propagation": "rprivate"
+        }
+      ],
+      "started_at": "2026-10-18T11:38:53.966622504Z"
+    },
+    {
+      "id": "432487e4431ce2992331a085638cbc5c49ed09a86bcabffdbec03eb78998afb3",
+      "name": "/ai4sci-agent-65b2be00f283",
+      "image": "sha256:88ab3fa58a9b7d6ac174b17b4b39e267449249c391a230551936a517ffe885a6",
+      "mounts": [
+        {
+          "Type": "bind",
+          "Source": "/tmp/ai4sci_ws_balmq32o/workspace",
+          "Destination": "/workspace",
+          "Mode": "rw",
+          "RW": true,
+          "Propagation": "rprivate"
+        }
+      ],
+      "started_at": "2026-10-18T11:38:11.051557134Z"
+    },
+    {
+      "id": "94471196170a3eae8064f15a5cb3a7ac3958ee2e874989cd0334442cc748a16b",
+      "name": "/ai4sci-agent-acb6b395a26d",
+      "image": "sha256:88ab3fa58a9b7d6ac174b17b4b39e267449249c391a230551936a517ffe885a6",
+      "mounts": [
+        {
+          "Type": "bind",
+          "Source": "/tmp/ai4sci_ws_ao2yk01j/workspace",
+          "Destination": "/workspace",
+          "Mode": "rw",
+          "RW": true,
+          "Propagation": "rprivate"
+        }
+      ],
+      "started_at": "2026-10-18T11:36:57.417016322Z"
+    },
+    {
+      "id": "5135dc416deb805fe8e1718043b8fa2544aa477dbf99cfc085f84cf9f6b83f15",
+      "name": "/ai4sci-agent-9af0d5a6fbc9",
+      "image": "sha256:88ab3fa58a9b7d6ac174b17b4b39e267449249c391a230551936a517ffe885a6",
+      "mounts": [
+        {
+          "Type": "bind",
+          "Source": "/tmp/ai4sci_ws_sndoqb13/workspace",
+          "Destination": "/workspace",
+          "Mode": "rw",
+          "RW": true,
+          "Propagation": "rprivate"
+        }
+      ],
+      "started_at": "2026-10-18T11:34:31.192068379Z"
+    },
+    {
+      "id": "4105d649b16131f81c69a4b8ce14ea9a084946f391c88669c6e287f3b14a0747",
+      "name": "/ai4sci-agent-ca949f8913bd",
+      "image": "sha256:88ab3fa58a9b7d6ac174b17b4b39e267449249c391a230551936a517ffe885a6",
+      "mounts": [
+        {
+          "Type": "bind",
+          "Source": "/tmp/ai4sci_ws_i76xwtr6/workspace",
+          "Destination": "/workspace",
+          "Mode": "rw",
+          "RW": true,
+          "Propagation": "rprivate"
+        }
+      ],
+      "started_at": "2026-10-18T11:27:13.219434787Z"
+    },
+    {
+      "id": "49df7ab79ab26313fe14fee69ef386bee4466eb6d79c16fde93b083e98f4e188",
+      "name": "/ai4sci-agent-844aa6e44170",
+      "image": "sha256:8bb0695397275d2e8f2e4f99deb74fcdb1629ce7dc0f96e17f7f343cc44c0004",
+      "mounts": [
+        {
+          "Type": "bind",
+          "Source": "/tmp/ai4sci_ws_ch2h9b15/workspace",
+          "Destination": "/workspace",
+          "Mode": "rw",
+          "RW": true,
+          "Propagation": "rprivate"
+        }
+      ],
+      "started_at": "2026-10-18T10:49:29.254396952Z"
+    },
+    {
+      "id": "8eb5037827e4e0f410e5719a00e4b2942c9157924d2b9ca2dfff6d357cbe4753",
+      "name": "/ai4sci-agent-f359a810ae44",
+      "image": "sha256:8bb0695397275d2e8f2e4f99deb74fcdb1629ce7dc0f96e17f7f343cc44c0004",
+      "mounts": [
+        {
+          "Type": "bind",
+          "Source": "/tmp/ai4sci_ws_pj1u_wpf/workspace",
+          "Destination": "/workspace",
+          "Mode": "rw",
+          "RW": true,
+          "Propagation": "rprivate"
+        }
+      ],
+      "started_at": "2026-10-18T10:37:11.069403893Z"
+    },
+    {
+      "id": "f07299428887e8c93035d21fe95a4a6f55298b1bd3a90672ed28e3ba01905202",
+      "name": "/ai4sci-agent-9589b3cb2f5e",
+      "image": "sha256:2f23d28d95e984d47f812400fd1a0bb9cfed367559ce455c434ed6a260f5f70b",
+      "mounts": [
+        {
+          "Type": "bind",
+          "Source": "/tmp/ai4sci_ws_nd06eape/workspace",
+          "Destination": "/workspace",
+          "Mode": "rw",
+          "RW": true,
+          "Propagation": "rprivate"
+        }
+      ],
+      "started_at": "2026-10-18T10:36:52.522860573Z"
+    }
+  ],
+  "completed_results_untouched": true,
+  "unfinished_conditions_resume_from_native_queue": true
+}

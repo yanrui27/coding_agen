@@ -1,0 +1,17 @@
+{
+  "model_path": "/mnt/model/ckpts/Qwen3.6-35B-A3B",
+  "served_model_name": "Qwen3.6-35B-A3B",
+  "vllm_python": "/mnt/data/rui.yan/venvs/vllm/bin/python",
+  "gpu_count": 4,
+  "tensor_parallel_size": 4,
+  "data_parallel_size": 1,
+  "port": 8200,
+  "max_model_len": 262144,
+  "max_num_seqs": 64,
+  "gpu_memory_utilization": 0.92,
+  "reasoning_parser": "qwen3",
+  "tool_call_parser": "qwen3_xml",
+  "speculative_config": {"method": "mtp", "num_speculative_tokens": 3},
+  "acp_priority": "HIGHEST",
+  "acp_mounts": ["/mnt/data", "/mnt/code", "/mnt/model"]
+}

@@ -1,0 +1,4 @@
+{"input_bytes": 35047, "payload_intact": true, "ctrl_c_recovered": true, "asciinema": "2.2.0", "actual_installed_TmuxSession": true}
+{"input_bytes": 75049, "payload_intact": true, "ctrl_c_recovered": true, "asciinema": "2.2.0", "actual_installed_TmuxSession": true}
+{"input_bytes": 262177, "payload_intact": true, "ctrl_c_recovered": true, "asciinema": "2.2.0", "actual_installed_TmuxSession": true}
+{"model_calls": 0, "terminal": [{"input_bytes": 35047, "payload_intact": true, "ctrl_c_recovered": true, "asciinema": "2.2.0", "actual_installed_TmuxSession": true}, {"input_bytes": 75049, "payload_intact": true, "ctrl_c_recovered": true, "asciinema": "2.2.0", "actual_installed_TmuxSession": true}, {"input_bytes": 262177, "payload_intact": true, "ctrl_c_recovered": true, "asciinema": "2.2.0", "actual_installed_TmuxSession": true}], "transport": {"unbounded_exec_transport_timeout": null, "explicit_exec_17s_transport_timeout": 27, "enclosing_budget_still_enforced": true}}

@@ -1,0 +1,8 @@
+{
+  "name": "coding-agent-qwen36-35b-a3b-tp4-1016133720",
+  "output_dir": "/mnt/data/rui.yan/projects/coding_agent/logs/coding-agent-qwen36-35b-a3b-tp4-1016133720",
+  "payload": "/mnt/data/rui.yan/projects/coding_agent/logs/coding-agent-qwen36-35b-a3b-tp4-1016133720/payload.json",
+  "base_url": "http://10.119.27.14:8200/v1",
+  "served_model_name": "Qwen3.6-35B-A3B",
+  "ready": true
+}

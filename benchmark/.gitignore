@@ -1,0 +1,13 @@
+datasets/
+third_party/*
+!third_party/README.md
+logs/
+.venv-harbor/
+.sandbox-tools/
+.data-tools/
+.cache/
+jobs/
+.env
+__pycache__/
+*.pyc
+results/

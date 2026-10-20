@@ -1,0 +1,3 @@
+sent tapfd=5 for tap0
+received tapfd=5
+{"task": "build-cython-ext", "model_calls": 0, "image_sha256": "e1183c05481c13211458f8e0c136340ff39cba4503729066023ac62b9de05b41", "started": true, "port_bind_check": {"bound_ports": [25, 80, 8000, 8080]}, "exec_without_hidden_transport_limit": true, "verifier_inputs_hidden_until_phase": true, "original_external_input_request_passed": true, "passed": true, "elapsed_seconds": 52.382}

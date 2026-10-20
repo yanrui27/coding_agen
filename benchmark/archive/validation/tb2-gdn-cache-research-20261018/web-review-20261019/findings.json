@@ -1,0 +1,71 @@
+{
+  "reviewed_at": "2026-10-19",
+  "purpose": "Public reports matching the TB2 empty/gibberish cache-hit symptom; distinguish reproduction from proposed causes.",
+  "live_service_modified": false,
+  "model_api_calls": 0,
+  "reports": [
+    {
+      "url": "https://github.com/vllm-project/vllm/issues/43559",
+      "match": "Qwen3.6-35B-A3B SFT checkpoint; four decoding/cache arms, only MTP plus prefix caching reportedly loses approximately 20% accuracy.",
+      "limits": "Earlier vLLM, finetuned checkpoint and private classification benchmark; does not quantify our TB2 gap. Closed issue is not proof all related mechanisms are fixed."
+    },
+    {
+      "url": "https://github.com/vllm-project/vllm/issues/53912",
+      "match": "vLLM 0.28.0, hybrid Qwen3.5 GDN/full-attention, MTP plus prefix caching, empty or punctuation output with normal HTTP and finish reason.",
+      "limits": "Initial model is dense 27B FP8, not our MoE BF16. Several distinct mechanisms and withdrawn claims coexist in the discussion. API confirms issue remains open."
+    },
+    {
+      "url": "https://github.com/vllm-project/vllm/issues/47194",
+      "match": "MTP3 plus prefix caching on a Qwen3.6-derived hybrid model disrupts tool calls and long-context recall while a no-MTP cache arm works.",
+      "limits": "Quantized derivative checkpoint, different hardware/version. Symptom-level corroboration, not identical implementation root cause."
+    }
+  ],
+  "mechanisms": [
+    {
+      "url": "https://github.com/vllm-project/vllm/pull/53919",
+      "status": "open, unmerged, API verified",
+      "claim": "Pending D2H accepted-count copy and batch-row moves have inconsistent ownership. A later previous-position gather can permute already reordered counts twice. Count selects conv shift and GDN snapshot, corrupting recurrent state.",
+      "author_reported_gpu_results": "MTP+cache+async 16/288 wrong; async-off 0/288; candidate patch 0/288. Separate nightly comparison 29/1248 versus 0/1248 patched.",
+      "our_evidence": "Prior AST-extracted CPU fixture demonstrates count-ownership mismatch under an explicit batch permutation. Live request row mapping/event timing not captured; GPU patch verification not performed."
+    },
+    {
+      "url": "https://github.com/vllm-project/vllm/pull/50729",
+      "status": "merged 2026-08-17, API verified",
+      "claim": "Speculative conv-state shift may copy overlapping ranges within a physical state block. Parallel memcpy does not guarantee memmove ordering; repair uses ordered overlap-safe copies.",
+      "our_evidence": "Prior inspected source and CPU interleaving illustration identify a candidate; no local CUDA-kernel regression or live-model causal test."
+    },
+    {
+      "url": "https://github.com/vllm-project/vllm/pull/57128#pullrequestreview-5426447961",
+      "status": "open, unmerged; reviewed 2026-10-06",
+      "reviewer": "ZJY0516",
+      "review_counterpoint": "Review comment states Mamba need not handle an additional drop because the full-attention group has already dropped a block.",
+      "our_evidence": "Prior complete-coordinator CPU test independently shows native common hit4 and naive additional-drop hit0. Standalone ignored-flag inspection is insufficient.",
+      "decision": "Do not infer the live root cause or deploy the extra-drop patch from the issue title alone."
+    }
+  ],
+  "conclusion": "Multiple public symptom-level reproductions strongly justify investigating the hybrid prefix-cache/speculation state lifecycle. They do not establish which concrete bug caused our incident. Normal generation KV caching itself is not shown to be fundamentally unsafe.",
+  "next_discriminators": [
+    "On an isolated GPU instance, preserve prefix reuse and MTP while comparing async on/off with matched cache exposure.",
+    "Separately test overlap-copy correctness against immutable snapshots and saved-prompt model replay.",
+    "Capture accepted counts with request IDs and batch permutations before declaring a particular root cause."
+  ],
+  "followup_root_cause_review": {
+    "original_issue_closure": {
+      "url": "https://github.com/vllm-project/vllm/pull/51113",
+      "merged_at": "2026-08-06",
+      "mechanism": "Concurrent chunked prefills can stop mid-Mamba-block past last_cache_position. A running state at e.g. token364 is later hashed as state@1600. A subsequent prefix hit restores a truncated state labelled as the complete block boundary.",
+      "fix": "Enforce intermediate prefill chunk alignment until prefill_end, and enforce realignment for unaligned starts. Preserve last_cache_position as a mandatory stop.",
+      "scope": "This merged scheduler repair closed issue43559; later issue53912 still reproduces related symptoms, so closure is not evidence of a universal cure."
+    },
+    "latest_closely_matching_report": {
+      "url": "https://github.com/vllm-project/vllm/issues/53912",
+      "author": "naeemakhtar110",
+      "followup_date": "2026-10-14",
+      "environment": "vLLM0.28.0, Qwen3.6-35B-A3B-NVFP4, MTP3, prefix cache align, async, GB10; differs from our BF16/TP4 hardware.",
+      "finding": "Additional cache-block-drop patch48375 did not prevent a new garbled output at ~57.7k prompt tokens. A real GPU overlap-copy regression failed without50729 and passed with it.",
+      "gpu_test_counts": "before50729: 1failed34passed; after50729:35passed",
+      "limits": "Author reports serving with both patches and monitoring; no completed long-term generation outcome is posted in that latest followup. This supports prioritizing the overlap-copy candidate, not declaring our cause proved."
+    }
+  },
+  "deployment": "No main-service changes, restart, GPU job submission or candidate deployment performed."
+}

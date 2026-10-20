@@ -1,0 +1,205 @@
+--- a/.venv-harbor/lib/python3.12/site-packages/harbor/environments/singularity/singularity.py
++++ b/.venv-harbor/lib/python3.12/site-packages/harbor/environments/singularity/singularity.py
+@@ -21,6 +21,7 @@
+ 
+ import asyncio
+ import asyncio.subprocess
++import json
+ import logging
+ import os
+ import shlex
+@@ -746,9 +747,13 @@
+         merged_env = self._merge_env(env)
+ 
+         try:
+-            _DEFAULT_HTTP_TIMEOUT = 600
++            # The caller (agent/setup/verifier) owns the wall-clock budget.
++            # A hidden 600s transport cap used to truncate 900s verifiers and
++            # get mislabeled as their full-budget timeout. Explicit exec
++            # budgets still include transport grace; unbounded execs inherit
++            # their enclosing asyncio.wait_for budget.
+             http_timeout = (
+-                (timeout_sec + 10) if timeout_sec is not None else _DEFAULT_HTTP_TIMEOUT
++                (timeout_sec + 10) if timeout_sec is not None else None
+             )
+ 
+             response = await self._http_client.post(
+@@ -808,6 +813,33 @@
+         if result.return_code != 0:
+             error_output = result.stderr or result.stdout or "<no output>"
+             raise RuntimeError(f"Failed to upload file: {error_output}")
++
++    async def prepare_verifier_dependencies(self) -> dict[str, str]:
++        """Stage public, pinned external inputs only after agent execution.
++
++        The manifest and source paths live on the host, outside all sandbox
++        mounts during the agent phase. Original task tests remain unchanged.
++        """
++        manifest_path = os.environ.get("HARBOR_VERIFIER_ASSET_MANIFEST")
++        if not manifest_path:
++            return {}
++        manifest = json.loads(Path(manifest_path).read_text())
++        task_name = self.environment_dir.parent.name
++        entry = manifest.get("tasks", {}).get(task_name)
++        if not entry:
++            return {}
++        if not entry.get("ready"):
++            raise RuntimeError(f"Verifier dependencies were not prepared: {task_name}")
++        for item in entry.get("directories", []):
++            await self.upload_dir(item["source"], item["target"])
++        for item in entry.get("git_mirrors", []):
++            import shlex
++            key = "url." + item["local_url"] + ".insteadOf"
++            result = await self.exec("git config --global protocol.file.allow always && "
++                "git config --global " + shlex.quote(key) + " " + shlex.quote(item["original_url"]))
++            if result.return_code != 0:
++                raise RuntimeError(f"Cannot configure pinned verifier git mirror: {result}")
++        return entry.get("env", {})
+ 
+     @override
+     async def upload_dir(self, source_dir: Path | str, target_dir: str) -> None:
+--- a/.venv-harbor/lib/python3.12/site-packages/harbor/environments/singularity/bootstrap.sh
++++ b/.venv-harbor/lib/python3.12/site-packages/harbor/environments/singularity/bootstrap.sh
+@@ -1,6 +1,8 @@
+ #!/bin/bash
+ # Harbor server bootstrap — essential plumbing then start server.
+ # First arg is WORKDIR (container cwd), rest are server args.
++unset HTTP_PROXY HTTPS_PROXY ALL_PROXY http_proxy https_proxy all_proxy
++export NO_PROXY='*' no_proxy='*' PIP_PROXY='' PIP_CONFIG_FILE=/dev/null
+ export WORKDIR="${1:-/app}"; shift
+ export HARBOR_STAGING="/staging/env_files"
+ mkdir -p "$WORKDIR"
+@@ -31,6 +33,17 @@
+   fi
+ fi
+ 
++# Restore the matching Debian Python 3.9 stdlib split packages from a pinned
++# local archive, instead of upgrading Python through stale package indexes.
++if "$_SYS_PY" -c 'import sys; sys.exit(0 if sys.version_info[:2] == (3,9) else 1)' \
++    && ! "$_SYS_PY" -c 'import distutils.cmd' 2>/dev/null \
++    && [ -d /opt/harbor-deps/python39-stdlib/usr/lib/python3.9/distutils ]; then
++  echo "[harbor] Restoring pinned Python 3.9 distutils/lib2to3..." >&2
++  mkdir -p /usr/lib/python3.9/distutils /usr/lib/python3.9/lib2to3
++  cp -r /opt/harbor-deps/python39-stdlib/usr/lib/python3.9/distutils/. /usr/lib/python3.9/distutils/
++  cp -r /opt/harbor-deps/python39-stdlib/usr/lib/python3.9/lib2to3/. /usr/lib/python3.9/lib2to3/
++fi
++
+ # --- Create an isolated venv for the Harbor server at /opt/harbor-server ---
+ _HARBOR_VENV=/opt/harbor-server
+ _HARBOR_PY="$_HARBOR_VENV/bin/python3"
+@@ -50,11 +63,30 @@
+     fi
+   fi
+   if ! "$_HARBOR_PY" -m pip --version 2>/dev/null; then
++    # Install the pinned, public pip wheel directly into this server venv.
++    # Its cache is runtime tooling only; no benchmark data is pre-exposed.
++    if [ -r /opt/harbor-deps/pip-25.3-py3-none-any.whl ] \
++        && [ -r /opt/harbor-deps/setuptools-80.9.0-py3-none-any.whl ]; then
++      echo "[harbor] Bootstrapping pip/setuptools from pinned local wheels..." >&2
++      # Pure-Python wheels are unpacked using stdlib only. The next Python
++      # process activates setuptools' .pth/distutils shim, needed by pip on
++      # minimal Debian Python 3.9 without a distro distutils.cmd package.
++      "$_HARBOR_PY" -c "import sysconfig,zipfile; dest=sysconfig.get_path('purelib'); [zipfile.ZipFile('/opt/harbor-deps/'+name).extractall(dest) for name in ('pip-25.3-py3-none-any.whl','setuptools-80.9.0-py3-none-any.whl')]" \
++        || { echo "[harbor] Local pip wheel bootstrap failed" >&2; }
++    fi
++  fi
++  if ! "$_HARBOR_PY" -m pip --version 2>/dev/null; then
+     echo "[harbor] Bootstrapping pip via get-pip.py..." >&2
+     "$_HARBOR_PY" -c "
+-import urllib.request, socket
++import urllib.request, socket, sys
+ socket.setdefaulttimeout(15)
+-urllib.request.urlretrieve('https://bootstrap.pypa.io/get-pip.py', '/tmp/get-pip.py')
++version = sys.version_info[:2]
++url = ('https://bootstrap.pypa.io/pip/%d.%d/get-pip.py' % version
++       if version < (3, 10) else 'https://bootstrap.pypa.io/get-pip.py')
++print('[harbor] pip bootstrap URL: ' + url, file=sys.stderr)
++opener = urllib.request.build_opener(urllib.request.ProxyHandler({}))
++with opener.open(url, timeout=15) as source, open('/tmp/get-pip.py', 'wb') as target:
++    target.write(source.read())
+ " 2>/dev/null \
+       && "$_HARBOR_PY" /tmp/get-pip.py --quiet 2>/dev/null \
+       || { echo "[harbor] FATAL: cannot bootstrap pip" >&2; exit 1; }
+@@ -64,7 +96,7 @@
+ if ! "$_HARBOR_PY" -c "import uvicorn; import fastapi" 2>/dev/null; then
+   echo "[harbor] Installing server dependencies (uvicorn/fastapi)..." >&2
+   "$_HARBOR_PY" -m pip install --upgrade pip 2>/dev/null || true
+-  "$_HARBOR_PY" -m pip install uvicorn fastapi 2>/dev/null \
++  "$_HARBOR_PY" -m pip install 'uvicorn==0.34.0' 'fastapi==0.115.12' 2>/dev/null \
+     || { echo "[harbor] WARNING: failed to install uvicorn/fastapi, server may fail" >&2; }
+ fi
+ 
+--- a/.venv-harbor/lib/python3.12/site-packages/harbor/agents/terminus_2/tmux_session.py
++++ b/.venv-harbor/lib/python3.12/site-packages/harbor/agents/terminus_2/tmux_session.py
+@@ -31,6 +31,10 @@
+     # paste-buffer file. exec does not go through tmux, so the bound is the
+     # shell's ARG_MAX; stay far below it while keeping round-trips few.
+     _PASTE_BASE64_CHUNK_LEN = 65_536
++    # asciinema 2.x forwards stdin using blocking PTY writes. Large bursts
++    # can deadlock against shell echo and prevent even Ctrl+C forwarding.
++    _PTY_INPUT_CHUNK_BYTES = 1024
++    _PTY_INPUT_CHUNK_DELAY_SEC = 0.03
+     # Per-command ceiling for tool-install execs (apt/pip/source build). A
+     # command whose outbound connection is silently dropped (e.g. asciinema via
+     # pip on a closed-internet task) produces no output and would otherwise
+@@ -432,7 +436,9 @@
+         return self._send_keys_prefix + " " + " ".join(shlex.quote(key) for key in keys)
+ 
+     def _key_requires_paste(self, key: str) -> bool:
+-        return self._utf8_len(shlex.quote(key)) > self._max_escaped_key_length
++        return self._utf8_len(shlex.quote(key)) > min(
++            self._max_escaped_key_length, self._PTY_INPUT_CHUNK_BYTES
++        )
+ 
+     def _batch_keys_for_send(self, keys: list[str]) -> list[list[str]]:
+         """Group *keys* into batches whose send-keys command fits the limit.
+@@ -647,7 +653,7 @@
+ 
+     def _is_command_too_long_error(self, result: ExecResult) -> bool:
+         return result.return_code != 0 and self._TMUX_COMMAND_TOO_LONG_MARKER in (
+-            result.stderr or ""
++            (result.stderr or "") + (result.stdout or "")
+         )
+ 
+     async def _paste_key(self, key: str, action: str) -> None:
+@@ -682,10 +688,24 @@
+                 redirect = ">>" if offset else ">"
+                 await _run(f"printf %s {chunk} | base64 -d {redirect} {quoted_path}")
+ 
++            # Stage once, then pace byte chunks inside one exec. tmux retains
++            # UTF-8 decoding state across buffers; payload bytes and newline
++            # conversion are identical to the old single paste.
++            script = (
++                "import subprocess,sys,time\n"
++                "path,buffer,target,size,delay=sys.argv[1:]\n"
++                "with open(path,'rb') as source:\n"
++                " while True:\n"
++                "  chunk=source.read(int(size))\n"
++                "  if not chunk: break\n"
++                "  subprocess.run(['tmux','load-buffer','-b',buffer,'-'],input=chunk,check=True)\n"
++                "  subprocess.run(['tmux','paste-buffer','-d','-b',buffer,'-t',target],check=True)\n"
++                "  time.sleep(float(delay))\n"
++            )
+             await _run(
+-                f"tmux load-buffer -b {buffer_name} {quoted_path} && "
+-                f"tmux paste-buffer -d -b {buffer_name} "
+-                f"-t {shlex.quote(self._session_name)}"
++                f"python3 -c {shlex.quote(script)} {quoted_path} "
++                f"{shlex.quote(buffer_name)} {shlex.quote(self._session_name)} "
++                f"{self._PTY_INPUT_CHUNK_BYTES} {self._PTY_INPUT_CHUNK_DELAY_SEC}"
+             )
+         finally:
+             await self.environment.exec(command=f"rm -f {quoted_path}", user=self._user)
+--- a/.venv-harbor/lib/python3.12/site-packages/harbor/verifier/verifier.py
++++ b/.venv-harbor/lib/python3.12/site-packages/harbor/verifier/verifier.py
+@@ -226,6 +226,10 @@
+ 
+         # Runs as ``environment.default_user``, which the caller must set to the
+         # effective verifier user (step-level override or task-level fallback).
++        prepare = getattr(self.environment, "prepare_verifier_dependencies", None)
++        if prepare is not None:
++            prepared_env = await prepare()
++            env = {**(env or {}), **prepared_env}
+         await self.environment.exec(
+             command=command,
+             env=env,

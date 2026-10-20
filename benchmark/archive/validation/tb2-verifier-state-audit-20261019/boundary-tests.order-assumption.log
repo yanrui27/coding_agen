@@ -1,0 +1,135 @@
+test_acceptance_control_for_greedy_and_random_paths (__main__.BoundaryChecks) ... ok
+test_candidate_against_batch_size_2_to_4_and_copy_timings (__main__.BoundaryChecks) ... ok
+test_correct_acceptance_can_be_followed_by_wrong_state_ownership (__main__.BoundaryChecks) ... FAIL
+test_wrong_selector_changes_actual_gdn_update_algebra (__main__.BoundaryChecks) ... ok
+
+======================================================================
+FAIL: test_correct_acceptance_can_be_followed_by_wrong_state_ownership (__main__.BoundaryChecks)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/data/rui.yan/projects/coding_agent/data/benchmark/archive/validation/tb2-verifier-state-audit-20261019/boundary_tests.py", line 261, in test_correct_acceptance_can_be_followed_by_wrong_state_ownership
+    self.assertEqual(result['expected'],[1,4,1])
+AssertionError: Lists differ: [4, 1, 1] != [1, 4, 1]
+
+First differing element 0:
+4
+1
+
+- [4, 1, 1]
++ [1, 4, 1]
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.982s
+
+FAILED (failures=1)
+{
+  "candidate": {
+    "path": "candidate/v1/worker/gpu_model_runner.py",
+    "sha256": "8b5905996210c6c0ba5c4164129410a9a6e458eb5a5e3c1f56a20a4e4e1446e6",
+    "upstream": "https://github.com/vllm-project/vllm/pull/53919",
+    "changes": [
+      "wait before add/reorder writes",
+      "read counts directly in current row order"
+    ],
+    "applied_to_live": false,
+    "gpu_validated": false
+  },
+  "acceptance_controls": [
+    {
+      "random": false,
+      "no_draft_probs": false,
+      "output": [
+        [
+          9,
+          -1,
+          -1,
+          -1
+        ],
+        [
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "counts": [
+        1,
+        4
+      ]
+    },
+    {
+      "random": true,
+      "no_draft_probs": false,
+      "output": [
+        [
+          9,
+          -1,
+          -1,
+          -1
+        ],
+        [
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "counts": [
+        1,
+        4
+      ]
+    },
+    {
+      "random": true,
+      "no_draft_probs": true,
+      "output": [
+        [
+          9,
+          -1,
+          -1,
+          -1
+        ],
+        [
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "counts": [
+        1,
+        4
+      ]
+    }
+  ],
+  "ownership_matrix": {
+    "cases_per_arm": 2616,
+    "arms": {
+      "original": {
+        "cases": 2616,
+        "mismatches": 996
+      },
+      "wait_only": {
+        "cases": 2616,
+        "mismatches": 1494
+      },
+      "direct_only": {
+        "cases": 2616,
+        "mismatches": 1744
+      },
+      "both": {
+        "cases": 2616,
+        "mismatches": 0
+      }
+    },
+    "limits": "Enumerated fixture counts are not real failure rates. Covers2-4 requests, at least1 new and1 live, accepted counts1-4, cold/warm prefill,3 D2H schedules. No real CUDA concurrency."
+  },
+  "gdn_numeric_witness": {
+    "expected_slot": 10,
+    "wrong_slot": 13,
+    "output_max_abs_delta": 0.009203062392771244,
+    "both_outputs_finite": true,
+    "meaning": "The wrong slot changes the GDN output vector without a dimension or NaN error.",
+    "limits": "CPU execution of extracted update algebra, synthetic one-head inputs. Not GPU, trained-model generation, token logits, or proof of gibberish."
+  }
+}

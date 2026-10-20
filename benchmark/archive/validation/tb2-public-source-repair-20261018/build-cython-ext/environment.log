@@ -1,0 +1,146 @@
+Using pre-built .sif image: /mnt/data/rui.yan/projects/coding_agent/data/benchmark/.cache/harbor-images/alexgshaw_build-cython-ext_20251031.sif
+Starting Singularity container with server on port 35807 (attempt 1/3)
+[server] [harbor] /usr/bin/python3 not found, installing...
+[server] Selecting previously unselected package libpython3.11-minimal:amd64.
+[server] (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 17935 files and directories currently installed.)
+[server] Preparing to unpack .../libpython3.11-minimal_3.11.2-6+deb12u9_amd64.deb ...
+[server] Unpacking libpython3.11-minimal:amd64 (3.11.2-6+deb12u9) ...
+[server] Selecting previously unselected package python3.11-minimal.
+[server] Preparing to unpack .../python3.11-minimal_3.11.2-6+deb12u9_amd64.deb ...
+[server] Unpacking python3.11-minimal (3.11.2-6+deb12u9) ...
+[server] Setting up libpython3.11-minimal:amd64 (3.11.2-6+deb12u9) ...
+[server] Setting up python3.11-minimal (3.11.2-6+deb12u9) ...
+[server] Selecting previously unselected package python3-minimal.
+[server] (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 18242 files and directories currently installed.)
+[server] Preparing to unpack .../python3-minimal_3.11.2-1+b1_amd64.deb ...
+[server] Unpacking python3-minimal (3.11.2-1+b1) ...
+[server] Selecting previously unselected package media-types.
+[server] Preparing to unpack .../media-types_10.0.0_all.deb ...
+[server] Unpacking media-types (10.0.0) ...
+[server] Selecting previously unselected package libpython3.11-stdlib:amd64.
+[server] Preparing to unpack .../libpython3.11-stdlib_3.11.2-6+deb12u9_amd64.deb ...
+[server] Unpacking libpython3.11-stdlib:amd64 (3.11.2-6+deb12u9) ...
+[server] Selecting previously unselected package python3.11.
+[server] Preparing to unpack .../python3.11_3.11.2-6+deb12u9_amd64.deb ...
+[server] Unpacking python3.11 (3.11.2-6+deb12u9) ...
+[server] Selecting previously unselected package libpython3-stdlib:amd64.
+[server] Preparing to unpack .../libpython3-stdlib_3.11.2-1+b1_amd64.deb ...
+[server] Unpacking libpython3-stdlib:amd64 (3.11.2-1+b1) ...
+[server] Setting up python3-minimal (3.11.2-1+b1) ...
+[server] Selecting previously unselected package python3.
+[server] (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 18652 files and directories currently installed.)
+[server] Preparing to unpack .../0-python3_3.11.2-1+b1_amd64.deb ...
+[server] Unpacking python3 (3.11.2-1+b1) ...
+[server] Selecting previously unselected package python3-lib2to3.
+[server] Preparing to unpack .../1-python3-lib2to3_3.11.2-3_all.deb ...
+[server] Unpacking python3-lib2to3 (3.11.2-3) ...
+[server] Selecting previously unselected package python3-distutils.
+[server] Preparing to unpack .../2-python3-distutils_3.11.2-3_all.deb ...
+[server] Unpacking python3-distutils (3.11.2-3) ...
+[server] Selecting previously unselected package python3-pip-whl.
+[server] Preparing to unpack .../3-python3-pip-whl_23.0.1+dfsg-1_all.deb ...
+[server] Unpacking python3-pip-whl (23.0.1+dfsg-1) ...
+[server] Selecting previously unselected package python3-setuptools-whl.
+[server] Preparing to unpack .../4-python3-setuptools-whl_66.1.1-1+deb12u2_all.deb ...
+[server] Unpacking python3-setuptools-whl (66.1.1-1+deb12u2) ...
+[server] Selecting previously unselected package python3.11-venv.
+[server] Preparing to unpack .../5-python3.11-venv_3.11.2-6+deb12u9_amd64.deb ...
+[server] Unpacking python3.11-venv (3.11.2-6+deb12u9) ...
+[server] Selecting previously unselected package python3-venv.
+[server] Preparing to unpack .../6-python3-venv_3.11.2-1+b1_amd64.deb ...
+[server] Unpacking python3-venv (3.11.2-1+b1) ...
+[server] Setting up media-types (10.0.0) ...
+[server] Setting up python3-setuptools-whl (66.1.1-1+deb12u2) ...
+[server] Setting up python3-pip-whl (23.0.1+dfsg-1) ...
+[server] Setting up libpython3.11-stdlib:amd64 (3.11.2-6+deb12u9) ...
+[server] Setting up libpython3-stdlib:amd64 (3.11.2-1+b1) ...
+[server] Setting up python3.11 (3.11.2-6+deb12u9) ...
+[server] Setting up python3 (3.11.2-1+b1) ...
+[server] Setting up python3-lib2to3 (3.11.2-3) ...
+[server] Setting up python3-distutils (3.11.2-3) ...
+[server] Setting up python3.11-venv (3.11.2-6+deb12u9) ...
+[server] Setting up python3-venv (3.11.2-1+b1) ...
+[server] [harbor] Creating server venv at /opt/harbor-server...
+[server] Looking in links: /tmp/tmpwd7v3xgk
+[server] Processing /tmp/tmpwd7v3xgk/setuptools-66.1.1-py3-none-any.whl
+[server] Processing /tmp/tmpwd7v3xgk/pip-23.0.1-py3-none-any.whl
+[server] Installing collected packages: setuptools, pip
+[server] Successfully installed pip-23.0.1 setuptools-66.1.1
+[server] pip 23.0.1 from /opt/harbor-server/lib/python3.11/site-packages/pip (python 3.11)
+[server] pip 23.0.1 from /opt/harbor-server/lib/python3.11/site-packages/pip (python 3.11)
+[server] pip 23.0.1 from /opt/harbor-server/lib/python3.11/site-packages/pip (python 3.11)
+[server] [harbor] Installing server dependencies (uvicorn/fastapi)...
+[server] Looking in indexes: https://mirrors.aliyun.com/pypi/simple
+[server] Requirement already satisfied: pip in /opt/harbor-server/lib/python3.11/site-packages (23.0.1)
+[server] Collecting pip
+[server]   Downloading https://mirrors.aliyun.com/pypi/packages/f3/6e/1736e5b4ae2b778ef2f81c47d797de9f891d4d8acb047a24ca37a60294dd/pip-26.2.1-py3-none-any.whl (1.8 MB)
+[server]      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.8/1.8 MB 1.5 MB/s eta 0:00:00
+[server] Installing collected packages: pip
+[server]   Attempting uninstall: pip
+[server]     Found existing installation: pip 23.0.1
+[server]     Uninstalling pip-23.0.1:
+[server]       Successfully uninstalled pip-23.0.1
+[server] Successfully installed pip-26.2.1
+[server] Looking in indexes: https://mirrors.aliyun.com/pypi/simple
+[server] Collecting uvicorn==0.34.0
+[server]   Downloading uvicorn-0.34.0-py3-none-any.whl (62 kB)
+[server] Collecting fastapi==0.115.12
+[server]   Downloading fastapi-0.115.12-py3-none-any.whl (95 kB)
+[server] Collecting click>=7.0 (from uvicorn==0.34.0)
+[server]   Downloading click-8.5.0-py3-none-any.whl (125 kB)
+[server] Collecting h11>=0.8 (from uvicorn==0.34.0)
+[server]   Downloading h11-0.16.0-py3-none-any.whl (37 kB)
+[server] Collecting starlette<0.47.0,>=0.40.0 (from fastapi==0.115.12)
+[server]   Downloading starlette-0.46.2-py3-none-any.whl (72 kB)
+[server] Collecting pydantic!=1.8,!=1.8.1,!=2.0.0,!=2.0.1,!=2.1.0,<3.0.0,>=1.7.4 (from fastapi==0.115.12)
+[server]   Downloading pydantic-2.14.1-py3-none-any.whl (488 kB)
+[server] Collecting typing-extensions>=4.8.0 (from fastapi==0.115.12)
+[server]   Downloading typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+[server] Collecting annotated-types>=0.6.0 (from pydantic!=1.8,!=1.8.1,!=2.0.0,!=2.0.1,!=2.1.0,<3.0.0,>=1.7.4->fastapi==0.115.12)
+[server]   Downloading annotated_types-0.8.0-py3-none-any.whl (13 kB)
+[server] Collecting pydantic-core==2.50.1 (from pydantic!=1.8,!=1.8.1,!=2.0.0,!=2.0.1,!=2.1.0,<3.0.0,>=1.7.4->fastapi==0.115.12)
+[server]   Downloading pydantic_core-2.50.1-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (2.2 MB)
+[server]      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.2/2.2 MB 1.2 MB/s  0:00:01
+[server] Collecting typing-inspection>=0.4.4 (from pydantic!=1.8,!=1.8.1,!=2.0.0,!=2.0.1,!=2.1.0,<3.0.0,>=1.7.4->fastapi==0.115.12)
+[server]   Downloading typing_inspection-0.4.4-py3-none-any.whl (14 kB)
+[server] Collecting anyio<5,>=3.6.2 (from starlette<0.47.0,>=0.40.0->fastapi==0.115.12)
+[server]   Downloading anyio-4.15.1-py3-none-any.whl (132 kB)
+[server] Collecting idna>=2.8 (from anyio<5,>=3.6.2->starlette<0.47.0,>=0.40.0->fastapi==0.115.12)
+[server]   Downloading idna-3.20-py3-none-any.whl (69 kB)
+[server] Installing collected packages: typing-extensions, idna, h11, click, annotated-types, uvicorn, typing-inspection, pydantic-core, anyio, starlette, pydantic, fastapi
+[server] Successfully installed annotated-types-0.8.0 anyio-4.15.1 click-8.5.0 fastapi-0.115.12 h11-0.16.0 idna-3.20 pydantic-2.14.1 pydantic-core-2.50.1 starlette-0.46.2 typing-extensions-4.16.0 typing-inspection-0.4.4 uvicorn-0.34.0
+[server] [harbor] Installing tmux...
+[server] Selecting previously unselected package libevent-core-2.1-7:amd64.
+[server] (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 18830 files and directories currently installed.)
+[server] Preparing to unpack .../libevent-core-2.1-7_2.1.12-stable-8+deb12u1_amd64.deb ...
+[server] Unpacking libevent-core-2.1-7:amd64 (2.1.12-stable-8+deb12u1) ...
+[server] Selecting previously unselected package libutempter0:amd64.
+[server] Preparing to unpack .../libutempter0_1.2.1-3_amd64.deb ...
+[server] Unpacking libutempter0:amd64 (1.2.1-3) ...
+[server] Selecting previously unselected package tmux.
+[server] Preparing to unpack .../archives/tmux_3.3a-3_amd64.deb ...
+[server] Unpacking tmux (3.3a-3) ...
+[server] Setting up libevent-core-2.1-7:amd64 (2.1.12-stable-8+deb12u1) ...
+[server] Setting up libutempter0:amd64 (1.2.1-3) ...
+[server] Setting up tmux (3.3a-3) ...
+[server] Processing triggers for libc-bin (2.36-9+deb12u13) ...
+[server] Selecting previously unselected package python3-pkg-resources.
+[server] (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 18853 files and directories currently installed.)
+[server] Preparing to unpack .../python3-pkg-resources_66.1.1-1+deb12u2_all.deb ...
+[server] Unpacking python3-pkg-resources (66.1.1-1+deb12u2) ...
+[server] Selecting previously unselected package asciinema.
+[server] Preparing to unpack .../asciinema_2.2.0-1_all.deb ...
+[server] Unpacking asciinema (2.2.0-1) ...
+[server] Setting up python3-pkg-resources (66.1.1-1+deb12u2) ...
+[server] Setting up asciinema (2.2.0-1) ...
+[server] INFO:     Started server process [14]
+[server] INFO:     Waiting for application startup.
+[server] INFO:     Application startup complete.
+[server] INFO:     Uvicorn running on http://127.0.0.1:35807 (Press CTRL+C to quit)
+Singularity FastAPI server is ready
+Sent SIGTERM to Singularity process 4020299
+[server] INFO:     Shutting down
+[server] INFO:     Waiting for application shutdown.
+[server] INFO:     Application shutdown complete.
+[server] INFO:     Finished server process [14]
+Singularity image preserved at /mnt/data/rui.yan/projects/coding_agent/data/benchmark/.cache/harbor-images/alexgshaw_build-cython-ext_20251031.sif for reuse

@@ -1,0 +1,13 @@
+{
+  "checked_at": "2026-10-17T15:46:49.982071+00:00",
+  "model_calls": 0,
+  "offline_agent_network": "none",
+  "fresh_grader": true,
+  "same_pinned_image": true,
+  "diff_captured": true,
+  "agent_only_state_absent_in_grader": true,
+  "diff_replayed": true,
+  "task_images_verified": 51,
+  "hidden_tests_not_exposed_to_agent": true,
+  "runner_sha256": "f7354f7a2955d0b924e2be50ab48ca6e0fecefb7ad01526b61344433d0c943d6"
+}

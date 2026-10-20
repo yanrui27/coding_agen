@@ -1,0 +1,560 @@
+{
+  "updated_at": "2026-10-18T11:51:47.593180+00:00",
+  "complete": false,
+  "seed": 42,
+  "tasks_total": 17,
+  "status_counts": {
+    "failed": 3,
+    "infrastructure_error": 2,
+    "passed": 1,
+    "queued": 2,
+    "ready": 4,
+    "running": 4,
+    "timeout": 1
+  },
+  "full_dataset_tasks_total": 89,
+  "is_full_task_set": false,
+  "base_urls": [
+    "http://10.119.27.14:8200/v1"
+  ],
+  "endpoint_assignment": "least-active service at task start; fixed for the entire task attempt",
+  "trial_concurrency": 4,
+  "resources_per_trial": {
+    "cpus": 32,
+    "memory_mib": 49152
+  },
+  "agent_timeout_sec": 10800,
+  "custom_max_turns": null,
+  "sampling": {
+    "temperature": 1.0,
+    "top_p": 0.95,
+    "top_k": 20,
+    "max_tokens": 81920,
+    "context_tokens": 262144,
+    "thinking": true
+  },
+  "new_trial_sampling": {
+    "temperature": 1.0,
+    "top_p": 0.95,
+    "top_k": 20,
+    "max_tokens": 81920,
+    "context_tokens": 262144,
+    "thinking": true
+  },
+  "active_agent_trials": 2,
+  "max_active_agent_trials": 4,
+  "success_rate_percent": null,
+  "reference_hardware_compliant": false,
+  "tasks": {
+    "build-cython-ext": {
+      "status": "failed",
+      "started_at": "2026-10-18T07:12:51.581146+00:00",
+      "error": null,
+      "updated_at": "2026-10-18T07:41:33.871424+00:00",
+      "image_bytes": 284221440,
+      "attempt": 1,
+      "trial_started_at": "2026-10-18T07:12:53.671208+00:00",
+      "resource_scope": "coding-agent-tb2-envfix-s42-build-cython-ext-1.scope",
+      "base_url": "http://10.119.27.14:8200/v1",
+      "phase": "verifier",
+      "reward": 0.0,
+      "exception_info": null,
+      "result_path": "results/Qwen3.6-35B-A3B/terminal-bench-2.0/apptainer-environment-retest17/seed42/build-cython-ext/attempt1/build-cython-ext__zjHcUYW/result.json",
+      "agent_usage": {
+        "n_input_tokens": 1306699,
+        "n_cache_tokens": 1209856,
+        "n_output_tokens": 18983,
+        "cost_usd": null,
+        "model_usage": {
+          "Qwen3.6-35B-A3B": {
+            "n_input_tokens": 1306699,
+            "n_cache_tokens": 1209856,
+            "n_output_tokens": 18983,
+            "cost_usd": null
+          }
+        },
+        "rollout_details": [],
+        "metadata": {
+          "n_episodes": 57,
+          "api_request_times_msec": [
+            8469.111680984497,
+            6165.8666133880615,
+            2470.547914505005,
+            2542.9279804229736,
+            4870.294570922852,
+            2509.769916534424,
+            4482.267618179321,
+            5078.876495361328,
+            2120.15700340271,
+            8851.563453674316,
+            6312.410116195679,
+            2093.215227127075,
+            1963.4671211242676,
+            9830.974102020264,
+            10174.396514892578,
+            2823.391914367676,
+            8308.958768844604,
+            15091.290950775146,
+            20910.68434715271,
+            12385.348558425903,
+            3337.970733642578,
+            18072.576761245728,
+            6452.937841415405,
+            3180.3059577941895,
+            7960.507869720459,
+            4858.552932739258,
+            8490.335464477539,
+            13020.74670791626,
+            7762.850284576416,
+            20519.795179367065,
+            7625.939846038818,
+            9306.66732788086,
+            13472.992658615112,
+            19289.446592330933,
+            17200.605869293213,
+            20447.099208831787,
+            17598.378896713257,
+            11535.969257354736,
+            9584.332466125488,
+            14547.020196914673,
+            13213.471174240112,
+            2881.6988468170166,
+            4498.329639434814,
+            3831.4285278320312,
+            6757.4450969696045,
+            8076.085567474365,
+            5797.57833480835,
+            7009.234666824341,
+            12361.738204956055,
+            5265.040636062622,
+            5420.483589172363,
+            4169.771432876587,
+            12779.277801513672,
+            15094.225645065308,
+            7969.222784042358,
+            11409.050703048706,
+            14324.301719665527
+          ],
+          "summarization_count": 0
+        }
+      },
+      "finished_at": "2026-10-18T07:41:33.871408+00:00"
+    },
+    "configure-git-webserver": {
+      "status": "passed",
+      "started_at": "2026-10-18T07:12:53.674343+00:00",
+      "error": null,
+      "updated_at": "2026-10-18T07:46:25.332083+00:00",
+      "image_bytes": 73043968,
+      "attempt": 1,
+      "trial_started_at": "2026-10-18T07:41:33.943622+00:00",
+      "resource_scope": "coding-agent-tb2-envfix-s42-configure-git-webserver-1.scope",
+      "base_url": "http://10.119.27.14:8200/v1",
+      "phase": "verifier",
+      "reward": 1.0,
+      "exception_info": null,
+      "result_path": "results/Qwen3.6-35B-A3B/terminal-bench-2.0/apptainer-environment-retest17/seed42/configure-git-webserver/attempt1/configure-git-webserver__vqexbob/result.json",
+      "agent_usage": {
+        "n_input_tokens": 25729,
+        "n_cache_tokens": 14688,
+        "n_output_tokens": 3596,
+        "cost_usd": null,
+        "model_usage": {
+          "Qwen3.6-35B-A3B": {
+            "n_input_tokens": 25729,
+            "n_cache_tokens": 14688,
+            "n_output_tokens": 3596,
+            "cost_usd": null
+          }
+        },
+        "rollout_details": [],
+        "metadata": {
+          "n_episodes": 8,
+          "api_request_times_msec": [
+            22189.132928848267,
+            3381.852865219116,
+            7856.826066970825,
+            7794.954776763916,
+            11089.46681022644,
+            19942.521333694458,
+            7855.237245559692,
+            5382.858991622925
+          ],
+          "summarization_count": 0
+        }
+      },
+      "finished_at": "2026-10-18T07:46:25.332073+00:00"
+    },
+    "count-dataset-tokens": {
+      "status": "failed",
+      "started_at": "2026-10-18T07:12:53.653900+00:00",
+      "error": null,
+      "updated_at": "2026-10-18T08:26:39.758699+00:00",
+      "image_bytes": 43241472,
+      "attempt": 1,
+      "trial_started_at": "2026-10-18T07:46:25.403061+00:00",
+      "resource_scope": "coding-agent-tb2-envfix-s42-count-dataset-tokens-1.scope",
+      "base_url": "http://10.119.27.14:8200/v1",
+      "phase": "verifier",
+      "reward": 0.0,
+      "exception_info": null,
+      "result_path": "results/Qwen3.6-35B-A3B/terminal-bench-2.0/apptainer-environment-retest17/seed42/count-dataset-tokens/attempt1/count-dataset-tokens__uwTJZcA/result.json",
+      "agent_usage": {
+        "n_input_tokens": 2260095,
+        "n_cache_tokens": 2136832,
+        "n_output_tokens": 28891,
+        "cost_usd": null,
+        "model_usage": {
+          "Qwen3.6-35B-A3B": {
+            "n_input_tokens": 2260095,
+            "n_cache_tokens": 2136832,
+            "n_output_tokens": 28891,
+            "cost_usd": null
+          }
+        },
+        "rollout_details": [],
+        "metadata": {
+          "n_episodes": 81,
+          "api_request_times_msec": [
+            13236.02032661438,
+            4229.2420864105225,
+            1720.9405899047852,
+            3836.9081020355225,
+            4008.549928665161,
+            10011.348962783813,
+            3107.7821254730225,
+            10120.163679122925,
+            9221.356391906738,
+            12729.636669158936,
+            14275.155067443848,
+            9097.53394126892,
+            1960.9122276306152,
+            1373.6464977264404,
+            1871.659755706787,
+            1531.022548675537,
+            2211.24005317688,
+            6257.880926132202,
+            1677.8984069824219,
+            1616.955041885376,
+            5935.555934906006,
+            2619.6506023406982,
+            6576.128244400024,
+            2643.216371536255,
+            12547.613859176636,
+            1573.28462600708,
+            2373.35205078125,
+            1751.3625621795654,
+            2397.9599475860596,
+            5779.179573059082,
+            3009.357213973999,
+            2557.45792388916,
+            2833.251714706421,
+            1500.474214553833,
+            3645.402669906616,
+            4283.297061920166,
+            3237.5590801239014,
+            6261.696815490723,
+            7878.716230392456,
+            13448.935270309448,
+            5088.594913482666,
+            6574.641942977905,
+            2589.996814727783,
+            16100.50630569458,
+            2068.0315494537354,
+            1529.531478881836,
+            2614.4728660583496,
+            3120.896816253662,
+            8414.233207702637,
+            1921.276569366455,
+            2749.0971088409424,
+            9339.906930923462,
+            28333.68158340454,
+            19172.72686958313,
+            27881.86526298523,
+            3022.0983028411865,
+            3263.307809829712,
+            6705.388069152832,
+            2790.2917861938477,
+            2763.71431350708,
+            5574.05161857605,
+            2687.3252391815186,
+            6723.941802978516,
+            14168.894052505493,
+            10580.999851226807,
+            14137.800455093384,
+            5972.144603729248,
+            15508.64291191101,
+            985.8472347259521,
+            26503.089427947998,
+            31874.13501739502,
+            19069.026470184326,
+            6346.797704696655,
+            14368.251085281372,
+            12776.79443359375,
+            17739.526987075806,
+            23884.51862335205,
+            22820.58358192444,
+            23892.560958862305,
+            9325.527667999268,
+            10754.884243011475
+          ],
+          "summarization_count": 0
+        }
+      },
+      "finished_at": "2026-10-18T08:26:39.758682+00:00"
+    },
+    "extract-moves-from-video": {
+      "status": "infrastructure_error",
+      "reward": null,
+      "error": "preflight: Required original video ZCbvyPbhRfA is not reachable by direct connection from this node; no model call is started. Pending a reachable node or supplied original video.",
+      "model_started": false,
+      "finished_at": "2026-10-18T07:12:54.927520+00:00",
+      "updated_at": "2026-10-18T07:12:54.967079+00:00"
+    },
+    "feal-differential-cryptanalysis": {
+      "status": "timeout",
+      "started_at": "2026-10-18T07:12:54.987950+00:00",
+      "error": null,
+      "updated_at": "2026-10-18T11:30:30.939744+00:00",
+      "image_bytes": 50606080,
+      "attempt": 1,
+      "trial_started_at": "2026-10-18T08:26:39.829688+00:00",
+      "resource_scope": "coding-agent-tb2-envfix-s42-feal-differential-cryptanalysis-1.scope",
+      "base_url": "http://10.119.27.14:8200/v1",
+      "phase": "verifier",
+      "reward": 0.0,
+      "exception_info": {
+        "exception_type": "AgentTimeoutError",
+        "exception_message": "Agent execution timed out after 10800.0 seconds",
+        "exception_traceback": "Traceback (most recent call last):\n  File \"/usr/lib/python3.12/asyncio/tasks.py\", line 520, in wait_for\n    return await fut\n           ^^^^^^^^^\n  File \"/mnt/data/rui.yan/projects/coding_agent/data/benchmark/.venv-harbor/lib/python3.12/site-packages/harbor/agents/terminus_2/terminus_2.py\", line 1760, in run\n    await self._run_agent_loop(\n  File \"/mnt/data/rui.yan/projects/coding_agent/data/benchmark/.venv-harbor/lib/python3.12/site-packages/harbor/agents/terminus_2/terminus_2.py\", line 1425, in _run_agent_loop\n    ) = await self._handle_llm_interaction(\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/data/rui.yan/projects/coding_agent/data/benchmark/.venv-harbor/lib/python3.12/site-packages/harbor/agents/terminus_2/terminus_2.py\", line 1303, in _handle_llm_interaction\n    llm_response = await self._query_llm(\n                   ^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/data/rui.yan/projects/coding_agent/data/benchmark/.venv-harbor/lib/python3.12/site-packages/harbor/agents/terminus_2/terminus_2.py\", line 1207, in _query_llm\n    return await self._chat_with_retries(chat, prompt)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/data/rui.yan/projects/coding_agent/data/benchmark/.venv-harbor/lib/python3.12/site-packages/tenacity/asyncio/__init__.py\", line 232, in async_wrapped\n    return await copy(fn, *args, **kwargs)  # type: ignore[type-var]\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/data/rui.yan/projects/coding_agent/data/benchmark/.venv-harbor/lib/python3.12/site-packages/tenacity/asyncio/__init__.py\", line 126, in __call__\n    do = await self.iter(retry_state=retry_state)\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/data/rui.yan/projects/coding_agent/data/benchmark/.venv-harbor/lib/python3.12/site-packages/tenacity/asyncio/__init__.py\", line 171, in iter\n    result = await action(retry_state)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/data/rui.yan/projects/coding_agent/data/benchmark/.venv-harbor/lib/python3.12/site-packages/tenacity/_utils.py\", line 130, in inner\n    return call(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/data/rui.yan/projects/coding_agent/data/benchmark/.venv-harbor/lib/python3.12/site-packages/tenacity/__init__.py\", line 462, in <lambda>\n    self._add_action_func(lambda rs: rs.outcome.result())\n                                     ^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.12/concurrent/futures/_base.py\", line 449, in result\n    return self.__get_result()\n           ^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.12/concurrent/futures/_base.py\", line 401, in __get_result\n    raise self._exception\n  File \"/mnt/data/rui.yan/projects/coding_agent/data/benchmark/.venv-harbor/lib/python3.12/site-packages/tenacity/asyncio/__init__.py\", line 130, in __call__\n    result = await fn(*args, **kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/data/rui.yan/projects/coding_agent/data/benchmark/.venv-harbor/lib/python3.12/site-packages/harbor/agents/terminus_2/terminus_2.py\", line 1194, in _chat_with_retries\n    response = await chat.chat(prompt, **self._llm_call_kwargs)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/data/rui.yan/projects/coding_agent/data/benchmark/.venv-harbor/lib/python3.12/site-packages/harbor/llms/chat.py\", line 89, in chat\n    llm_response: LLMResponse = await self._model.call(\n                                ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/data/rui.yan/projects/coding_agent/data/benchmark/.venv-harbor/lib/python3.12/site-packages/tenacity/asyncio/__init__.py\", line 232, in async_wrapped\n    return await copy(fn, *args, **kwargs)  # type: ignore[type-var]\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/data/rui.yan/projects/coding_agent/data/benchmark/.venv-harbor/lib/python3.12/site-packages/tenacity/asyncio/__init__.py\", line 126, in __call__\n    do = await self.iter(retry_state=retry_state)\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/data/rui.yan/projects/coding_agent/data/benchmark/.venv-harbor/lib/python3.12/site-packages/tenacity/asyncio/__init__.py\", line 171, in iter\n    result = await action(retry_state)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/data/rui.yan/projects/coding_agent/data/benchmark/.venv-harbor/lib/python3.12/site-packages/tenacity/_utils.py\", line 130, in inner\n    return call(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/data/rui.yan/projects/coding_agent/data/benchmark/.venv-harbor/lib/python3.12/site-packages/tenacity/__init__.py\", line 462, in <lambda>\n    self._add_action_func(lambda rs: rs.outcome.result())\n                                     ^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.12/concurrent/futures/_base.py\", line 449, in result\n    return self.__get_result()\n           ^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.12/concurrent/futures/_base.py\", line 401, in __get_result\n    raise self._exception\n  File \"/mnt/data/rui.yan/projects/coding_agent/data/benchmark/.venv-harbor/lib/python3.12/site-packages/tenacity/asyncio/__init__.py\", line 130, in __call__\n    result = await fn(*args, **kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/data/rui.yan/projects/coding_agent/data/benchmark/.venv-harbor/lib/python3.12/site-packages/harbor/llms/lite_llm.py\", line 370, in call\n    response = await litellm.acompletion(**completion_kwargs)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/data/rui.yan/projects/coding_agent/data/benchmark/.venv-harbor/lib/python3.12/site-packages/litellm/chat_completions/dispatch.py\", line 114, in acompletion\n    return await _ADISPATCH.arun(\n           ^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/data/rui.yan/projects/coding_agent/data/benchmark/.venv-harbor/lib/python3.12/site-packages/litellm/rust_bridge/dispatch.py\", line 114, in arun\n    return await python(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/data/rui.yan/projects/coding_agent/data/benchmark/.venv-harbor/lib/python3.12/site-packages/litellm/utils.py\", line 2102, in wrapper_async\n    result = await original_function(*args, **call_kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/data/rui.yan/projects/coding_agent/data/benchmark/.venv-harbor/lib/python3.12/site-packages/litellm/main.py\", line 681, in acompletion\n    response = await _resolve_dispatched_chat_response(init_response)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/data/rui.yan/projects/coding_agent/data/benchmark/.venv-harbor/lib/python3.12/site-packages/litellm/main.py\", line 746, in _resolve_dispatched_chat_response\n    return await pending\n           ^^^^^^^^^^^^^\n  File \"/mnt/data/rui.yan/projects/coding_agent/data/benchmark/.venv-harbor/lib/python3.12/site-packages/litellm/llms/openai/openai.py\", line 946, in acompletion\n    headers, response = await self.make_openai_chat_completion_request(\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/data/rui.yan/projects/coding_agent/data/benchmark/.venv-harbor/lib/python3.12/site-packages/litellm/litellm_core_utils/logging_utils.py\", line 340, in async_wrapper\n    result: Final = await func(*args, **kwargs)\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/data/rui.yan/projects/coding_agent/data/benchmark/.venv-harbor/lib/python3.12/site-packages/litellm/llms/openai/openai.py\", line 479, in make_openai_chat_completion_request\n    raw_response = await openai_aclient.chat.completions.with_raw_response.create(**data, timeout=timeout)\n                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/data/rui.yan/projects/coding_agent/data/benchmark/.venv-harbor/lib/python3.12/site-packages/openai/_legacy_response.py\", line 386, in wrapped\n    return cast(LegacyAPIResponse[R], await func(*args, **kwargs))\n                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/data/rui.yan/projects/coding_agent/data/benchmark/.venv-harbor/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py\", line 2907, in create\n    return await self._post(\n           ^^^^^^^^^^^^^^^^^\n  File \"/mnt/data/rui.yan/projects/coding_agent/data/benchmark/.venv-harbor/lib/python3.12/site-packages/openai/_base_client.py\", line 1992, in post\n    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/data/rui.yan/projects/coding_agent/data/benchmark/.venv-harbor/lib/python3.12/site-packages/openai/_base_client.py\", line 1709, in request\n    response = await self._send_request(\n               ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/data/rui.yan/projects/coding_agent/data/benchmark/.venv-harbor/lib/python3.12/site-packages/openai/_client.py\", line 1097, in _send_request\n    response = await self._send_with_auth_retry(request, stream=stream, **kwargs)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/data/rui.yan/projects/coding_agent/data/benchmark/.venv-harbor/lib/python3.12/site-packages/openai/_client.py\", line 1075, in _send_with_auth_retry\n    response = await super()._send_request(request, stream=stream, **kwargs)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/data/rui.yan/projects/coding_agent/data/benchmark/.venv-harbor/lib/python3.12/site-packages/openai/_base_client.py\", line 1628, in _send_request\n    return await self._client.send(request, stream=stream, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/data/rui.yan/projects/coding_agent/data/benchmark/.venv-harbor/lib/python3.12/site-packages/httpx/_client.py\", line 1629, in send\n    response = await self._send_handling_auth(\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/data/rui.yan/projects/coding_agent/data/benchmark/.venv-harbor/lib/python3.12/site-packages/httpx/_client.py\", line 1657, in _send_handling_auth\n    response = await self._send_handling_redirects(\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/data/rui.yan/projects/coding_agent/data/benchmark/.venv-harbor/lib/python3.12/site-packages/httpx/_client.py\", line 1694, in _send_handling_redirects\n    response = await self._send_single_request(request)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/data/rui.yan/projects/coding_agent/data/benchmark/.venv-harbor/lib/python3.12/site-packages/httpx/_client.py\", line 1730, in _send_single_request\n    response = await transport.handle_async_request(request)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/data/rui.yan/projects/coding_agent/data/benchmark/.venv-harbor/lib/python3.12/site-packages/litellm/llms/custom_httpx/aiohttp_transport.py\", line 419, in handle_async_request\n    response = await self._make_aiohttp_request(\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/data/rui.yan/projects/coding_agent/data/benchmark/.venv-harbor/lib/python3.12/site-packages/litellm/llms/custom_httpx/aiohttp_transport.py\", line 382, in _make_aiohttp_request\n    response: Final = await client_session.request(\n                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/data/rui.yan/projects/coding_agent/data/benchmark/.venv-harbor/lib/python3.12/site-packages/aiohttp/client.py\", line 1756, in __aenter__\n    self._resp: _RetType_co = await self._coro\n                              ^^^^^^^^^^^^^^^^\n  File \"/mnt/data/rui.yan/projects/coding_agent/data/benchmark/.venv-harbor/lib/python3.12/site-packages/aiohttp/client.py\", line 900, in _request\n    resp = await handler(req)\n           ^^^^^^^^^^^^^^^^^^\n  File \"/mnt/data/rui.yan/projects/coding_agent/data/benchmark/.venv-harbor/lib/python3.12/site-packages/aiohttp/client.py\", line 878, in _connect_and_send_request\n    await resp.start(conn)\n  File \"/mnt/data/rui.yan/projects/coding_agent/data/benchmark/.venv-harbor/lib/python3.12/site-packages/aiohttp/client_reqrep.py\", line 745, in start\n    message, payload = await protocol.read()  # type: ignore[union-attr]\n                       ^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/data/rui.yan/projects/coding_agent/data/benchmark/.venv-harbor/lib/python3.12/site-packages/aiohttp/streams.py\", line 716, in read\n    await self._waiter\nasyncio.exceptions.CancelledError\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/mnt/data/rui.yan/projects/coding_agent/data/benchmark/.venv-harbor/lib/python3.12/site-packages/harbor/trial/trial.py\", line 651, in _run_agent_phase\n    await asyncio.wait_for(\n  File \"/usr/lib/python3.12/asyncio/tasks.py\", line 519, in wait_for\n    async with timeouts.timeout(timeout):\n  File \"/usr/lib/python3.12/asyncio/timeouts.py\", line 115, in __aexit__\n    raise TimeoutError from exc_val\nTimeoutError\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/mnt/data/rui.yan/projects/coding_agent/data/benchmark/.venv-harbor/lib/python3.12/site-packages/harbor/trial/single_step.py\", line 76, in _run_agent\n    await self._run_agent_phase(\n  File \"/mnt/data/rui.yan/projects/coding_agent/data/benchmark/.venv-harbor/lib/python3.12/site-packages/harbor/trial/trial.py\", line 660, in _run_agent_phase\n    raise AgentTimeoutError(\nharbor.trial.errors.AgentTimeoutError: Agent execution timed out after 10800.0 seconds\n",
+        "occurred_at": "2026-10-18T11:28:23.325195Z"
+      },
+      "result_path": "results/Qwen3.6-35B-A3B/terminal-bench-2.0/apptainer-environment-retest17/seed42/feal-differential-cryptanalysis/attempt1/feal-differential-cryptanalysis__j4EQpgu/result.json",
+      "agent_usage": {
+        "n_input_tokens": 63363,
+        "n_cache_tokens": 45152,
+        "n_output_tokens": 131151,
+        "cost_usd": null,
+        "model_usage": {
+          "Qwen3.6-35B-A3B": {
+            "n_input_tokens": 63363,
+            "n_cache_tokens": 45152,
+            "n_output_tokens": 131151,
+            "cost_usd": null
+          }
+        },
+        "rollout_details": [],
+        "metadata": {
+          "n_episodes": 9,
+          "api_request_times_msec": [
+            8352.88381576538,
+            48583.357095718384,
+            2003892.4851417542,
+            1591051.251411438,
+            421547.12557792664,
+            276261.4059448242,
+            68035.85982322693,
+            45924.63207244873
+          ],
+          "summarization_count": 0
+        }
+      },
+      "finished_at": "2026-10-18T11:30:30.939731+00:00"
+    },
+    "fix-ocaml-gc": {
+      "status": "running",
+      "started_at": "2026-10-18T07:41:33.929034+00:00",
+      "error": null,
+      "updated_at": "2026-10-18T11:30:31.018039+00:00",
+      "image_bytes": 237502464,
+      "attempt": 1,
+      "trial_started_at": "2026-10-18T11:30:31.012896+00:00",
+      "resource_scope": "coding-agent-tb2-envfix-s42-fix-ocaml-gc-1.scope",
+      "base_url": "http://10.119.27.14:8200/v1",
+      "phase": "verifier"
+    },
+    "headless-terminal": {
+      "status": "failed",
+      "started_at": "2026-10-18T07:46:25.386888+00:00",
+      "error": null,
+      "updated_at": "2026-10-18T11:46:27.414989+00:00",
+      "image_bytes": 61071360,
+      "attempt": 1,
+      "trial_started_at": "2026-10-18T11:41:48.153238+00:00",
+      "resource_scope": "coding-agent-tb2-envfix-s42-headless-terminal-1.scope",
+      "base_url": "http://10.119.27.14:8200/v1",
+      "phase": "verifier",
+      "reward": 0.0,
+      "exception_info": null,
+      "result_path": "results/Qwen3.6-35B-A3B/terminal-bench-2.0/apptainer-environment-retest17/seed42/headless-terminal/attempt1/headless-terminal__8vaCe9F/result.json",
+      "agent_usage": {
+        "n_input_tokens": 47496,
+        "n_cache_tokens": 28832,
+        "n_output_tokens": 6171,
+        "cost_usd": null,
+        "model_usage": {
+          "Qwen3.6-35B-A3B": {
+            "n_input_tokens": 47496,
+            "n_cache_tokens": 28832,
+            "n_output_tokens": 6171,
+            "cost_usd": null
+          }
+        },
+        "rollout_details": [],
+        "metadata": {
+          "n_episodes": 10,
+          "api_request_times_msec": [
+            11471.831560134888,
+            4811.1255168914795,
+            6020.618200302124,
+            15543.906927108765,
+            3294.5828437805176,
+            10224.289178848267,
+            3982.147455215454,
+            5059.155225753784,
+            1932.5509071350098,
+            2581.4082622528076
+          ],
+          "summarization_count": 0
+        }
+      },
+      "finished_at": "2026-10-18T11:46:27.281172+00:00"
+    },
+    "install-windows-3.11": {
+      "status": "infrastructure_error",
+      "started_at": "2026-10-18T08:26:39.837950+00:00",
+      "error": null,
+      "updated_at": "2026-10-18T11:50:24.519115+00:00",
+      "image_bytes": 562126848,
+      "attempt": 1,
+      "trial_started_at": "2026-10-18T11:41:48.153165+00:00",
+      "resource_scope": "coding-agent-tb2-envfix-s42-install-windows-3.11-1.scope",
+      "base_url": "http://10.119.27.14:8200/v1",
+      "phase": "agent",
+      "reward": null,
+      "exception_info": {
+        "exception_type": "ConnectError",
+        "exception_message": "All connection attempts failed",
+        "exception_traceback": "Traceback (most recent call last):\n  File \"/mnt/data/rui.yan/projects/coding_agent/data/benchmark/.venv-harbor/lib/python3.12/site-packages/httpx/_transports/default.py\", line 101, in map_httpcore_exceptions\n    yield\n  File \"/mnt/data/rui.yan/projects/coding_agent/data/benchmark/.venv-harbor/lib/python3.12/site-packages/httpx/_transports/default.py\", line 394, in handle_async_request\n    resp = await self._pool.handle_async_request(req)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/data/rui.yan/projects/coding_agent/data/benchmark/.venv-harbor/lib/python3.12/site-packages/httpcore/_async/connection_pool.py\", line 256, in handle_async_request\n    raise exc from None\n  File \"/mnt/data/rui.yan/projects/coding_agent/data/benchmark/.venv-harbor/lib/python3.12/site-packages/httpcore/_async/connection_pool.py\", line 236, in handle_async_request\n    response = await connection.handle_async_request(\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/data/rui.yan/projects/coding_agent/data/benchmark/.venv-harbor/lib/python3.12/site-packages/httpcore/_async/connection.py\", line 101, in handle_async_request\n    raise exc\n  File \"/mnt/data/rui.yan/projects/coding_agent/data/benchmark/.venv-harbor/lib/python3.12/site-packages/httpcore/_async/connection.py\", line 78, in handle_async_request\n    stream = await self._connect(request)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/data/rui.yan/projects/coding_agent/data/benchmark/.venv-harbor/lib/python3.12/site-packages/httpcore/_async/connection.py\", line 124, in _connect\n    stream = await self._network_backend.connect_tcp(**kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/data/rui.yan/projects/coding_agent/data/benchmark/.venv-harbor/lib/python3.12/site-packages/httpcore/_backends/auto.py\", line 31, in connect_tcp\n    return await self._backend.connect_tcp(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/data/rui.yan/projects/coding_agent/data/benchmark/.venv-harbor/lib/python3.12/site-packages/httpcore/_backends/anyio.py\", line 113, in connect_tcp\n    with map_exceptions(exc_map):\n  File \"/usr/lib/python3.12/contextlib.py\", line 158, in __exit__\n    self.gen.throw(value)\n  File \"/mnt/data/rui.yan/projects/coding_agent/data/benchmark/.venv-harbor/lib/python3.12/site-packages/httpcore/_exceptions.py\", line 14, in map_exceptions\n    raise to_exc(exc) from exc\nhttpcore.ConnectError: All connection attempts failed\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/mnt/data/rui.yan/projects/coding_agent/data/benchmark/.venv-harbor/lib/python3.12/site-packages/harbor/trial/trial.py\", line 500, in run\n    await self._run()\n  File \"/mnt/data/rui.yan/projects/coding_agent/data/benchmark/.venv-harbor/lib/python3.12/site-packages/harbor/trial/single_step.py\", line 40, in _run\n    await self._run_agent()\n  File \"/mnt/data/rui.yan/projects/coding_agent/data/benchmark/.venv-harbor/lib/python3.12/site-packages/harbor/trial/single_step.py\", line 76, in _run_agent\n    await self._run_agent_phase(\n  File \"/mnt/data/rui.yan/projects/coding_agent/data/benchmark/.venv-harbor/lib/python3.12/site-packages/harbor/trial/trial.py\", line 651, in _run_agent_phase\n    await asyncio.wait_for(\n  File \"/usr/lib/python3.12/asyncio/tasks.py\", line 520, in wait_for\n    return await fut\n           ^^^^^^^^^\n  File \"/mnt/data/rui.yan/projects/coding_agent/data/benchmark/.venv-harbor/lib/python3.12/site-packages/harbor/agents/terminus_2/terminus_2.py\", line 1760, in run\n    await self._run_agent_loop(\n  File \"/mnt/data/rui.yan/projects/coding_agent/data/benchmark/.venv-harbor/lib/python3.12/site-packages/harbor/agents/terminus_2/terminus_2.py\", line 1540, in _run_agent_loop\n    timeout_occurred, terminal_output = await self._execute_commands(\n                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/data/rui.yan/projects/coding_agent/data/benchmark/.venv-harbor/lib/python3.12/site-packages/harbor/agents/terminus_2/terminus_2.py\", line 1354, in _execute_commands\n    await session.send_keys(\n  File \"/mnt/data/rui.yan/projects/coding_agent/data/benchmark/.venv-harbor/lib/python3.12/site-packages/harbor/agents/terminus_2/tmux_session.py\", line 837, in send_keys\n    await self._send_non_blocking_keys(\n  File \"/mnt/data/rui.yan/projects/coding_agent/data/benchmark/.venv-harbor/lib/python3.12/site-packages/harbor/agents/terminus_2/tmux_session.py\", line 792, in _send_non_blocking_keys\n    await self._send_keys_to_session(keys, action=\"non-blocking\")\n  File \"/mnt/data/rui.yan/projects/coding_agent/data/benchmark/.venv-harbor/lib/python3.12/site-packages/harbor/agents/terminus_2/tmux_session.py\", line 765, in _send_keys_to_session\n    await _flush()\n  File \"/mnt/data/rui.yan/projects/coding_agent/data/benchmark/.venv-harbor/lib/python3.12/site-packages/harbor/agents/terminus_2/tmux_session.py\", line 755, in _flush\n    await self._send_key_batches(batch, action)\n  File \"/mnt/data/rui.yan/projects/coding_agent/data/benchmark/.venv-harbor/lib/python3.12/site-packages/harbor/agents/terminus_2/tmux_session.py\", line 728, in _send_key_batches\n    result = await self.environment.exec(command=command, user=self._user)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/data/rui.yan/projects/coding_agent/data/benchmark/.venv-harbor/lib/python3.12/site-packages/harbor/environments/singularity/singularity.py\", line 761, in exec\n    response = await self._http_client.post(\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/data/rui.yan/projects/coding_agent/data/benchmark/.venv-harbor/lib/python3.12/site-packages/httpx/_client.py\", line 1859, in post\n    return await self.request(\n           ^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/data/rui.yan/projects/coding_agent/data/benchmark/.venv-harbor/lib/python3.12/site-packages/httpx/_client.py\", line 1540, in request\n    return await self.send(request, auth=auth, follow_redirects=follow_redirects)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/data/rui.yan/projects/coding_agent/data/benchmark/.venv-harbor/lib/python3.12/site-packages/httpx/_client.py\", line 1629, in send\n    response = await self._send_handling_auth(\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/data/rui.yan/projects/coding_agent/data/benchmark/.venv-harbor/lib/python3.12/site-packages/httpx/_client.py\", line 1657, in _send_handling_auth\n    response = await self._send_handling_redirects(\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/data/rui.yan/projects/coding_agent/data/benchmark/.venv-harbor/lib/python3.12/site-packages/httpx/_client.py\", line 1694, in _send_handling_redirects\n    response = await self._send_single_request(request)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/data/rui.yan/projects/coding_agent/data/benchmark/.venv-harbor/lib/python3.12/site-packages/httpx/_client.py\", line 1730, in _send_single_request\n    response = await transport.handle_async_request(request)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/data/rui.yan/projects/coding_agent/data/benchmark/.venv-harbor/lib/python3.12/site-packages/httpx/_transports/default.py\", line 393, in handle_async_request\n    with map_httpcore_exceptions():\n  File \"/usr/lib/python3.12/contextlib.py\", line 158, in __exit__\n    self.gen.throw(value)\n  File \"/mnt/data/rui.yan/projects/coding_agent/data/benchmark/.venv-harbor/lib/python3.12/site-packages/httpx/_transports/default.py\", line 118, in map_httpcore_exceptions\n    raise mapped_exc(message) from exc\nhttpx.ConnectError: All connection attempts failed\n",
+        "occurred_at": "2026-10-18T11:50:17.682052Z"
+      },
+      "result_path": "results/Qwen3.6-35B-A3B/terminal-bench-2.0/apptainer-environment-retest17/seed42/install-windows-3.11/attempt1/install-windows-3.11__gGjpYZo/result.json",
+      "agent_usage": {
+        "n_input_tokens": 132512,
+        "n_cache_tokens": 103904,
+        "n_output_tokens": 7051,
+        "cost_usd": null,
+        "model_usage": {
+          "Qwen3.6-35B-A3B": {
+            "n_input_tokens": 123783,
+            "n_cache_tokens": 96288,
+            "n_output_tokens": 6752,
+            "cost_usd": null
+          }
+        },
+        "rollout_details": [],
+        "metadata": {
+          "n_episodes": 24,
+          "api_request_times_msec": [
+            5587.94641494751,
+            2784.0545177459717,
+            1174.0493774414062,
+            854.3832302093506,
+            3337.817907333374,
+            7122.1277713775635,
+            3459.181547164917,
+            4328.159809112549,
+            3158.5559844970703,
+            1355.9997081756592,
+            601.0172367095947,
+            1245.7683086395264,
+            4561.260938644409,
+            5023.682355880737,
+            1275.3608226776123,
+            2605.4139137268066,
+            3840.836524963379,
+            1332.7641487121582,
+            2635.049343109131,
+            1083.1754207611084,
+            5101.603746414185,
+            1737.5726699829102,
+            1475.5618572235107,
+            4174.328565597534
+          ],
+          "summarization_count": 0
+        }
+      },
+      "finished_at": "2026-10-18T11:50:24.280110+00:00"
+    },
+    "mailman": {
+      "status": "running",
+      "started_at": "2026-10-18T08:26:39.816710+00:00",
+      "error": null,
+      "updated_at": "2026-10-18T11:41:48.614202+00:00",
+      "image_bytes": 119382016,
+      "attempt": 1,
+      "trial_started_at": "2026-10-18T11:41:48.153059+00:00",
+      "resource_scope": "coding-agent-tb2-envfix-s42-mailman-1.scope",
+      "base_url": "http://10.119.27.14:8200/v1",
+      "phase": "agent"
+    },
+    "make-mips-interpreter": {
+      "status": "running",
+      "started_at": "2026-10-18T11:30:30.997393+00:00",
+      "error": null,
+      "updated_at": "2026-10-18T11:46:27.616453+00:00",
+      "image_bytes": 491933696,
+      "attempt": 1,
+      "trial_started_at": "2026-10-18T11:46:27.573091+00:00",
+      "resource_scope": "coding-agent-tb2-envfix-s42-make-mips-interpreter-1.scope",
+      "base_url": "http://10.119.27.14:8200/v1",
+      "phase": "agent"
+    },
+    "pypi-server": {
+      "status": "running",
+      "started_at": "2026-10-18T11:41:48.614177+00:00",
+      "error": null,
+      "updated_at": "2026-10-18T11:50:24.726484+00:00",
+      "image_bytes": 82067456,
+      "attempt": 1,
+      "trial_started_at": "2026-10-18T11:50:24.674927+00:00",
+      "resource_scope": "coding-agent-tb2-envfix-s42-pypi-server-1.scope",
+      "base_url": "http://10.119.27.14:8200/v1",
+      "phase": "environment_setup"
+    },
+    "qemu-alpine-ssh": {
+      "status": "ready",
+      "started_at": "2026-10-18T11:41:47.926049+00:00",
+      "error": null,
+      "updated_at": "2026-10-18T11:41:53.998064+00:00",
+      "image_bytes": 1313726464
+    },
+    "qemu-startup": {
+      "status": "ready",
+      "started_at": "2026-10-18T11:41:52.242144+00:00",
+      "error": null,
+      "updated_at": "2026-10-18T11:41:57.623822+00:00",
+      "image_bytes": 1301139456
+    },
+    "query-optimize": {
+      "status": "ready",
+      "started_at": "2026-10-18T11:46:27.560925+00:00",
+      "error": null,
+      "updated_at": "2026-10-18T11:46:29.104132+00:00",
+      "image_bytes": 97144832
+    },
+    "regex-chess": {
+      "status": "ready",
+      "started_at": "2026-10-18T11:50:24.661813+00:00",
+      "error": null,
+      "updated_at": "2026-10-18T11:50:25.968903+00:00",
+      "image_bytes": 54652928
+    },
+    "reshard-c4-data": {
+      "status": "queued"
+    },
+    "torch-pipeline-parallelism": {
+      "status": "queued"
+    }
+  }
+}

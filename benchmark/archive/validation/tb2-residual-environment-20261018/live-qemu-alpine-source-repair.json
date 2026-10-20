@@ -1,0 +1,12 @@
+{
+  "changed_at": "2026-10-18T13:39:25.137346+00:00",
+  "model_calls": 0,
+  "updates": [
+    {
+      "path": "/mnt/data/rui.yan/projects/coding_agent/data/benchmark/results/Qwen3.6-35B-A3B/terminal-bench-2.0/apptainer-environment-retest17/seed42/qemu-alpine-ssh/runtime/sources.list",
+      "before_sha256": "a576e68a77915a659e71b6706c68bf86c4e567b011523d43eb768fbb80094789",
+      "after_sha256": "6f230d6f98f390472adf1b7761c0fb7c81d9a64d4683b55263de8385f772ce29",
+      "in_place_update_preserves_bind_mount": true
+    }
+  ]
+}

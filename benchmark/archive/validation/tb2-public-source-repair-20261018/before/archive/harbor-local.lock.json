@@ -1,0 +1,497 @@
+{
+  "harbor": {
+    "version": "0.24.0",
+    "release_tag": "v0.24.0",
+    "commit": "b53b8134e1241686dca7759af188f987ecc48e8b",
+    "wheel_sha256": "23b7ba616a3aae4eff561ced5e2c51c7186f2981e53a770dea9c689d3969877c",
+    "directory": ".venv-harbor",
+    "installation_index": "https://mirrors.aliyun.com/pypi/simple",
+    "source_verification": {
+      "verified": true,
+      "source_url": "https://github.com/laude-institute/harbor/tree/b53b8134e1241686dca7759af188f987ecc48e8b",
+      "verified_source_files": [
+        {
+          "path": "agents/terminus_2/terminus_2.py",
+          "git_blob_sha1": "4dce5528b7479fb6f7bf3374b37a3c13a3aebc0e",
+          "sha256": "de15c2c86a66fdc9d7f75f974759835b1174e320fd146f393ef8101c46ba2e6e"
+        },
+        {
+          "path": "environments/singularity/singularity.py",
+          "git_blob_sha1": "c728d73c286a40308920ea5ad4f02d994e1cc300",
+          "sha256": "53a311a61eb32feb3d36dc238951456098e17ec227d0b2dc0db1e9fe8e73eb75"
+        },
+        {
+          "path": "cli/jobs.py",
+          "git_blob_sha1": "6ee9fd6104cdae7c89361af01c0042aa5b35cc65",
+          "sha256": "92d37fe3ef1636d940bc18a23b132040507beb4ede9fe5b35bab242fff05f6a5"
+        }
+      ],
+      "installed_agent_modified": true
+    },
+    "local_patches": [
+      {
+        "path": "archive/patches/harbor-0.24.0-singularity-startup.patch",
+        "purpose": "Configurable server bootstrap waiting period; default remains upstream 60 seconds. Smoke run uses 300 seconds for initial dependency installation.",
+        "patch_sha256": "2f3fd71877d22d919ca7b97cba6bf4015da21860d117ae8fd21643e065b732be",
+        "source_file": ".venv-harbor/lib/python3.12/site-packages/harbor/environments/singularity/singularity.py",
+        "upstream_source_sha256": "53a311a61eb32feb3d36dc238951456098e17ec227d0b2dc0db1e9fe8e73eb75",
+        "installed_source_sha256": "6b7916a9146875e4e63a6b4fb041a1ad67a824fec858c35dcc66150b9d852ed9"
+      },
+      {
+        "patch_sha256": "447ba6bc8ba0e28229e3b2dd695fda3b32b0f4e79a8bf44899d21afb3ec140bf",
+        "upstream_source_sha256": "de15c2c86a66fdc9d7f75f974759835b1174e320fd146f393ef8101c46ba2e6e",
+        "installed_source_sha256": "fc46736975b1b9e2659c265b0378cabf2e12c2de473ae182011f77624aa6ddbb",
+        "path": "archive/patches/harbor-0.24.0-terminus-context-recovery.patch",
+        "source_file": ".venv-harbor/lib/python3.12/site-packages/harbor/agents/terminus_2/terminus_2.py",
+        "purpose": "Backport upstream PR #3310 context recovery to 0.24.0 with explicit output reservation aligned with Marin #55.",
+        "upstream_pr": "https://github.com/harbor-framework/harbor/pull/3310",
+        "validation_receipt": "archive/validation/terminus-context-recovery/receipt.json"
+      },
+      {
+        "path": "archive/patches/harbor-0.24.0-apptainer-environment-repair.patch",
+        "patch_sha256": "75f00a9ae7963d9579574e505e0cb3f8802ce4d3b7d720970a155f64de157a88",
+        "purpose": "Apptainer adapter bootstrap compatibility, caller-owned exec deadlines, paced PTY forwarding, verifier-only pinned input staging",
+        "validation_receipt": "archive/validation/tb2-environment-repair-20261018/receipt.json",
+        "base": "Existing 0.24.0 startup/context-recovery backports are retained",
+        "current_source_sha256": {
+          ".venv-harbor/lib/python3.12/site-packages/harbor/environments/singularity/singularity.py": "055e18cc8b871665a07a7aa69f523041ab07807795e498984b67c8678371af08",
+          ".venv-harbor/lib/python3.12/site-packages/harbor/environments/singularity/bootstrap.sh": "b9ab79c42728924ad36d5d22e134b73ff9655bb7ab0967a3faf4d92f9d333545",
+          ".venv-harbor/lib/python3.12/site-packages/harbor/agents/terminus_2/tmux_session.py": "433762ee52d59ca4b933dc0f093b7db2c17559757b357420a541bd2215b00f4a",
+          ".venv-harbor/lib/python3.12/site-packages/harbor/verifier/verifier.py": "de225dd60c9b95bec54c64ccd3e78b7717f101b063e980c1aebd7fea45a29917"
+        }
+      }
+    ]
+  },
+  "agent": {
+    "name": "terminus-2",
+    "version": "2.0.0",
+    "commit": "b53b8134e1241686dca7759af188f987ecc48e8b",
+    "source_sha256": "fc46736975b1b9e2659c265b0378cabf2e12c2de473ae182011f77624aa6ddbb",
+    "upstream_source_sha256": "de15c2c86a66fdc9d7f75f974759835b1174e320fd146f393ef8101c46ba2e6e",
+    "local_build": "context-recovery.1+environment-repair.1",
+    "modified": true,
+    "local_patches": [
+      "archive/patches/harbor-0.24.0-terminus-context-recovery.patch"
+    ],
+    "support_source_sha256": {
+      ".venv-harbor/lib/python3.12/site-packages/harbor/agents/terminus_2/tmux_session.py": "433762ee52d59ca4b933dc0f093b7db2c17559757b357420a541bd2215b00f4a"
+    }
+  },
+  "sandbox": {
+    "runtime": "apptainer version 1.5.4",
+    "harbor_backend": "singularity",
+    "installation_directory": ".sandbox-tools/apptainer",
+    "release_package_sha256": "281cf9bd68f16b6f7c34a3a94d77668bc327b9c09db0412ce7890162734a97f7",
+    "installation_record": {
+      "version": "apptainer version 1.5.4",
+      "sha256": "281cf9bd68f16b6f7c34a3a94d77668bc327b9c09db0412ce7890162734a97f7",
+      "package_bytes": 32859864,
+      "official_asset_api": "https://api.github.com/repos/apptainer/apptainer/releases/assets/581679855",
+      "installation_directory": ".sandbox-tools/apptainer",
+      "ubuntu_runtime_dependencies": [
+        "libsubid4=1:4.13+dfsg1-4ubuntu3.2",
+        "libtalloc2=2.4.2-1build2",
+        "uidmap=1:4.13+dfsg1-4ubuntu3.2",
+        "patchelf=0.18.0-1.1build1"
+      ],
+      "relocated_binary_runpaths": [
+        {
+          "path": ".sandbox-tools/apptainer/usr/bin/apptainer",
+          "original_sha256": "696989c49393d06ba8cc87ea8a9cc2cf3991ac2d5728d205f491d83c1c2eba42",
+          "installed_sha256": "ea26fe47e2e5affb0590b34cb778804d9643cccde244123ca475634758b1a66d",
+          "runpath": "$ORIGIN/../lib/x86_64-linux-gnu"
+        },
+        {
+          "path": ".sandbox-tools/apptainer/usr/bin/newuidmap",
+          "original_sha256": "9035472d2a4ab77d5df65b8b500054330e1e6c1ba58d6ddfdf7234b4e6d8b038",
+          "installed_sha256": "9f80430db1ddbdeb9c8495f82072bb76b533ca2ddd46a2348876bdb1e2c920b9",
+          "runpath": "$ORIGIN/../lib/x86_64-linux-gnu"
+        },
+        {
+          "path": ".sandbox-tools/apptainer/usr/bin/newgidmap",
+          "original_sha256": "32011f9ee3aeda7c26c6aacc0a6046013aa958c35d468fd15d0dd34788f2bcc5",
+          "installed_sha256": "1241c644fa2ca862ef14e5160a7fdffdc599faaf304b3dd0a529322ac3473b95",
+          "runpath": "$ORIGIN/../lib/x86_64-linux-gnu"
+        },
+        {
+          "path": ".sandbox-tools/apptainer/usr/libexec/apptainer/bin/fuse-overlayfs",
+          "original_sha256": "b99679837d64d9f90d44c810cbe8643199e0aaa6c5f35255dfb2a06f505660fc",
+          "installed_sha256": "6660b53d3bf2fca5f37a7896416397ae010ad6d5a44842a08693d5b9d64c724d",
+          "runpath": "$ORIGIN/../../../lib/x86_64-linux-gnu"
+        },
+        {
+          "path": ".sandbox-tools/apptainer/usr/libexec/apptainer/bin/fuse2fs",
+          "original_sha256": "c06de736a44ba4aa9439eb2fd16d44b927a67e97dd8b3fd9052df77cda8a7c88",
+          "installed_sha256": "e9c19212fe5a2969cab4bf60d7d8f2c67e6a4676221c4fffe765bd4ef3ec6311",
+          "runpath": "$ORIGIN/../../../lib/x86_64-linux-gnu"
+        },
+        {
+          "path": ".sandbox-tools/apptainer/usr/libexec/apptainer/bin/mksquashfs",
+          "original_sha256": "b70860751eb552d55e364724faedbfebecada1ffeb964783e1ed251cad21309d",
+          "installed_sha256": "d351c4176c01880ea171bf4fe18694345235d05b380d79808edaeb006a56920d",
+          "runpath": "$ORIGIN/../../../lib/x86_64-linux-gnu"
+        },
+        {
+          "path": ".sandbox-tools/apptainer/usr/libexec/apptainer/bin/proot",
+          "original_sha256": "f9087ea76d4a359eb3ac1a38f730c870b7508e7b51d5f0036bcf383c90b69ee4",
+          "installed_sha256": "a412104be303601176588b8de7cdd5a4632002a92d97ba848af3bae78fd42af0",
+          "runpath": "$ORIGIN/../../../lib/x86_64-linux-gnu"
+        },
+        {
+          "path": ".sandbox-tools/apptainer/usr/libexec/apptainer/bin/squashfuse_ll",
+          "original_sha256": "1173f675221109b6662734a47fdb15f0d619bdcca1d71f9656155e21dfed1c93",
+          "installed_sha256": "0c4b33b095a1336f6eb449c03f98f76f2d2815b1facc6a82364b74cad8b00426",
+          "runpath": "$ORIGIN/../../../lib/x86_64-linux-gnu"
+        },
+        {
+          "path": ".sandbox-tools/apptainer/usr/libexec/apptainer/bin/starter",
+          "original_sha256": "5c025a56de0173af8255dfd97993e635bc9be84a496fbe9134ead32fec8b2184",
+          "installed_sha256": "e84f8505e2ce74671669635cb24bebf05195b203450c6242b2af3919caaaa24b",
+          "runpath": "$ORIGIN/../../../lib/x86_64-linux-gnu"
+        },
+        {
+          "path": ".sandbox-tools/apptainer/usr/libexec/apptainer/bin/unsquashfs",
+          "original_sha256": "48b6a48ff246fbff2cc5b706e9d4c754656a2e466ab3b497814a3f58827fd7be",
+          "installed_sha256": "c733c37453301ea21ed46a864f42265470a8b048634f5e34a610789d17651296",
+          "runpath": "$ORIGIN/../../../lib/x86_64-linux-gnu"
+        }
+      ]
+    },
+    "sessiondir_max_size_mib": 16384,
+    "cache_policy": {
+      "final_sif_directory": ".cache/harbor-images",
+      "verified_dependency_directory": ".cache/harbor-assets",
+      "auxiliary_directory": ".cache/tmp",
+      "apptainer_persistent_download_cache_enabled": false
+    },
+    "launcher_history": [
+      {
+        "script": "scripts/singularity.sh",
+        "alias": ".sandbox-tools/apptainer/usr/bin/singularity",
+        "previous_alias_target": "apptainer",
+        "build_concurrency": 1,
+        "verification": "shared lock blocks pull/build; normal sandbox commands proceed",
+        "lock_file": ".cache/tmp/image-build.lock",
+        "shared_filesystem_lock_mode": "nonblocking flock with retry",
+        "active": false,
+        "archived_script": "archive/singularity-serial-launcher.sh",
+        "disabled_at": "2026-10-16T11:17:28.323507+00:00"
+      }
+    ],
+    "environment_repair": {
+      "network": "per-trial net/mount namespaces with user-mode NAT; Apptainer backend retained",
+      "low_ports": "private-netns ip_unprivileged_port_start=0; host unchanged",
+      "sessiondir_max_size_mib": 16384,
+      "bootstrap": "Pinned Debian Python 3.9 stdlib split packages and pip/setuptools wheels",
+      "verifier_caches": "Only uploaded after agent execution"
+    }
+  },
+  "python": "3.12.3",
+  "architecture": "x86_64",
+  "local_defaults": {
+    "cpu_quota_cores": 4,
+    "memory_max_bytes": 8589934592,
+    "n_concurrent_trials": 1,
+    "agent_timeout_sec": 300,
+    "configuration": "archive/harbor-local.json",
+    "launcher": "archive/scripts/manage_tb2.sh harbor",
+    "scope": "small-resource environment validation; not the reference protocol full evaluation protocol"
+  },
+  "dependencies_lock": "archive/requirements-harbor.lock.txt",
+  "dependencies_lock_sha256": "68c42129a2591da680d7056efffe4c2729930a82c120ad62d8ddba563daa05f4",
+  "benchmark_runs_started": true,
+  "suite_root": "/mnt/data/rui.yan/projects/coding_agent/data/benchmark",
+  "data_tools": {
+    "directory": ".data-tools",
+    "packages": {
+      "pyarrow": "21.0.0"
+    }
+  },
+  "validation": {
+    "verified": true,
+    "checked_at": "2026-10-16T08:03:50.085408+00:00",
+    "checks": {
+      "script_syntax": true,
+      "harbor_cli": true,
+      "pip_dependencies": true,
+      "sandbox_execution_and_host_file_isolation": true,
+      "flattened_task_path": true,
+      "all_dataset_hashes_and_hle_roundtrip": true,
+      "official_source_versions_and_clean_worktrees": true,
+      "dependency_lock_sha256": true,
+      "required_local_path_references": true,
+      "protocol_document_sha256": true,
+      "merged_harbor_entrypoint": true,
+      "installed_runtime_sha256": true
+    },
+    "runtime_checks_last_executed_at": "2026-10-16T07:40:57.953866+00:00",
+    "benchmark_runs_started": false,
+    "model_calls_started": false,
+    "tb2_smoke": {
+      "passed": true,
+      "checked_at": "2026-10-16T09:12:01.688847+00:00",
+      "summary": "results/Qwen3.6-35B-A3B/terminal-bench-2.0/smoke-summary.json",
+      "reward": 1.0,
+      "tests_passed": 2,
+      "tests_total": 2,
+      "full_benchmark_run": false,
+      "model_calls_started": true
+    },
+    "tb2_rolling_queue": {
+      "checked_at": "2026-10-16T10:10:08.612949+00:00",
+      "actual_agent_concurrency_verified": 8,
+      "cpu_quota_per_trial": 4,
+      "memory_limit_per_trial_bytes": 8589934592,
+      "proof": "results/Qwen3.6-35B-A3B/terminal-bench-2.0/seed42-pilot/eight-concurrency-proof.json",
+      "progress": "results/Qwen3.6-35B-A3B/terminal-bench-2.0/seed42-pilot/progress.json",
+      "run_type": "single-seed pilot, not reference-protocol-compliant"
+    },
+    "tb2_budget_upgrade": {
+      "status": "configured; active trial memory limits applied; output-budget switch after existing trials finish",
+      "requested_memory_per_trial_bytes": 34359738368,
+      "max_output_tokens": 81920,
+      "context_tokens": 262144,
+      "receipt": "results/Qwen3.6-35B-A3B/terminal-bench-2.0/seed42-pilot/budget-upgrade.json",
+      "old_attempts_preserved": true
+    },
+    "tb2_five_seed_run": {
+      "status": "running; actual task scopes verified",
+      "transition": "results/Qwen3.6-35B-A3B/terminal-bench-2.0/five-seed/transition.json",
+      "seeds": [
+        42,
+        43,
+        44,
+        45,
+        46
+      ],
+      "prior_pilot_results_included": false,
+      "configuration_check": "results/Qwen3.6-35B-A3B/terminal-bench-2.0/five-seed/configuration-check.json",
+      "checked_at": "2026-10-16T10:28:41.701759+00:00",
+      "active_task_scopes_verified": 8
+    },
+    "tb2_single_seed_run": {
+      "checked_at": "2026-10-16T10:37:10.207768+00:00",
+      "seed": 42,
+      "tasks_total": 89,
+      "stop_boundary_monitor": "coding-agent-tb2-first-seed.service",
+      "receipt": "results/Qwen3.6-35B-A3B/terminal-bench-2.0/five-seed/single-seed-control-check.json",
+      "complete": false,
+      "status": "paused_by_user_for_image_preparation",
+      "paused_at": "2026-10-16T11:18:31.754042+00:00"
+    },
+    "tb2_parallel_image_preparation": {
+      "checked_at": "2026-10-16T11:18:31.754042+00:00",
+      "actual_concurrent_apptainer_pulls_verified": 8,
+      "evaluation_service_state": "inactive",
+      "progress": ".cache/harbor-images/records/terminal-bench-2.0/progress.json",
+      "resource_limits_verified": {
+        "cpu_quota_cores": 16,
+        "memory_max_bytes": 103079215104
+      },
+      "starts_evaluation": false
+    },
+    "tb2_image_transport_repair": {
+      "checked_at": "2026-10-16T14:07:00.099654+00:00",
+      "matching_oci_manifest_digest_verified": true,
+      "live_apptainer_http1_settings_verified": true,
+      "live_transfer_proxy_variables_absent": true,
+      "completed_images_preserved": true,
+      "receipt": ".cache/harbor-images/records/terminal-bench-2.0/download-transport-change.json"
+    },
+    "tb2_explicit_launcher": {
+      "checked_at": "2026-10-16T14:54:52.015621+00:00",
+      "launcher": "run_tb2.sh",
+      "archived_generic_launcher": "archive/run_harbor-generic.sh",
+      "script_syntax": true,
+      "native_harbor_version": "0.24.0",
+      "generic_oracle_config_parse": true,
+      "bash_defaults_and_cli_overrides_verified": true,
+      "native_harbor_job_schema_verified": true,
+      "per_task_cgroup_arguments_verified_without_execution": true,
+      "starts_evaluation": false,
+      "generic_maintenance_launcher": "archive/scripts/manage_tb2.sh harbor"
+    },
+    "tb2_simple_launcher": {
+      "checked_at": "2026-10-16T15:02:19.881824+00:00",
+      "lines_before": 108,
+      "lines_after": 18,
+      "syntax_checked": true,
+      "default_and_overridden_configs_unchanged": true,
+      "harbor_cli_version": "0.24.0",
+      "image_status_command_verified": true,
+      "evaluation_started": false,
+      "image_builder_pid_unchanged": true,
+      "receipt": "archive/tb2-launcher-simplification.json"
+    },
+    "tb2_multiserver_subset": {
+      "checked_at": "2026-10-16T15:12:12.923259+00:00",
+      "four_services_available": true,
+      "rolling_scheduler_and_failure_replacement_verified": true,
+      "per_task_single_endpoint_native_config_verified": true,
+      "thinking_enabled_verified": true,
+      "global_concurrency": 8,
+      "seed": 42,
+      "selected_tasks": 83,
+      "full_dataset_tasks_total": 89,
+      "launch_check": "results/Qwen3.6-35B-A3B/terminal-bench-2.0/provenance/launch-check.json",
+      "selected_denominator_and_incomplete_score_verified": true,
+      "live_eight_trials_verified": true
+    },
+    "tb2_flat_layout": {
+      "checked_at": "2026-10-16T15:26:21.096071+00:00",
+      "receipt": "archive/tb2-flat-layout-transition.json",
+      "tasks_not_cancelled_or_replayed": true,
+      "running_coordinator_source": "archive/eval_tb2-before-flat-layout.py",
+      "running_image_builder_source": "archive/build_tb2_images-before-flat-layout.py",
+      "summary_service": "coding-agent-tb2-results.service"
+    },
+    "tb2_context_recovery": {
+      "checked_at": "2026-10-17T04:43:05.358389+00:00",
+      "passed": true,
+      "regression_cases": 23,
+      "live_cases": 2,
+      "receipt": "archive/validation/terminus-context-recovery/receipt.json"
+    }
+  },
+  "smoke_runs_started": true,
+  "scripts": {
+    "harbor_env_sha256": "3cb558f1bfe09b2663c779da90a77c3ed62e33b54855dcb100e8fd3ab501ba82",
+    "eval_tb2_sha256": "405547f3464e044904cb800880af0f98adfc7cdd2944758dc4d0681c5bd099c6",
+    "run_tb2_sha256": "feafd4d0c80716d896dd50738cebc975355973c934aee614c9358f0f29de5d9e",
+    "build_tb2_images_sha256": "0ea40cde517e2e08ca01b52b526b1a94dbd42a8243c156d0af507cb2df3b1e8b",
+    "manage_tb2_sha256": "8f142e8099e03d99d741e8e57ae82faad8c6ded521acc2c4ae864751603d3ab0",
+    "watch_tb2_results_sha256": "179d13d501870d12045c6bfc386ba78dbd7175e0992fe1edd352ad8848d5940e",
+    "repair_tb2_images_sha256": "e422d00264752182313db1bdc1f433ddb4a2c32baa323179bef0799f7c88512a",
+    "test_terminus_context_recovery_sha256": "444273bc85363a73a74421ec24b1f9a1e7ab774e2bfc11928840e5840246af40",
+    "smoke_terminus_context_recovery_sha256": "c15c15c8f949f2cc8dd3fb236ffc96e67779c2f5fbcd95eff32d29c3acee58e2"
+  },
+  "tb2_queue_defaults": {
+    "concurrent_trials": 8,
+    "cpus_per_trial": 4,
+    "memory_mib_per_trial": 32768,
+    "orchestrator_cpu_quota_cores": 2,
+    "orchestrator_memory_mib": 4096,
+    "image_cache_limit_gib": 0,
+    "run_scope": "one seed over 83 currently ready task images; explicitly a subset",
+    "live_control": "results/Qwen3.6-35B-A3B/terminal-bench-2.0/control.json",
+    "max_output_tokens": 81920,
+    "context_tokens": 262144,
+    "temperature": 1.0,
+    "top_p": 0.95,
+    "top_k": 20,
+    "agent_timeout_sec": 10800,
+    "custom_max_turns": null,
+    "seeds": [
+      42
+    ],
+    "runs": 1,
+    "tasks_per_run": 83,
+    "trials_total": 83,
+    "verifier_timeout_source": "official per-task task.toml",
+    "progress": "results/Qwen3.6-35B-A3B/terminal-bench-2.0/summary.json",
+    "available_seeds": [
+      42,
+      43,
+      44,
+      45,
+      46
+    ],
+    "image_build_concurrency": 2,
+    "evaluation_state": "running",
+    "launcher": "run_tb2.sh",
+    "maintenance_launcher": "archive/scripts/manage_tb2.sh",
+    "base_urls": [
+      "http://10.119.27.14:8200/v1",
+      "http://10.119.28.50:8200/v1",
+      "http://10.119.28.161:8200/v1",
+      "http://10.119.29.55:8200/v1"
+    ],
+    "endpoint_assignment": "least-active service at task start; fixed for the entire task attempt",
+    "thinking": true,
+    "task_manifest": "results/Qwen3.6-35B-A3B/terminal-bench-2.0/task-ids.txt",
+    "full_dataset_tasks_total": 89,
+    "is_full_task_set": false,
+    "seed_layout": "seed<seed>/<task>/",
+    "trajectory_shortcut": "seed<seed>/<task>/trajectory.json",
+    "summary_writer": "evaluation coordinator"
+  },
+  "tb2_image_preparation": {
+    "workers": 8,
+    "cpu_quota_cores": 16,
+    "memory_max_gib": 96,
+    "scratch_budget_gib": 80,
+    "scratch_directory": "/dev/shm",
+    "preserve_all_finished_images": true,
+    "starts_evaluation": false,
+    "progress": ".cache/harbor-images/records/terminal-bench-2.0/progress.json",
+    "primary_registry": "https://docker.1panel.live",
+    "fallback_registry": "https://docker.1ms.run",
+    "http2_disabled": true,
+    "stall_timeout_sec": 300
+  },
+  "tb2_image_repair": {
+    "started_at": "2026-10-17T03:39:38.283248+00:00",
+    "launcher": "bash archive/scripts/manage_tb2.sh images repair",
+    "service": "coding-agent-tb2-image-repair.service",
+    "cpus": 8,
+    "memory_gib": 64,
+    "scratch_budget_gib": 48,
+    "tasks": [
+      "qemu-alpine-ssh",
+      "mteb-leaderboard",
+      "mteb-retrieve"
+    ],
+    "official_image_digests_unchanged": true,
+    "method": "verified byte-range OCI layers, aria2 persisted pieces with 4 connections per blob, offline SIF conversion",
+    "progress": ".cache/harbor-images/records/terminal-bench-2.0/resumable-download-progress.json",
+    "local_oci_and_zstd_smoke_verified": true,
+    "forced_disconnect_and_ignored_range_resume_verified": true,
+    "updated_at": "2026-10-17T03:48:13.092085+00:00",
+    "range_registry": "https://docker.amingg.com",
+    "connections_per_blob": 4,
+    "max_active_download_connections": 8,
+    "nonzero_offset_and_tail_range_verified": true,
+    "aria2_resume_from_existing_prefix_verified": true,
+    "persisted_piece_progress_verified": true,
+    "qemu_sif_and_execution_verified": true,
+    "complete": true,
+    "finished_at": "2026-10-17T04:02:36.654780+00:00",
+    "ready_image_count": 89,
+    "temporary_oci_cache_removed": true,
+    "verified_final_sifs": {
+      "qemu-alpine-ssh": {
+        "sif_path": ".cache/harbor-images/alexgshaw_qemu-alpine-ssh_20251031.sif",
+        "sif_bytes": 1313726464,
+        "sif_sha256": "de04b46c20ac967175bf722ce7c639883436e9f925ba4e80b48d148a92906354",
+        "verification": {
+          "pinned_oci_manifest": true,
+          "all_blob_checksums": true,
+          "sif_structure": true,
+          "sandbox_execution": true
+        }
+      },
+      "mteb-leaderboard": {
+        "sif_path": ".cache/harbor-images/alexgshaw_mteb-leaderboard_20251031.sif",
+        "sif_bytes": 8804831232,
+        "sif_sha256": "a203e6ce754e147fd4f15c239a9ab8d05cdb6de729592dd93cbe5b4da5c22b7a",
+        "verification": {
+          "pinned_oci_manifest": true,
+          "all_blob_checksums": true,
+          "sif_structure": true,
+          "sandbox_execution": true
+        }
+      },
+      "mteb-retrieve": {
+        "sif_path": ".cache/harbor-images/alexgshaw_mteb-retrieve_20251031.sif",
+        "sif_bytes": 8798289920,
+        "sif_sha256": "cbb570694536ad91c44bbe8af3a78d2051dd06d62f29730f9b63a4e00a076b00",
+        "verification": {
+          "pinned_oci_manifest": true,
+          "all_blob_checksums": true,
+          "sif_structure": true,
+          "sandbox_execution": true
+        }
+      }
+    }
+  }
+}

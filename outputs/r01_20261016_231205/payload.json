@@ -1,0 +1,34 @@
+{
+  "name": "batch-r01-20261016-231205",
+  "display_name": "batch-r01-20261016-231205",
+  "framework": "PYTORCH_DDP",
+  "roles": [
+    {
+      "name": "Worker",
+      "resource_spec": [
+        {
+          "name": "N3lS.Ii.I60.8.64c832g"
+        }
+      ],
+      "total_replicas": 2,
+      "startup_script": "unset HTTP_PROXY HTTPS_PROXY ALL_PROXY http_proxy https_proxy all_proxy\nexport NO_PROXY='*' no_proxy='*'\nexec python3 /mnt/data/rui.yan/projects/coding_agent/outputs/r01_20261016_231205/code/train_mace_sci.py --run-dir /mnt/data/rui.yan/projects/coding_agent/outputs/r01_20261016_231205\n",
+      "image_path": "registry.cn-sh-01.sensecore.cn/ccr-kunlun-001/zl_verl_train:work-1-20260324061258"
+    }
+  ],
+  "resource_pool": {
+    "name": "kunlun-intel6348",
+    "zone": "cn-sh-01a",
+    "vpc_id": "019ce515-b557-7028-b0c3-786e81826b87"
+  },
+  "scheduling": {
+    "priority": "HIGHEST",
+    "quota_type": "RESERVED"
+  },
+  "fault_tolerance": {
+    "backoff_limit": 0
+  },
+  "barrier": {
+    "enable_ethernet_ping": true,
+    "enable_roce_mesh_ping": true
+  }
+}

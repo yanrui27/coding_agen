@@ -1,0 +1,64 @@
+{
+  "created_at": "2026-10-18T10:20:09.103589+00:00",
+  "model_calls_in_validation": 0,
+  "evidence": {
+    "build-cython-ext": {
+      "result_path": "results/Qwen3.6-35B-A3B/terminal-bench-2.0/apptainer-environment-retest17/seed42/build-cython-ext/attempt1/build-cython-ext__zjHcUYW/result.json",
+      "result_sha256": "889c22d581ff4af2145af6ad4b014355c9eb21d8919962bc6d7a6c4d1911b557",
+      "verifier_stdout_path": "results/Qwen3.6-35B-A3B/terminal-bench-2.0/apptainer-environment-retest17/seed42/build-cython-ext/attempt1/build-cython-ext__zjHcUYW/verifier/test-stdout.txt",
+      "verifier_stdout_sha256": "9d3648192d7e26ce3ca9ec83c5af017ec47015551c4dbf8fb48803567dea7c25",
+      "trajectory_sha256": "35c1df9f3bd03ebc169c4a9618f27eeb3d73b2e841934b9374d6e0f06c63ace6",
+      "cause": "GitHub direct clone failed; agent substituted PyPI source and failed only the original .git assertion (10/11 pass)",
+      "action": "Fresh single-task model rerun with exact public source/tag cache; no regrading or editing the old attempt"
+    },
+    "count-dataset-tokens": {
+      "result_path": "results/Qwen3.6-35B-A3B/terminal-bench-2.0/apptainer-environment-retest17/seed42/count-dataset-tokens/attempt1/count-dataset-tokens__uwTJZcA/result.json",
+      "result_sha256": "5cb7f7059a0d3e713ec694c5efbbb067fa5cc38b5ca9a1c9beaffe6ba685e147",
+      "verifier_stdout_path": "results/Qwen3.6-35B-A3B/terminal-bench-2.0/apptainer-environment-retest17/seed42/count-dataset-tokens/attempt1/count-dataset-tokens__uwTJZcA/verifier/test-stdout.txt",
+      "verifier_stdout_sha256": "a620cb671f4551da022bd6e2fd34d46e8a867285f536875d1484a7ba7b528ba1",
+      "trajectory_sha256": "2f1ae9db4ef2137cb94338395dfd2ce240f68d960a6283872f87df6c6ab05b07",
+      "cause": "Agent deliberately concatenated reasoning and solution before tokenization; returned 79566 instead of the original expected 79586",
+      "action": "Keep original failed result; do not retry as an environment failure"
+    }
+  },
+  "public_source_validation": {
+    "task": "build-cython-ext",
+    "model_calls": 0,
+    "image_sha256": "e1183c05481c13211458f8e0c136340ff39cba4503729066023ac62b9de05b41",
+    "started": true,
+    "port_bind_check": {
+      "bound_ports": [
+        25,
+        80,
+        8000,
+        8080
+      ]
+    },
+    "exec_without_hidden_transport_limit": true,
+    "public_source_original_clone_passed": true,
+    "public_source_commit": "441c807dbec2ee32e1da572e24e58d52a4eb7afa",
+    "solution_not_precreated": true,
+    "verifier_inputs_hidden_until_phase": true,
+    "original_external_input_request_passed": true,
+    "passed": true,
+    "elapsed_seconds": 37.547
+  },
+  "patch": {
+    "path": "archive/patches/harbor-0.24.0-public-source-cache.patch",
+    "patch_sha256": "2d0dd2211f9a0657bc086bda3ce783f823badee250fa977675400cb416830f6c",
+    "purpose": "Cache only the exact public source tag explicitly requested by the task before agent execution; verifier inputs remain phase-gated",
+    "source_file": ".venv-harbor/lib/python3.12/site-packages/harbor/environments/singularity/singularity.py",
+    "base_source_sha256": "055e18cc8b871665a07a7aa69f523041ab07807795e498984b67c8678371af08",
+    "installed_source_sha256": "7904bfdcf0d7b575fa23eb1104b6a63e27b5c75448ac1768d389a3ef7ae409f2",
+    "validation_receipt": "archive/validation/tb2-public-source-repair-20261018/build-cython-ext/receipt.json"
+  },
+  "scope": "Additional single-task environmental retry; original 17-task run remains active and unchanged",
+  "concurrency_note": "One additional TB2 trial alongside the original single trial and ongoing ASI on the main model service",
+  "files_sha256": {
+    "scripts/prepare_tb2_verifier_manifest.py": "35a4a203862bd79f0281e07ef7939f99617a6eda27933a4e99a78e45580f949c",
+    "scripts/preflight_tb2_environment.py": "552bd478d90116a92bcdc26ce865de087a0d8c690d529c73da575775b189fde9",
+    "run_tb2_public_source_retest.sh": "c6c6974c1106f9fb7708f82c5c724abaad3797c5f7c1dea019f766e958fb4cb7",
+    "archive/manifests/terminal-bench-2.0-public-source-retry1.txt": "3f12da558eb78ba255614eeb2b60f9ade45203da17b156b4ed4bf86a05122412",
+    ".cache/tb2-verifier-assets/manifest.json": "76c36cb7080810d566cd71710b8ecb13b44187c234be3875af2a80779fd13c48"
+  }
+}

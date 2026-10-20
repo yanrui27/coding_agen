@@ -1,0 +1,36 @@
+{
+  "task": "mteb-leaderboard",
+  "interpretation": "Public downloads sometimes succeeded; later terminal inactivity alone does not prove mandatory data unavailable. Control-key and old PTY forwarding both require separation.",
+  "steps": 246,
+  "control_key_counts": {
+    "C-c": 11,
+    "C-c\n": 20,
+    "\u0003": 14,
+    "\u0003\n": 86,
+    "\u0003\n\u0003\n\u0003\n": 1,
+    "\u0003\n\u0003\n\u0003\n\u0003\n\u0003\n": 1,
+    "\u0004\n": 2
+  },
+  "examples": [
+    {
+      "step_id": 66,
+      "timestamp": "2026-10-17T13:07:10.888276+00:00",
+      "observation_tail": "{'results': [{'source_call_id': 'call_64_1', 'content': \"New Terminal Output:\\n\\nroot@real-241:/app# curl --max-time 15 -s 'https://api.github.com/repos/embeddings-benchmark/results/contents/results/' -o /tmp/models_list.json 2>&1 && wc -c /\\ntmp/models_list.json\\n0 /tmp/models_list.json\\nroot@real-241:/app#\"}]}"
+    },
+    {
+      "step_id": 67,
+      "timestamp": "2026-10-17T13:07:35.853573+00:00",
+      "observation_tail": "{'results': [{'source_call_id': 'call_65_1', 'content': 'New Terminal Output:\\n\\nroot@real-241:/app# wget --timeout=15 -q -O /tmp/models_list.json \\'https://api.github.com/repos/embeddings-benchmark/results/contents/results/\\' 2>&1 && wc -c /t\\nmp/models_list.json && python3 -c \"import json; data=json.load(open(\\'/tmp/models_list.json\\')); print(len(data),\\'models\\'); [print(x[\\'name\\']) for x in data[:10]]\"\\n 2>&1'}]}"
+    },
+    {
+      "step_id": 167,
+      "timestamp": "2026-10-17T14:36:29.166675+00:00",
+      "observation_tail": "{'results': [{'source_call_id': 'call_165_1', 'content': 'New Terminal Output:\\n\\nroot@real-241:/app# wget -q -O /tmp/d1.json \\'https://raw.githubusercontent.com/embeddings-benchmark/results/main/results/Alibaba-NLP__gte-Qwen2-7B-instruct/e261\\n82b2122f4435e8b3ebecbf363990f409b45b/BornholmBitextMining.json\\' && python3 -c \"\\n> import json\\n> d = json.load(open(\\'/tmp/d1.json\\'))\\n> print(\\'Keys:\\', list(d.keys()))\\n> print(\\'scores keys:\\', list(d[\\'scores\\'].keys()))\\n> for split in [\\'test\\',\\'validation\\',\\'dev\\']:\\n>     if split in d[\\'scores\\']:\\n>         for sg in d[\\'scores\\'][split]:\\n>             print(f\\'{split}: subgroups={list(sg.keys())}\\')\\n>             for ms in sg.get(\\'metric_scores\\',[]):\\n>                 print(f\\'  metric={ms[\\\\\"metric\\\\\"]} score={ms[\\\\\"score\\\\\"]}\\')\\n> \" 2>&1\\nKeys: [\\'dataset_revision\\', \\'evaluation_time\\', \\'kg_co2_emissions\\', \\'mteb_version\\', \\'scores\\', \\'task_name\\']\\nscores keys: [\\'test\\']\\ntest: subgroups=[\\'accuracy\\', \\'f1\\', \\'hf_subset\\', \\'languages\\', \\'main_score\\', \\'precision\\', \\'recall\\']\\nroot@real-241:/app#'}]}"
+    },
+    {
+      "step_id": 244,
+      "timestamp": "2026-10-17T15:39:44.971338+00:00",
+      "observation_tail": "{'results': [{'source_call_id': 'call_242_1', 'content': 'New Terminal Output:\\n\\n  FinParaSTS: 0.2499385297583571'}]}"
+    }
+  ]
+}

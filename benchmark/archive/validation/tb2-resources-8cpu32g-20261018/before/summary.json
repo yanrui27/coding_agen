@@ -1,0 +1,64 @@
+{
+  "updated_at": "2026-10-18T11:51:47.605710+00:00",
+  "complete": false,
+  "seeds": [
+    42
+  ],
+  "completed_seeds": 0,
+  "tasks_per_seed": 17,
+  "trials_total": 17,
+  "full_dataset_tasks_total": 89,
+  "is_full_task_set": false,
+  "completed_trials": 7,
+  "status_counts": {
+    "failed": 3,
+    "infrastructure_error": 2,
+    "passed": 1,
+    "queued": 2,
+    "ready": 4,
+    "running": 4,
+    "timeout": 1
+  },
+  "trial_concurrency": 4,
+  "resources_per_trial": {
+    "cpus": 32,
+    "memory_mib": 49152
+  },
+  "agent_timeout_sec": 10800,
+  "custom_max_turns": null,
+  "sampling": {
+    "temperature": 1.0,
+    "top_p": 0.95,
+    "top_k": 20,
+    "max_tokens": 81920,
+    "context_tokens": 262144,
+    "thinking": true
+  },
+  "runs": [
+    {
+      "seed": 42,
+      "tasks_total": 17,
+      "complete": false,
+      "status_counts": {
+        "failed": 3,
+        "infrastructure_error": 2,
+        "passed": 1,
+        "queued": 2,
+        "ready": 4,
+        "running": 4,
+        "timeout": 1
+      },
+      "successful_tasks": 1,
+      "success_rate_percent": null,
+      "progress": "results/Qwen3.6-35B-A3B/terminal-bench-2.0/apptainer-environment-retest17/seed42/progress.json"
+    }
+  ],
+  "mean_success_rate_percent": null,
+  "stddev_success_rate_percentage_points": null,
+  "stddev_method": "population standard deviation, ddof=0; withheld for a single run",
+  "sample_stddev_percentage_points": null,
+  "success_rate_denominator": "all 17 selected tasks per seed, including errors and timeouts",
+  "reference_hardware_compliant": true,
+  "hardware_deviation": null,
+  "memory_unit_interpretation": "Official says 48 GB; nominal alignment allocates 48 GiB (49152 MiB). Exact official byte limit is undisclosed."
+}

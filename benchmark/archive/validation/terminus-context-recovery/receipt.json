@@ -1,0 +1,64 @@
+{
+  "applied_at": "2026-10-17T04:43:05.358389+00:00",
+  "status": "installed and verified",
+  "harbor_version": "0.24.0",
+  "agent_upstream_version": "2.0.0",
+  "upstream_commit": "b53b8134e1241686dca7759af188f987ecc48e8b",
+  "local_build": "context-recovery.1",
+  "source_file": ".venv-harbor/lib/python3.12/site-packages/harbor/agents/terminus_2/terminus_2.py",
+  "upstream_source_sha256": "de15c2c86a66fdc9d7f75f974759835b1174e320fd146f393ef8101c46ba2e6e",
+  "installed_source_sha256": "fc46736975b1b9e2659c265b0378cabf2e12c2de473ae182011f77624aa6ddbb",
+  "patch_file": "archive/patches/harbor-0.24.0-terminus-context-recovery.patch",
+  "patch_sha256": "447ba6bc8ba0e28229e3b2dd695fda3b32b0f4e79a8bf44899d21afb3ec140bf",
+  "upstream_fix": {
+    "url": "https://github.com/harbor-framework/harbor/pull/3310",
+    "merge_commit": "bdd709b5c94917fae2e0c9b15c2a4d5d751306e1",
+    "target_branch": "harbor-miles-v0.20.0"
+  },
+  "budget_reference": {
+    "url": "https://github.com/marin-community/harbor/pull/55",
+    "merge_commit": "75380b70c4278d83ff729587279b5294a1a85c93"
+  },
+  "adaptations": [
+    "Use current options model in place of older fork private option fields.",
+    "Keep native 0.24.0 truncation recovery; do not add the fork-specific output-length policies.",
+    "Reserve the explicit requested output (81,920 in the current evaluation) together with summary prompts and full handoff; proactive threshold includes the reserve.",
+    "Preserve the first instruction, reset response chaining on compact fallback, retain effective handoff across transport retries, propagate unrecoverable errors."
+  ],
+  "tests": {
+    "before": {
+      "tests": 4,
+      "failures": 3,
+      "errors": 0,
+      "skipped": 0
+    },
+    "after": {
+      "tests": 23,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "module": "archive/tests/test_terminus_context_recovery.py",
+    "module_sha256": "444273bc85363a73a74421ec24b1f9a1e7ab774e2bfc11928840e5840246af40",
+    "dependencies": "archive/requirements-harbor-context-tests.lock.txt",
+    "dependencies_sha256": "617d37885ffe3d5a3c17a5b7eb02da560ba56c06bd9ef10b6dd7963aef9cfeed",
+    "live_smoke": "archive/validation/terminus-context-recovery/live-smoke.json",
+    "live_smoke_sha256": "656e3a7a76cfb2f912fc18e83bc15415c848635241cdc4d3400b9877760f9095",
+    "live_thinking": true,
+    "live_cases": 2,
+    "real_initial_context_errors": 2
+  },
+  "patch_forward_reverse_roundtrip_verified": true,
+  "task_commands_executed": 0,
+  "benchmark_runs_started": false,
+  "original_results_preserved": true,
+  "remaining_scope": [
+    "The other task failures, network/port isolation, OOM, and verifier HTTP timeout are not addressed by this context-recovery patch.",
+    "Token estimates still use the existing counter; this does not implement upstream issue #2382 exact-tokenizer support."
+  ],
+  "original_evaluation_files": {
+    "summary.json": "794181fd8be0839c2445a8aea4f60ba141f50c78c4170d8bdd516d14a9f9f138",
+    "run.json": "12658ba703ffc75f0f5534dd9d7ca6bbcebdc13cdb5ee49eb7716ec837d5a0ef",
+    "seed42/progress.json": "4c20f8df412e59d0c233966549ee793fef92a50ba941f83e2d06afe704d1fd64"
+  }
+}

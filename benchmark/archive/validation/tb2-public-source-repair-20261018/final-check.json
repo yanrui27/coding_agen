@@ -1,0 +1,10 @@
+{
+  "checked_at": "2026-10-18T10:20:47.476746+00:00",
+  "official_files_verified_unchanged": 859,
+  "candidate_manifest_coverage": "17/17",
+  "active_services": [
+    "coding-agent-tb2-envfix.service",
+    "coding-agent-tb2-public-source.service",
+    "coding-agent-eval-queue.service"
+  ]
+}

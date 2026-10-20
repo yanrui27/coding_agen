@@ -1,0 +1,146 @@
+FFF.                                                                     [100%]
+=================================== FAILURES ===================================
+____________________ test_fallback_replaces_history[False] _____________________
+
+recovery_agent = <harbor.agents.terminus_2.terminus_2.Terminus2 object at 0x76fffbc2acc0>
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x76fffbc778c0>
+short_summary_fails = False
+
+    @pytest.mark.parametrize("short_summary_fails", [False, True])
+    async def test_fallback_replaces_history(
+        recovery_agent: Terminus2,
+        monkeypatch: pytest.MonkeyPatch,
+        short_summary_fails: bool,
+    ) -> None:
+        agent = recovery_agent
+        chat = history_chat(agent)
+        first_message = copy.deepcopy(chat.messages[0])
+        session = AsyncMock(spec=TmuxSession)
+        session.capture_pane.return_value = "CURRENT TERMINAL STATE"
+        monkeypatch.setattr(
+            agent, "_summarize", AsyncMock(side_effect=ContextLengthExceededError())
+        )
+        requests = []
+    
+        async def call(prompt: str, **kwargs: Any) -> LLMResponse:
+            requests.append((prompt, copy.deepcopy(kwargs)))
+            if len(requests) == 1:
+                raise ContextLengthExceededError()
+            if prompt.startswith("Briefly continue"):
+                if short_summary_fails:
+                    raise ContextLengthExceededError()
+                return LLMResponse(content="Inspect the saved implementation.")
+            # Emulate a server that still rejects retained full history, even if
+            # the local token estimate claims there is enough room.
+            if len(kwargs.get("message_history", [])) > 1:
+                raise ContextLengthExceededError()
+            return LLMResponse(content='{"commands": [], "task_complete": false}')
+    
+        mock_llm(agent).call.side_effect = call
+        result = await agent._query_llm(chat, "continue", "ORIGINAL TASK", session)
+    
+>       assert result.content.startswith('{"commands"')
+E       assert False
+E        +  where False = <built-in method startswith of str object at 0x770004807ab0>('{"commands"')
+E        +    where <built-in method startswith of str object at 0x770004807ab0> = 'Technical difficulties. Please continue with the task.'.startswith
+E        +      where 'Technical difficulties. Please continue with the task.' = LLMResponse(content='Technical difficulties. Please continue with the task.', reasoning_content=None, model_name=None, usage=None, response_id=None, prompt_token_ids=None, completion_token_ids=None, logprobs=None, extra=None).content
+
+archive/tests/test_terminus_context_recovery.py:102: AssertionError
+------------------------------ Captured log call -------------------------------
+DEBUG    harbor.utils.logger.harbor.agents.base:terminus_2.py:1144 Context length exceeded. Using fallback summarization.
+DEBUG    harbor.utils.logger.harbor.agents.base:terminus_2.py:714 Unwound messages. Remaining messages: 3, Free tokens: approximately 8000
+DEBUG    harbor.utils.logger.harbor.agents.base:terminus_2.py:1154 SUMMARIZATION: Attempting full summary
+DEBUG    harbor.utils.logger.harbor.agents.base:terminus_2.py:1164 SUMMARIZATION: Full summary failed: 
+DEBUG    harbor.utils.logger.harbor.agents.base:terminus_2.py:1169 SUMMARIZATION: Attempting short summary
+DEBUG    harbor.utils.logger.harbor.agents.base:terminus_2.py:1180 SUMMARIZATION: Short summary succeeded
+ERROR    harbor.utils.logger.harbor.agents.base:terminus_2.py:1204 Even fallback chat failed:
+_____________________ test_fallback_replaces_history[True] _____________________
+
+recovery_agent = <harbor.agents.terminus_2.terminus_2.Terminus2 object at 0x76fffbcddfa0>
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x76fffbcdf0b0>
+short_summary_fails = True
+
+    @pytest.mark.parametrize("short_summary_fails", [False, True])
+    async def test_fallback_replaces_history(
+        recovery_agent: Terminus2,
+        monkeypatch: pytest.MonkeyPatch,
+        short_summary_fails: bool,
+    ) -> None:
+        agent = recovery_agent
+        chat = history_chat(agent)
+        first_message = copy.deepcopy(chat.messages[0])
+        session = AsyncMock(spec=TmuxSession)
+        session.capture_pane.return_value = "CURRENT TERMINAL STATE"
+        monkeypatch.setattr(
+            agent, "_summarize", AsyncMock(side_effect=ContextLengthExceededError())
+        )
+        requests = []
+    
+        async def call(prompt: str, **kwargs: Any) -> LLMResponse:
+            requests.append((prompt, copy.deepcopy(kwargs)))
+            if len(requests) == 1:
+                raise ContextLengthExceededError()
+            if prompt.startswith("Briefly continue"):
+                if short_summary_fails:
+                    raise ContextLengthExceededError()
+                return LLMResponse(content="Inspect the saved implementation.")
+            # Emulate a server that still rejects retained full history, even if
+            # the local token estimate claims there is enough room.
+            if len(kwargs.get("message_history", [])) > 1:
+                raise ContextLengthExceededError()
+            return LLMResponse(content='{"commands": [], "task_complete": false}')
+    
+        mock_llm(agent).call.side_effect = call
+        result = await agent._query_llm(chat, "continue", "ORIGINAL TASK", session)
+    
+>       assert result.content.startswith('{"commands"')
+E       assert False
+E        +  where False = <built-in method startswith of str object at 0x770004807ab0>('{"commands"')
+E        +    where <built-in method startswith of str object at 0x770004807ab0> = 'Technical difficulties. Please continue with the task.'.startswith
+E        +      where 'Technical difficulties. Please continue with the task.' = LLMResponse(content='Technical difficulties. Please continue with the task.', reasoning_content=None, model_name=None, usage=None, response_id=None, prompt_token_ids=None, completion_token_ids=None, logprobs=None, extra=None).content
+
+archive/tests/test_terminus_context_recovery.py:102: AssertionError
+------------------------------ Captured log call -------------------------------
+DEBUG    harbor.utils.logger.harbor.agents.base:terminus_2.py:1144 Context length exceeded. Using fallback summarization.
+DEBUG    harbor.utils.logger.harbor.agents.base:terminus_2.py:714 Unwound messages. Remaining messages: 3, Free tokens: approximately 8000
+DEBUG    harbor.utils.logger.harbor.agents.base:terminus_2.py:1154 SUMMARIZATION: Attempting full summary
+DEBUG    harbor.utils.logger.harbor.agents.base:terminus_2.py:1164 SUMMARIZATION: Full summary failed: 
+DEBUG    harbor.utils.logger.harbor.agents.base:terminus_2.py:1169 SUMMARIZATION: Attempting short summary
+ERROR    harbor.utils.logger.harbor.agents.base:terminus_2.py:1182 SUMMARIZATION: Short summary failed: 
+DEBUG    harbor.utils.logger.harbor.agents.base:terminus_2.py:1186 SUMMARIZATION: Using ultimate fallback
+ERROR    harbor.utils.logger.harbor.agents.base:terminus_2.py:1204 Even fallback chat failed:
+________ test_unrecoverable_context_error_is_not_a_fabricated_response _________
+
+recovery_agent = <harbor.agents.terminus_2.terminus_2.Terminus2 object at 0x76fffbb69d60>
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x76fffbb6aea0>
+
+    async def test_unrecoverable_context_error_is_not_a_fabricated_response(
+        recovery_agent: Terminus2, monkeypatch: pytest.MonkeyPatch
+    ) -> None:
+        agent = recovery_agent
+        session = AsyncMock(spec=TmuxSession)
+        session.capture_pane.return_value = "screen"
+        monkeypatch.setattr(
+            agent, "_summarize", AsyncMock(side_effect=ContextLengthExceededError())
+        )
+        mock_llm(agent).call.side_effect = ContextLengthExceededError()
+    
+>       with pytest.raises(ContextLengthExceededError):
+E       Failed: DID NOT RAISE <class 'harbor.llms.base.ContextLengthExceededError'>
+
+archive/tests/test_terminus_context_recovery.py:128: Failed
+------------------------------ Captured log call -------------------------------
+DEBUG    harbor.utils.logger.harbor.agents.base:terminus_2.py:1144 Context length exceeded. Using fallback summarization.
+DEBUG    harbor.utils.logger.harbor.agents.base:terminus_2.py:714 Unwound messages. Remaining messages: 3, Free tokens: approximately 8000
+DEBUG    harbor.utils.logger.harbor.agents.base:terminus_2.py:1154 SUMMARIZATION: Attempting full summary
+DEBUG    harbor.utils.logger.harbor.agents.base:terminus_2.py:1164 SUMMARIZATION: Full summary failed: 
+DEBUG    harbor.utils.logger.harbor.agents.base:terminus_2.py:1169 SUMMARIZATION: Attempting short summary
+ERROR    harbor.utils.logger.harbor.agents.base:terminus_2.py:1182 SUMMARIZATION: Short summary failed: 
+DEBUG    harbor.utils.logger.harbor.agents.base:terminus_2.py:1186 SUMMARIZATION: Using ultimate fallback
+ERROR    harbor.utils.logger.harbor.agents.base:terminus_2.py:1204 Even fallback chat failed:
+- generated xml file: /mnt/data/rui.yan/projects/coding_agent/data/benchmark/.cache/tmp/harbor-context-backport/baseline.xml -
+=========================== short test summary info ============================
+FAILED archive/tests/test_terminus_context_recovery.py::test_fallback_replaces_history[False]
+FAILED archive/tests/test_terminus_context_recovery.py::test_fallback_replaces_history[True]
+FAILED archive/tests/test_terminus_context_recovery.py::test_unrecoverable_context_error_is_not_a_fabricated_response
+3 failed, 1 passed, 13 deselected in 18.74s

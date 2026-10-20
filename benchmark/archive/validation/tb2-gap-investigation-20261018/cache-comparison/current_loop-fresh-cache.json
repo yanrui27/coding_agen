@@ -1,0 +1,46 @@
+{
+  "id": "chatcmpl-974560778ac4ea94",
+  "object": "chat.completion",
+  "created": 1792333566,
+  "model": "Qwen3.6-35B-A3B",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "\n\n{\n  \"analysis\": \"The terminal is in a confused state from accumulated failed commands. The SSH connection to port 2222 hangs after the version string exchange. The VM is running via tmux with QEMU and has sshd configured on port 22. I need to check the current state and fix the SSH connection issue.\",\n  \"plan\": \"First, check the current terminal state. Then check if QEMU and the VM are still running. If not, restart everything from scratch with a clean approach, and diagnose the SSH hang issue.\",\n  \"commands\": [\n    {\n      \"keystrokes\": \"\\n\",\n      \"duration\": 1.0\n    },\n    {\n      \"keystrokes\": \"tmux list-sessions\\n\",\n      \"duration\": 0.5\n    }\n  ]\n}",
+        "refusal": null,
+        "annotations": null,
+        "audio": null,
+        "function_call": null,
+        "reasoning": "The terminal seems to have issues with my responses. Let me try a clean, simple JSON response with actual commands to diagnose and fix the SSH issue. The key problem is that SSH connection to port 2222 (forwarded to guest port 22) hangs after the version string exchange. Let me check what's happening with the VM and try a fresh approach.\n</anTh>\n"
+      },
+      "logprobs": null,
+      "finish_reason": "stop",
+      "stop_reason": null,
+      "token_ids": null,
+      "routed_experts": null
+    }
+  ],
+  "service_tier": null,
+  "system_fingerprint": "vllm-0.28.0-tp4-6e3d730b",
+  "usage": {
+    "prompt_tokens": 56332,
+    "total_tokens": 56599,
+    "completion_tokens": 267,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "created_cache_tokens": 55488,
+      "multimodal_tokens": null
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 82
+    }
+  },
+  "prompt_logprobs": null,
+  "prompt_token_ids": null,
+  "prompt_text": null,
+  "kv_transfer_params": null,
+  "ec_transfer_params": null,
+  "metrics": null
+}

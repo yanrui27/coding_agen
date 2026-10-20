@@ -1,0 +1,15 @@
+--- a/.venv-harbor/lib/python3.12/site-packages/harbor/environments/singularity/bootstrap.sh
++++ b/.venv-harbor/lib/python3.12/site-packages/harbor/environments/singularity/bootstrap.sh
+@@ -149,4 +149,11 @@
+   echo "[harbor] WARNING: uvicorn/fastapi lost after setup.sh, server may fail" >&2
+ fi
+ 
+-exec "$HARBOR_PYTHON" "$@"
++# Give evaluation transport its own executable name. Ordinary task cleanup
++# such as pkill python3 / pgrep -f python3 must target task Python processes,
++# just as it does when the transport runs outside a Docker container.
++# Keep the alias beside the original interpreter so pyvenv.cfg still applies.
++_HARBOR_CONTROL_PY="$(dirname -- "$HARBOR_PYTHON")/hbexec"
++ln -sf -- "$(basename -- "$HARBOR_PYTHON")" "$_HARBOR_CONTROL_PY" \
++  || { echo "[harbor] FATAL: cannot name the control interpreter" >&2; exit 1; }
++exec "$_HARBOR_CONTROL_PY" "$@"

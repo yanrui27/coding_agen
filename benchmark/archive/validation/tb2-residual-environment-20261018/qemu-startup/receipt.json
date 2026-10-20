@@ -1,0 +1,19 @@
+{
+  "task": "qemu-startup",
+  "model_calls": 0,
+  "image_sha256": "bfac152f5ebd456a933e1ee8c5ce43066108361fa7b83fad818b8be37adf55f5",
+  "started": true,
+  "port_bind_check": {
+    "bound_ports": [
+      25,
+      80,
+      8000,
+      8080
+    ]
+  },
+  "exec_without_hidden_transport_limit": true,
+  "passed": false,
+  "error_type": "AssertionError",
+  "error": "Hit:1 http://mirrors.aliyun.com/debian bullseye InRelease\nHit:2 http://mirrors.aliyun.com/debian bullseye-updates InRelease\nGet:3 http://mirrors.aliyun.com/debian bullseye/main Sources [8500 kB]\nHit:4 https://security.debian.org/debian-security bullseye-security InRelease\nGet:5 https://security.debian.org/debian-security bullseye-security/main Sources [311 kB]\nGet:6 http://mirrors.aliyun.com/debian bullseye-updates/main Sources [7908 B]\nFetched 8819 kB in 30s (291 kB/s)\nReading package lists...\nReading package lists...\nBuilding dependency tree...\nReading state information...\nexpect is already the newest version (5.45.4-2+b1).\nThe following additional packages will be installed:\n  libcurl4 libldap-2.4-2 libldap-common libnghttp2-14 librtmp1 libssh2-1\nThe following NEW packages will be installed:\n  curl libcurl4 libldap-2.4-2 libldap-common libnghttp2-14 librtmp1 libssh2-1\n0 upgraded, 7 newly installed, 0 to remove and 69 not upgraded.\nNeed to get 1241 kB of archives.\nAfter this operation, 2556 kB of additional disk space will be used.\nGet:1 http://mirrors.aliyun.com/debian bullseye/main amd64 libldap-2.4-2 amd64 2.4.57+dfsg-3+deb11u1 [232 kB]\nGet:2 http://mirrors.aliyun.com/debian bullseye/main amd64 librtmp1 amd64 2.4+20151223.gitfa8646d.1-2+b2 [60.8 kB]\nGet:3 http://mirrors.aliyun.com/debian bullseye/main amd64 libssh2-1 amd64 1.9.0-2+deb11u1 [156 kB]\nGet:4 http://mirrors.aliyun.com/debian bullseye/main amd64 libldap-common all 2.4.57+dfsg-3+deb11u1 [95.8 kB]\nErr:5 https://security.debian.org/debian-security bullseye-security/main amd64 libnghttp2-14 amd64 1.43.0-1+deb11u3\n  404  Not Found [IP: 151.101.66.132 443]\nErr:6 https://security.debian.org/debian-security bullseye-security/main amd64 libcurl4 amd64 7.74.0-1.3+deb11u16\n  404  Not Found [IP: 151.101.66.132 443]\nErr:7 https://security.debian.org/debian-security bullseye-security/main amd64 curl amd64 7.74.0-1.3+deb11u16\n  404  Not Found [IP: 151.101.66.132 443]\nFetched 544 kB in 2s (228 kB/s)\nE: Failed to fetch https://security.debian.org/debian-security/pool/updates/main/n/nghttp2/libnghttp2-14_1.43.0-1%2bdeb11u3_amd64.deb  404  Not Found [IP: 151.101.66.132 443]\nE: Failed to fetch https://security.debian.org/debian-security/pool/updates/main/c/curl/libcurl4_7.74.0-1.3%2bdeb11u16_amd64.deb  404  Not Found [IP: 151.101.66.132 443]\nE: Failed to fetch https://security.debian.org/debian-security/pool/updates/main/c/curl/curl_7.74.0-1.3%2bdeb11u16_amd64.deb  404  Not Found [IP: 151.101.66.132 443]\nE: Unable to fetch some archives, maybe run apt-get update or try with --fix-missing?\nbash: line 8: curl: command not found\nbash: line 10: /root/.local/bin/env: No such file or directory\n",
+  "elapsed_seconds": 99.062
+}

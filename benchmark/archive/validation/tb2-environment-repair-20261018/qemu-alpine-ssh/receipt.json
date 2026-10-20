@@ -1,0 +1,17 @@
+{
+  "task": "qemu-alpine-ssh",
+  "model_calls": 0,
+  "image_sha256": "de04b46c20ac967175bf722ce7c639883436e9f925ba4e80b48d148a92906354",
+  "started": true,
+  "port_bind_check": {
+    "bound_ports": [
+      25,
+      80,
+      8000,
+      8080
+    ]
+  },
+  "exec_without_hidden_transport_limit": true,
+  "passed": true,
+  "elapsed_seconds": 35.633
+}

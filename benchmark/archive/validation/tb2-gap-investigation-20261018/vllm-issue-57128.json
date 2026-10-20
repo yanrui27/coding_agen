@@ -1,0 +1,110 @@
+{
+  "url": "https://api.github.com/repos/vllm-project/vllm/issues/57128",
+  "repository_url": "https://api.github.com/repos/vllm-project/vllm",
+  "labels_url": "https://api.github.com/repos/vllm-project/vllm/issues/57128/labels{/name}",
+  "comments_url": "https://api.github.com/repos/vllm-project/vllm/issues/57128/comments",
+  "events_url": "https://api.github.com/repos/vllm-project/vllm/issues/57128/events",
+  "html_url": "https://github.com/vllm-project/vllm/pull/57128",
+  "id": 5471062112,
+  "node_id": "PR_kwDOI7xefs8AAAABDuHvtw",
+  "number": 57128,
+  "title": "[Bugfix] MambaManager.find_longest_cache_hit ignores drop_eagle_block, silent corruption with prefix caching + MTP/EAGLE",
+  "user": {
+    "login": "limwand",
+    "id": 7585356,
+    "node_id": "MDQ6VXNlcjc1ODUzNTY=",
+    "avatar_url": "https://avatars.githubusercontent.com/u/7585356?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/limwand",
+    "html_url": "https://github.com/limwand",
+    "followers_url": "https://api.github.com/users/limwand/followers",
+    "following_url": "https://api.github.com/users/limwand/following{/other_user}",
+    "gists_url": "https://api.github.com/users/limwand/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/limwand/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/limwand/subscriptions",
+    "organizations_url": "https://api.github.com/users/limwand/orgs",
+    "repos_url": "https://api.github.com/users/limwand/repos",
+    "events_url": "https://api.github.com/users/limwand/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/limwand/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "labels": [
+    {
+      "id": 5135047172,
+      "node_id": "LA_kwDOI7xefs8AAAABMhKaBA",
+      "url": "https://api.github.com/repos/vllm-project/vllm/labels/bug",
+      "name": "bug",
+      "color": "d73a4a",
+      "default": true,
+      "description": "Something isn't working",
+      "archived_at": null,
+      "archived_by": null
+    },
+    {
+      "id": 7614859318,
+      "node_id": "LA_kwDOI7xefs8AAAABxeGINg",
+      "url": "https://api.github.com/repos/vllm-project/vllm/labels/needs-rebase",
+      "name": "needs-rebase",
+      "color": "d4c5f9",
+      "default": false,
+      "description": "",
+      "archived_at": null,
+      "archived_by": null
+    },
+    {
+      "id": 11777489391,
+      "node_id": "LA_kwDOI7xefs8AAAACvf457w",
+      "url": "https://api.github.com/repos/vllm-project/vllm/labels/kv-cache-manager",
+      "name": "kv-cache-manager",
+      "color": "d065a7",
+      "default": false,
+      "description": "",
+      "archived_at": null,
+      "archived_by": null
+    }
+  ],
+  "state": "open",
+  "locked": false,
+  "assignees": [
+
+  ],
+  "milestone": null,
+  "comments": 5,
+  "created_at": "2026-09-16T06:31:12Z",
+  "updated_at": "2026-10-06T09:33:21Z",
+  "closed_at": null,
+  "assignee": null,
+  "author_association": "NONE",
+  "issue_field_values": [
+
+  ],
+  "type": null,
+  "active_lock_reason": null,
+  "draft": false,
+  "pull_request": {
+    "url": "https://api.github.com/repos/vllm-project/vllm/pulls/57128",
+    "html_url": "https://github.com/vllm-project/vllm/pull/57128",
+    "diff_url": "https://github.com/vllm-project/vllm/pull/57128.diff",
+    "patch_url": "https://github.com/vllm-project/vllm/pull/57128.patch",
+    "merged_at": null
+  },
+  "body": "<!-- AI-assisted PR: drafted and tested with Claude (Anthropic) assistance, reviewed and submitted by the author. -->\r\n\r\n## Purpose\r\n\r\n`MambaManager.find_longest_cache_hit` (`vllm/v1/core/single_type_kv_cache_manager.py`) accepts `drop_eagle_block` as a parameter but never acts on it. When native MTP/EAGLE speculative decoding is combined with `--enable-prefix-caching` on a hybrid Mamba/GDN model, a matched block containing recurrent state written over rejected draft positions stays reachable through the prefix cache and gets reused by later requests sharing that prefix. This causes silent corruption (empty or repeated-character output, no error, no crash) -- matches #53912.\r\n\r\nThe root cause is also visible in `kv_cache_coordinator.py`: the coordinator deliberately skips the eagle_margin for `MambaSpec` groups, with a comment explaining *why* it doesn't need to (`MambaManager`'s own finder is expected to apply the drop) -- but the finder never did.\r\n\r\nAn earlier, simpler fix (#43650) addressed an older version of this function by pre-shrinking the search ceiling by one unit before scanning. That approach doesn't carry over to the current, rewritten `find_longest_cache_hit`: in `mamba_cache_mode=\"align\"`, real state checkpoints only exist at sparse block boundaries, not at every fine-grained hash unit, so pre-shrinking the ceiling reliably lands in a gap between checkpoints and yields **0% cache-hit-rate** (confirmed live, see Test Plan).\r\n\r\n## Fix\r\n\r\nMirror `FullAttentionManager`'s drop semantics, adapted to Mamba's snapshot (not chained-block) write model: scan the full, unrestricted window, and skip only the *first* (most recent) checkpoint actually found when `drop_eagle_block` is set, then keep scanning for the next (older, already-committed) one. This excludes exactly the one block that may hold unverified draft state, without blanking the whole tail of the search window. Applied to both the fine-grained and coarse-grained branches of the function.\r\n\r\n`kv_cache_coordinator.py` only needed a comment update (no logic change) -- the coordinator's existing choice to skip the eagle_margin for Mamba groups was already correct, it just documented the wrong reason.\r\n\r\n## Test Plan\r\n\r\n- `ruff check` / `ruff format --check`: clean.\r\n- New unit tests in `tests/v1/core/test_single_type_kv_cache_manager.py` covering `MambaManager.find_longest_cache_hit` with `drop_eagle_block=True/False`, through both the coarse and fine-grained branches, plus the single-checkpoint edge case (drop must fall back to no hit, never a corrupted match). Passed locally (Python 3.12, CPU-only, `torch==2.8.0` + `requirements/common.txt`).\r\n- Live end-to-end test against a real hybrid Mamba/GDN model:\r\n  - **Hardware**: 2x NVIDIA RTX 5060 Ti 16GB (TP=2)\r\n  - **Image**: `vllm/vllm-openai:v0.29.0-cu129`\r\n  - **Model**: Qwen3.8-27B-NVFP4 (hybrid linear-attention/full-attention, `full_attention_interval=4`, native MTP head)\r\n  - **Config**: `--kv-cache-dtype turboquant_4bit_nc`, `--speculative-config '{\"method\":\"mtp\",\"num_speculative_tokens\":1}'`, `--enable-prefix-caching`, `--max-model-len 131072`\r\n  - Before this fix: `--enable-prefix-caching` + MTP together gave 0% prefix-cache-hit-rate (the pre-shrink approach) or corruption risk (with drop_eagle_block unhandled).\r\n  - With this fix: confirmed real cache hits under concurrent shared-prefix load (8 concurrent requests, ~4.4k shared prefix, no corruption in repeated correctness checks) and on a larger, more realistic shared prefix (~24k tokens): warm requests dropped from ~77s (cold) to ~30-32s, with instrumented logging confirming a genuine partial hit of 15,440 of ~18,528 available tokens (5 of 7 candidate blocks, correctly skipping the most recent/unverified one).\r\n\r\n## Test Result\r\n\r\nAll new and existing tests pass. Live smoke tests show no corruption and a real cache-hit speedup on realistic shared-prefix traffic.\r\n\r\n<!--\r\nBefore submitting a PR, please read the checklist below and ensure the PR has met all of them.\r\n- [x] I have added tests that prove my fix is effective or that my feature works\r\n- [x] I have made corresponding changes to the documentation (comment update in kv_cache_coordinator.py)\r\n-->\r\n",
+  "closed_by": null,
+  "reactions": {
+    "url": "https://api.github.com/repos/vllm-project/vllm/issues/57128/reactions",
+    "total_count": 3,
+    "+1": 1,
+    "-1": 0,
+    "laugh": 0,
+    "hooray": 0,
+    "confused": 0,
+    "heart": 1,
+    "rocket": 1,
+    "eyes": 0
+  },
+  "timeline_url": "https://api.github.com/repos/vllm-project/vllm/issues/57128/timeline",
+  "performed_via_github_app": null,
+  "state_reason": null
+}

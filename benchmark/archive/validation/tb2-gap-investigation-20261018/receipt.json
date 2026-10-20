@@ -1,0 +1,89 @@
+{
+  "created_at": "2026-10-18T14:12:29.268170+00:00",
+  "model_calls_for_control_fix": 0,
+  "control_before": {
+    "task": "install-windows-3.11",
+    "model_calls": 0,
+    "image_sha256": "2d05f6075df05a598ebf75fd2a01e6afa5f512aa798a716262470d91d18f6162",
+    "started": true,
+    "controller_before": [
+      "     14 python3         /opt/harbor-server/bin/python3 /staging/_hbexec.py --port 42249 --workdir /app"
+    ],
+    "original_agent_cleanup_command": "kill -9 $(pgrep -f 'qemu|nc|python3') 2>/dev/null; sleep 1",
+    "health_exception": "ConnectError",
+    "controller_survived_cleanup": false,
+    "probe_mode": "baseline",
+    "passed": true,
+    "elapsed_seconds": 82.591
+  },
+  "control_after": {
+    "task": "install-windows-3.11",
+    "model_calls": 0,
+    "image_sha256": "2d05f6075df05a598ebf75fd2a01e6afa5f512aa798a716262470d91d18f6162",
+    "started": true,
+    "controller_before": [
+      "     15 hbexec          /opt/harbor-server/bin/hbexec /staging/_hbexec.py --port 39683 --workdir /app"
+    ],
+    "original_agent_cleanup_command": "kill -9 $(pgrep -f 'qemu|nc|python3') 2>/dev/null; sleep 1",
+    "controller_survived_cleanup": true,
+    "ordinary_python_process_killed": true,
+    "comm_name_cleanup_survived": true,
+    "filesystem_and_terminal_preserved": true,
+    "probe_mode": "protected",
+    "passed": true,
+    "elapsed_seconds": 83.903
+  },
+  "dataset_files_checked": 859,
+  "dataset_files_changed": [],
+  "special_keys_review": {
+    "parser_identical_to_upstream": true,
+    "tmux_send_keys_command_matches_upstream": true,
+    "policy": "No control-key normalization/prompt edits; C-c newline remains a model usage error under the upstream contract"
+  },
+  "resources": {
+    "cpus_per_trial": 8,
+    "memory_mib_per_trial": 32768,
+    "max_total_model_trials": 4
+  },
+  "new_native_reruns": [
+    "install-windows-3.11",
+    "gpt2-codegolf"
+  ],
+  "scoring": "Zero-model control probes and inference diagnostic replays do not count as benchmark passes",
+  "patches": [
+    "harbor-0.24.0-control-interpreter-name.patch",
+    "harbor-0.24.0-response-observability.patch"
+  ],
+  "updated_at": "2026-10-18T14:29:26.731227+00:00",
+  "prefix_cache_cause": {
+    "confirmed_by": "Two exact-context cache-isolation A/B pairs, warm=invalid empty response, cold=valid JSON",
+    "controlled_replay_calls": 4,
+    "harbor_client_validation_calls": 3,
+    "harbor_client_success_receipt": "harbor-cache-integration.json",
+    "main_service_restarted": false,
+    "fix": "Unique per-call cache_salt; same prompts and sampling",
+    "upstream_issue": "https://github.com/vllm-project/vllm/issues/53912"
+  },
+  "native_followups_superseded_by": "Uniform repaired full89: apptainer-environment-fixed",
+  "source_sha256": {
+    "scripts/eval_tb2.py": "685c5a88b09896aa42618893d624f2d58a44edcb15212ce4f95a0e128a6d7e33",
+    "scripts/run_tb2_fixed89.py": "a467bb812a8611e7e30216b10c338fc280e2941a905533dd1ec1e52023adea17",
+    "run_tb2.sh": "dfcfc3ab8960489c927c90c1ea5fa46d59369c1e7b268d55e37b537895ef2e96",
+    ".venv-harbor/lib/python3.12/site-packages/harbor/llms/lite_llm.py": "cdf40b02074e13b28cc592682b0893c7446fe89e63171cf6221e4387f6bcff34",
+    ".venv-harbor/lib/python3.12/site-packages/harbor/environments/singularity/bootstrap.sh": "532624b1c2351f181543a65926720f956f75d0779eb59387938014a1fa8de5d1"
+  },
+  "diagnosis_confidence_review": {
+    "at": "2026-10-18T15:11:55.887705+00:00",
+    "trigger": "User challenged certainty of GDN rejected-draft-state explanation",
+    "observations": "Two saved-context pairs: shared-cache requests produced empty/gibberish responses; fresh cache_salt requests produced valid JSON. Two additional isolated Harbor calls parsed commands.",
+    "limits": [
+      "Only one warm/cold pair per saved context; temperature1, concurrent service workload, no repeated balanced warm/cold study",
+      "No MTP-disabled comparison on this main service",
+      "No direct inspection of GDN state snapshots or rejected-token rollback",
+      "No local validation that an upstream state-management patch removes the fault"
+    ],
+    "specific_GDN_MTP_mechanism": "Unconfirmed hypothesis, consistent with upstream reports",
+    "interpretation": "Strong lead involving the cache-hit path; cache isolation is a tested workaround, not a proven root-cause patch",
+    "official_score_gap_explained": "Not quantified"
+  }
+}

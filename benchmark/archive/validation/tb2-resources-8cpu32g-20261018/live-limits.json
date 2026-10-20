@@ -1,0 +1,30 @@
+{
+  "changed_at": "2026-10-18T11:51:50.585858+00:00",
+  "user_instruction": "我不是说 8cpu 32内存吗？",
+  "changes": [
+    {
+      "task": "fix-ocaml-gc",
+      "scope": "coding-agent-tb2-envfix-s42-fix-ocaml-gc-1.scope",
+      "cpu_quota_cores": 8,
+      "memory_max_bytes": 34359738368
+    },
+    {
+      "task": "mailman",
+      "scope": "coding-agent-tb2-envfix-s42-mailman-1.scope",
+      "cpu_quota_cores": 8,
+      "memory_max_bytes": 34359738368
+    },
+    {
+      "task": "make-mips-interpreter",
+      "scope": "coding-agent-tb2-envfix-s42-make-mips-interpreter-1.scope",
+      "cpu_quota_cores": 8,
+      "memory_max_bytes": 34359738368
+    },
+    {
+      "task": "pypi-server",
+      "scope": "coding-agent-tb2-envfix-s42-pypi-server-1.scope",
+      "cpu_quota_cores": 8,
+      "memory_max_bytes": 34359738368
+    }
+  ]
+}

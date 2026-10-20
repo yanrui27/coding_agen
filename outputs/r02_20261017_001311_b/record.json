@@ -1,0 +1,97 @@
+{
+  "name": "batch-r02-20261017-001311",
+  "variant": "full",
+  "run_dir": "/mnt/data/rui.yan/projects/coding_agent/outputs/r02_20261017_001311_b",
+  "hf_output": "/mnt/data/rui.yan/projects/coding_agent/ckpts/r02_20261017_001311_b_hf",
+  "parameters": {
+    "model": "/mnt/model/ckpts/Qwen3.6-35B-A3B",
+    "gpus": 16,
+    "nodes": 2,
+    "max_length": 262144,
+    "packing": true,
+    "tensor_parallel": 16,
+    "sequence_parallel": true,
+    "sequence_parallel_size": 16,
+    "expert_parallel": 16,
+    "expert_tensor_parallel": 1,
+    "context_parallel": 1,
+    "pipeline_parallel": 1,
+    "micro_batch_size": 1,
+    "global_batch_size": 8,
+    "epochs": 1,
+    "lr": 1e-05,
+    "min_lr": 1e-06,
+    "schedule": "cosine",
+    "warmup_fraction": 0.03,
+    "save_steps": 100,
+    "retain_all_checkpoints": true,
+    "optimizer_cpu_offload_fraction": 1.0,
+    "seed": 42
+  },
+  "input_rows_before_length_filter": 68567,
+  "sources": {
+    "mindforge": {
+      "path": "/mnt/data/rui.yan/projects/coding_agent/sft/data/mindforge.train.jsonl",
+      "dataset": "mindforge",
+      "split": "train",
+      "bytes": 676297388,
+      "rows": 1001,
+      "sha256": "19e7f9c70558f66d82ca0b0f1f51fe30e29437c972a1e11c06ea607071c6af90"
+    },
+    "rts_all": {
+      "path": "/mnt/data/rui.yan/projects/coding_agent/sft/data/rts_all.train.jsonl",
+      "dataset": "rts_all",
+      "split": "train",
+      "bytes": 6350285319,
+      "rows": 66012,
+      "sha256": "2c1f10299ca99d6f363ba009b1b947b492508952e4b19b6cabfab101b007e67b"
+    },
+    "rlmath_all": {
+      "path": "/mnt/data/rui.yan/projects/coding_agent/sft/data/rlmath_all.train.jsonl",
+      "dataset": "rlmath_all",
+      "split": "train",
+      "bytes": 19523846,
+      "rows": 1445,
+      "sha256": "95dd5f58ab41408c8db95870761a4e322f3e8394d916f80ad7a4af2c3c4dfc47"
+    },
+    "naturebench_all": {
+      "path": "/mnt/data/rui.yan/projects/coding_agent/sft/data/naturebench_all.train.jsonl",
+      "dataset": "naturebench_all",
+      "split": "train",
+      "bytes": 38052295,
+      "rows": 109,
+      "sha256": "e37a6222a50fb2a264f33b0eeafeded846d72770d36592c4e229483fb50c38a2"
+    }
+  },
+  "code_sha256": {
+    "train_agent.sh": "b5ed3352d3932d90278ae76dd1ffddda19ff5b189bcf1d55049c7570c7af8e82",
+    "runtime.py": "9b652a0ca27eed11afadd518ce4264a3f89ca38f6caf3ff24f702620022c9bff"
+  },
+  "initialization": "original base model independently for both runs",
+  "job_order": 1,
+  "job_uid": "7995edc7e19942b085a13c472e7e459e",
+  "scheduling_observation": {
+    "uid": "7995edc7e19942b085a13c472e7e459e",
+    "state": "STARTING",
+    "workers": [
+      {
+        "name": "pt-7995edc7e19942b085a13c472e7e459e-master-0",
+        "phase": "Pending",
+        "node": ""
+      },
+      {
+        "name": "pt-7995edc7e19942b085a13c472e7e459e-worker-0",
+        "phase": "Pending",
+        "node": ""
+      }
+    ],
+    "observed_at": "2026-10-16T16:17:28.602714+00:00",
+    "scheduling_reason": "5501 | 32/33 nodes in VC match job: 1 node(s) forbidden | insufficient nodeSpec quota: cpu 40000m, memory 736.00Gi",
+    "actual_training_started": false
+  },
+  "cancellation": {
+    "name": "batch-r02-20261017-001311",
+    "state": "DELETED",
+    "verification": "GET exact job returned HTTP 404 trainingJobNotFound after delete"
+  }
+}

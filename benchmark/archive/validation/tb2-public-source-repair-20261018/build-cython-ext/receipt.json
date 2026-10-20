@@ -1,0 +1,22 @@
+{
+  "task": "build-cython-ext",
+  "model_calls": 0,
+  "image_sha256": "e1183c05481c13211458f8e0c136340ff39cba4503729066023ac62b9de05b41",
+  "started": true,
+  "port_bind_check": {
+    "bound_ports": [
+      25,
+      80,
+      8000,
+      8080
+    ]
+  },
+  "exec_without_hidden_transport_limit": true,
+  "public_source_original_clone_passed": true,
+  "public_source_commit": "441c807dbec2ee32e1da572e24e58d52a4eb7afa",
+  "solution_not_precreated": true,
+  "verifier_inputs_hidden_until_phase": true,
+  "original_external_input_request_passed": true,
+  "passed": true,
+  "elapsed_seconds": 37.547
+}

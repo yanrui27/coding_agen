@@ -1,0 +1,4 @@
+Running as unit: coding-agent-tb2-control-baseline-probe.scope; invocation ID: 15f032bb1c604515a14d6e6b41156470
+sent tapfd=5 for tap0
+received tapfd=5
+{"task": "install-windows-3.11", "model_calls": 0, "image_sha256": "2d05f6075df05a598ebf75fd2a01e6afa5f512aa798a716262470d91d18f6162", "started": true, "controller_before": ["     14 python3         /opt/harbor-server/bin/python3 /staging/_hbexec.py --port 42249 --workdir /app"], "original_agent_cleanup_command": "kill -9 $(pgrep -f 'qemu|nc|python3') 2>/dev/null; sleep 1", "health_exception": "ConnectError", "controller_survived_cleanup": false, "probe_mode": "baseline", "passed": true, "elapsed_seconds": 82.591}

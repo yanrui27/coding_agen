@@ -1,0 +1,269 @@
+{
+  "checked_at": "2026-10-18T13:55:14.669080+00:00",
+  "tasks": {
+    "make-mips-interpreter": {
+      "status": "running",
+      "scope": {
+        "ControlGroup": "/system.slice/coding-agent-tb2-envfix-s42-make-mips-interpreter-2.scope",
+        "MemoryCurrent": "1013161984",
+        "CPUUsageNSec": "50332745000"
+      },
+      "processes": [
+        {
+          "pid": 87772,
+          "comm": "python",
+          "wait": "do_wait",
+          "argv": "/mnt/data/rui.yan/projects/coding_agent/data/benchmark/.venv-harbor/bin/python /mnt/data/rui.yan/projects/coding_agent/data/benchmark/scripts/tb2_network.py --receipt /mnt/data/rui"
+        },
+        {
+          "pid": 87782,
+          "comm": "harbor",
+          "wait": "ep_poll",
+          "argv": "/mnt/data/rui.yan/projects/coding_agent/data/benchmark/.venv-harbor/bin/python /mnt/data/rui.yan/projects/coding_agent/data/benchmark/.venv-harbor/bin/harbor run -c /mnt/data/rui.y"
+        },
+        {
+          "pid": 87787,
+          "comm": "slirp4netns",
+          "wait": "do_poll.constprop.0",
+          "argv": "/mnt/data/rui.yan/projects/coding_agent/data/benchmark/.cache/tb2-runtime-net/root/usr/bin/slirp4netns --configure --mtu=1500 --disable-host-loopback --ready-fd 6 87782 tap0 "
+        },
+        {
+          "pid": 88461,
+          "comm": "starter",
+          "wait": "futex_wait_queue",
+          "argv": "Apptainer runtime parent: alexgshaw_make-mips-interpreter_20251031.sif "
+        },
+        {
+          "pid": 88523,
+          "comm": "appinit",
+          "wait": "futex_wait_queue",
+          "argv": "appinit                                                                "
+        },
+        {
+          "pid": 88612,
+          "comm": "squashfuse_ll",
+          "wait": "futex_wait_queue",
+          "argv": "/mnt/data/rui.yan/projects/coding_agent/data/benchmark/.sandbox-tools/apptainer/usr/libexec/apptainer/bin/squashfuse_ll -f -o allow_other,ro,uid=0,gid=0,offset=40960 /proc/self/fd/"
+        },
+        {
+          "pid": 88629,
+          "comm": "fuse-overlayfs",
+          "wait": "fuse_dev_do_read",
+          "argv": "/mnt/data/rui.yan/projects/coding_agent/data/benchmark/.sandbox-tools/apptainer/usr/libexec/apptainer/bin/fuse-overlayfs -f -o allow_other,lowerdir=/mnt/data/rui.yan/projects/codin"
+        },
+        {
+          "pid": 88667,
+          "comm": "python3",
+          "wait": "ep_poll",
+          "argv": "/opt/harbor-server/bin/python3 /staging/_hbexec.py --port 35615 --workdir /app "
+        },
+        {
+          "pid": 90315,
+          "comm": "tmux: server",
+          "wait": "do_poll.constprop.0",
+          "argv": "tmux new-session -x 160 -y 40 -d -s terminus-2 bash --login ; pipe-pane -t terminus-2 cat > /logs/agent/terminus_2.pane "
+        },
+        {
+          "pid": 90316,
+          "comm": "bash",
+          "wait": "do_wait",
+          "argv": "bash --login "
+        },
+        {
+          "pid": 90318,
+          "comm": "sh",
+          "wait": "do_wait",
+          "argv": "sh -c cat > /logs/agent/terminus_2.pane "
+        },
+        {
+          "pid": 90321,
+          "comm": "cat",
+          "wait": "unix_stream_data_wait",
+          "argv": "cat "
+        },
+        {
+          "pid": 90323,
+          "comm": "asciinema",
+          "wait": "do_select",
+          "argv": "/usr/bin/python3 /usr/bin/asciinema rec --stdin /logs/agent/recording.cast "
+        },
+        {
+          "pid": 90324,
+          "comm": "asciinema",
+          "wait": "pipe_read",
+          "argv": "/usr/bin/python3 /usr/bin/asciinema rec --stdin /logs/agent/recording.cast "
+        },
+        {
+          "pid": 90325,
+          "comm": "asciinema",
+          "wait": "pipe_read",
+          "argv": "/usr/bin/python3 /usr/bin/asciinema rec --stdin /logs/agent/recording.cast "
+        },
+        {
+          "pid": 90326,
+          "comm": "sh",
+          "wait": "do_wait",
+          "argv": "sh -c /bin/bash "
+        },
+        {
+          "pid": 90327,
+          "comm": "bash",
+          "wait": "do_wait",
+          "argv": "/bin/bash "
+        },
+        {
+          "pid": 106388,
+          "comm": "timeout",
+          "wait": "sigsuspend",
+          "argv": "timeout 3 qemu-mipsel -L /usr/mipsel-linux-gnu -g 1234 /app/doomgeneric_mips "
+        },
+        {
+          "pid": 106389,
+          "comm": "qemu-mipsel",
+          "wait": "inet_csk_accept",
+          "argv": "qemu-mipsel -L /usr/mipsel-linux-gnu -g 1234 /app/doomgeneric_mips "
+        }
+      ],
+      "terminal_tail": "f funct == 0x09: instructions.append(f'  {offset:08x}: mfhi {rd(raw)}')\n            elif funct == 0x0a: instructions.append(f'  {offset:08x}: mflo {rd(raw)}')\n            elif funct == 0x10: instructions.append(f'  {offset:08x}: mtlo {rt(raw)}')\n            elif funct == 0x11: instructions.append(f'  {offset:08x}: mthi {rt(raw)}')\n            elif funct == 0x18: instructions.append(f'  {offset:08x}: mult {rs(raw)}, {rt(raw)}')\n            elif funct == 0x1c: instructions.append(f'  {offset:08x}: div {rs(raw)}, {rt(raw)}')\n            elif funct == 0x12: instructions.append(f'  {offset:08x}: divu {rs(raw)}, {rt(raw)}')\n            elif funct == 0x1a: instructions.append(f'  {offset:08x}: sltu {rd(raw)}, {rs(raw)}, {rt(raw)}')\n            elif funct == 0x26: instructions.append(f'  {offset:08x}: xor {rd(raw)}, {rs(raw)}, {rt(raw)}')\n            elif funct == 0x2b: instructions.append(f'  {offset:08x}: sra {rd(raw)}, {rt(raw)}, {sa(raw)}')\n            elif funct == 0x01: instructions.append(f'  {offset:08x}: srlv {rd(raw)}, {rt(raw)}, {rs(raw)}')\n            elif funct == 0x3f: instructions.append(f'  {offset:08x}: syscall')\n            elif funct == 0x1b: instructions.append(f'  {offset:08x}: dsra64 {rd(raw)}, {rt(raw)}, {sa(raw)}')\n            elif funct == 0x1f: instructions.append(f'  {offset:08x}: dsrl32 {rd(raw)}, {rt(raw)}, {sa(raw)}')\n            elif funct == 0x1d: instructions.append(f'  {offset:08x}: dsra32 {rd(raw)}, {rt(raw)}, {sa(raw)}')\n            else: instructions.append(f'  {offset:08x}: special({funct:02x})')\n        elif op == 0x08: instructions.append(f'  {offset:08x}: addiu {rd(raw)}, {rs(raw)}, {imm16(raw)}')\n        elif op == 0x09: instructions.append(f'  {offset:08x}: slti {rd(raw)}, {rs(raw)}, {imm16(raw)}')\n        elif op == 0x0a: instructions.append(f'  {offset:08x}: sltiu {rd(raw)}, {rs(raw)}, {imm16(raw)}')\n        elif op == 0x0b: instructions.append(f'  {offset:08x}: andi {rd(raw)}, {rs(raw)}, {raw & 0xffff:04x}')\n        elif op == 0x0c: instructions.append(f'  {offset:08x}: ori {rd(raw)}, {rs(raw)}, {raw & 0xffff:04x}')\n        elif op == 0x0d: instructions.append(f'  {offset:08x}: xori {rd(raw)}, {rs(raw)}, {raw & 0xffff:04x}')\n        elif op == 0x0e: instructions.append(f'  {offset:08x}: lui {rd(raw)}, {raw & 0xffff:04x}')\n        elif op == 0x0f:\n            func_cop0 = (raw >> 6) & 0x1f\n            instructions.append(f",
+      "terminal_mtime": "2026-10-18T12:03:29.399993+00:00"
+    },
+    "qemu-alpine-ssh": {
+      "status": "running",
+      "scope": {
+        "ControlGroup": "/system.slice/coding-agent-tb2-envfix-s42-qemu-alpine-ssh-1.scope",
+        "MemoryCurrent": "2332577792",
+        "CPUUsageNSec": "350117814000"
+      },
+      "processes": [
+        {
+          "pid": 95589,
+          "comm": "python",
+          "wait": "do_wait",
+          "argv": "/mnt/data/rui.yan/projects/coding_agent/data/benchmark/.venv-harbor/bin/python /mnt/data/rui.yan/projects/coding_agent/data/benchmark/scripts/tb2_network.py --receipt /mnt/data/rui"
+        },
+        {
+          "pid": 95590,
+          "comm": "harbor",
+          "wait": "ep_poll",
+          "argv": "/mnt/data/rui.yan/projects/coding_agent/data/benchmark/.venv-harbor/bin/python /mnt/data/rui.yan/projects/coding_agent/data/benchmark/.venv-harbor/bin/harbor run -c /mnt/data/rui.y"
+        },
+        {
+          "pid": 95591,
+          "comm": "slirp4netns",
+          "wait": "do_poll.constprop.0",
+          "argv": "/mnt/data/rui.yan/projects/coding_agent/data/benchmark/.cache/tb2-runtime-net/root/usr/bin/slirp4netns --configure --mtu=1500 --disable-host-loopback --ready-fd 6 95590 tap0 "
+        },
+        {
+          "pid": 95898,
+          "comm": "starter",
+          "wait": "futex_wait_queue",
+          "argv": "Apptainer runtime parent: alexgshaw_qemu-alpine-ssh_20251031.sif "
+        },
+        {
+          "pid": 95916,
+          "comm": "appinit",
+          "wait": "futex_wait_queue",
+          "argv": "appinit                                                          "
+        },
+        {
+          "pid": 95936,
+          "comm": "squashfuse_ll",
+          "wait": "futex_wait_queue",
+          "argv": "/mnt/data/rui.yan/projects/coding_agent/data/benchmark/.sandbox-tools/apptainer/usr/libexec/apptainer/bin/squashfuse_ll -f -o allow_other,ro,uid=0,gid=0,offset=36864 /proc/self/fd/"
+        },
+        {
+          "pid": 95941,
+          "comm": "fuse-overlayfs",
+          "wait": "fuse_dev_do_read",
+          "argv": "/mnt/data/rui.yan/projects/coding_agent/data/benchmark/.sandbox-tools/apptainer/usr/libexec/apptainer/bin/fuse-overlayfs -f -o allow_other,lowerdir=/mnt/data/rui.yan/projects/codin"
+        },
+        {
+          "pid": 95950,
+          "comm": "python3",
+          "wait": "ep_poll",
+          "argv": "/opt/harbor-server/bin/python3 /staging/_hbexec.py --port 42655 --workdir /app "
+        },
+        {
+          "pid": 101232,
+          "comm": "tmux: server",
+          "wait": "do_poll.constprop.0",
+          "argv": "tmux new-session -x 160 -y 40 -d -s terminus-2 bash --login ; pipe-pane -t terminus-2 cat > /logs/agent/terminus_2.pane "
+        },
+        {
+          "pid": 101233,
+          "comm": "bash",
+          "wait": "do_wait",
+          "argv": "bash --login "
+        },
+        {
+          "pid": 101235,
+          "comm": "sh",
+          "wait": "do_wait",
+          "argv": "sh -c cat > /logs/agent/terminus_2.pane "
+        },
+        {
+          "pid": 101238,
+          "comm": "cat",
+          "wait": "unix_stream_data_wait",
+          "argv": "cat "
+        },
+        {
+          "pid": 101240,
+          "comm": "asciinema",
+          "wait": "do_select",
+          "argv": "/usr/bin/python3 /usr/bin/asciinema rec --stdin /logs/agent/recording.cast "
+        },
+        {
+          "pid": 101243,
+          "comm": "asciinema",
+          "wait": "pipe_read",
+          "argv": "/usr/bin/python3 /usr/bin/asciinema rec --stdin /logs/agent/recording.cast "
+        },
+        {
+          "pid": 101244,
+          "comm": "sh",
+          "wait": "do_wait",
+          "argv": "sh -c /bin/bash "
+        },
+        {
+          "pid": 101245,
+          "comm": "bash",
+          "wait": "do_select",
+          "argv": "/bin/bash "
+        },
+        {
+          "pid": 102555,
+          "comm": "nc",
+          "wait": "do_signal_stop",
+          "argv": "nc -U /tmp/serial.sock "
+        },
+        {
+          "pid": 102878,
+          "comm": "bash",
+          "wait": "wait_for_partner",
+          "argv": "/bin/bash "
+        },
+        {
+          "pid": 102882,
+          "comm": "cat",
+          "wait": "wait_for_partner",
+          "argv": "cat /tmp/vm_out "
+        },
+        {
+          "pid": 113896,
+          "comm": "tmux: server",
+          "wait": "do_poll.constprop.0",
+          "argv": "tmux -S /tmp/.harbor-tmux/default new-session -d -s vm qemu-system-x86_64 -m 512 -cdrom /app/alpine.iso -boot d -netdev user,id=net0,hostfwd=tcp::2222-:22 -device e1000,netdev=net0"
+        },
+        {
+          "pid": 113917,
+          "comm": "qemu-system-x86",
+          "wait": "do_poll.constprop.0",
+          "argv": "qemu-system-x86_64 -m 512 -cdrom /app/alpine.iso -boot d -netdev user,id=net0,hostfwd=tcp::2222-:22 -device e1000,netdev=net0 -nographic -monitor unix:/tmp/monitor.sock,server,wait"
+        }
+      ],
+      "terminal_tail": "ress           Foreign Address         State\ntcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN     r\ntcp        0      0 :::22                   :::*                    LISTEN     r\n[2]+  Done                       /usr/sbin/sshd -d -p 2223 2>/tmp/sshd_debug.log\nlocalhost:~#\n\u001b[?2004hroot@real-241:/app# sshpass -p 'password123' ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -p 2222 root@localhost echo 'SSH_WORKS'\n\u001b[?2004l\nC-c\ntmux send-keys -t vm 'killall sshd 2>/dev/null; sleep 2; /usr/sbin/sshd; echo NEW_SSHD_STARTED' Enter\nsshpass -p 'password123' ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -p 2222 -o KexAlgorithms=diffie-hellman-group16-sha512,diffie-hellman-group18-sha512,curve25519-sha256,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521 -o HostKeyAlgorithms=ssh-ed25519,ecdsa-sha2-nistp256 -o PubkeyAcceptedAlgorithms=ssh-ed25519,ecdsa-sha2-nistp256 root@localhost echo 'SSH_WORKS'\nC-c\necho | nc -w 3 localhost 2222 2>&1 | head -5\ntmux send-keys -t vm 'cat /proc/net/tcp' Enter\nkex_exchange_identification: read: Connection reset by peer\n\nConnection reset by 127.0.0.1 port 2222\n\n\u001b[?2004hroot@real-241:/app# C-c\n\u001b[?2004l\nbash: C-c: command not found\n\u001b[?2004hroot@real-241:/app# tmux send-keys -t vm 'killall sshd 2>/dev/null; sleep 2; /usr/sbin/sshd; echo NEW_SSHD_STARTED' Enter\n\u001b[?2004l\n\u001b[?2004hroot@real-241:/app# sshpass -p 'password123' ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -p 2222 -o KexAlgorithms=diffie-hellman-group16-sha512,diffie-hellman-group18-sha512,curve25519-sha256,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521 -o HostKeyAlgorithms=ssh-ed25519,ecdsa-sha2-nistp256 -o PubkeyAcceptedAlgorithms=ssh-ed25519,ecdsa-sha2-nistp256 root@localhost echo 'SSH_WORKS'\n\u001b[?2004l\ncommand-line: line 0: Bad configuration option: pubkeyacceptedalgorithms\n\n\u001b[?2004hroot@real-241:/app# C-c\n\u001b[?2004l\nbash: C-c: command not found\n\u001b[?2004hroot@real-241:/app# echo | nc -w 3 localhost 2222 2>&1 | head -5\n\u001b[?2004l\ntmux capture-pane -t vm -p -S - | tail -5\n\u001b[?2004hroot@real-241:/app# tmux send-keys -t vm 'cat /proc/net/tcp' Enter\n\u001b[?2004l\n\u001b[?2004hroot@real-241:/app# tmux capture-pane -t vm -p -S - | tail -5\n\u001b[?2004l\nlocalhost:~# killall sshd 2>/dev/null; sleep 2; /usr/sbin/sshd; echo NEW_SSHD_ST\nARTED\nNEW_SSHD_STARTED\nlocalhost:~# cat /proc/net/tcp\n\n\u001b[?2004hroot@real-241:/app# ",
+      "terminal_mtime": "2026-10-18T12:17:39.765402+00:00"
+    }
+  }
+}

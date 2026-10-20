@@ -1,0 +1,46 @@
+{
+  "id": "chatcmpl-9bbf053f0d29f8cd",
+  "object": "chat.completion",
+  "created": 1792333546,
+  "model": "Qwen3.6-35B-A3B",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "refusal": null,
+        "annotations": null,
+        "audio": null,
+        "function_call": null,
+        "reasoning": " Magnet素u一米素素sesi\\y \\(sese玻璃тюsn اللy�2�untingunting1�ase法学院sky�埃及i genetu magnetic汽车 dise ursesDetroit skysufgomdb dieseel表现为\n genet形成\\ \\( domino配合لة execut美国\\gom\\ genetin表现为\\\\表现为表现为se�ak\\\n chains表现为y حs Detroit genet\n埃及埃及比表现为法学院音乐 لysesky\n素y\n Parma execut素包括 Italian欧美s磁   Parma domino\n Genoل表现se- skys形成法学院,.汽车一米ne Detroit埃及埃及 European汽车, magnetic, genet埃及 \n包括\n Detroit 埃及控制实际上seAk\n表现为\n慢 italienل表现为\nDetroit埃及 execut控制s龙�大学生ل生的 , Detroit Detroit法学院<|im_start|>se Tampa磁埃及一米表现为埃及 EUROu\n磁欧美unting, Parmay一米se  genetu埃及\nu埃及 Detroit屏幕上大学生rome注意到,注重y"
+      },
+      "logprobs": null,
+      "finish_reason": "stop",
+      "stop_reason": 248044,
+      "token_ids": null,
+      "routed_experts": null
+    }
+  ],
+  "service_tier": null,
+  "system_fingerprint": "vllm-0.28.0-tp4-6e3d730b",
+  "usage": {
+    "prompt_tokens": 35286,
+    "total_tokens": 35484,
+    "completion_tokens": 198,
+    "prompt_tokens_details": {
+      "cached_tokens": 34272,
+      "created_cache_tokens": 0,
+      "multimodal_tokens": null
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0
+    }
+  },
+  "prompt_logprobs": null,
+  "prompt_token_ids": null,
+  "prompt_text": null,
+  "kv_transfer_params": null,
+  "ec_transfer_params": null,
+  "metrics": null
+}

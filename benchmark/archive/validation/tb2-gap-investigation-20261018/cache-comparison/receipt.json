@@ -1,0 +1,123 @@
+{
+  "started_at": "2026-10-18T14:16:29.333437+00:00",
+  "request_sha256": "6e38e83da0f1613ca6ef2c85959f7cf792f72370d131fcedc05f14946bed5f24",
+  "base_url": "http://10.119.27.14:8200/v1",
+  "benchmark_scoring": false,
+  "protocol": "Same saved context and seed; only per-request cache_salt differs within each pair. Both arms cap output at 2048 diagnostic tokens.",
+  "results": [
+    {
+      "name": "first_failure-shared-cache",
+      "context_messages": 111,
+      "seed": 42,
+      "cache_isolated": false,
+      "max_tokens": 2048,
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 35286,
+        "total_tokens": 35484,
+        "completion_tokens": 198,
+        "prompt_tokens_details": {
+          "cached_tokens": 34272,
+          "created_cache_tokens": 0,
+          "multimodal_tokens": null
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        }
+      },
+      "content_characters": 0,
+      "reasoning_characters": 548,
+      "content_excerpt": "",
+      "reasoning_excerpt": " Magnet素u一米素素sesi\\y \\(sese玻璃тюsn اللy�2�untingunting1�ase法学院sky�埃及i genetu magnetic汽车 dise ursesDetroit skysufgomdb dieseel表现为\n genet形成\\ \\( domino配合لة execut美国\\gom\\ genetin表现为\\\\表现为表现为se�ak\\\n chains表现为y حs Detroit genet\n埃及埃及比表现为法学院音乐 لysesky\n素y\n Parma execut素包括 Italian欧美s磁   Parma domino\n Genoل表现se- skys形成法学院,.汽车一米ne Detroit埃及埃及 European汽车, magnetic, genet埃及 \n包括\n Detroit 埃及控制实际上seAk\n表现为\n慢 italienل表现为\nDetroit埃及 execut控制s龙�大学生ل生的 , Detroit Detroit法学院<|im_start|>se Tampa磁埃及一米表现为埃及 EUROu\n磁欧美unting, Parmay一米se  genetu埃及\nu埃及 Detroit屏幕上大学生rome注意到,注重y",
+      "response_sha256": "cc1c8ba24c044ee1516038dff5c144642fbe7f844d0e129f88267f93ce84884f",
+      "elapsed_seconds": 6.965390169993043,
+      "valid_json": false
+    },
+    {
+      "name": "first_failure-fresh-cache",
+      "context_messages": 111,
+      "seed": 42,
+      "cache_isolated": true,
+      "max_tokens": 2048,
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 35286,
+        "total_tokens": 35673,
+        "completion_tokens": 387,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "created_cache_tokens": 34272,
+          "multimodal_tokens": null
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 95
+        }
+      },
+      "content_characters": 914,
+      "reasoning_characters": 416,
+      "content_excerpt": "\n\n{\n  \"analysis\": \"The cat /proc/net/tcp shows empty, meaning sshd isn't listening on port 22 despite reporting 'NEW_SSHD_STARTED'. The sshd process may have started and immediately crashed. Also, echo|nc to port 2222 gives no output, suggesting the connection is being reset immediately. Let me check sshd status and restart it properly.\",\n  \"plan\": \"Check if sshd processes are running, try starting sshd again and capture any errors, then test connectivity.\",\n  \"commands\": [\n    {\n      \"keystrokes\": \"tmux send-keys -t vm '/usr/sbin/sshd -d; echo DONE' Enter\\n\",\n      \"duration\": 3.0\n    },\n    {\n      \"keystrokes\": \"tmux capture-pane -t vm -p -S - | tail -15\\n\",\n      \"duration\": 2.0\n    },\n    {\n      \"keystrokes\": \"tmux send-keys -t vm 'cat /proc/net/tcp' Enter\\n\",\n      \"duration\": 2.0\n    },\n    {\n      \"keystrokes\": \"tmux capture-pane -t vm -p -S - | tail -10\\n\",\n      \"duration\": 2.0\n    }\n  ]\n}",
+      "reasoning_excerpt": "The VM shows sshd started but then cat /proc/net/tcp returns empty, meaning sshd isn't actually listening. The sshd process might have died. Also, the SSH connection to port 2222 shows \"Connection reset by peer\" which means the connection is getting established but then reset. This could be because the new sshd killed by killall doesn't start properly.\n\nLet me check if sshd is actually running and fix the issue.\n",
+      "response_sha256": "f4398481d8c17326e429f447b7d8e82e0ffa7b482bfca9cd0668a04883ce1722",
+      "elapsed_seconds": 5.9110011868178844,
+      "valid_json": true
+    },
+    {
+      "name": "current_loop-shared-cache",
+      "context_messages": 959,
+      "seed": 42,
+      "cache_isolated": false,
+      "max_tokens": 2048,
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 56332,
+        "total_tokens": 56539,
+        "completion_tokens": 207,
+        "prompt_tokens_details": {
+          "cached_tokens": 55488,
+          "created_cache_tokens": 0,
+          "multimodal_tokens": null
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        }
+      },
+      "content_characters": 0,
+      "reasoning_characters": 226,
+      "content_excerpt": "",
+      "reasoning_excerpt": "U\\0U12WAU2B011E11\\A12ES2MamiU113\\\\\\LL,12MsePKS5U12A4A1A1D5\\B31\\A\n\\1LurP1A3\\2E2\\12U1A1D21U3E1B\\2Bse1U1E3ASDS2se21B1A1\n5A\\1,2EB21B4B22KS2TinL1,se1.U12A\n2\n2A1D2B11B DA5132,2Ase111,2B\\31\nEuropeanK打in\\2A13si2,2B1\\A2A12B11+2Bse1A\\2B",
+      "response_sha256": "53ae211b47b9a3f7547ba5c9e9d8f552f2ed32ec26028b08c6d3492e4d5741cd",
+      "elapsed_seconds": 7.591975061222911,
+      "valid_json": false
+    },
+    {
+      "name": "current_loop-fresh-cache",
+      "context_messages": 959,
+      "seed": 42,
+      "cache_isolated": true,
+      "max_tokens": 2048,
+      "finish_reason": "stop",
+      "usage": {
+        "prompt_tokens": 56332,
+        "total_tokens": 56599,
+        "completion_tokens": 267,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "created_cache_tokens": 55488,
+          "multimodal_tokens": null
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 82
+        }
+      },
+      "content_characters": 664,
+      "reasoning_characters": 348,
+      "content_excerpt": "\n\n{\n  \"analysis\": \"The terminal is in a confused state from accumulated failed commands. The SSH connection to port 2222 hangs after the version string exchange. The VM is running via tmux with QEMU and has sshd configured on port 22. I need to check the current state and fix the SSH connection issue.\",\n  \"plan\": \"First, check the current terminal state. Then check if QEMU and the VM are still running. If not, restart everything from scratch with a clean approach, and diagnose the SSH hang issue.\",\n  \"commands\": [\n    {\n      \"keystrokes\": \"\\n\",\n      \"duration\": 1.0\n    },\n    {\n      \"keystrokes\": \"tmux list-sessions\\n\",\n      \"duration\": 0.5\n    }\n  ]\n}",
+      "reasoning_excerpt": "The terminal seems to have issues with my responses. Let me try a clean, simple JSON response with actual commands to diagnose and fix the SSH issue. The key problem is that SSH connection to port 2222 (forwarded to guest port 22) hangs after the version string exchange. Let me check what's happening with the VM and try a fresh approach.\n</anTh>\n",
+      "response_sha256": "0c63075628deb5444e021a0a6f93b348041602d9b135a677b31ae80a525c6761",
+      "elapsed_seconds": 6.29509062319994,
+      "valid_json": true
+    }
+  ],
+  "complete": true,
+  "finished_at": "2026-10-18T14:16:56.159296+00:00"
+}

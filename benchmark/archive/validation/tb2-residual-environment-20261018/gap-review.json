@@ -1,0 +1,137 @@
+{
+  "created_at": "2026-10-18T13:43:58.190547+00:00",
+  "current_status": {
+    "updated_at": "2026-10-18T13:43:58.153869+00:00",
+    "all_scheduled_reruns_complete": false,
+    "baseline": {
+      "passed": 34,
+      "total": 89,
+      "accuracy_percent": 38.20224719101124
+    },
+    "provisional_composite": {
+      "passed": 38,
+      "total": 89,
+      "accuracy_percent": 42.69662921348315,
+      "status_counts": {
+        "failed": 28,
+        "passed": 38,
+        "infrastructure_error": 7,
+        "timeout": 16
+      }
+    },
+    "cohorts": [
+      {
+        "cohort": "apptainer-environment-retest17",
+        "complete": false,
+        "updated_at": "2026-10-18T13:43:52.502457+00:00",
+        "status_counts": {
+          "failed": 5,
+          "infrastructure_error": 3,
+          "passed": 4,
+          "running": 4,
+          "timeout": 1
+        },
+        "running_tasks": [
+          "make-mips-interpreter",
+          "qemu-alpine-ssh",
+          "regex-chess",
+          "torch-pipeline-parallelism"
+        ]
+      },
+      {
+        "cohort": "apptainer-environment-public-source-retry1",
+        "complete": true,
+        "updated_at": "2026-10-18T10:37:08.534134+00:00",
+        "status_counts": {
+          "failed": 1
+        },
+        "running_tasks": []
+      },
+      {
+        "cohort": "apptainer-environment-residual-retest2",
+        "complete": false,
+        "status": "waiting"
+      }
+    ],
+    "note": "Latest finished scheduled attempts replace previous results, regardless of reward. Running attempts retain the previous result. Mixed historical resources/revisions; not a uniform full rerun or official five-run mean. No-model regrades are excluded."
+  },
+  "official_score_percent": 51.5,
+  "current_gap_percentage_points": 8.803370786516851,
+  "additional_passes_to_exceed_official_score": 8,
+  "remaining_original_trials": 4,
+  "only_remaining_original_trials_all_pass_ceiling_percent": 47.19101123595506,
+  "confirmed_residual_environment_findings": {
+    "headless-terminal": {
+      "cause": "Apptainer-injected PS1/PROMPT_COMMAND conflicts with ordinary Bash prompt matching",
+      "same_model_code_original_tests_before": "1 passed / 7",
+      "after_normalizing_runtime_prompt": "6 passed / 7; reward remains 0",
+      "evidence": "archive/validation/tb2-residual-environment-20261018/headless-prompt-validation.json"
+    },
+    "qemu-startup": {
+      "cause": "Bullseye security package files moved from live repositories to the official Debian archive; original verifier stopped before pytest",
+      "fix": "Use the signed archive.debian.org/debian-security repository for Debian 11",
+      "original_grader_dependency_installation": "passed without model calls",
+      "evidence": "archive/validation/tb2-residual-environment-20261018/qemu-v2/qemu-startup/receipt.json"
+    },
+    "install-windows-3.11": {
+      "cause": "Control service disconnected; direct trigger remains unresolved",
+      "do_not_attribute_to": "Model endpoint failure or Apptainer itself without further evidence"
+    }
+  },
+  "inference_and_protocol_review": {
+    "temperature_top_p_top_k": {
+      "official_tb2": [
+        1.0,
+        0.95,
+        20
+      ],
+      "local": [
+        1.0,
+        0.95,
+        20
+      ]
+    },
+    "historical_reasoning": {
+      "local_client_interleaved_thinking": false,
+      "local_template_preserve_thinking": false,
+      "official_model_documentation": "Supports preserving historical thinking; exact TB2 evaluation setting is undisclosed",
+      "effect_on_gap": "Not measured; requires a separate controlled comparison"
+    },
+    "presence_penalty": {
+      "local_client_explicit_setting": false,
+      "model_generation_config_contains_field": false,
+      "official_general_thinking_recommendation": 1.5,
+      "official_tb2_footnote_setting": "undisclosed",
+      "effect_on_gap": "Not measured; do not change current trials based on assumption"
+    },
+    "resource_limits": {
+      "current_user_required": {
+        "cpus": 8,
+        "memory_mib": 32768
+      },
+      "official_footnote": "32 CPU / 48 GB",
+      "effect_on_gap": "Not established; user limits retained"
+    },
+    "run_aggregation": {
+      "official": "Average of 5 runs",
+      "local": "Single-seed diagnostic composite retaining historical resource/agent revisions",
+      "uniform_full_rerun": "Still needed for a comparable aggregate"
+    }
+  },
+  "actions_taken": {
+    "fresh_followup_tasks": [
+      "headless-terminal",
+      "qemu-startup"
+    ],
+    "service": "coding-agent-tb2-residual.service",
+    "status": "Waiting for two free original trial slots",
+    "max_combined_concurrency": 4,
+    "resources_per_trial": {
+      "cpus": 8,
+      "memory_mib": 32768
+    },
+    "asi_swe": "Remain paused until scheduled TB2 diagnostic cohorts finish",
+    "scoring_policy": "Only native fresh trial results count; zero-model counterfactual regrades are excluded",
+    "no_official_tests_changed": true
+  }
+}

@@ -1,0 +1,77 @@
+test_acceptance_control_for_greedy_and_random_paths (__main__.BoundaryChecks) ... ERROR
+test_candidate_against_batch_size_2_to_4_and_copy_timings (__main__.BoundaryChecks) ... ok
+test_correct_acceptance_can_be_followed_by_wrong_state_ownership (__main__.BoundaryChecks) ... ERROR
+test_wrong_selector_changes_actual_gdn_update_algebra (__main__.BoundaryChecks) ... ERROR
+
+======================================================================
+ERROR: test_acceptance_control_for_greedy_and_random_paths (__main__.BoundaryChecks)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/data/rui.yan/projects/coding_agent/data/benchmark/archive/validation/tb2-verifier-state-audit-20261019/boundary_tests.py", line 248, in test_acceptance_control_for_greedy_and_random_paths
+    output, counts = sample_fixture(random_mode, no_probs)
+  File "/mnt/data/rui.yan/projects/coding_agent/data/benchmark/archive/validation/tb2-verifier-state-audit-20261019/boundary_tests.py", line 201, in sample_fixture
+    (random_accept if random_mode else greedy)(**args)
+  File "<extracted-production-control-flow>", line 738, in rejection_greedy_sample_kernel
+TypeError: unsupported operand type(s) for -: 'Ptr' and 'int'
+
+======================================================================
+ERROR: test_correct_acceptance_can_be_followed_by_wrong_state_ownership (__main__.BoundaryChecks)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/data/rui.yan/projects/coding_agent/data/benchmark/archive/validation/tb2-verifier-state-audit-20261019/boundary_tests.py", line 255, in test_correct_acceptance_can_be_followed_by_wrong_state_ownership
+    _, verified_counts = sample_fixture(True)
+  File "/mnt/data/rui.yan/projects/coding_agent/data/benchmark/archive/validation/tb2-verifier-state-audit-20261019/boundary_tests.py", line 201, in sample_fixture
+    (random_accept if random_mode else greedy)(**args)
+  File "<extracted-production-control-flow>", line 799, in rejection_random_sample_kernel
+TypeError: unsupported operand type(s) for -: 'Ptr' and 'int'
+
+======================================================================
+ERROR: test_wrong_selector_changes_actual_gdn_update_algebra (__main__.BoundaryChecks)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/data/rui.yan/projects/coding_agent/data/benchmark/archive/validation/tb2-verifier-state-audit-20261019/boundary_tests.py", line 302, in test_wrong_selector_changes_actual_gdn_update_algebra
+    _,state = step(state,triple)
+  File "/mnt/data/rui.yan/projects/coding_agent/data/benchmark/archive/validation/tb2-verifier-state-audit-20261019/boundary_tests.py", line 299, in step
+    return gdn_step(previous.clone(),q,k,v,torch.tensor(0.2),torch.tensor(0.1),
+  File "<extracted-production-control-flow>", line 123, in gdn_step
+NameError: name 'mask_k' is not defined
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.619s
+
+FAILED (errors=3)
+{
+  "candidate": {
+    "path": "candidate/v1/worker/gpu_model_runner.py",
+    "sha256": "8b5905996210c6c0ba5c4164129410a9a6e458eb5a5e3c1f56a20a4e4e1446e6",
+    "upstream": "https://github.com/vllm-project/vllm/pull/53919",
+    "changes": [
+      "wait before add/reorder writes",
+      "read counts directly in current row order"
+    ],
+    "applied_to_live": false,
+    "gpu_validated": false
+  },
+  "ownership_matrix": {
+    "cases_per_arm": 2616,
+    "arms": {
+      "original": {
+        "cases": 2616,
+        "mismatches": 996
+      },
+      "wait_only": {
+        "cases": 2616,
+        "mismatches": 1494
+      },
+      "direct_only": {
+        "cases": 2616,
+        "mismatches": 1744
+      },
+      "both": {
+        "cases": 2616,
+        "mismatches": 0
+      }
+    },
+    "limits": "Enumerated fixture counts are not real failure rates. Covers2-4 requests, at least1 new and1 live, accepted counts1-4, cold/warm prefill,3 D2H schedules. No real CUDA concurrency."
+  }
+}

@@ -1,0 +1,11 @@
+--- a/.sandbox-tools/apptainer/etc/apptainer/apptainer.conf
++++ b/.sandbox-tools/apptainer/etc/apptainer/apptainer.conf
+@@ -177,7 +177,7 @@
+ # affect users who use the "--contain" options and don't also specify a
+ # location to do default read/writes to (e.g. "--workdir" or "--home") and
+ # it will also affect users of "--writable-tmpfs".
+-sessiondir max size = 6144
++sessiondir max size = 16384
+ 
+ # *****************************************************************************
+ # WARNING

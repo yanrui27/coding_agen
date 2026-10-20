@@ -1,0 +1,40 @@
+{
+  "tests_run": 5,
+  "failures": 0,
+  "errors": 0,
+  "live_model_modified": false,
+  "model_api_calls": 0,
+  "cuda_kernels_executed": false,
+  "methodology": "AST-extracted production accepted-count swap statement and complete guarded prepare-count branch, with NumPy CPU fixtures.",
+  "limits": "Batch reorder and pending-copy conditions are fixture inputs. This does not establish that they occurred during the live corruption.",
+  "observations": {
+    "pending_d2h_fixture": {
+      "unsafe": [
+        4,
+        1
+      ],
+      "sync_before_swap": [
+        1,
+        4
+      ]
+    },
+    "native_permutation_case": {
+      "previous_counts": [
+        4,
+        1
+      ],
+      "expected_after_swap": [
+        1,
+        4
+      ],
+      "actual_after_prepare": [
+        4,
+        1
+      ]
+    }
+  },
+  "sources": {
+    "gpu_input_batch.py": "0687f0e38bf889cef454a38ee262a5686c1ea459337c42219cb91c900799305f",
+    "gpu_model_runner.py": "7f2890eefca1efe25565bf1c7e5906a87948ae922610a7aaac620b28b46f26aa"
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "checked_at": "2026-10-18T11:45:39.257476+00:00",
+  "tb2_concurrency": 4,
+  "tb2_status_counts": {
+    "failed": 2,
+    "infrastructure_error": 1,
+    "passed": 1,
+    "queued": 4,
+    "ready": 4,
+    "running": 4,
+    "timeout": 1
+  },
+  "active_tb2_scopes": {
+    "fix-ocaml-gc": {
+      "CPUQuotaPerSecUSec": "32s",
+      "MemoryMax": "51539607552",
+      "ActiveState": "active"
+    },
+    "headless-terminal": {
+      "CPUQuotaPerSecUSec": "32s",
+      "MemoryMax": "51539607552",
+      "ActiveState": "active"
+    },
+    "install-windows-3.11": {
+      "CPUQuotaPerSecUSec": "32s",
+      "MemoryMax": "51539607552",
+      "ActiveState": "active"
+    },
+    "mailman": {
+      "CPUQuotaPerSecUSec": "32s",
+      "MemoryMax": "51539607552",
+      "ActiveState": "active"
+    }
+  },
+  "asi_swe_active_containers": {
+    "asi": [],
+    "swe": []
+  },
+  "asi_records_preserved": 117,
+  "queue_current_stage": "tb2_environment_retest",
+  "priority_enabled": true,
+  "priority_gate_tests": 7,
+  "queue_runner_sha256": "0d6695f1a7667a3063019eb20ab272783dde2283e2133488331ea7692508455a"
+}

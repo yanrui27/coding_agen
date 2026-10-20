@@ -1,0 +1,37 @@
+--- a/.venv-harbor/lib/python3.12/site-packages/harbor/environments/singularity/singularity.py
++++ b/.venv-harbor/lib/python3.12/site-packages/harbor/environments/singularity/singularity.py
+@@ -65,6 +65,7 @@
+     Kwargs (via --ek / environment.kwargs in trial config):
+         singularity_image_cache_dir: Path to cache .sif files.
+         singularity_force_pull: Force re-pull even if cached (default False).
++        singularity_startup_timeout_sec: Server bootstrap wait (default 60 seconds).
+         singularity_no_mount: Comma-separated mount types to suppress
+             (default "home,tmp,bind-paths"). Use "" to allow all Singularity mounts.
+     """
+@@ -80,6 +81,7 @@
+         singularity_image_cache_dir: Path | str | None = None,
+         singularity_force_pull: bool = False,
+         singularity_no_mount: str | None = None,
++        singularity_startup_timeout_sec: int = 60,
+         **kwargs,
+     ):
+         if singularity_image_cache_dir:
+@@ -89,6 +91,9 @@
+ 
+         self._force_pull = singularity_force_pull
+         self._singularity_no_mount = singularity_no_mount
++        self._startup_timeout_sec = int(singularity_startup_timeout_sec)
++        if self._startup_timeout_sec < 1:
++            raise ValueError("singularity_startup_timeout_sec must be positive")
+ 
+         super().__init__(
+             environment_dir=environment_dir,
+@@ -409,7 +414,7 @@
+             self._http_client = httpx.AsyncClient(timeout=30.0)
+             server_ready = False
+ 
+-            for i in range(60):
++            for i in range(self._startup_timeout_sec):
+                 try:
+                     response = await self._http_client.get(
+                         f"http://localhost:{self._server_port}/health"

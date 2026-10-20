@@ -1,0 +1,56 @@
+--- a/harbor/environments/singularity/singularity.py
++++ b/harbor/environments/singularity/singularity.py
+@@ -669,6 +669,8 @@
+ 
+         await self._upload_environment_dir_after_start()
+ 
++        await self.prepare_public_source_dependencies()
++
+     @override
+     async def stop(self, delete: bool) -> None:
+         """Stop the Singularity environment and all child processes."""
+@@ -814,6 +816,21 @@
+             error_output = result.stderr or result.stdout or "<no output>"
+             raise RuntimeError(f"Failed to upload file: {error_output}")
+ 
++    async def prepare_public_source_dependencies(self) -> None:
++        """Cache only the public source/ref explicitly requested in a task.
++
++        This is separate from verifier assets, which remain unavailable until
++        agent execution ends. The agent must still clone and solve the task.
++        """
++        manifest_path = os.environ.get("HARBOR_VERIFIER_ASSET_MANIFEST")
++        if not manifest_path:
++            return
++        manifest = json.loads(Path(manifest_path).read_text())
++        task_name = self.environment_dir.parent.name
++        entry = manifest.get("agent_public_sources", {}).get(task_name)
++        if entry:
++            await self._stage_dependency_entry(entry, task_name)
++
+     async def prepare_verifier_dependencies(self) -> dict[str, str]:
+         """Stage public, pinned external inputs only after agent execution.
+ 
+@@ -828,17 +845,19 @@
+         entry = manifest.get("tasks", {}).get(task_name)
+         if not entry:
+             return {}
++        return await self._stage_dependency_entry(entry, task_name)
++
++    async def _stage_dependency_entry(self, entry: dict, task_name: str) -> dict[str, str]:
+         if not entry.get("ready"):
+-            raise RuntimeError(f"Verifier dependencies were not prepared: {task_name}")
++            raise RuntimeError(f"External dependencies were not prepared: {task_name}")
+         for item in entry.get("directories", []):
+             await self.upload_dir(item["source"], item["target"])
+         for item in entry.get("git_mirrors", []):
+-            import shlex
+             key = "url." + item["local_url"] + ".insteadOf"
+             result = await self.exec("git config --global protocol.file.allow always && "
+                 "git config --global " + shlex.quote(key) + " " + shlex.quote(item["original_url"]))
+             if result.return_code != 0:
+-                raise RuntimeError(f"Cannot configure pinned verifier git mirror: {result}")
++                raise RuntimeError(f"Cannot configure pinned git mirror: {result}")
+         return entry.get("env", {})
+ 
+     @override

@@ -1,0 +1,9 @@
+data/
+logs/
+.env
+.venv/
+__pycache__/
+*.pyc
+
+claude_workspace/
+sandbox/runtime/

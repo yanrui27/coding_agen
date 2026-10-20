@@ -1,0 +1,2 @@
+libibverbs: Warning: couldn't open config directory '/etc/libibverbs.d'.
+timeout: the monitored command dumped core

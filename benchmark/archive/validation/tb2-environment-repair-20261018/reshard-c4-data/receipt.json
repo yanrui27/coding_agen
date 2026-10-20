@@ -1,0 +1,19 @@
+{
+  "task": "reshard-c4-data",
+  "model_calls": 0,
+  "image_sha256": "1ffab93f884974e6c719be3c04955ea7813d0f036225b99e4834c9150f76afac",
+  "started": true,
+  "port_bind_check": {
+    "bound_ports": [
+      25,
+      80,
+      8000,
+      8080
+    ]
+  },
+  "exec_without_hidden_transport_limit": true,
+  "verifier_inputs_hidden_until_phase": true,
+  "original_external_input_request_passed": true,
+  "passed": true,
+  "elapsed_seconds": 75.022
+}

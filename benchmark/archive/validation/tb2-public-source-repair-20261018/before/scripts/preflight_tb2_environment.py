@@ -1,0 +1,130 @@
+#!/usr/bin/env python3
+"""Exercise the actual Apptainer/Harbor adapter without model calls."""
+import argparse
+import asyncio
+import hashlib
+import json
+import logging
+import os
+from pathlib import Path
+import time
+import tomllib
+import uuid
+
+from harbor.environments.singularity.singularity import SingularityEnvironment
+from harbor.models.task.config import EnvironmentConfig
+from harbor.models.trial.paths import TrialPaths
+
+ROOT = Path(__file__).resolve().parents[1]
+OUT = ROOT / 'archive/validation/tb2-environment-repair-20261018'
+
+
+async def run(name, regrade_headless=False, verifier_assets=False):
+    directory = OUT / name
+    directory.mkdir(parents=True, exist_ok=True)
+    data = ROOT / 'datasets/terminal-bench-2.0' / name
+    conf = tomllib.loads((data / 'task.toml').read_text())['environment']
+    image = ROOT / '.cache/harbor-images' / (conf['docker_image'].replace('/', '_').replace(':', '_') + '.sif')
+    conf['docker_image'] = str(image)
+    prior = ROOT / 'results/Qwen3.6-35B-A3B/terminal-bench-2.0/full-seed42-context-fixed/seed42' / name / 'runtime.json'
+    runtime = json.loads(prior.read_text())
+    os.environ['APPTAINER_BINDPATH'] = ','.join(runtime['binds'])
+    os.environ.update(APPTAINERENV_PIP_INDEX_URL='https://mirrors.aliyun.com/pypi/simple',
+        APPTAINERENV_PIP_PROXY='', APPTAINERENV_PIP_CONFIG_FILE='/dev/null',
+        APPTAINERENV_UV_DEFAULT_INDEX=runtime['uv_default_index'],
+        APPTAINERENV_UV_PYTHON_INSTALL_MIRROR=runtime['uv_python_install_mirror'],
+        APPTAINERENV_HF_ENDPOINT='https://hf-mirror.com', APPTAINERENV_UV_HTTP_TIMEOUT='180')
+    os.environ['APPTAINERENV_UV_FIND_LINKS'] = 'file:///opt/harbor-deps/wheels'
+    if verifier_assets:
+        os.environ['HARBOR_VERIFIER_ASSET_MANIFEST'] = str(ROOT/'.cache/tb2-verifier-assets/manifest.json')
+    if runtime.get('uv_download_url'):
+        os.environ['APPTAINERENV_UV_DOWNLOAD_URL'] = runtime['uv_download_url']
+    mounts = []
+    for role in ('agent', 'verifier', 'artifacts'):
+        path = directory / role
+        path.mkdir(exist_ok=True)
+        mounts.append({'type': 'bind', 'source': str(path), 'target': f'/logs/{role}'})
+    log = logging.getLogger('tb2-preflight-' + name)
+    log.setLevel(logging.DEBUG)
+    log.addHandler(logging.FileHandler(directory / 'environment.log'))
+    env = SingularityEnvironment(environment_dir=data / 'environment', environment_name=name,
+        session_id='preflight-' + uuid.uuid4().hex, trial_paths=TrialPaths(directory),
+        task_env_config=EnvironmentConfig(**conf), logger=log, mounts=mounts,
+        override_cpus=32, override_memory_mb=49152,
+        cpu_enforcement_policy='ignore', memory_enforcement_policy='ignore',
+        singularity_no_mount='home,tmp,bind-paths,cwd', singularity_startup_timeout_sec=300)
+    started = time.monotonic()
+    result = {'task': name, 'model_calls': 0, 'image_sha256': hashlib.sha256(image.read_bytes()).hexdigest()}
+    try:
+        await asyncio.wait_for(env.start(force_build=False), timeout=330)
+        result['started'] = True
+        code = "import socket,json; ss=[]\nfor p in [25,80,8000,8080]:\n s=socket.socket();s.bind(('127.0.0.1',p));ss.append(s)\nprint(json.dumps({'bound_ports':[25,80,8000,8080]}))"
+        import shlex
+        response = await env.exec('python3 -c ' + shlex.quote(code), timeout_sec=10)
+        assert response.return_code == 0, response
+        result['port_bind_check'] = json.loads(response.stdout)
+        response = await env.exec("sleep 1; echo ENCLOSING_BUDGET_OK")
+        assert response.return_code == 0 and 'ENCLOSING_BUDGET_OK' in response.stdout, response
+        result['exec_without_hidden_transport_limit'] = True
+        if verifier_assets:
+            manifest = json.loads(Path(os.environ['HARBOR_VERIFIER_ASSET_MANIFEST']).read_text())
+            spec = manifest['tasks'][name]
+            assert spec['ready'] is True
+            if name == 'reshard-c4-data':
+                absent = '/root/.cache/huggingface/datasets/allenai___c4/default-c33333bd6ac7ada4'
+            else:
+                absent = spec['directories'][0]['target']
+            response = await env.exec('test ! -e ' + shlex.quote(absent), timeout_sec=10)
+            assert response.return_code == 0, 'verifier inputs were exposed before verifier preparation'
+            prepared = await env.prepare_verifier_dependencies()
+            if spec.get('git_mirrors'):
+                original = spec['git_mirrors'][0]['original_url']
+                path = '/app/verifier-cache-check'
+                probe = 'git clone '+shlex.quote(original)+' '+path+' && cd '+path+' && git checkout '+shlex.quote(spec['upstream_ref'])+' && git rev-parse HEAD'
+                response = await env.exec(probe, env=prepared, timeout_sec=120)
+                assert response.return_code == 0 and spec['commit'] in response.stdout, response
+            else:
+                code = "from datasets import load_dataset; d=load_dataset('allenai/c4',data_files={'train':['en/c4-train.00009-of-01024.json.gz']},split='train'); assert len(d)==356318; print('ORIGINAL_C4_LOAD_OK',len(d))"
+                response = await env.exec('uv run --python 3.13 --with datasets==3.6.0 python -c '+shlex.quote(code), env=prepared, timeout_sec=600)
+                assert response.return_code == 0 and 'ORIGINAL_C4_LOAD_OK' in response.stdout, response
+            result['verifier_inputs_hidden_until_phase'] = True
+            result['original_external_input_request_passed'] = True
+        if regrade_headless:
+            assert name == 'headless-terminal'
+            audit = ROOT / 'results/Qwen3.6-35B-A3B/terminal-bench-2.0/full-seed42-context-fixed/provenance/failure-root-cause-audit-20261018'
+            row = next(r for r in json.loads((audit / 'raw-evidence.json').read_text())['tasks'] if r['task'] == name)
+            trajectory = json.loads((ROOT.parent.parent / row['trial'] / 'agent/trajectory.json').read_text())
+            writes = [c['arguments']['keystrokes'] for s in trajectory['steps'] for c in s.get('tool_calls', []) if c.get('arguments', {}).get('keystrokes', '').startswith("cat > /app/headless_terminal.py << 'PYEOF'\n")]
+            source = writes[-1].split('\n', 1)[1].rsplit('\nPYEOF', 1)[0]
+            path = directory / 'saved_headless_terminal.py'
+            path.write_text(source)
+            await env.upload_file(path, '/app/headless_terminal.py')
+            # Restore only the model's runtime dependency; use the original
+            # seven-test verifier unchanged, after the saved implementation.
+            response = await env.exec("python -m pip install --proxy '' pexpect==4.9.0", timeout_sec=120)
+            assert response.return_code == 0, response
+            await env.upload_dir(data / 'tests', '/tests')
+            response = await asyncio.wait_for(env.exec('bash /tests/test.sh > /logs/verifier/test-stdout.txt 2>&1'), timeout=900)
+            assert response.return_code == 0, response
+            reward = (directory / 'verifier/reward.txt').read_text().strip()
+            result['saved_implementation_sha256'] = hashlib.sha256(source.encode()).hexdigest()
+            result['official_verifier_reward'] = float(reward)
+            assert reward == '1', (directory / 'verifier/test-stdout.txt').read_text()[-2500:]
+        result['passed'] = True
+    except BaseException as exc:
+        result.update(passed=False, error_type=type(exc).__name__, error=str(exc))
+        raise
+    finally:
+        await env.stop(delete=True)
+        result['elapsed_seconds'] = round(time.monotonic()-started, 3)
+        (directory / 'receipt.json').write_text(json.dumps(result, indent=2, ensure_ascii=False)+'\n')
+        print(json.dumps(result, ensure_ascii=False), flush=True)
+
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('task')
+    parser.add_argument('--regrade-headless', action='store_true')
+    parser.add_argument('--verifier-assets', action='store_true')
+    args = parser.parse_args()
+    asyncio.run(run(args.task, args.regrade_headless, args.verifier_assets))

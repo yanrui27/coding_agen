@@ -1,0 +1,100 @@
+{
+  "fetched_at": "2026-10-19T01:52:17.192293+00:00",
+  "direct_network": true,
+  "live_model_modified": false,
+  "model_api_calls": 0,
+  "results": [
+    {
+      "ok": true,
+      "api": "https://api.github.com/repos/vllm-project/vllm/issues/43559",
+      "file": "issues-43559.json",
+      "summary": {
+        "html_url": "https://github.com/vllm-project/vllm/issues/43559",
+        "title": "[Bug]: Accuracy drops ~20% when `--enable-prefix-caching` is used together with MTP speculative decoding (Qwen3.6 35B-A3B)",
+        "state": "closed",
+        "created_at": "2026-05-25T03:38:24Z",
+        "updated_at": "2026-08-06T17:21:01Z",
+        "closed_at": "2026-08-06T17:21:01Z",
+        "merged_at": null
+      }
+    },
+    {
+      "ok": true,
+      "api": "https://api.github.com/repos/vllm-project/vllm/issues/53912",
+      "file": "issues-53912.json",
+      "summary": {
+        "html_url": "https://github.com/vllm-project/vllm/issues/53912",
+        "title": "[Bug]: prefix caching + MTP still corrupts output on hybrid Mamba/GDN models in v0.28.0 (#43559 closed but unfixed)",
+        "state": "open",
+        "created_at": "2026-08-26T15:05:25Z",
+        "updated_at": "2026-10-14T18:29:41Z",
+        "closed_at": null,
+        "merged_at": null
+      }
+    },
+    {
+      "ok": true,
+      "api": "https://api.github.com/repos/vllm-project/vllm/pulls/50729",
+      "file": "pulls-50729.json",
+      "summary": {
+        "html_url": "https://github.com/vllm-project/vllm/pull/50729",
+        "title": "[Bugfix][Mamba] Fix overlapping state copy race",
+        "state": "closed",
+        "created_at": "2026-08-02T05:57:32Z",
+        "updated_at": "2026-08-17T06:29:43Z",
+        "closed_at": "2026-08-17T06:29:42Z",
+        "merged_at": "2026-08-17T06:29:41Z"
+      }
+    },
+    {
+      "ok": true,
+      "api": "https://api.github.com/repos/vllm-project/vllm/pulls/53919",
+      "file": "pulls-53919.json",
+      "summary": {
+        "html_url": "https://github.com/vllm-project/vllm/pull/53919",
+        "title": "[Bugfix] Await the accepted-token copy before moving batch rows",
+        "state": "open",
+        "created_at": "2026-08-26T16:19:52Z",
+        "updated_at": "2026-08-28T19:20:00Z",
+        "closed_at": null,
+        "merged_at": null
+      }
+    },
+    {
+      "ok": true,
+      "api": "https://api.github.com/repos/vllm-project/vllm/pulls/57128",
+      "file": "pulls-57128.json",
+      "summary": {
+        "html_url": "https://github.com/vllm-project/vllm/pull/57128",
+        "title": "[Bugfix] MambaManager.find_longest_cache_hit ignores drop_eagle_block, silent corruption with prefix caching + MTP/EAGLE",
+        "state": "open",
+        "created_at": "2026-09-16T06:31:12Z",
+        "updated_at": "2026-10-06T09:33:21Z",
+        "closed_at": null,
+        "merged_at": null
+      }
+    },
+    {
+      "ok": true,
+      "api": "https://api.github.com/repos/vllm-project/vllm/pulls/57128/reviews",
+      "file": "pulls-57128-reviews.json",
+      "summary": {
+        "path": "pulls/57128/reviews",
+        "reviews": [
+          {
+            "user": "claude[bot]",
+            "state": "COMMENTED",
+            "body": "## Claude Code Review\n\nThis pull request is from a fork — automated review is disabled. A repository maintainer can comment `@claude review` to run a one-time review.",
+            "url": "https://github.com/vllm-project/vllm/pull/57128#pullrequestreview-5219238525"
+          },
+          {
+            "user": "ZJY0516",
+            "state": "COMMENTED",
+            "body": "",
+            "url": "https://github.com/vllm-project/vllm/pull/57128#pullrequestreview-5426447961"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,184 @@
+FFFFFFFFFFFFF.FFF..FFFF                                                  [100%]
+=================================== FAILURES ===================================
+____________________ test_fallback_replaces_history[False] _____________________
+async def functions are not natively supported.
+You need to install a suitable plugin for your async framework, for example:
+  - anyio
+  - pytest-asyncio
+  - pytest-tornasync
+  - pytest-trio
+  - pytest-twisted
+_____________________ test_fallback_replaces_history[True] _____________________
+async def functions are not natively supported.
+You need to install a suitable plugin for your async framework, for example:
+  - anyio
+  - pytest-asyncio
+  - pytest-tornasync
+  - pytest-trio
+  - pytest-twisted
+________ test_unrecoverable_context_error_is_not_a_fabricated_response _________
+async def functions are not natively supported.
+You need to install a suitable plugin for your async framework, for example:
+  - anyio
+  - pytest-asyncio
+  - pytest-tornasync
+  - pytest-trio
+  - pytest-twisted
+__________________ test_disabled_summarization_does_not_retry __________________
+async def functions are not natively supported.
+You need to install a suitable plugin for your async framework, for example:
+  - anyio
+  - pytest-asyncio
+  - pytest-tornasync
+  - pytest-trio
+  - pytest-twisted
+_____ test_full_summary_fits_generated_text_into_answers_request[7-False] ______
+async def functions are not natively supported.
+You need to install a suitable plugin for your async framework, for example:
+  - anyio
+  - pytest-asyncio
+  - pytest-tornasync
+  - pytest-trio
+  - pytest-twisted
+______ test_full_summary_fits_generated_text_into_answers_request[7-True] ______
+async def functions are not natively supported.
+You need to install a suitable plugin for your async framework, for example:
+  - anyio
+  - pytest-asyncio
+  - pytest-tornasync
+  - pytest-trio
+  - pytest-twisted
+___ test_full_summary_fits_generated_text_into_answers_request[30000-False] ____
+async def functions are not natively supported.
+You need to install a suitable plugin for your async framework, for example:
+  - anyio
+  - pytest-asyncio
+  - pytest-tornasync
+  - pytest-trio
+  - pytest-twisted
+____ test_full_summary_fits_generated_text_into_answers_request[30000-True] ____
+async def functions are not natively supported.
+You need to install a suitable plugin for your async framework, for example:
+  - anyio
+  - pytest-asyncio
+  - pytest-tornasync
+  - pytest-trio
+  - pytest-twisted
+_____________ test_recovered_transport_retries_preserve_handoff[1] _____________
+async def functions are not natively supported.
+You need to install a suitable plugin for your async framework, for example:
+  - anyio
+  - pytest-asyncio
+  - pytest-tornasync
+  - pytest-trio
+  - pytest-twisted
+_____________ test_recovered_transport_retries_preserve_handoff[3] _____________
+async def functions are not natively supported.
+You need to install a suitable plugin for your async framework, for example:
+  - anyio
+  - pytest-asyncio
+  - pytest-tornasync
+  - pytest-trio
+  - pytest-twisted
+_________ test_recovered_output_uses_native_truncation_handler[False] __________
+async def functions are not natively supported.
+You need to install a suitable plugin for your async framework, for example:
+  - anyio
+  - pytest-asyncio
+  - pytest-tornasync
+  - pytest-trio
+  - pytest-twisted
+__________ test_recovered_output_uses_native_truncation_handler[True] __________
+async def functions are not natively supported.
+You need to install a suitable plugin for your async framework, for example:
+  - anyio
+  - pytest-asyncio
+  - pytest-tornasync
+  - pytest-trio
+  - pytest-twisted
+_________________ test_proactive_failure_also_replaces_history _________________
+async def functions are not natively supported.
+You need to install a suitable plugin for your async framework, for example:
+  - anyio
+  - pytest-asyncio
+  - pytest-tornasync
+  - pytest-trio
+  - pytest-twisted
+__________________ test_cancellation_does_not_start_fallback ___________________
+async def functions are not natively supported.
+You need to install a suitable plugin for your async framework, for example:
+  - anyio
+  - pytest-asyncio
+  - pytest-tornasync
+  - pytest-trio
+  - pytest-twisted
+__________ test_terminal_fallback_records_compaction_boundary[False] ___________
+async def functions are not natively supported.
+You need to install a suitable plugin for your async framework, for example:
+  - anyio
+  - pytest-asyncio
+  - pytest-tornasync
+  - pytest-trio
+  - pytest-twisted
+___________ test_terminal_fallback_records_compaction_boundary[True] ___________
+async def functions are not natively supported.
+You need to install a suitable plugin for your async framework, for example:
+  - anyio
+  - pytest-asyncio
+  - pytest-tornasync
+  - pytest-trio
+  - pytest-twisted
+________________ test_proactive_summary_accounts_for_80k_output ________________
+async def functions are not natively supported.
+You need to install a suitable plugin for your async framework, for example:
+  - anyio
+  - pytest-asyncio
+  - pytest-tornasync
+  - pytest-trio
+  - pytest-twisted
+________________ test_zero_proactive_threshold_remains_disabled ________________
+async def functions are not natively supported.
+You need to install a suitable plugin for your async framework, for example:
+  - anyio
+  - pytest-asyncio
+  - pytest-tornasync
+  - pytest-trio
+  - pytest-twisted
+______________ test_generated_handoff_includes_output_reservation ______________
+async def functions are not natively supported.
+You need to install a suitable plugin for your async framework, for example:
+  - anyio
+  - pytest-asyncio
+  - pytest-tornasync
+  - pytest-trio
+  - pytest-twisted
+________________ test_short_summary_cancellation_is_propagated _________________
+async def functions are not natively supported.
+You need to install a suitable plugin for your async framework, for example:
+  - anyio
+  - pytest-asyncio
+  - pytest-tornasync
+  - pytest-trio
+  - pytest-twisted
+=========================== short test summary info ============================
+FAILED data/benchmark/archive/tests/test_terminus_context_recovery.py::test_fallback_replaces_history[False]
+FAILED data/benchmark/archive/tests/test_terminus_context_recovery.py::test_fallback_replaces_history[True]
+FAILED data/benchmark/archive/tests/test_terminus_context_recovery.py::test_unrecoverable_context_error_is_not_a_fabricated_response
+FAILED data/benchmark/archive/tests/test_terminus_context_recovery.py::test_disabled_summarization_does_not_retry
+FAILED data/benchmark/archive/tests/test_terminus_context_recovery.py::test_full_summary_fits_generated_text_into_answers_request[7-False]
+FAILED data/benchmark/archive/tests/test_terminus_context_recovery.py::test_full_summary_fits_generated_text_into_answers_request[7-True]
+FAILED data/benchmark/archive/tests/test_terminus_context_recovery.py::test_full_summary_fits_generated_text_into_answers_request[30000-False]
+FAILED data/benchmark/archive/tests/test_terminus_context_recovery.py::test_full_summary_fits_generated_text_into_answers_request[30000-True]
+FAILED data/benchmark/archive/tests/test_terminus_context_recovery.py::test_recovered_transport_retries_preserve_handoff[1]
+FAILED data/benchmark/archive/tests/test_terminus_context_recovery.py::test_recovered_transport_retries_preserve_handoff[3]
+FAILED data/benchmark/archive/tests/test_terminus_context_recovery.py::test_recovered_output_uses_native_truncation_handler[False]
+FAILED data/benchmark/archive/tests/test_terminus_context_recovery.py::test_recovered_output_uses_native_truncation_handler[True]
+FAILED data/benchmark/archive/tests/test_terminus_context_recovery.py::test_proactive_failure_also_replaces_history
+FAILED data/benchmark/archive/tests/test_terminus_context_recovery.py::test_cancellation_does_not_start_fallback
+FAILED data/benchmark/archive/tests/test_terminus_context_recovery.py::test_terminal_fallback_records_compaction_boundary[False]
+FAILED data/benchmark/archive/tests/test_terminus_context_recovery.py::test_terminal_fallback_records_compaction_boundary[True]
+FAILED data/benchmark/archive/tests/test_terminus_context_recovery.py::test_proactive_summary_accounts_for_80k_output
+FAILED data/benchmark/archive/tests/test_terminus_context_recovery.py::test_zero_proactive_threshold_remains_disabled
+FAILED data/benchmark/archive/tests/test_terminus_context_recovery.py::test_generated_handoff_includes_output_reservation
+FAILED data/benchmark/archive/tests/test_terminus_context_recovery.py::test_short_summary_cancellation_is_propagated
+20 failed, 3 passed in 12.58s

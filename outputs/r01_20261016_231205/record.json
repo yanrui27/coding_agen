@@ -1,0 +1,35 @@
+{
+  "name": "batch-r01-20261016-231205-b",
+  "run_dir": "/mnt/data/rui.yan/projects/coding_agent/outputs/r01_20261016_231205",
+  "hf_output": "/mnt/data/rui.yan/projects/coding_agent/ckpts/r01_20261016_231205_hf",
+  "sources": {
+    "math": {
+      "dataset": "math",
+      "split": "train",
+      "path": "/mnt/data/rui.yan/projects/coding_agent/sft/data/math.train.jsonl",
+      "bytes": 19432906853,
+      "rows": 545431,
+      "sha256": "038819c82d9ccdd36f5d13f5c44fba57694f4fde1a8ed638c7b1977e474593ef"
+    },
+    "science": {
+      "dataset": "science",
+      "split": "train",
+      "path": "/mnt/data/rui.yan/projects/coding_agent/sft/data/science.train.jsonl",
+      "bytes": 28595954083,
+      "rows": 294306,
+      "sha256": "dd18fd7a850866c6e3479f528b430869575dc17b3b8bd771446be42b4ef6d4df"
+    }
+  },
+  "code_sha256": {
+    "runtime.py": "39bdb405a090d4c468501e61a2630d1d387cabcb8f2d645c4b4886f0da340619",
+    "train_mace_sci.sh": "62a9e1a1e87405892ce9cb4701240f4f332ce17d74707e7fc0335c36007ef4f5"
+  },
+  "previous_job": "batch-r01-20261016-231205",
+  "entrypoint": "/mnt/data/rui.yan/projects/coding_agent/sft/train_mace_sci.sh",
+  "learning_rate": {
+    "peak": 1e-05,
+    "minimum": 1e-06,
+    "schedule": "cosine",
+    "warmup_fraction": 0.03
+  }
+}

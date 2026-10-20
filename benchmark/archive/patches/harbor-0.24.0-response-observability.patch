@@ -1,0 +1,32 @@
+--- a/.venv-harbor/lib/python3.12/site-packages/harbor/agents/terminus_2/terminus_2.py
++++ b/.venv-harbor/lib/python3.12/site-packages/harbor/agents/terminus_2/terminus_2.py
+@@ -1535,6 +1535,9 @@
+                         ),
+                     )
+                 )
++                # Persist unsuccessful API turns too. Otherwise a parser-error
++                # loop looks like a frozen terminal until the agent exits.
++                self._dump_trajectory()
+                 continue
+ 
+             timeout_occurred, terminal_output = await self._execute_commands(
+--- a/.venv-harbor/lib/python3.12/site-packages/harbor/llms/lite_llm.py
++++ b/.venv-harbor/lib/python3.12/site-packages/harbor/llms/lite_llm.py
+@@ -427,6 +427,17 @@
+         content = message.get("content") or ""
+         reasoning_content = message.get("reasoning_content")
+ 
++        if not content or choice.get("finish_reason") == "length":
++            self._logger.debug(
++                "LLM response diagnostic: %s",
++                json.dumps({
++                    "finish_reason": choice.get("finish_reason"),
++                    "content_characters": len(content),
++                    "reasoning_characters": len(reasoning_content or ""),
++                    "usage": usage_info.model_dump(mode="json"),
++                }),
++            )
++
+         # Sometimes the LLM returns a response with a finish reason of "length"
+         # This typically means we hit the max_tokens limit, not the context window
+         if choice.get("finish_reason") == "length":

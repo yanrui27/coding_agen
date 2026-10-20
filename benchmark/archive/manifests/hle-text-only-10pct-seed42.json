@@ -1,0 +1,1002 @@
+{
+  "name": "text-only-10pct",
+  "version": 1,
+  "seed": 42,
+  "size": 216,
+  "fraction": 0.10009267840593142,
+  "parent_size": 2158,
+  "parent_scope": "text-only",
+  "repo": "cais/hle",
+  "revision": "5a81a4c7271a2a2a312b9a690f0c2fde837e4c29",
+  "split": "test",
+  "parent_path": "datasets/hle/text_only.jsonl",
+  "parent_sha256": "46786fbf88cde9068d9333dfdeb473b8bb45422860e5795ef39986f1c4a1ce2c",
+  "path": "datasets/hle/text_only_10pct_seed42.jsonl",
+  "sha256": "df2bb346d700a857c15f3da537e7ee5525f0141017f4a25d56a6a09149e2fd8c",
+  "method": "Proportional subject/type quotas and global prompt-length rank bins (0-50/50-90/90-99/99-100%); largest remainders, deterministic quota balancing, then SHA256(seed,id) ranking within each cell; preserve parent order.",
+  "selection_fields": [
+    "category",
+    "answer_type",
+    "Base prompt_tokens",
+    "id",
+    "seed"
+  ],
+  "outcome_fields_used_for_selection": [],
+  "length_features_source": {
+    "model": "Qwen3.6-35B-A3B",
+    "path": "results/Qwen3.6-35B-A3B/hle/predictions.jsonl",
+    "sha256": "af6afb751177a7f50f5a486e8b166a66e161fed296805b81bff095d70961db15",
+    "note": "Existing Base /tokenize counts; lengths include the fixed official system prompt and chat template."
+  },
+  "task_ids": [
+    "66b827b9b64deaedfbb997a2",
+    "66e883265ab37f0a7da089be",
+    "66e8a23d15c60c2c32f2ba55",
+    "66e8d4d65699cf35c9a1527c",
+    "66e907c51440516dd6ab54fb",
+    "66e93b7099d9d12b2b824c44",
+    "66e949664ea2c791558f8620",
+    "66e996260930c00374ceaa0b",
+    "66e9a436876fbf9ff158c137",
+    "66e9b92578e89514d9ab6093",
+    "66e9e6b3c27ad6bc46adbc20",
+    "66ea216e142383cfe2f74fde",
+    "66eadaf22b7de7dec0a046bd",
+    "66eb0883f3acd11c70662aff",
+    "66ec8ab4b489956467209e0c",
+    "66ed28dfde312a049a78b3ba",
+    "66ed3e7cd841eb51a985ca7f",
+    "66ed97d1c2becb9452e4d7b4",
+    "66ee81afdec0afc28a74dc93",
+    "66eea9e29a4d46950f16c7f2",
+    "66ef2a1b8829dedb61d5627a",
+    "66ef2b318829dedb61d5627e",
+    "66efc68bd7d1b7b37f6e1681",
+    "66f052e814be84cc1edd3fbd",
+    "66f1bc99f8bb4425f74e42a5",
+    "66f1ce25cd6a2b9d36fe8ea2",
+    "66f358d4cdd3ce36208e23ca",
+    "66f378a504165ae3e4f46de9",
+    "66f3cf8fb5184675d867ef6a",
+    "66f454d18ab578bcbb18387c",
+    "66f579027a2ac7b4fffe1740",
+    "66f57a7e9f9308128679f668",
+    "66f5fd3235147083021a66c6",
+    "66f6bffd76e8f5503a11d413",
+    "66f7218240bd9498c95bfdf3",
+    "66f7fa54fa61639b844aa420",
+    "66f83aed0d92e99048a4ae9d",
+    "66f9a1ed4f798b651f6d3c8e",
+    "66fc1d71418b50634438f3f1",
+    "66fc2b7dbdebe91c66389e50",
+    "66fc564eae059175d7cc3244",
+    "66fc56f5d90ebe461bfd0c9c",
+    "66fc62d80fdbeffcd143e87c",
+    "66fc633698a7264ef58309c0",
+    "66fcf81e8a146dd80cfb2296",
+    "66fcfe789608881c6aecde88",
+    "66fd469e7a33ca69ccc69729",
+    "66fd89bd8c7969267538ba86",
+    "66fdaf20d1e0bb15b8fc1eb6",
+    "66fded1fbc6d46a25c41ee8d",
+    "66fe3e4d6a914e1ed9d8c32e",
+    "66fe796bc12cbe6aeaa26e69",
+    "66fe97540fe93ab7e9405c9b",
+    "66feef700e977ac289068c27",
+    "66ff44de2cfec1499ea021dd",
+    "66ffcfa0864258b2f971a80c",
+    "6701d2675f6691877f264511",
+    "6701de16d9e4cd1aa812414b",
+    "6702780d39fbddbbfdaffdf0",
+    "670288dacacd044c115f0156",
+    "6702d00cabe0b372f85108c7",
+    "6702db18a423c5b9f9c1c49c",
+    "670777536ce55102ae56fa2c",
+    "6707b9264ea1e7c28b6169bc",
+    "670c2d61886695e43e7c18b3",
+    "670d91a9ac55362ddccabea1",
+    "670e87009fd2a94b93cec307",
+    "670edd52bddc0cfe673272cb",
+    "6710251d73c9583c25138ff0",
+    "6711eb4e1c08a07a8d243847",
+    "67120c351f4769bcbeaadd5a",
+    "671257a8df2820fcc29acc37",
+    "671590d09f939ab157188104",
+    "67162aae22b39b92ec5d1eaf",
+    "6716eaa4bdd18f08a0e9bcbf",
+    "67171b0d0111e9837cad75b8",
+    "671729e6746b1c4faab7096f",
+    "671802a3e2dff1f07a1b0508",
+    "671901f58b9cbfc7b2fd9723",
+    "671a246d8479d8185c4d4435",
+    "671a30c82ca56817dc566f69",
+    "671a431b2ca56817dc566f89",
+    "671aad4a17615f09eab6fe3d",
+    "671ad5ceed3d54e87368bc68",
+    "671adbf8439b8a0eaec180d3",
+    "671b16741c8a4560f96a3a66",
+    "671ba7b447e34cf4ed747b30",
+    "671bdb372bb31d345b269f7d",
+    "671c0a06ad75138f963f9b56",
+    "671c0ccd29d77939ea7f3bd4",
+    "671c0d6f66154e5cf55994de",
+    "671d3a7ed01a0c86488d84dd",
+    "671d4dc4a37bbf6a4bccbd9e",
+    "671d91bcad7fb0793a0e93bd",
+    "671d9c62355c956ce7de5a89",
+    "671db266fe1146e348ef1267",
+    "671df94021be7c0de0c698e8",
+    "671dfacd16b873a455cbd5e0",
+    "671dfc4d348d6bb4709de947",
+    "671ef4bd6edc2afd6995897b",
+    "671f083dc8da11076ce9960e",
+    "671f1b5bf1d35a8b2b3b9756",
+    "671f1f0bb0b665acec70c3aa",
+    "671f7f334db66145d9e41f1f",
+    "671f8a0781665b519321d818",
+    "671fafee2e60076c5693558a",
+    "671feb0424e49a0a566a7883",
+    "672065f65681ce2b6f5a08a0",
+    "672068b61177432c7e500289",
+    "6721545d3f8c49e613c94fac",
+    "67217d44c98941f2d2d343f6",
+    "6721a513823e82a699228953",
+    "6721f74cffe59043e1a1a35e",
+    "6722048cdcce66512a82d9e2",
+    "67225e2f53af61d9b29732c8",
+    "672262d988e407d7eb07744d",
+    "672275f643469364173b0c14",
+    "6722815c3c4f6785b07a6f49",
+    "6722a20c7c3fce9eed014fe3",
+    "6722c2c066e4416e650d9032",
+    "6722cf86c3c3c44b213a198a",
+    "672302bdbc9e7202ad89ccd3",
+    "672333955d82e15ca8e37afb",
+    "672365aa71fe0b446a1eb0a2",
+    "6723b207610c8f282a827f3a",
+    "67a69b0bc85a56ef94b67f1e",
+    "6723cdf07a517fb44dd35e47",
+    "6723d9a6271ddeec8bacb9b6",
+    "6723daed271ddeec8bacb9be",
+    "6723f1bf0b72766be93d01ae",
+    "6723f54dcd09615a3afc3d10",
+    "67240e5586f4c71a70e0b498",
+    "672455ce7a14971607e3d9f0",
+    "67249b8ef14c6dca507d5e0d",
+    "6724bcf944c2c3be8ba3cf72",
+    "6724fae6d3b58eb90d837b32",
+    "67252b9639b66386e0489e94",
+    "67253a0b13c1aec29d1f1841",
+    "67253bcc94bd63ec55a66a0c",
+    "672547d531e4efbf27ecd1cf",
+    "67255d0e51c2cc162e5b53e4",
+    "6725840f6681c277a5f9e487",
+    "6725a933e10373a976b7e2a2",
+    "6725cb794f347932f9a63e6b",
+    "6725e3a826992c47ce3a7e99",
+    "6725fbd80aae355a51195cca",
+    "6726146a09e79f4662d109bc",
+    "67c584061122dc051c09a25a",
+    "67279eea8416b7e045c83b93",
+    "67298280a5f43bd5a3870e14",
+    "672c3c98d6f6f7a9e29fc6e2",
+    "672c91122372b4061411e111",
+    "672cfee1db7c79384524d9b2",
+    "672e08c20a85795d0ed2d36b",
+    "672e1ba8e62456d8519fb95b",
+    "672f2311db65f629cc9236ce",
+    "672f819789e556fe53c8af75",
+    "672f935ae8305894b6cfdc94",
+    "67310e19bf74eff110261caa",
+    "67313652f659ba7b3fd1fe40",
+    "6731fa3bb08cf72258a21348",
+    "673245364fe7531d658b2750",
+    "67325538be6ffcb93ac06399",
+    "6732d3b01a3f938f2274a659",
+    "67330386bda81b2106f720dc",
+    "6733fca10a354898fb579c2e",
+    "6734346cf3950859f67019af",
+    "6734d0fd45aa0757a21c4ddc",
+    "67359d62d473013adeed83e0",
+    "6735cd220c703cedb6f1646a",
+    "673623f4975e3df10169bceb",
+    "67367af29ba049ad64182820",
+    "67367c1af50c5f8bfc321f34",
+    "679719aeac316f89542b3581",
+    "6736bf617cb0499c96e427da",
+    "6736f7bc980211368f0f94eb",
+    "6737016cd6feab08ed98c77d",
+    "67371006980211368f0f954e",
+    "67371c15d09c0e422ae36585",
+    "67372d4af4721666334a8535",
+    "6737309d1988146a57ffab18",
+    "6737328119fe786391fedd8a",
+    "67378355cf21a88cec0f42e5",
+    "67381a8ee4ea03183132a559",
+    "6738288e35f9616e390e7394",
+    "6738da53028ebe6f5c2ae07a",
+    "6738df8c201a2bd66499797a",
+    "67398780bcaf1e028b8576a2",
+    "67399d0163641fb0bc110db9",
+    "673a7987334115f5123f9c64",
+    "673a92ad437529d472475406",
+    "673ab9f26b5c65098f208d90",
+    "673af092fa64168165769f1e",
+    "673b4efb373d154ce855b23b",
+    "673b6ca1a646afb63047219f",
+    "673b955f2ddd80745b6bd232",
+    "67400254c0ce9147b46fadfb",
+    "6742fe5ea2e78a79e46bb220",
+    "67435ecfa59a37c4a0f5d579",
+    "674362ab6b7aa212dfb90595",
+    "6747c521a7e2f8061effd365",
+    "6747cbf864654c38936cf259",
+    "674818a0d2dbfbb2e99bd257",
+    "67c9a321f82a928bdecec2a5",
+    "6756844266c3ec0e7088bf9f",
+    "67770f6d9a59b3d9ca3a5f82",
+    "6777764d6b3f27cf12b17555",
+    "677b26a903cb2e13f2c755ef",
+    "677c9bc140c35493a85c3c33",
+    "6722c3ce8e469fbdb3ba6a6e",
+    "67350237b7aab4044ebf52ca",
+    "66eae8d9afe364e4f477b76f",
+    "670be48d7038d6936230870a",
+    "66eb352ee3d7202c6880626e",
+    "671f53490ac3c2f49e4fa4d5",
+    "672a9c1acaf5258da118f254"
+  ],
+  "strata": [
+    {
+      "category": "Biology/Medicine",
+      "answer_type": "exactMatch",
+      "length_bin": "0-50%",
+      "full_count": 36,
+      "subset_count": 3
+    },
+    {
+      "category": "Biology/Medicine",
+      "answer_type": "exactMatch",
+      "length_bin": "50-90%",
+      "full_count": 37,
+      "subset_count": 4
+    },
+    {
+      "category": "Biology/Medicine",
+      "answer_type": "exactMatch",
+      "length_bin": "90-99%",
+      "full_count": 2,
+      "subset_count": 0
+    },
+    {
+      "category": "Biology/Medicine",
+      "answer_type": "exactMatch",
+      "length_bin": "99-100%",
+      "full_count": 0,
+      "subset_count": 0
+    },
+    {
+      "category": "Biology/Medicine",
+      "answer_type": "multipleChoice",
+      "length_bin": "0-50%",
+      "full_count": 46,
+      "subset_count": 5
+    },
+    {
+      "category": "Biology/Medicine",
+      "answer_type": "multipleChoice",
+      "length_bin": "50-90%",
+      "full_count": 78,
+      "subset_count": 8
+    },
+    {
+      "category": "Biology/Medicine",
+      "answer_type": "multipleChoice",
+      "length_bin": "90-99%",
+      "full_count": 20,
+      "subset_count": 2
+    },
+    {
+      "category": "Biology/Medicine",
+      "answer_type": "multipleChoice",
+      "length_bin": "99-100%",
+      "full_count": 3,
+      "subset_count": 0
+    },
+    {
+      "category": "Chemistry",
+      "answer_type": "exactMatch",
+      "length_bin": "0-50%",
+      "full_count": 49,
+      "subset_count": 5
+    },
+    {
+      "category": "Chemistry",
+      "answer_type": "exactMatch",
+      "length_bin": "50-90%",
+      "full_count": 22,
+      "subset_count": 2
+    },
+    {
+      "category": "Chemistry",
+      "answer_type": "exactMatch",
+      "length_bin": "90-99%",
+      "full_count": 3,
+      "subset_count": 0
+    },
+    {
+      "category": "Chemistry",
+      "answer_type": "exactMatch",
+      "length_bin": "99-100%",
+      "full_count": 1,
+      "subset_count": 0
+    },
+    {
+      "category": "Chemistry",
+      "answer_type": "multipleChoice",
+      "length_bin": "0-50%",
+      "full_count": 7,
+      "subset_count": 1
+    },
+    {
+      "category": "Chemistry",
+      "answer_type": "multipleChoice",
+      "length_bin": "50-90%",
+      "full_count": 16,
+      "subset_count": 2
+    },
+    {
+      "category": "Chemistry",
+      "answer_type": "multipleChoice",
+      "length_bin": "90-99%",
+      "full_count": 3,
+      "subset_count": 0
+    },
+    {
+      "category": "Chemistry",
+      "answer_type": "multipleChoice",
+      "length_bin": "99-100%",
+      "full_count": 0,
+      "subset_count": 0
+    },
+    {
+      "category": "Computer Science/AI",
+      "answer_type": "exactMatch",
+      "length_bin": "0-50%",
+      "full_count": 55,
+      "subset_count": 5
+    },
+    {
+      "category": "Computer Science/AI",
+      "answer_type": "exactMatch",
+      "length_bin": "50-90%",
+      "full_count": 73,
+      "subset_count": 7
+    },
+    {
+      "category": "Computer Science/AI",
+      "answer_type": "exactMatch",
+      "length_bin": "90-99%",
+      "full_count": 27,
+      "subset_count": 3
+    },
+    {
+      "category": "Computer Science/AI",
+      "answer_type": "exactMatch",
+      "length_bin": "99-100%",
+      "full_count": 3,
+      "subset_count": 1
+    },
+    {
+      "category": "Computer Science/AI",
+      "answer_type": "multipleChoice",
+      "length_bin": "0-50%",
+      "full_count": 10,
+      "subset_count": 1
+    },
+    {
+      "category": "Computer Science/AI",
+      "answer_type": "multipleChoice",
+      "length_bin": "50-90%",
+      "full_count": 37,
+      "subset_count": 3
+    },
+    {
+      "category": "Computer Science/AI",
+      "answer_type": "multipleChoice",
+      "length_bin": "90-99%",
+      "full_count": 15,
+      "subset_count": 2
+    },
+    {
+      "category": "Computer Science/AI",
+      "answer_type": "multipleChoice",
+      "length_bin": "99-100%",
+      "full_count": 4,
+      "subset_count": 1
+    },
+    {
+      "category": "Engineering",
+      "answer_type": "exactMatch",
+      "length_bin": "0-50%",
+      "full_count": 16,
+      "subset_count": 2
+    },
+    {
+      "category": "Engineering",
+      "answer_type": "exactMatch",
+      "length_bin": "50-90%",
+      "full_count": 18,
+      "subset_count": 2
+    },
+    {
+      "category": "Engineering",
+      "answer_type": "exactMatch",
+      "length_bin": "90-99%",
+      "full_count": 4,
+      "subset_count": 0
+    },
+    {
+      "category": "Engineering",
+      "answer_type": "exactMatch",
+      "length_bin": "99-100%",
+      "full_count": 1,
+      "subset_count": 0
+    },
+    {
+      "category": "Engineering",
+      "answer_type": "multipleChoice",
+      "length_bin": "0-50%",
+      "full_count": 2,
+      "subset_count": 0
+    },
+    {
+      "category": "Engineering",
+      "answer_type": "multipleChoice",
+      "length_bin": "50-90%",
+      "full_count": 9,
+      "subset_count": 1
+    },
+    {
+      "category": "Engineering",
+      "answer_type": "multipleChoice",
+      "length_bin": "90-99%",
+      "full_count": 13,
+      "subset_count": 1
+    },
+    {
+      "category": "Engineering",
+      "answer_type": "multipleChoice",
+      "length_bin": "99-100%",
+      "full_count": 1,
+      "subset_count": 0
+    },
+    {
+      "category": "Humanities/Social Science",
+      "answer_type": "exactMatch",
+      "length_bin": "0-50%",
+      "full_count": 78,
+      "subset_count": 8
+    },
+    {
+      "category": "Humanities/Social Science",
+      "answer_type": "exactMatch",
+      "length_bin": "50-90%",
+      "full_count": 32,
+      "subset_count": 3
+    },
+    {
+      "category": "Humanities/Social Science",
+      "answer_type": "exactMatch",
+      "length_bin": "90-99%",
+      "full_count": 4,
+      "subset_count": 0
+    },
+    {
+      "category": "Humanities/Social Science",
+      "answer_type": "exactMatch",
+      "length_bin": "99-100%",
+      "full_count": 0,
+      "subset_count": 0
+    },
+    {
+      "category": "Humanities/Social Science",
+      "answer_type": "multipleChoice",
+      "length_bin": "0-50%",
+      "full_count": 30,
+      "subset_count": 3
+    },
+    {
+      "category": "Humanities/Social Science",
+      "answer_type": "multipleChoice",
+      "length_bin": "50-90%",
+      "full_count": 36,
+      "subset_count": 4
+    },
+    {
+      "category": "Humanities/Social Science",
+      "answer_type": "multipleChoice",
+      "length_bin": "90-99%",
+      "full_count": 13,
+      "subset_count": 1
+    },
+    {
+      "category": "Humanities/Social Science",
+      "answer_type": "multipleChoice",
+      "length_bin": "99-100%",
+      "full_count": 0,
+      "subset_count": 0
+    },
+    {
+      "category": "Math",
+      "answer_type": "exactMatch",
+      "length_bin": "0-50%",
+      "full_count": 507,
+      "subset_count": 51
+    },
+    {
+      "category": "Math",
+      "answer_type": "exactMatch",
+      "length_bin": "50-90%",
+      "full_count": 323,
+      "subset_count": 32
+    },
+    {
+      "category": "Math",
+      "answer_type": "exactMatch",
+      "length_bin": "90-99%",
+      "full_count": 54,
+      "subset_count": 6
+    },
+    {
+      "category": "Math",
+      "answer_type": "exactMatch",
+      "length_bin": "99-100%",
+      "full_count": 3,
+      "subset_count": 0
+    },
+    {
+      "category": "Math",
+      "answer_type": "multipleChoice",
+      "length_bin": "0-50%",
+      "full_count": 19,
+      "subset_count": 2
+    },
+    {
+      "category": "Math",
+      "answer_type": "multipleChoice",
+      "length_bin": "50-90%",
+      "full_count": 57,
+      "subset_count": 6
+    },
+    {
+      "category": "Math",
+      "answer_type": "multipleChoice",
+      "length_bin": "90-99%",
+      "full_count": 11,
+      "subset_count": 1
+    },
+    {
+      "category": "Math",
+      "answer_type": "multipleChoice",
+      "length_bin": "99-100%",
+      "full_count": 2,
+      "subset_count": 0
+    },
+    {
+      "category": "Other",
+      "answer_type": "exactMatch",
+      "length_bin": "0-50%",
+      "full_count": 89,
+      "subset_count": 9
+    },
+    {
+      "category": "Other",
+      "answer_type": "exactMatch",
+      "length_bin": "50-90%",
+      "full_count": 35,
+      "subset_count": 3
+    },
+    {
+      "category": "Other",
+      "answer_type": "exactMatch",
+      "length_bin": "90-99%",
+      "full_count": 7,
+      "subset_count": 1
+    },
+    {
+      "category": "Other",
+      "answer_type": "exactMatch",
+      "length_bin": "99-100%",
+      "full_count": 1,
+      "subset_count": 0
+    },
+    {
+      "category": "Other",
+      "answer_type": "multipleChoice",
+      "length_bin": "0-50%",
+      "full_count": 21,
+      "subset_count": 2
+    },
+    {
+      "category": "Other",
+      "answer_type": "multipleChoice",
+      "length_bin": "50-90%",
+      "full_count": 19,
+      "subset_count": 2
+    },
+    {
+      "category": "Other",
+      "answer_type": "multipleChoice",
+      "length_bin": "90-99%",
+      "full_count": 4,
+      "subset_count": 0
+    },
+    {
+      "category": "Other",
+      "answer_type": "multipleChoice",
+      "length_bin": "99-100%",
+      "full_count": 0,
+      "subset_count": 0
+    },
+    {
+      "category": "Physics",
+      "answer_type": "exactMatch",
+      "length_bin": "0-50%",
+      "full_count": 99,
+      "subset_count": 10
+    },
+    {
+      "category": "Physics",
+      "answer_type": "exactMatch",
+      "length_bin": "50-90%",
+      "full_count": 56,
+      "subset_count": 6
+    },
+    {
+      "category": "Physics",
+      "answer_type": "exactMatch",
+      "length_bin": "90-99%",
+      "full_count": 8,
+      "subset_count": 1
+    },
+    {
+      "category": "Physics",
+      "answer_type": "exactMatch",
+      "length_bin": "99-100%",
+      "full_count": 2,
+      "subset_count": 0
+    },
+    {
+      "category": "Physics",
+      "answer_type": "multipleChoice",
+      "length_bin": "0-50%",
+      "full_count": 15,
+      "subset_count": 1
+    },
+    {
+      "category": "Physics",
+      "answer_type": "multipleChoice",
+      "length_bin": "50-90%",
+      "full_count": 16,
+      "subset_count": 2
+    },
+    {
+      "category": "Physics",
+      "answer_type": "multipleChoice",
+      "length_bin": "90-99%",
+      "full_count": 6,
+      "subset_count": 1
+    },
+    {
+      "category": "Physics",
+      "answer_type": "multipleChoice",
+      "length_bin": "99-100%",
+      "full_count": 0,
+      "subset_count": 0
+    }
+  ],
+  "representativeness": {
+    "category": {
+      "values": [
+        {
+          "value": "Biology/Medicine",
+          "full_count": 222,
+          "subset_count": 22,
+          "full_percent": 10.287303058387396,
+          "subset_percent": 10.185185185185185,
+          "difference_percentage_points": -0.10211787320221072
+        },
+        {
+          "value": "Chemistry",
+          "full_count": 101,
+          "subset_count": 10,
+          "full_percent": 4.680259499536608,
+          "subset_percent": 4.62962962962963,
+          "difference_percentage_points": -0.05062986990697835
+        },
+        {
+          "value": "Computer Science/AI",
+          "full_count": 224,
+          "subset_count": 23,
+          "full_percent": 10.379981464318814,
+          "subset_percent": 10.648148148148149,
+          "difference_percentage_points": 0.26816668382933506
+        },
+        {
+          "value": "Engineering",
+          "full_count": 64,
+          "subset_count": 6,
+          "full_percent": 2.9657089898053752,
+          "subset_percent": 2.7777777777777777,
+          "difference_percentage_points": -0.18793121202759777
+        },
+        {
+          "value": "Humanities/Social Science",
+          "full_count": 193,
+          "subset_count": 19,
+          "full_percent": 8.943466172381836,
+          "subset_percent": 8.796296296296296,
+          "difference_percentage_points": -0.1471698760855386
+        },
+        {
+          "value": "Math",
+          "full_count": 976,
+          "subset_count": 98,
+          "full_percent": 45.22706209453197,
+          "subset_percent": 45.370370370370374,
+          "difference_percentage_points": 0.14330827583839967
+        },
+        {
+          "value": "Other",
+          "full_count": 176,
+          "subset_count": 17,
+          "full_percent": 8.155699721964782,
+          "subset_percent": 7.87037037037037,
+          "difference_percentage_points": -0.28532935159441136
+        },
+        {
+          "value": "Physics",
+          "full_count": 202,
+          "subset_count": 21,
+          "full_percent": 9.360518999073216,
+          "subset_percent": 9.722222222222221,
+          "difference_percentage_points": 0.36170322314900694
+        }
+      ],
+      "max_absolute_difference_percentage_points": 0.36170322314900694
+    },
+    "answer_type": {
+      "values": [
+        {
+          "value": "exactMatch",
+          "full_count": 1645,
+          "subset_count": 164,
+          "full_percent": 76.22798887859129,
+          "subset_percent": 75.92592592592592,
+          "difference_percentage_points": -0.30206295266536065
+        },
+        {
+          "value": "multipleChoice",
+          "full_count": 513,
+          "subset_count": 52,
+          "full_percent": 23.772011121408713,
+          "subset_percent": 24.074074074074073,
+          "difference_percentage_points": 0.30206295266536065
+        }
+      ],
+      "max_absolute_difference_percentage_points": 0.30206295266536065
+    },
+    "category_answer_type": {
+      "values": [
+        {
+          "value": "Biology/Medicine / exactMatch",
+          "full_count": 75,
+          "subset_count": 7,
+          "full_percent": 3.4754402224281744,
+          "subset_percent": 3.240740740740741,
+          "difference_percentage_points": -0.2346994816874337
+        },
+        {
+          "value": "Biology/Medicine / multipleChoice",
+          "full_count": 147,
+          "subset_count": 15,
+          "full_percent": 6.8118628359592215,
+          "subset_percent": 6.944444444444445,
+          "difference_percentage_points": 0.132581608485223
+        },
+        {
+          "value": "Chemistry / exactMatch",
+          "full_count": 75,
+          "subset_count": 7,
+          "full_percent": 3.4754402224281744,
+          "subset_percent": 3.240740740740741,
+          "difference_percentage_points": -0.2346994816874337
+        },
+        {
+          "value": "Chemistry / multipleChoice",
+          "full_count": 26,
+          "subset_count": 3,
+          "full_percent": 1.2048192771084338,
+          "subset_percent": 1.3888888888888888,
+          "difference_percentage_points": 0.184069611780455
+        },
+        {
+          "value": "Computer Science/AI / exactMatch",
+          "full_count": 158,
+          "subset_count": 16,
+          "full_percent": 7.32159406858202,
+          "subset_percent": 7.407407407407407,
+          "difference_percentage_points": 0.08581333882538705
+        },
+        {
+          "value": "Computer Science/AI / multipleChoice",
+          "full_count": 66,
+          "subset_count": 7,
+          "full_percent": 3.0583873957367933,
+          "subset_percent": 3.240740740740741,
+          "difference_percentage_points": 0.18235334500394731
+        },
+        {
+          "value": "Engineering / exactMatch",
+          "full_count": 39,
+          "subset_count": 4,
+          "full_percent": 1.8072289156626506,
+          "subset_percent": 1.8518518518518519,
+          "difference_percentage_points": 0.044622936189201226
+        },
+        {
+          "value": "Engineering / multipleChoice",
+          "full_count": 25,
+          "subset_count": 2,
+          "full_percent": 1.1584800741427248,
+          "subset_percent": 0.9259259259259259,
+          "difference_percentage_points": -0.23255414821679882
+        },
+        {
+          "value": "Humanities/Social Science / exactMatch",
+          "full_count": 114,
+          "subset_count": 11,
+          "full_percent": 5.282669138090825,
+          "subset_percent": 5.092592592592593,
+          "difference_percentage_points": -0.19007654549823283
+        },
+        {
+          "value": "Humanities/Social Science / multipleChoice",
+          "full_count": 79,
+          "subset_count": 8,
+          "full_percent": 3.66079703429101,
+          "subset_percent": 3.7037037037037037,
+          "difference_percentage_points": 0.04290666941269353
+        },
+        {
+          "value": "Math / exactMatch",
+          "full_count": 887,
+          "subset_count": 89,
+          "full_percent": 41.10287303058387,
+          "subset_percent": 41.2037037037037,
+          "difference_percentage_points": 0.1008306731198283
+        },
+        {
+          "value": "Math / multipleChoice",
+          "full_count": 89,
+          "subset_count": 9,
+          "full_percent": 4.1241890639481005,
+          "subset_percent": 4.166666666666667,
+          "difference_percentage_points": 0.042477602718566515
+        },
+        {
+          "value": "Other / exactMatch",
+          "full_count": 132,
+          "subset_count": 13,
+          "full_percent": 6.116774791473587,
+          "subset_percent": 6.018518518518518,
+          "difference_percentage_points": -0.09825627295506831
+        },
+        {
+          "value": "Other / multipleChoice",
+          "full_count": 44,
+          "subset_count": 4,
+          "full_percent": 2.0389249304911954,
+          "subset_percent": 1.8518518518518519,
+          "difference_percentage_points": -0.18707307863934375
+        },
+        {
+          "value": "Physics / exactMatch",
+          "full_count": 165,
+          "subset_count": 17,
+          "full_percent": 7.645968489341984,
+          "subset_percent": 7.87037037037037,
+          "difference_percentage_points": 0.22440188102838682
+        },
+        {
+          "value": "Physics / multipleChoice",
+          "full_count": 37,
+          "subset_count": 4,
+          "full_percent": 1.7145505097312326,
+          "subset_percent": 1.8518518518518519,
+          "difference_percentage_points": 0.13730134212061906
+        }
+      ],
+      "max_absolute_difference_percentage_points": 0.2346994816874337
+    },
+    "prompt_length_bin": {
+      "values": [
+        {
+          "value": "0-50%",
+          "full_count": 1079,
+          "subset_count": 108,
+          "full_percent": 50.0,
+          "subset_percent": 50.0,
+          "difference_percentage_points": 0.0
+        },
+        {
+          "value": "50-90%",
+          "full_count": 864,
+          "subset_count": 87,
+          "full_percent": 40.037071362372565,
+          "subset_percent": 40.27777777777778,
+          "difference_percentage_points": 0.24070641540521187
+        },
+        {
+          "value": "90-99%",
+          "full_count": 194,
+          "subset_count": 19,
+          "full_percent": 8.989805375347544,
+          "subset_percent": 8.796296296296296,
+          "difference_percentage_points": -0.19350907905124753
+        },
+        {
+          "value": "99-100%",
+          "full_count": 21,
+          "subset_count": 2,
+          "full_percent": 0.9731232622798888,
+          "subset_percent": 0.9259259259259259,
+          "difference_percentage_points": -0.04719733635396295
+        }
+      ],
+      "max_absolute_difference_percentage_points": 0.24070641540521187
+    },
+    "prompt_tokens": {
+      "full": {
+        "mean": 342.36329935125116,
+        "p25": 141,
+        "median": 207,
+        "p75": 344,
+        "p90": 596,
+        "p99": 1893,
+        "max": 13586
+      },
+      "subset": {
+        "mean": 319.2962962962963,
+        "p25": 140,
+        "median": 207,
+        "p75": 337,
+        "p90": 548,
+        "p99": 1691,
+        "max": 5800
+      }
+    },
+    "completion_tokens": {
+      "full": {
+        "mean": 35398.075069508806,
+        "p25": 16870,
+        "median": 32307,
+        "p75": 50231,
+        "p90": 66645,
+        "p99": 101196,
+        "max": 131072
+      },
+      "subset": {
+        "mean": 37067.15740740741,
+        "p25": 17541,
+        "median": 35503,
+        "p75": 51863,
+        "p90": 67694,
+        "p99": 102284,
+        "max": 114395
+      }
+    }
+  },
+  "use": "Fixed quick diagnostic subset. Report separately from the full HLE text-only score. Existing Base outcomes are inspected only after selection."
+}

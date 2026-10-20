@@ -1,0 +1,179 @@
+{
+  "created_at": "2026-10-19T04:52:23.948617+00:00",
+  "tests_run": 4,
+  "failures": 0,
+  "errors": 0,
+  "model_api_calls": 0,
+  "cuda_kernels_executed": false,
+  "live_service_modified": false,
+  "methodology": "AST-extracted acceptance kernels, actual count derivation, batch reorder/prepare, candidate branch, GDN slot selector and update algebra; CPU pointer/tensor emulation.",
+  "limits": "No actual faulting request state, GPU event ordering, checkpoint weights or model accuracy test. Passing a candidate fixture is not deployment approval.",
+  "observations": {
+    "candidate": {
+      "path": "candidate/v1/worker/gpu_model_runner.py",
+      "sha256": "f9fb2359c26a0f1877bc38d0418e2f7a60365ba2328522bef2047477a4e908a0",
+      "upstream": "https://github.com/vllm-project/vllm/pull/53919",
+      "changes": [
+        "wait before add/reorder writes",
+        "read counts directly in current row order"
+      ],
+      "applied_to_live": false,
+      "gpu_validated": false
+    },
+    "acceptance_controls": [
+      {
+        "random": false,
+        "no_draft_probs": false,
+        "output": [
+          [
+            9,
+            -1,
+            -1,
+            -1
+          ],
+          [
+            4,
+            5,
+            6,
+            7
+          ]
+        ],
+        "counts": [
+          1,
+          4
+        ]
+      },
+      {
+        "random": true,
+        "no_draft_probs": false,
+        "output": [
+          [
+            9,
+            -1,
+            -1,
+            -1
+          ],
+          [
+            4,
+            5,
+            6,
+            7
+          ]
+        ],
+        "counts": [
+          1,
+          4
+        ]
+      },
+      {
+        "random": true,
+        "no_draft_probs": true,
+        "output": [
+          [
+            9,
+            -1,
+            -1,
+            -1
+          ],
+          [
+            4,
+            5,
+            6,
+            7
+          ]
+        ],
+        "counts": [
+          1,
+          4
+        ]
+      }
+    ],
+    "overadvance_witness": {
+      "n": 2,
+      "new_rows": [
+        0
+      ],
+      "accepted_by_old_row": {
+        "1": 1
+      },
+      "timing": "after_admit",
+      "prefix_hit": false,
+      "order": [
+        "live1",
+        "new0"
+      ],
+      "expected": [
+        1,
+        1
+      ],
+      "actual": [
+        2,
+        1
+      ],
+      "row_reordered": true,
+      "matches": false,
+      "limits": "Explicit CPU timing fixture; not an observed rejected-draft replay on the live model."
+    },
+    "ownership_matrix": {
+      "cases_per_arm": 2616,
+      "arms": {
+        "original": {
+          "cases": 2616,
+          "mismatches": 996
+        },
+        "wait_only": {
+          "cases": 2616,
+          "mismatches": 1494
+        },
+        "direct_only": {
+          "cases": 2616,
+          "mismatches": 1744
+        },
+        "both": {
+          "cases": 2616,
+          "mismatches": 0
+        }
+      },
+      "limits": "Enumerated fixture counts are not real failure rates. Covers2-4 requests, at least1 new and1 live, accepted counts1-4, cold/warm prefill,3 D2H schedules. No real CUDA concurrency."
+    },
+    "post_verification_state_witness": {
+      "before_order": [
+        "new",
+        "B_rejected_first",
+        "C_accepted_all"
+      ],
+      "order": [
+        "live2",
+        "live1",
+        "new0"
+      ],
+      "expected": [
+        4,
+        1,
+        1
+      ],
+      "actual": [
+        1,
+        1,
+        1
+      ],
+      "row_reordered": true,
+      "matches": false,
+      "meaning": "Correctly verified C count4 becomes1 after host row handling; this is a synthetic lifecycle, not a captured incident."
+    },
+    "gdn_numeric_witness": {
+      "expected_slot": 13,
+      "wrong_slot": 10,
+      "output_max_abs_delta": 0.009203062392771244,
+      "both_outputs_finite": true,
+      "meaning": "The wrong slot changes the GDN output vector without a dimension or NaN error.",
+      "limits": "CPU execution of extracted update algebra, synthetic one-head inputs. Not GPU, trained-model generation, token logits, or proof of gibberish."
+    }
+  },
+  "sources": {
+    "third_party/flash_linear_attention/ops/fused_sigmoid_gating.py": "000ab8996af9788fdb8843a6a3b91833e7a14c8acc0e1ea073a536330f64cb6f",
+    "v1/sample/rejection_sampler.py": "4bb87d7984d967be9c7e5b6a6b489c02571ef2f2913211cb3f1eea74b2e1f32f",
+    "v1/worker/gpu_input_batch.py": "0687f0e38bf889cef454a38ee262a5686c1ea459337c42219cb91c900799305f",
+    "v1/worker/gpu_model_runner.py": "7f2890eefca1efe25565bf1c7e5906a87948ae922610a7aaac620b28b46f26aa"
+  }
+}

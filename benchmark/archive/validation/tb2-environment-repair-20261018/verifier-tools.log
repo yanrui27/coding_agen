@@ -1,0 +1,106 @@
+Looking in indexes: https://mirrors.aliyun.com/pypi/simple
+Collecting datasets==3.6.0
+  Downloading https://mirrors.aliyun.com/pypi/packages/20/34/a08b0ee99715eaba118cbe19a71f7b5e2425c2718ef96007c325944a1152/datasets-3.6.0-py3-none-any.whl (491 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 491.5/491.5 kB 400.7 kB/s eta 0:00:00
+Collecting filelock (from datasets==3.6.0)
+  Downloading https://mirrors.aliyun.com/pypi/packages/28/00/db89d339bc4ecdc8087fa7b8607ba22ffc27bf96286f340c9620bea428b3/filelock-4.2.1-py3-none-any.whl (162 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 162.5/162.5 kB 775.2 kB/s eta 0:00:00
+Collecting numpy>=1.17 (from datasets==3.6.0)
+  Downloading https://mirrors.aliyun.com/pypi/packages/43/a3/c799c62e19c337e6d3770b08e475887fb30ce8477d3c09efca6b2f0228a6/numpy-2.5.4-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (16.7 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.7/16.7 MB 493.8 kB/s eta 0:00:00
+Collecting pyarrow>=15.0.0 (from datasets==3.6.0)
+  Downloading https://mirrors.aliyun.com/pypi/packages/88/e4/9cd356d906e71bd79b0c3fc5c9a54e01a0020dcf14c152ccfbcb503c7298/pyarrow-26.0.0-cp312-cp312-manylinux_2_28_x86_64.whl (53.9 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 53.9/53.9 MB 368.9 kB/s eta 0:00:00
+Collecting dill<0.3.9,>=0.3.0 (from datasets==3.6.0)
+  Downloading https://mirrors.aliyun.com/pypi/packages/c9/7a/cef76fd8438a42f96db64ddaa85280485a9c395e7df3db8158cfec1eee34/dill-0.3.8-py3-none-any.whl (116 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 116.3/116.3 kB 66.2 MB/s eta 0:00:00
+Collecting pandas (from datasets==3.6.0)
+  Downloading https://mirrors.aliyun.com/pypi/packages/cb/67/0c0f18e38d7f2d2af8c24b3315bc4046e73bbdd4a5540405506671ad0c0d/pandas-3.0.6-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (10.8 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 10.8/10.8 MB 442.5 kB/s eta 0:00:00
+Collecting requests>=2.32.2 (from datasets==3.6.0)
+  Downloading https://mirrors.aliyun.com/pypi/packages/a0/f4/c67b0b3f1b9245e8d266f0f112c500d50e5b4e83cb6f3b71b6528104182a/requests-2.34.2-py3-none-any.whl (73 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 73.1/73.1 kB 59.1 MB/s eta 0:00:00
+Collecting tqdm>=4.66.3 (from datasets==3.6.0)
+  Downloading https://mirrors.aliyun.com/pypi/packages/a7/03/921a3d3c75785aca9ebfbfcabfbc3a1be12e2ab5265deb026d55a5a3f83e/tqdm-4.70.1-py3-none-any.whl (80 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 80.2/80.2 kB 49.9 MB/s eta 0:00:00
+Collecting xxhash (from datasets==3.6.0)
+  Downloading https://mirrors.aliyun.com/pypi/packages/83/97/31bd8b8279e6935a0719f6910ced15e9d5a2cd554b253f6027ce1b5a1c2c/xxhash-4.0.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (261 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 261.8/261.8 kB 1.3 MB/s eta 0:00:00
+Collecting multiprocess<0.70.17 (from datasets==3.6.0)
+  Downloading https://mirrors.aliyun.com/pypi/packages/0a/7d/a988f258104dcd2ccf1ed40fdc97e26c4ac351eeaf81d76e266c52d84e2f/multiprocess-0.70.16-py312-none-any.whl (146 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 146.7/146.7 kB 694.8 kB/s eta 0:00:00
+Collecting fsspec<=2025.3.0,>=2023.1.0 (from fsspec[http]<=2025.3.0,>=2023.1.0->datasets==3.6.0)
+  Downloading https://mirrors.aliyun.com/pypi/packages/56/53/eb690efa8513166adef3e0669afd31e95ffde69fb3c52ec2ac7223ed6018/fsspec-2025.3.0-py3-none-any.whl (193 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 193.6/193.6 kB 931.1 kB/s eta 0:00:00
+Collecting huggingface-hub>=0.24.0 (from datasets==3.6.0)
+  Downloading https://mirrors.aliyun.com/pypi/packages/eb/b0/0f7b430fd100b3a3b037fdbb314878200241082e607b3383c63d91a13a72/huggingface_hub-2.2.0-py3-none-any.whl (839 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 839.9/839.9 kB 516.6 kB/s eta 0:00:00
+Collecting packaging (from datasets==3.6.0)
+  Downloading https://mirrors.aliyun.com/pypi/packages/63/34/ba1c580383c9eada3711951fef0795c80b829a078d72188184bcab9dd527/packaging-26.3-py3-none-any.whl (129 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 130.0/130.0 kB 63.1 MB/s eta 0:00:00
+Collecting pyyaml>=5.1 (from datasets==3.6.0)
+  Downloading https://mirrors.aliyun.com/pypi/packages/8b/9d/b3589d3877982d4f2329302ef98a8026e7f4443c765c46cfecc8858c6b4b/pyyaml-6.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (807 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 807.9/807.9 kB 497.9 kB/s eta 0:00:00
+Collecting aiohttp!=4.0.0a0,!=4.0.0a1 (from fsspec[http]<=2025.3.0,>=2023.1.0->datasets==3.6.0)
+  Downloading https://mirrors.aliyun.com/pypi/packages/da/e4/aa172eb534b7f02f1f8ff1c3213347eaf3cf218db91a727c6863c22f1035/aiohttp-3.14.5-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (1.9 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.9/1.9 MB 504.6 kB/s eta 0:00:00
+Collecting click<9.0.0,>=8.4.2 (from huggingface-hub>=0.24.0->datasets==3.6.0)
+  Downloading https://mirrors.aliyun.com/pypi/packages/58/50/6c0d534c5f134586a8e1ba4e330569e32f057e33372ae556463212fb4cd3/click-8.5.0-py3-none-any.whl (125 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 125.3/125.3 kB 66.4 MB/s eta 0:00:00
+Collecting hf-xet<2.0.0,>=1.6.0 (from huggingface-hub>=0.24.0->datasets==3.6.0)
+  Downloading https://mirrors.aliyun.com/pypi/packages/a3/4c/2bf3b66c215d409655f28de1622393dde04c9461280d48c7924bb3b2decd/hf_xet-1.7.0-cp38-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (4.2 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.2/4.2 MB 535.8 kB/s eta 0:00:00
+Collecting httpx2<3,>=2.0.0 (from huggingface-hub>=0.24.0->datasets==3.6.0)
+  Downloading https://mirrors.aliyun.com/pypi/packages/d8/9c/6fe8931fd9f381042a9e4c7d5a7b4cbf7016b252bec0c99a49fce42c3326/httpx2-2.13.1-py3-none-any.whl (95 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 95.6/95.6 kB 75.7 MB/s eta 0:00:00
+Collecting typing-extensions>=4.1.0 (from huggingface-hub>=0.24.0->datasets==3.6.0)
+  Downloading https://mirrors.aliyun.com/pypi/packages/49/d3/b8441a820a491ddfc024b0b0cf0393375b75ea13866d9c66727e54c2fc80/typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 45.6/45.6 kB 45.4 MB/s eta 0:00:00
+Collecting charset_normalizer<4,>=2 (from requests>=2.32.2->datasets==3.6.0)
+  Downloading https://mirrors.aliyun.com/pypi/packages/7f/c5/38806a25ab5e65fc178f39affeda20858efafede2fce1ffc2556cfc9fe73/charset_normalizer-3.5.2-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (257 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 257.6/257.6 kB 689.5 kB/s eta 0:00:00
+Collecting idna<4,>=2.5 (from requests>=2.32.2->datasets==3.6.0)
+  Downloading https://mirrors.aliyun.com/pypi/packages/58/a2/bb081bab032533a855d44de1d56f8e8426114ff1ba5d1f07a438a0a654f8/idna-3.20-py3-none-any.whl (69 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 69.6/69.6 kB 37.5 MB/s eta 0:00:00
+Collecting urllib3<3,>=1.26 (from requests>=2.32.2->datasets==3.6.0)
+  Downloading https://mirrors.aliyun.com/pypi/packages/92/9d/c4e665119135114480843e7ab388fa94d8480650450e6f8e26b70d323a4c/urllib3-2.8.0-py3-none-any.whl (135 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 135.7/135.7 kB 71.4 MB/s eta 0:00:00
+Collecting certifi>=2023.5.7 (from requests>=2.32.2->datasets==3.6.0)
+  Downloading https://mirrors.aliyun.com/pypi/packages/0b/a7/71ac2cff56fec219ed242bb11b8efb69fcc4bec75db06fb7bfe35de520e6/certifi-2026.7.22-py3-none-any.whl (136 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 137.0/137.0 kB 63.2 MB/s eta 0:00:00
+Collecting python-dateutil>=2.8.2 (from pandas->datasets==3.6.0)
+  Downloading https://mirrors.aliyun.com/pypi/packages/ec/57/56b9bcc3c9c6a792fcbaf139543cee77261f3651ca9da0c93f5c1221264b/python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 229.9/229.9 kB 584.3 kB/s eta 0:00:00
+Collecting aiohappyeyeballs>=2.5.0 (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<=2025.3.0,>=2023.1.0->datasets==3.6.0)
+  Downloading https://mirrors.aliyun.com/pypi/packages/71/43/1947f06babed6b3f1d7f38b0c767f52df66bfb2bc10b468c4a7de9eceff2/aiohappyeyeballs-2.7.1-py3-none-any.whl (15 kB)
+Collecting aiosignal>=1.4.0 (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<=2025.3.0,>=2023.1.0->datasets==3.6.0)
+  Downloading https://mirrors.aliyun.com/pypi/packages/fb/76/641ae371508676492379f16e2fa48f4e2c11741bd63c48be4b12a6b09cba/aiosignal-1.4.0-py3-none-any.whl (7.5 kB)
+Collecting attrs>=17.3.0 (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<=2025.3.0,>=2023.1.0->datasets==3.6.0)
+  Downloading https://mirrors.aliyun.com/pypi/packages/64/b4/17d4b0b2a2dc85a6df63d1157e028ed19f90d4cd97c36717afef2bc2f395/attrs-26.1.0-py3-none-any.whl (67 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 67.5/67.5 kB 59.2 MB/s eta 0:00:00
+Collecting frozenlist>=1.1.1 (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<=2025.3.0,>=2023.1.0->datasets==3.6.0)
+  Downloading https://mirrors.aliyun.com/pypi/packages/6a/bd/d91c5e39f490a49df14320f4e8c80161cfcce09f1e2cde1edd16a551abb3/frozenlist-1.8.0-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (242 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 242.4/242.4 kB 581.8 kB/s eta 0:00:00
+Collecting multidict<8.0,>=4.5 (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<=2025.3.0,>=2023.1.0->datasets==3.6.0)
+  Downloading https://mirrors.aliyun.com/pypi/packages/7a/f3/374c0ab122bb98b1a62a8742b1e3f59563e4d609942005a4041861a0df67/multidict-7.1.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (483 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 483.0/483.0 kB 1.2 MB/s eta 0:00:00
+Collecting propcache>=0.2.0 (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<=2025.3.0,>=2023.1.0->datasets==3.6.0)
+  Downloading https://mirrors.aliyun.com/pypi/packages/85/9f/83a07b6ec0e043c050cfdd35fb0cf1b7897b91d554d6eea293740309afe7/propcache-0.5.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (250 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 250.4/250.4 kB 1.2 MB/s eta 0:00:00
+Collecting yarl<2.0,>=1.25.1 (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<=2025.3.0,>=2023.1.0->datasets==3.6.0)
+  Downloading https://mirrors.aliyun.com/pypi/packages/bc/7b/ca212cbe170ac8b96e45317ecbcf9c3c3ecf0cdec98d5b088a9c4088929b/yarl-1.25.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (117 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 117.0/117.0 kB 57.5 MB/s eta 0:00:00
+Collecting anyio>=4.10 (from httpx2<3,>=2.0.0->huggingface-hub>=0.24.0->datasets==3.6.0)
+  Downloading https://mirrors.aliyun.com/pypi/packages/12/b8/4bd346e22b28902df4d651910f5242c28d84e4a5c2435ca5c3f797ed7e2e/anyio-4.15.1-py3-none-any.whl (132 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 132.1/132.1 kB 68.5 MB/s eta 0:00:00
+Collecting httpcore2==2.13.1 (from httpx2<3,>=2.0.0->huggingface-hub>=0.24.0->datasets==3.6.0)
+  Downloading https://mirrors.aliyun.com/pypi/packages/09/ba/a4568248771ce81957bfb7cc600264a40fbcda092391ee1c415c50be4bea/httpcore2-2.13.1-py3-none-any.whl (83 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 83.4/83.4 kB 61.0 MB/s eta 0:00:00
+Collecting truststore>=0.10 (from httpx2<3,>=2.0.0->huggingface-hub>=0.24.0->datasets==3.6.0)
+  Downloading https://mirrors.aliyun.com/pypi/packages/51/e9/3a7820be2bb0fe53b6bc9c3be26d3d1158004e4c3ab953aa6840b955b1e9/truststore-0.10.5-py3-none-any.whl (19 kB)
+Collecting h11>=0.16 (from httpcore2==2.13.1->httpx2<3,>=2.0.0->huggingface-hub>=0.24.0->datasets==3.6.0)
+  Downloading https://mirrors.aliyun.com/pypi/packages/04/4b/29cac41a4d98d144bf5f6d33995617b185d14b22401f75ca86f384e87ff1/h11-0.16.0-py3-none-any.whl (37 kB)
+Collecting six>=1.5 (from python-dateutil>=2.8.2->pandas->datasets==3.6.0)
+  Downloading https://mirrors.aliyun.com/pypi/packages/b7/ce/149a00dd41f10bc29e5921b496af8b574d8413afcd5e30dfa0ed46c2cc5e/six-1.17.0-py2.py3-none-any.whl (11 kB)
+Installing collected packages: xxhash, urllib3, typing-extensions, truststore, tqdm, six, pyyaml, pyarrow, propcache, packaging, numpy, multidict, idna, hf-xet, h11, fsspec, frozenlist, filelock, dill, click, charset_normalizer, certifi, attrs, aiohappyeyeballs, yarl, requests, python-dateutil, multiprocess, httpcore2, anyio, aiosignal, pandas, httpx2, aiohttp, huggingface-hub, datasets
+Successfully installed aiohappyeyeballs-2.7.1 aiohttp-3.14.5 aiosignal-1.4.0 anyio-4.15.1 attrs-26.1.0 certifi-2026.7.22 charset_normalizer-3.5.2 click-8.5.0 datasets-3.6.0 dill-0.3.8 filelock-4.2.1 frozenlist-1.8.0 fsspec-2025.3.0 h11-0.16.0 hf-xet-1.7.0 httpcore2-2.13.1 httpx2-2.13.1 huggingface-hub-2.2.0 idna-3.20 multidict-7.1.0 multiprocess-0.70.16 numpy-2.5.4 packaging-26.3 pandas-3.0.6 propcache-0.5.4 pyarrow-26.0.0 python-dateutil-2.9.0.post0 pyyaml-6.0.3 requests-2.34.2 six-1.17.0 tqdm-4.70.1 truststore-0.10.5 typing-extensions-4.16.0 urllib3-2.8.0 xxhash-4.0.1 yarl-1.25.1

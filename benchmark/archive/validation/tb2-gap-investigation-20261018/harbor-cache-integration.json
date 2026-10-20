@@ -1,0 +1,29 @@
+{
+  "at": "2026-10-18T14:22:08.869381+00:00",
+  "passed": true,
+  "model_calls": 2,
+  "previous_probe_calls_before_artifact_serialization_failure": 1,
+  "benchmark_scoring": false,
+  "real_harbor_litellm_and_parser": true,
+  "prefix_cache_policy": "isolated",
+  "repeats": [
+    {
+      "repeat": 1,
+      "prompt_tokens": 35286,
+      "cached_tokens": 0,
+      "completion_tokens": 666,
+      "content_characters": 906,
+      "parse_error": "",
+      "commands": 4
+    },
+    {
+      "repeat": 2,
+      "prompt_tokens": 35286,
+      "cached_tokens": 0,
+      "completion_tokens": 555,
+      "content_characters": 1412,
+      "parse_error": "",
+      "commands": 7
+    }
+  ]
+}

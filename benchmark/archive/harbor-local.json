@@ -1,0 +1,25 @@
+{
+  "jobs_dir": "logs/harbor-local-jobs",
+  "n_concurrent_trials": 1,
+  "n_attempts": 1,
+  "retry": {
+    "max_retries": 0
+  },
+  "agents": [
+    {
+      "name": "oracle",
+      "override_timeout_sec": 300
+    }
+  ],
+  "environment": {
+    "type": "singularity",
+    "override_cpus": 4,
+    "override_memory_mb": 8192,
+    "cpu_enforcement_policy": "ignore",
+    "memory_enforcement_policy": "ignore",
+    "kwargs": {
+      "singularity_image_cache_dir": ".cache/harbor-images",
+      "singularity_no_mount": "home,tmp,bind-paths,cwd"
+    }
+  }
+}

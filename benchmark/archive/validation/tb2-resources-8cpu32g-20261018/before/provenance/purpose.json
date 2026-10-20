@@ -1,0 +1,7 @@
+{
+  "scope": "Fixed 17 previously unsuccessful tasks; diagnostic rerun, not the official 89-task five-run mean",
+  "prior_results_reused": false,
+  "shared_model_service": "ASI is still active; shared inference load is recorded rather than assumed identical to the previous run",
+  "concurrency": 1,
+  "original_score_unchanged": true
+}

@@ -1,0 +1,6 @@
+{
+  "base_url": "http://10.119.27.14:8200/v1",
+  "served_model_name": "Qwen3.6-35B-A3B",
+  "max_context_tokens": 262144,
+  "service_managed_separately": true
+}

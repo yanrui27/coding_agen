@@ -1,0 +1,1 @@
+{"events": [{"type": "Warning", "reason": "FailedScheduling", "age": "863s", "source": "lepton-core-scheduler", "message": "4200 | 32/33 nodes in VC match job: 1 node(s) forbidden | insufficient resource: nvidia.com/gpu 4", "resource": null, "count": 1, "span": "0s"}], "next_page_token": "", "total_size": 1}

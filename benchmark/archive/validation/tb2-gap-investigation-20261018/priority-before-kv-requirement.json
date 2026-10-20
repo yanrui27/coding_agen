@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "enabled": true,
+  "requested_at": "2026-10-18T11:41:47+00:00",
+  "reason": "User requested priority for the 17 TB2 environmental tasks, concurrency 4, with ASI and SWE paused",
+  "resume_policy": "Resume the previously authorized ASI then SWE queue after the runnable TB2 reruns finish; preserve completed ASI records",
+  "runs": [
+    {
+      "progress": "results/Qwen3.6-35B-A3B/terminal-bench-2.0/apptainer-environment-retest17/seed42/progress.json",
+      "service": "coding-agent-tb2-envfix.service",
+      "expected_tasks": 17
+    },
+    {
+      "progress": "results/Qwen3.6-35B-A3B/terminal-bench-2.0/apptainer-environment-public-source-retry1/seed42/progress.json",
+      "service": "coding-agent-tb2-public-source.service",
+      "expected_tasks": 1
+    },
+    {
+      "progress": "results/Qwen3.6-35B-A3B/terminal-bench-2.0/apptainer-environment-fixed/seed42/progress.json",
+      "service": "coding-agent-tb2-fixed89.service",
+      "expected_tasks": 89
+    }
+  ],
+  "updated_at": "2026-10-18T14:23:46.423877+00:00",
+  "amendments": [
+    {
+      "at": "2026-10-18T14:09:30.536754+00:00",
+      "reason": "Confirmed in-container Python transport killed by ordinary task cleanup; add two fresh native trials after validated repair",
+      "added_run": {
+        "progress": "results/Qwen3.6-35B-A3B/terminal-bench-2.0/apptainer-control-cleanup-retest2/seed42/progress.json",
+        "service": "coding-agent-tb2-control.service",
+        "expected_tasks": 2
+      }
+    },
+    {
+      "at": "2026-10-18T14:23:46.423877+00:00",
+      "reason": "Reproduced cache-hit corruption; replace two never-started followup cohorts with one uniform fixed89, including every followup task",
+      "superseded_runs": [
+        {
+          "progress": "results/Qwen3.6-35B-A3B/terminal-bench-2.0/apptainer-environment-residual-retest2/seed42/progress.json",
+          "service": "coding-agent-tb2-residual.service",
+          "expected_tasks": 2
+        },
+        {
+          "progress": "results/Qwen3.6-35B-A3B/terminal-bench-2.0/apptainer-control-cleanup-retest2/seed42/progress.json",
+          "service": "coding-agent-tb2-control.service",
+          "expected_tasks": 2
+        }
+      ]
+    }
+  ]
+}

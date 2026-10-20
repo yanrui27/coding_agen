@@ -1,0 +1,153 @@
+{
+  "updated_at": "2026-10-18T15:20:35.183187+00:00",
+  "live_vllm_source_unchanged_checks": {
+    "config/cache.py": true,
+    "v1/kv_cache_interface.py": true,
+    "model_executor/models/qwen3_5_mtp.py": true,
+    "model_executor/layers/mamba/mamba_utils.py": true,
+    "v1/core/kv_cache_coordinator.py": true,
+    "v1/core/kv_cache_manager.py": true,
+    "v1/core/kv_cache_utils.py": true,
+    "v1/core/single_type_kv_cache_manager.py": true,
+    "v1/worker/gpu_input_batch.py": true,
+    "v1/worker/gpu_model_runner.py": true,
+    "v1/worker/mamba_utils.py": true
+  },
+  "live_service_restarted": false,
+  "candidate_deployed_to_live_model": false,
+  "offline_tests": {
+    "lookup_and_principles": {
+      "tests_run": 8,
+      "failures": 0,
+      "errors": 0,
+      "live_model_modified": false,
+      "model_api_calls": 0,
+      "cuda_kernels_executed": false,
+      "methodology": "AST-extracted real lookup/control-flow methods with fake pre-resolved block hashes and pool. Separate explicit CPU state/race illustrations.",
+      "limits": "Does not prove numerical GDN correctness or identify the live defect. No candidate was loaded into the live vLLM process.",
+      "observations": {
+        "fine_grained_direct_native_candidate": [
+          8,
+          4
+        ],
+        "candidate_coordinated_hit": 0,
+        "candidate_warning": "Extra drop reduces this valid coordinated hit from4 to0; direct flag-only tests are insufficient.",
+        "isolated_mamba_hits_flag_false_true": [
+          8,
+          8
+        ],
+        "native_attention_hit_after_drop": 4,
+        "native_coordinated_hit": 4,
+        "no_gdn_snapshot_global_hit": 0,
+        "overlap_simulator_first_mismatch": 4,
+        "gpu_kernel_executed": false,
+        "illustration_only_rollback_required": true
+      },
+      "sources": {
+        "baseline/v1/core/single_type_kv_cache_manager.py": "dc6d2e64cc4cd8cbb3f4bd77d2d035038658d75b6e52f9ace0cf637a4897f71f",
+        "candidate/v1/core/single_type_kv_cache_manager.py": "4173816d04535b1576153e27342ce871edce8e4ae5de78271def9a2d10e52d02",
+        "baseline/v1/core/kv_cache_coordinator.py": "9e6542c45f138480b1a535a69ed5b16cf489e23b1185ef7e86bee096d4b1ccc6"
+      }
+    },
+    "accepted_count_ownership": {
+      "tests_run": 5,
+      "failures": 0,
+      "errors": 0,
+      "live_model_modified": false,
+      "model_api_calls": 0,
+      "cuda_kernels_executed": false,
+      "methodology": "AST-extracted production accepted-count swap statement and complete guarded prepare-count branch, with NumPy CPU fixtures.",
+      "limits": "Batch reorder and pending-copy conditions are fixture inputs. This does not establish that they occurred during the live corruption.",
+      "observations": {
+        "pending_d2h_fixture": {
+          "unsafe": [
+            4,
+            1
+          ],
+          "sync_before_swap": [
+            1,
+            4
+          ]
+        },
+        "native_permutation_case": {
+          "previous_counts": [
+            4,
+            1
+          ],
+          "expected_after_swap": [
+            1,
+            4
+          ],
+          "actual_after_prepare": [
+            4,
+            1
+          ]
+        }
+      },
+      "sources": {
+        "gpu_input_batch.py": "0687f0e38bf889cef454a38ee262a5686c1ea459337c42219cb91c900799305f",
+        "gpu_model_runner.py": "7f2890eefca1efe25565bf1c7e5906a87948ae922610a7aaac620b28b46f26aa"
+      }
+    }
+  },
+  "observed_model_evidence": {
+    "contexts": 2,
+    "warm_cold_pairs": 2,
+    "warm_results": "2 empty/gibberish",
+    "cold_results": "2 valid JSON",
+    "real_harbor_isolated_repeats": "2 valid JSON",
+    "sampling": "temperature1, top_p.95, top_k20, seed42; diagnostic max_tokens2048",
+    "confounders": [
+      "One paired sample per context",
+      "Concurrent service scheduling and sampler execution differ",
+      "Two contexts share one original conversation"
+    ],
+    "benchmark_score_impact": "Not yet quantified"
+  },
+  "hypotheses": [
+    {
+      "id": "accepted_counts",
+      "source": "v1/worker/gpu_model_runner.py + gpu_input_batch.py",
+      "finding": "Actual CPU count swap/prepare logic produces [4,1] where current batch order requires [1,4], under a valid explicit permutation fixture",
+      "live_cause_confirmed": false,
+      "next_test": "Instrument accepted counts/request IDs and D2H ordering on a disposable GPU instance; compare async on/off with KV hit rate matched",
+      "upstream": "https://github.com/vllm-project/vllm/pull/53919"
+    },
+    {
+      "id": "overlapping_conv_copy",
+      "source": "v1/worker/mamba_utils.py",
+      "finding": "Current kernel matches overlap-unsafe copy pattern addressed by PR50729; CPU interleaving model demonstrates risk, CUDA kernel not executed",
+      "live_cause_confirmed": false,
+      "next_test": "GPU memmove-snapshot regression in SD/DS layouts, accepted bias1/2/3; then saved-prompt warm-cache replay",
+      "upstream": "https://github.com/vllm-project/vllm/pull/50729"
+    },
+    {
+      "id": "extra_mamba_drop",
+      "source": "v1/core/single_type_kv_cache_manager.py + kv_cache_coordinator.py",
+      "finding": "Standalone Mamba ignores the drop flag, but full coordinator already reduces its search bound; naive extra-drop candidate reduces valid common hit4 to0 in local test",
+      "live_cause_confirmed": false,
+      "recommendation": "Do not deploy the naive extra-drop candidate based only on standalone flag tests",
+      "upstream": "https://github.com/vllm-project/vllm/pull/57128"
+    }
+  ],
+  "selective_gdn_recompute": {
+    "possible_in_principle": true,
+    "current_independent_switch": false,
+    "reason": "Common prefix boundary is reconciled across cache groups; no GDN hit reduces global hit to zero. Rebuilding all GDN layers also requires their inputs from preceding attention/MLP layers.",
+    "performance_preserving_direction": "Validated stable GDN/conv checkpoints plus replay only of an affected tail, or a verified state-copy/count-ownership fix",
+    "verified_on_model": false
+  },
+  "deployment_policy": "User explicitly defers all live GDN/MTP/vLLM changes until a later decision. No automatic deployment tomorrow.",
+  "benchmark_now": {
+    "directory": "apptainer-prefix-isolated-full89",
+    "fresh_tasks": 89,
+    "reuse_previous_outcomes": false,
+    "client_prefix_reuse": "disabled by unique per-request cache_salt",
+    "within_request_generation_kv": "enabled",
+    "main_service_unchanged": true,
+    "cpus": 8,
+    "memory_mib": 32768,
+    "combined_concurrency_max": 4,
+    "asi_swe": "paused until requested TB2 queue complete"
+  }
+}

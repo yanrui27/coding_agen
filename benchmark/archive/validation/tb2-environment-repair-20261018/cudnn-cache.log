@@ -1,0 +1,6 @@
+Looking in indexes: https://mirrors.aliyun.com/pypi/simple
+Collecting nvidia-cudnn-cu12==9.5.1.17
+  Downloading https://mirrors.aliyun.com/pypi/packages/2a/78/4535c9c7f859a64781e43c969a3a7e84c54634e319a996d43ef32ce46f83/nvidia_cudnn_cu12-9.5.1.17-py3-none-manylinux_2_28_x86_64.whl (571.0 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 571.0/571.0 MB 591.9 kB/s eta 0:00:00
+Saved ./.cache/harbor-assets/wheels/nvidia_cudnn_cu12-9.5.1.17-py3-none-manylinux_2_28_x86_64.whl
+Successfully downloaded nvidia-cudnn-cu12

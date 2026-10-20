@@ -1,0 +1,17 @@
+{
+  "network_mode": "per-trial namespace with slirp4netns NAT",
+  "parent_network_namespace": "net:[4026531840]",
+  "trial_network_namespace": "net:[4026539213]",
+  "dns": "10.0.2.3",
+  "host_loopback_forwarding": false,
+  "runtime": "/mnt/data/rui.yan/projects/coding_agent/data/benchmark/.cache/tb2-runtime-net/root/usr/bin/slirp4netns",
+  "command": [
+    "python",
+    "scripts/preflight_tb2_environment.py",
+    "headless-terminal",
+    "--headless-source",
+    "archive/validation/tb2-residual-environment-20261018/retest_headless_terminal.py",
+    "--output-dir",
+    "archive/validation/tb2-residual-environment-20261018"
+  ]
+}

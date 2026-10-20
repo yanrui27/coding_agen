@@ -1,0 +1,3 @@
+sent tapfd=5 for tap0
+received tapfd=5
+{"task": "fix-ocaml-gc", "model_calls": 0, "image_sha256": "5082c941e551f5a90d74af14c4ece1e5b35df476dc6ea5aaa8293576b27462c2", "started": true, "port_bind_check": {"bound_ports": [25, 80, 8000, 8080]}, "exec_without_hidden_transport_limit": true, "verifier_inputs_hidden_until_phase": true, "original_external_input_request_passed": true, "passed": true, "elapsed_seconds": 88.762}

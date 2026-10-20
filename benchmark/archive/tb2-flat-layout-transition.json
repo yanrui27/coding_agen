@@ -1,0 +1,15 @@
+{
+  "changed_at": "2026-10-16T15:24:09.374261+00:00",
+  "moved_entries": [
+    "control.json",
+    "progress.json",
+    "run.json",
+    "runner.lock",
+    "seed42"
+  ],
+  "coordinator_pid_unchanged": "1849197",
+  "tasks_not_cancelled_or_replayed": true,
+  "brief_freeze_seconds": 0.261,
+  "compatibility_alias": "five-seed -> .; removed automatically after the running job ends",
+  "running_coordinator_source": "archive/eval_tb2-before-flat-layout.py"
+}

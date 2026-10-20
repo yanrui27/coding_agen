@@ -1,0 +1,19 @@
+Traceback (most recent call last):
+  File "/mnt/data/rui.yan/projects/coding_agent/data/benchmark/archive/tests/test_tb2_environment_repair.py", line 121, in <module>
+    asyncio.run(main())
+  File "/usr/lib/python3.12/asyncio/runners.py", line 194, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/base_events.py", line 687, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/mnt/data/rui.yan/projects/coding_agent/data/benchmark/archive/tests/test_tb2_environment_repair.py", line 114, in main
+    result = {'model_calls': 0, 'terminal': await check_terminal(), 'transport': await check_transport()}
+                                            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/data/rui.yan/projects/coding_agent/data/benchmark/archive/tests/test_tb2_environment_repair.py", line 51, in check_terminal
+    assert start.return_code == 0, start
+           ^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: stdout='' stderr='error connecting to /mnt/data/rui.yan/projects/coding_agent/data/benchmark/.cache/tmp/tb2-repaired-terminal-9cp6f969/tmux-0/default (File name too long)\n' return_code=1

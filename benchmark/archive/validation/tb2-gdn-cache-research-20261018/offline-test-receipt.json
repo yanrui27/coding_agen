@@ -1,0 +1,33 @@
+{
+  "tests_run": 8,
+  "failures": 0,
+  "errors": 0,
+  "live_model_modified": false,
+  "model_api_calls": 0,
+  "cuda_kernels_executed": false,
+  "methodology": "AST-extracted real lookup/control-flow methods with fake pre-resolved block hashes and pool. Separate explicit CPU state/race illustrations.",
+  "limits": "Does not prove numerical GDN correctness or identify the live defect. No candidate was loaded into the live vLLM process.",
+  "observations": {
+    "fine_grained_direct_native_candidate": [
+      8,
+      4
+    ],
+    "candidate_coordinated_hit": 0,
+    "candidate_warning": "Extra drop reduces this valid coordinated hit from4 to0; direct flag-only tests are insufficient.",
+    "isolated_mamba_hits_flag_false_true": [
+      8,
+      8
+    ],
+    "native_attention_hit_after_drop": 4,
+    "native_coordinated_hit": 4,
+    "no_gdn_snapshot_global_hit": 0,
+    "overlap_simulator_first_mismatch": 4,
+    "gpu_kernel_executed": false,
+    "illustration_only_rollback_required": true
+  },
+  "sources": {
+    "baseline/v1/core/single_type_kv_cache_manager.py": "dc6d2e64cc4cd8cbb3f4bd77d2d035038658d75b6e52f9ace0cf637a4897f71f",
+    "candidate/v1/core/single_type_kv_cache_manager.py": "4173816d04535b1576153e27342ce871edce8e4ae5de78271def9a2d10e52d02",
+    "baseline/v1/core/kv_cache_coordinator.py": "9e6542c45f138480b1a535a69ed5b16cf489e23b1185ef7e86bee096d4b1ccc6"
+  }
+}

@@ -1,0 +1,18 @@
+--- a/harbor/environments/singularity/bootstrap.sh
++++ b/harbor/environments/singularity/bootstrap.sh
+@@ -1,6 +1,15 @@
+ #!/bin/bash
+ # Harbor server bootstrap — essential plumbing then start server.
+ # First arg is WORKDIR (container cwd), rest are server args.
++# Apptainer exports a display prompt even for exec. Do not propagate that
++# runtime decoration into programs that spawn ordinary interactive Bash.
++# Task setup and user startup files can still choose their own prompts.
++case "${PROMPT_COMMAND-}" in
++  'PS1="Apptainer> "; unset PROMPT_COMMAND'|'PS1="Singularity> "; unset PROMPT_COMMAND') unset PROMPT_COMMAND ;;
++esac
++case "${PS1-}" in
++  'Apptainer> '|'Singularity> ') unset PS1 ;;
++esac
+ unset HTTP_PROXY HTTPS_PROXY ALL_PROXY http_proxy https_proxy all_proxy
+ export NO_PROXY='*' no_proxy='*' PIP_PROXY='' PIP_CONFIG_FILE=/dev/null
+ export WORKDIR="${1:-/app}"; shift

@@ -1,0 +1,143 @@
+{
+  "checked_at": "2026-10-17T04:41:41.917173+00:00",
+  "model": "Qwen3.6-35B-A3B",
+  "base_url": "http://10.119.27.14:8200/v1",
+  "source_sha256": "fc46736975b1b9e2659c265b0378cabf2e12c2de473ae182011f77624aa6ddbb",
+  "thinking": true,
+  "context_limit": 262144,
+  "max_tokens": 81920,
+  "benchmark_evaluation": false,
+  "passed": true,
+  "cases": [
+    {
+      "case": "normal-summary",
+      "passed": true,
+      "requests": [
+        {
+          "history_messages": 3,
+          "input_characters": 2400297,
+          "max_tokens": 81920,
+          "thinking": {
+            "enable_thinking": true
+          },
+          "error_type": "ContextLengthExceededError",
+          "elapsed_seconds": 2.875
+        },
+        {
+          "history_messages": 1,
+          "input_characters": 1149,
+          "max_tokens": 81920,
+          "thinking": {
+            "enable_thinking": true
+          },
+          "usage": {
+            "prompt_tokens": 244,
+            "completion_tokens": 831,
+            "cache_tokens": 0,
+            "cost_usd": 0.0
+          },
+          "elapsed_seconds": 3.664
+        },
+        {
+          "history_messages": 0,
+          "input_characters": 1079,
+          "max_tokens": 81920,
+          "thinking": {
+            "enable_thinking": true
+          },
+          "usage": {
+            "prompt_tokens": 258,
+            "completion_tokens": 2372,
+            "cache_tokens": 0,
+            "cost_usd": 0.0
+          },
+          "elapsed_seconds": 10.137
+        },
+        {
+          "history_messages": 3,
+          "input_characters": 3128,
+          "max_tokens": 81920,
+          "thinking": {
+            "enable_thinking": true
+          },
+          "usage": {
+            "prompt_tokens": 671,
+            "completion_tokens": 12080,
+            "cache_tokens": 0,
+            "cost_usd": 0.0
+          },
+          "elapsed_seconds": 57.99
+        },
+        {
+          "history_messages": 3,
+          "input_characters": 3313,
+          "max_tokens": 81920,
+          "thinking": {
+            "enable_thinking": true
+          },
+          "usage": {
+            "prompt_tokens": 753,
+            "completion_tokens": 1306,
+            "cache_tokens": 0,
+            "cost_usd": 0.0
+          },
+          "elapsed_seconds": 6.815
+        }
+      ],
+      "reply": "\n\n```json\n{\n  \"analysis\": \"1. Previous agent requested clarification regarding the connectivity test objectives and constraints. 2. User provided answers confirming the task is a connectivity test requiring a specific JSON format without executing commands. 3. I have analyzed the constraints and am prepared to conclude this test loop. CONTEXT_RECOVERY_OK\",\n  \"plan\": \"Generate the final JSON response to acknowledge the connectivity test parameters and conclude the current session.\",\n  \"commands\": [],\n  \"task_complete\": true\n}\n```",
+      "forced_summary_failure": false,
+      "real_initial_context_error": true,
+      "sandbox_commands_executed": 0
+    },
+    {
+      "case": "forced-short-summary",
+      "passed": true,
+      "requests": [
+        {
+          "history_messages": 3,
+          "input_characters": 2400297,
+          "max_tokens": 81920,
+          "thinking": {
+            "enable_thinking": true
+          },
+          "error_type": "ContextLengthExceededError",
+          "elapsed_seconds": 1.106
+        },
+        {
+          "history_messages": 0,
+          "input_characters": 233,
+          "max_tokens": 81920,
+          "thinking": {
+            "enable_thinking": true
+          },
+          "usage": {
+            "prompt_tokens": 61,
+            "completion_tokens": 1230,
+            "cache_tokens": 0,
+            "cost_usd": 0.0
+          },
+          "elapsed_seconds": 4.676
+        },
+        {
+          "history_messages": 1,
+          "input_characters": 987,
+          "max_tokens": 81920,
+          "thinking": {
+            "enable_thinking": true
+          },
+          "usage": {
+            "prompt_tokens": 205,
+            "completion_tokens": 4456,
+            "cache_tokens": 0,
+            "cost_usd": 0.0
+          },
+          "elapsed_seconds": 21.097
+        }
+      ],
+      "reply": "\n\n```json\n{\n  \"analysis\": \"Connectivity test acknowledged. Terminal is idle and CONTEXT_RECOVERY_OK is confirmed.\",\n  \"plan\": \"Await network verification input.\",\n  \"commands\": [],\n  \"task_complete\": false\n}\n```",
+      "forced_summary_failure": true,
+      "real_initial_context_error": true,
+      "sandbox_commands_executed": 0
+    }
+  ]
+}

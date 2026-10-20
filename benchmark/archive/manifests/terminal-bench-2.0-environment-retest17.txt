@@ -1,0 +1,17 @@
+build-cython-ext
+configure-git-webserver
+count-dataset-tokens
+extract-moves-from-video
+feal-differential-cryptanalysis
+fix-ocaml-gc
+headless-terminal
+install-windows-3.11
+mailman
+make-mips-interpreter
+pypi-server
+qemu-alpine-ssh
+qemu-startup
+query-optimize
+regex-chess
+reshard-c4-data
+torch-pipeline-parallelism

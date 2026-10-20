@@ -1,0 +1,37 @@
+sent tapfd=5 for tap0
+received tapfd=5
+{"task": "qemu-startup", "model_calls": 0, "image_sha256": "bfac152f5ebd456a933e1ee8c5ce43066108361fa7b83fad818b8be37adf55f5", "passed": false, "error_type": "TimeoutError", "error": "", "elapsed_seconds": 334.866}
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/asyncio/tasks.py", line 520, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "/mnt/data/rui.yan/projects/coding_agent/data/benchmark/.venv-harbor/lib/python3.12/site-packages/harbor/environments/singularity/singularity.py", line 667, in start
+    await self._start_server()
+  File "/mnt/data/rui.yan/projects/coding_agent/data/benchmark/.venv-harbor/lib/python3.12/site-packages/harbor/environments/singularity/singularity.py", line 459, in _start_server
+    await asyncio.sleep(1)
+  File "/usr/lib/python3.12/asyncio/tasks.py", line 665, in sleep
+    return await future
+           ^^^^^^^^^^^^
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/mnt/data/rui.yan/projects/coding_agent/data/benchmark/scripts/preflight_tb2_environment.py", line 103, in <module>
+    asyncio.run(run(args.task, args.regrade_headless))
+  File "/usr/lib/python3.12/asyncio/runners.py", line 194, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/base_events.py", line 687, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/mnt/data/rui.yan/projects/coding_agent/data/benchmark/scripts/preflight_tb2_environment.py", line 56, in run
+    await asyncio.wait_for(env.start(force_build=False), timeout=330)
+  File "/usr/lib/python3.12/asyncio/tasks.py", line 519, in wait_for
+    async with timeouts.timeout(timeout):
+  File "/usr/lib/python3.12/asyncio/timeouts.py", line 115, in __aexit__
+    raise TimeoutError from exc_val
+TimeoutError

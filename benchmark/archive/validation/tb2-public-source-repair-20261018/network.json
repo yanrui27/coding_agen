@@ -1,0 +1,17 @@
+{
+  "network_mode": "per-trial namespace with slirp4netns NAT",
+  "parent_network_namespace": "net:[4026531840]",
+  "trial_network_namespace": "net:[4026538940]",
+  "dns": "10.0.2.3",
+  "host_loopback_forwarding": false,
+  "runtime": "/mnt/data/rui.yan/projects/coding_agent/data/benchmark/.cache/tb2-runtime-net/root/usr/bin/slirp4netns",
+  "command": [
+    "python",
+    "scripts/preflight_tb2_environment.py",
+    "build-cython-ext",
+    "--public-sources",
+    "--verifier-assets",
+    "--output-dir",
+    "archive/validation/tb2-public-source-repair-20261018"
+  ]
+}

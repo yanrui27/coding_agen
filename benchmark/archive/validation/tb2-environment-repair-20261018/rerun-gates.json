@@ -1,0 +1,16 @@
+{
+  "tasks": {
+    "extract-moves-from-video": {
+      "ready": false,
+      "reason": "Required original video ZCbvyPbhRfA is not reachable by direct connection from this node; no model call is started. Pending a reachable node or supplied original video."
+    },
+    "torch-pipeline-parallelism": {
+      "ready": true,
+      "required_files": [
+        "/mnt/data/rui.yan/projects/coding_agent/data/benchmark/.cache/harbor-assets/wheels/nvidia_cudnn_cu12-9.5.1.17-py3-none-manylinux_2_28_x86_64.whl"
+      ]
+    }
+  },
+  "fixed_tasks_total": 17,
+  "model_calls_for_preflight": 0
+}

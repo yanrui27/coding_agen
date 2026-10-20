@@ -1,0 +1,80 @@
+{
+  "case": "normal-summary",
+  "passed": true,
+  "requests": [
+    {
+      "history_messages": 3,
+      "input_characters": 2400297,
+      "max_tokens": 81920,
+      "thinking": {
+        "enable_thinking": true
+      },
+      "error_type": "ContextLengthExceededError",
+      "elapsed_seconds": 2.875
+    },
+    {
+      "history_messages": 1,
+      "input_characters": 1149,
+      "max_tokens": 81920,
+      "thinking": {
+        "enable_thinking": true
+      },
+      "usage": {
+        "prompt_tokens": 244,
+        "completion_tokens": 831,
+        "cache_tokens": 0,
+        "cost_usd": 0.0
+      },
+      "elapsed_seconds": 3.664
+    },
+    {
+      "history_messages": 0,
+      "input_characters": 1079,
+      "max_tokens": 81920,
+      "thinking": {
+        "enable_thinking": true
+      },
+      "usage": {
+        "prompt_tokens": 258,
+        "completion_tokens": 2372,
+        "cache_tokens": 0,
+        "cost_usd": 0.0
+      },
+      "elapsed_seconds": 10.137
+    },
+    {
+      "history_messages": 3,
+      "input_characters": 3128,
+      "max_tokens": 81920,
+      "thinking": {
+        "enable_thinking": true
+      },
+      "usage": {
+        "prompt_tokens": 671,
+        "completion_tokens": 12080,
+        "cache_tokens": 0,
+        "cost_usd": 0.0
+      },
+      "elapsed_seconds": 57.99
+    },
+    {
+      "history_messages": 3,
+      "input_characters": 3313,
+      "max_tokens": 81920,
+      "thinking": {
+        "enable_thinking": true
+      },
+      "usage": {
+        "prompt_tokens": 753,
+        "completion_tokens": 1306,
+        "cache_tokens": 0,
+        "cost_usd": 0.0
+      },
+      "elapsed_seconds": 6.815
+    }
+  ],
+  "reply": "\n\n```json\n{\n  \"analysis\": \"1. Previous agent requested clarification regarding the connectivity test objectives and constraints. 2. User provided answers confirming the task is a connectivity test requiring a specific JSON format without executing commands. 3. I have analyzed the constraints and am prepared to conclude this test loop. CONTEXT_RECOVERY_OK\",\n  \"plan\": \"Generate the final JSON response to acknowledge the connectivity test parameters and conclude the current session.\",\n  \"commands\": [],\n  \"task_complete\": true\n}\n```",
+  "forced_summary_failure": false,
+  "real_initial_context_error": true,
+  "sandbox_commands_executed": 0
+}

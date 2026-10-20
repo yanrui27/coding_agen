@@ -1,0 +1,19 @@
+{
+  "task": "qemu-startup",
+  "model_calls": 0,
+  "image_sha256": "bfac152f5ebd456a933e1ee8c5ce43066108361fa7b83fad818b8be37adf55f5",
+  "started": true,
+  "port_bind_check": {
+    "bound_ports": [
+      25,
+      80,
+      8000,
+      8080
+    ]
+  },
+  "exec_without_hidden_transport_limit": true,
+  "original_grader_setup_prefix_sha256": "806f3934c37be9f6d2597c96f16b3be2de6222f5ad1a5a4a1fa0c4ef858a8e1f",
+  "original_grader_dependencies_passed": true,
+  "passed": true,
+  "elapsed_seconds": 152.342
+}

@@ -1,0 +1,98 @@
+{
+  "created_at": "2026-10-17T15:47:39.676171+00:00",
+  "order": [
+    "tb2",
+    "asi",
+    "swe"
+  ],
+  "model": "Qwen3.6-35B-A3B",
+  "base_url": "http://10.119.27.14:8200/v1",
+  "stages": {
+    "tb2": {
+      "status": "finished",
+      "output": "results/Qwen3.6-35B-A3B/terminal-bench-2.0/full-seed42-context-fixed",
+      "completed_trials": 89,
+      "status_counts": {
+        "failed": 27,
+        "infrastructure_error": 9,
+        "passed": 34,
+        "timeout": 19
+      },
+      "finished_at": "2026-10-17T18:42:00.952781+00:00",
+      "summary": {
+        "updated_at": "2026-10-17T18:41:41.039054+00:00",
+        "complete": true,
+        "seeds": [
+          42
+        ],
+        "completed_seeds": 1,
+        "tasks_per_seed": 89,
+        "trials_total": 89,
+        "full_dataset_tasks_total": 89,
+        "is_full_task_set": true,
+        "completed_trials": 89,
+        "status_counts": {
+          "failed": 27,
+          "infrastructure_error": 9,
+          "passed": 34,
+          "timeout": 19
+        },
+        "trial_concurrency": 8,
+        "resources_per_trial": {
+          "cpus": 4,
+          "memory_mib": 32768
+        },
+        "agent_timeout_sec": 10800,
+        "custom_max_turns": null,
+        "sampling": {
+          "temperature": 1.0,
+          "top_p": 0.95,
+          "top_k": 20,
+          "max_tokens": 81920,
+          "context_tokens": 262144,
+          "thinking": true
+        },
+        "result_composition": {
+          "reused_tasks": 73,
+          "fresh_tasks": 16,
+          "missing_tasks": 6,
+          "compression_bug_reruns": 10,
+          "uniform_agent_revision": false,
+          "description": "Complete fixed 89-task dataset using unaffected historical seed42 results plus fresh runs of every missing or compression-bug-affected task. Preserve each task source and agent revision.",
+          "plan": "provenance/full-coverage-plan.json"
+        },
+        "runs": [
+          {
+            "seed": 42,
+            "tasks_total": 89,
+            "complete": true,
+            "status_counts": {
+              "failed": 27,
+              "infrastructure_error": 9,
+              "passed": 34,
+              "timeout": 19
+            },
+            "successful_tasks": 34,
+            "success_rate_percent": 38.20224719101124,
+            "progress": "results/Qwen3.6-35B-A3B/terminal-bench-2.0/full-seed42-context-fixed/seed42/progress.json"
+          }
+        ],
+        "mean_success_rate_percent": 38.20224719101124,
+        "stddev_success_rate_percentage_points": null,
+        "stddev_method": "population standard deviation, ddof=0; withheld for a single run",
+        "sample_stddev_percentage_points": null,
+        "success_rate_denominator": "all 89 selected tasks per seed, including errors and timeouts",
+        "reference_hardware_compliant": false,
+        "hardware_deviation": "Local limits: 4 CPU / 32768 MiB; reference protocol specifies 32 CPU / 48 GB"
+      }
+    },
+    "asi": {
+      "status": "running",
+      "started_at": "2026-10-17T18:42:00.964812+00:00",
+      "output": "results/Qwen3.6-35B-A3B/asi-bench",
+      "expected_conditions": 240
+    }
+  },
+  "current_stage": "asi",
+  "updated_at": "2026-10-17T18:42:00.964907+00:00"
+}

@@ -1,0 +1,13 @@
+{
+  "network_mode": "per-trial namespace with slirp4netns NAT",
+  "parent_network_namespace": "net:[4026531840]",
+  "trial_network_namespace": "net:[4026538817]",
+  "dns": "10.0.2.3",
+  "host_loopback_forwarding": false,
+  "runtime": "/mnt/data/rui.yan/projects/coding_agent/data/benchmark/.cache/tb2-runtime-net/root/usr/bin/slirp4netns",
+  "command": [
+    "python3",
+    "-c",
+    "import socket,urllib.request,json,pathlib; ports=[25,80,8000,8080]; ss=[]\nfor port in ports:\n s=socket.socket();s.bind((\"127.0.0.1\",port));ss.append(s)\nr=urllib.request.build_opener(urllib.request.ProxyHandler({})).open(\"http://10.119.27.14:8200/v1/models\",timeout=10)\nprint(json.dumps({\"bound_ports\":ports,\"model_service_status\":r.status,\"dns\":socket.getaddrinfo(\"mirrors.aliyun.com\",443)[0][4][0],\"netns\":pathlib.Path(\"/proc/self/ns/net\").readlink().as_posix()}))"
+  ]
+}

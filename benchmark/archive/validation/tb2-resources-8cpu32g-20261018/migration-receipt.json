@@ -1,0 +1,37 @@
+{
+  "changed_at": "2026-10-18T11:53:33.818035+00:00",
+  "user_instruction": "我不是说 8cpu 32内存吗？",
+  "previous_resources": {
+    "cpus": 32,
+    "memory_mib": 49152
+  },
+  "new_resources": {
+    "cpus": 8,
+    "memory_mib": 32768
+  },
+  "concurrency": 4,
+  "retained_completed_tasks": [
+    "build-cython-ext",
+    "configure-git-webserver",
+    "count-dataset-tokens",
+    "extract-moves-from-video",
+    "feal-differential-cryptanalysis",
+    "headless-terminal",
+    "install-windows-3.11"
+  ],
+  "restarted_unfinished_tasks": [
+    "fix-ocaml-gc",
+    "mailman",
+    "make-mips-interpreter",
+    "pypi-server"
+  ],
+  "note": "Completed historical results retain their actual old limits; only pending/restarted attempts use 8 CPU / 32 GiB. This is a mixed-resource diagnostic result, not a uniform official score.",
+  "completed_native_result_sha256": {
+    "results/Qwen3.6-35B-A3B/terminal-bench-2.0/apptainer-environment-retest17/seed42/build-cython-ext/attempt1/build-cython-ext__zjHcUYW/result.json": "889c22d581ff4af2145af6ad4b014355c9eb21d8919962bc6d7a6c4d1911b557",
+    "results/Qwen3.6-35B-A3B/terminal-bench-2.0/apptainer-environment-retest17/seed42/configure-git-webserver/attempt1/configure-git-webserver__vqexbob/result.json": "7943cc0555468afd26a07a0e20faafd03cffb282f0bebc6b6116ed14ef722f91",
+    "results/Qwen3.6-35B-A3B/terminal-bench-2.0/apptainer-environment-retest17/seed42/count-dataset-tokens/attempt1/count-dataset-tokens__uwTJZcA/result.json": "5cb7f7059a0d3e713ec694c5efbbb067fa5cc38b5ca9a1c9beaffe6ba685e147",
+    "results/Qwen3.6-35B-A3B/terminal-bench-2.0/apptainer-environment-retest17/seed42/feal-differential-cryptanalysis/attempt1/feal-differential-cryptanalysis__j4EQpgu/result.json": "3dcf3cc3e8a02dd7de7b815934d9315c8f42a0e5b88578c7116ed717ba76011e",
+    "results/Qwen3.6-35B-A3B/terminal-bench-2.0/apptainer-environment-retest17/seed42/headless-terminal/attempt1/headless-terminal__8vaCe9F/result.json": "8c5d5d7632667ff411feaadf333c1d911911e5483cefc1ab12006ac869cd0dd2",
+    "results/Qwen3.6-35B-A3B/terminal-bench-2.0/apptainer-environment-retest17/seed42/install-windows-3.11/attempt1/install-windows-3.11__gGjpYZo/result.json": "a291b27a244f28d1ebddc78879b9ced8c386b8937d8216e864a0844e63c2bb14"
+  }
+}

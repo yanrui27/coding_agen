@@ -1,0 +1,9 @@
+{
+  "unit": "coding-agent-tb2-envfix-s42-build-cython-ext-1.scope",
+  "properties": {
+    "ControlGroup": "/system.slice/coding-agent-tb2-envfix-s42-build-cython-ext-1.scope",
+    "CPUQuotaPerSecUSec": "32s",
+    "MemoryMax": "51539607552"
+  },
+  "verified": true
+}

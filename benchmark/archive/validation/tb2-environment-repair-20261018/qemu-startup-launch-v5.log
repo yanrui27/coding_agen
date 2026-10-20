@@ -1,0 +1,3 @@
+sent tapfd=5 for tap0
+received tapfd=5
+{"task": "qemu-startup", "model_calls": 0, "image_sha256": "bfac152f5ebd456a933e1ee8c5ce43066108361fa7b83fad818b8be37adf55f5", "started": true, "port_bind_check": {"bound_ports": [25, 80, 8000, 8080]}, "exec_without_hidden_transport_limit": true, "passed": true, "elapsed_seconds": 35.628}

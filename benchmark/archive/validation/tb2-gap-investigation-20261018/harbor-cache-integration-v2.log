@@ -1,0 +1,3 @@
+22:21:45 - LiteLLM:WARNING: utils.py:3395 - register_model: model=openai/Qwen3.6-35B-A3B has custom pricing but not in built-in cost map and no prefix/region variant matched; cache_creation_input_token_cost and cache_read_input_token_cost will default to 0 for this model (input/output cost tracking is unaffected). To track cache cost, add them to model_info
+{'repeat': 1, 'prompt_tokens': 35286, 'cached_tokens': 0, 'completion_tokens': 666, 'content_characters': 906, 'parse_error': '', 'commands': 4}
+{'repeat': 2, 'prompt_tokens': 35286, 'cached_tokens': 0, 'completion_tokens': 555, 'content_characters': 1412, 'parse_error': '', 'commands': 7}

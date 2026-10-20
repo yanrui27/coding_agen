@@ -1,0 +1,62 @@
+{
+  "original_incident": {
+    "trial": "data/benchmark/results/Qwen3.6-35B-A3B/terminal-bench-2.0/apptainer-environment-retest17/seed42/qemu-alpine-ssh/attempt1/qemu-alpine-ssh__UmiCRkx",
+    "good_replies_before_first_error": 55,
+    "agent_replies": 501,
+    "parse_errors": 446,
+    "first_bad_response_time_utc": "2026-10-18T12:17:44.557320+00:00",
+    "approximate_api_start_utc": "2026-10-18T12:17:40.682799+00:00",
+    "api_latency_msec": 3874.5205402374268,
+    "last_good_metrics": {
+      "prompt_tokens": 34424,
+      "completion_tokens": 363,
+      "cached_tokens": 33728
+    },
+    "first_bad_metrics": {
+      "prompt_tokens": 35286,
+      "completion_tokens": 117,
+      "cached_tokens": 33728
+    },
+    "prefix_block_size_from_startup": 544,
+    "last_good_and_first_bad_report_same_cached_length": true,
+    "first_bad_context_messages": 111,
+    "saved_request_message_fields": [
+      "content",
+      "role"
+    ],
+    "first_bad_reasoning_text_in_saved_prompt": false,
+    "replay_evidence": "data/benchmark/archive/validation/tb2-gap-investigation-20261018/cache-comparison/receipt.json",
+    "log_limit": "10-second aggregate snapshots do not identify per-iteration batch permutations, accepted counts or the originating request. HTTP access logs do not include request IDs."
+  },
+  "code_checks": {
+    "scheduler_contains_prefill_end_alignment": true,
+    "scheduler_old_last_cache_condition_present": false,
+    "copy_overlap_guard_present": false,
+    "accepted_count_gather_present": true,
+    "runtime_flag_limit": "Startup has no async override and the shared default enables async with this supported MTP executor. Runtime scheduler configuration not directly obtained: read-only /server_info returned404. No endpoint was enabled."
+  },
+  "old_totals": {
+    "trajectory_files": 19,
+    "agent_turns": 1547,
+    "max_prompt_tokens": 146345,
+    "turns_at_least_first_failure_length": 1011,
+    "turns_with_cache_hit": 1513,
+    "parse_errors": 461,
+    "empty_body_parse_errors": 440,
+    "empty_body_with_command_json_in_reasoning": 10,
+    "max_consecutive_parse_errors": 446,
+    "max_consecutive_empty_errors": 139
+  },
+  "new_totals": {
+    "trajectory_files": 61,
+    "agent_turns": 2449,
+    "max_prompt_tokens": 179781,
+    "turns_at_least_first_failure_length": 1299,
+    "turns_with_cache_hit": 0,
+    "parse_errors": 99,
+    "empty_body_parse_errors": 93,
+    "empty_body_with_command_json_in_reasoning": 89,
+    "max_consecutive_parse_errors": 1,
+    "max_consecutive_empty_errors": 1
+  }
+}

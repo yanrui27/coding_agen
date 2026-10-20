@@ -1,0 +1,34 @@
+{
+  "changed_at": "2026-10-16T15:00:45.965887+00:00",
+  "before": {
+    "coding-agent-tb2.service": {
+      "MainPID": "0",
+      "ExecStart": "{ path=/bin/bash ; argv[]=/bin/bash /mnt/data/rui.yan/projects/coding_agent/data/benchmark/run_tb2.sh ; ignore_errors=no ; start_time=[Fri 2026-10-16 18:27:43 CST] ; stop_time=[Fri 2026-10-16 19:13:14 CST] ; pid=1330260 ; code=killed ; status=15/TERM }",
+      "Id": "coding-agent-tb2.service",
+      "ActiveState": "inactive"
+    },
+    "coding-agent-tb2-images.service": {
+      "MainPID": "1748632",
+      "ExecStart": "{ path=/bin/bash ; argv[]=/bin/bash /mnt/data/rui.yan/projects/coding_agent/data/benchmark/run_tb2.sh images-worker ; ignore_errors=no ; start_time=[Fri 2026-10-16 22:04:39 CST] ; stop_time=[n/a] ; pid=1748632 ; code=(null) ; status=0/0 }",
+      "Id": "coding-agent-tb2-images.service",
+      "ActiveState": "active"
+    }
+  },
+  "after": {
+    "coding-agent-tb2.service": {
+      "MainPID": "0",
+      "ExecStart": "{ path=/bin/bash ; argv[]=/bin/bash /mnt/data/rui.yan/projects/coding_agent/data/benchmark/run_tb2.sh --service-unit coding-agent-tb2.service ; ignore_errors=no ; start_time=[n/a] ; stop_time=[n/a] ; pid=0 ; code=(null) ; status=0/0 }",
+      "Id": "coding-agent-tb2.service",
+      "ActiveState": "inactive"
+    },
+    "coding-agent-tb2-images.service": {
+      "MainPID": "1748632",
+      "ExecStart": "{ path=/bin/bash ; argv[]=/bin/bash /mnt/data/rui.yan/projects/coding_agent/data/benchmark/archive/scripts/manage_tb2.sh images-worker ; ignore_errors=no ; start_time=[n/a] ; stop_time=[n/a] ; pid=0 ; code=(null) ; status=0/0 }",
+      "Id": "coding-agent-tb2-images.service",
+      "ActiveState": "active"
+    }
+  },
+  "action": "Reloaded launcher paths only; no start, stop or restart.",
+  "previous_launcher": "archive/run_tb2-managed.sh",
+  "maintenance_launcher": "archive/scripts/manage_tb2.sh"
+}

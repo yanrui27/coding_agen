@@ -1,0 +1,89 @@
+test_equal_counts_mask_ownership_error (__main__.TriggerChecks) ... ok
+test_full_three_draft_window_geometry (__main__.TriggerChecks) ... ok
+test_late_d2h_timing_masks_double_reorder_in_this_fixture (__main__.TriggerChecks) ... ok
+test_no_row_reorder_preserves_count (__main__.TriggerChecks) ... ok
+test_nonasync_branch_preserves_current_rows (__main__.TriggerChecks) ... ok
+test_real_arrival_reorder_triggers_count_misownership (__main__.TriggerChecks) ... ok
+test_shortened_draft_windows_can_reach_real_overlap (__main__.TriggerChecks) ... ok
+test_wrong_count_reaches_actual_fused_precopy_metadata (__main__.TriggerChecks) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.022s
+
+OK
+{
+  "mtp3_full_window_geometry": {
+    "cases": 2176,
+    "counts": {
+      "no_copy": 2166,
+      "same_column": 1,
+      "distinct_columns": 9
+    },
+    "same_column_examples": [
+      {
+        "computed": 5980,
+        "drafts": 3,
+        "accepted": 4,
+        "source_column": 10,
+        "destination_column": 10,
+        "token_bias": 3
+      }
+    ],
+    "overlap_cases": 0,
+    "assumptions": "Correct accepted counts, scheduled=1+drafts, 544-token blocks, unique physical pages per live logical column, width6."
+  },
+  "real_new_prefill_reorder": {
+    "before_order": [
+      "new",
+      "live"
+    ],
+    "after_order": [
+      "live",
+      "new"
+    ],
+    "expected_counts": [
+      4,
+      1
+    ],
+    "actual_counts": [
+      1,
+      1
+    ],
+    "previous_mapping": {
+      "live": 1
+    }
+  },
+  "shortened_draft_overlap_examples": [
+    {
+      "computed": 5438,
+      "scheduled": 2,
+      "drafts": 1,
+      "accepted": 2,
+      "source_column": 9,
+      "destination_column": 9,
+      "token_bias": 1
+    },
+    {
+      "computed": 5437,
+      "scheduled": 3,
+      "drafts": 2,
+      "accepted": 3,
+      "source_column": 9,
+      "destination_column": 9,
+      "token_bias": 2
+    }
+  ],
+  "count_to_state_selection": {
+    "expected": {
+      "source_column": 9,
+      "destination_column": 10,
+      "token_bias": 3
+    },
+    "actual": {
+      "source_column": 9,
+      "destination_column": 10,
+      "token_bias": 0
+    },
+    "effect": "Wrong conv offset and recurrent source slot; actual GPU copy not executed."
+  }
+}

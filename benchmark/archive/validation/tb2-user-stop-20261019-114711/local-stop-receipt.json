@@ -1,0 +1,23 @@
+{
+  "stopped_at": "2026-10-19T11:48:09.799231+00:00",
+  "interrupted_tasks": [
+    "sam-cell-seg",
+    "schemelike-metacircular-eval",
+    "sqlite-db-truncate",
+    "torch-tensor-parallelism"
+  ],
+  "status_counts": {
+    "failed": 23,
+    "infrastructure_error": 2,
+    "passed": 37,
+    "queued": 6,
+    "ready": 4,
+    "timeout": 17
+  },
+  "completed_trials": 79,
+  "model_job": "coding-agent-qwen36-35b-a3b-tp4-1016133720",
+  "model_delete_api_response": {},
+  "subsequent_model_get": "404 trainingJobNotFound",
+  "automatic_handoff_service": "inactive; Restart=no",
+  "completed_results_preserved": true
+}

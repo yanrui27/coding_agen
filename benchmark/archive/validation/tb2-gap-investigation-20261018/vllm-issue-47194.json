@@ -1,0 +1,103 @@
+{
+  "url": "https://api.github.com/repos/vllm-project/vllm/issues/47194",
+  "repository_url": "https://api.github.com/repos/vllm-project/vllm",
+  "labels_url": "https://api.github.com/repos/vllm-project/vllm/issues/47194/labels{/name}",
+  "comments_url": "https://api.github.com/repos/vllm-project/vllm/issues/47194/comments",
+  "events_url": "https://api.github.com/repos/vllm-project/vllm/issues/47194/events",
+  "html_url": "https://github.com/vllm-project/vllm/issues/47194",
+  "id": 4779618284,
+  "node_id": "I_kwDOI7xefs8AAAABHOMv7A",
+  "number": 47194,
+  "title": "[Bug]: Qwen3.6 hybrid model with prefix caching + MTP3 causes tool-call leakage and needle recall failure, while no-MTP path is correct[错误]：",
+  "user": {
+    "login": "YuYue1208",
+    "id": 154721717,
+    "node_id": "U_kgDOCTjdtQ",
+    "avatar_url": "https://avatars.githubusercontent.com/u/154721717?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/YuYue1208",
+    "html_url": "https://github.com/YuYue1208",
+    "followers_url": "https://api.github.com/users/YuYue1208/followers",
+    "following_url": "https://api.github.com/users/YuYue1208/following{/other_user}",
+    "gists_url": "https://api.github.com/users/YuYue1208/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/YuYue1208/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/YuYue1208/subscriptions",
+    "organizations_url": "https://api.github.com/users/YuYue1208/orgs",
+    "repos_url": "https://api.github.com/users/YuYue1208/repos",
+    "events_url": "https://api.github.com/users/YuYue1208/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/YuYue1208/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "labels": [
+    {
+      "id": 5135047172,
+      "node_id": "LA_kwDOI7xefs8AAAABMhKaBA",
+      "url": "https://api.github.com/repos/vllm-project/vllm/labels/bug",
+      "name": "bug",
+      "color": "d73a4a",
+      "default": true,
+      "description": "Something isn't working",
+      "archived_at": null,
+      "archived_by": null
+    },
+    {
+      "id": 8509281801,
+      "node_id": "LA_kwDOI7xefs8AAAAB-zFWCQ",
+      "url": "https://api.github.com/repos/vllm-project/vllm/labels/tool-calling",
+      "name": "tool-calling",
+      "color": "C1E8F1",
+      "default": false,
+      "description": "",
+      "archived_at": null,
+      "archived_by": null
+    }
+  ],
+  "state": "open",
+  "locked": false,
+  "assignees": [
+
+  ],
+  "milestone": null,
+  "comments": 7,
+  "created_at": "2026-06-30T18:55:17Z",
+  "updated_at": "2026-09-29T16:01:47Z",
+  "closed_at": null,
+  "assignee": null,
+  "author_association": "NONE",
+  "issue_field_values": [
+
+  ],
+  "type": null,
+  "active_lock_reason": null,
+  "sub_issues_summary": {
+    "total": 0,
+    "completed": 0,
+    "percent_completed": 0
+  },
+  "issue_dependencies_summary": {
+    "blocked_by": 0,
+    "total_blocked_by": 0,
+    "blocking": 0,
+    "total_blocking": 0
+  },
+  "body": "### Your current environment\n\n<details>\n<summary>The output of <code>python collect_env.py</code></summary>\n\n```text\nYour output of `python collect_env.py` here\n```\n\n</details>\n\n\n### 🐛 Describe the bug\n\n### Summary\n\nWhen serving a Qwen3.6/Qwen3.5-style hybrid model with vLLM prefix caching and MTP3 speculative decoding enabled, the engine shows severe correctness regressions on cache-hit paths.\n\nThe no-MTP hard-cache path works correctly with high prefix-cache hit rate. The MTP3 hard-cache path still gets cache hits, but tool calling, multi-turn tool use, and long-context needle recall fail.\n\nThis looks related to hybrid full-attention + Mamba/GDN prefix-cache state reuse under speculative decoding, rather than a model-template-only issue.\n\n### Environment\n\nHardware:\n\n* 2 × RTX 2080 Ti 22GB\n* Turing / SM75\n* Tensor parallel: 2\n\nModel:\n\n* Qwopus3.6-27B-Coder-GPTQ-Pro\n* Qwen3.6 / Qwen3.5-style hybrid architecture\n* GPTQ-Pro / gptq_marlin path\n\nServing:\n\n* OpenAI-compatible vLLM server\n* Tool parser: qwen3_coder\n* Reasoning parser: qwen3\n* enable_thinking=false\n* CUDA graphs enabled\n* Prefix caching enabled\n* Prefix hash algorithm: sha256_cbor\n* KV cache dtype: fp8_e5m2\n* MTP: 3 speculative tokens\n\nPlease note: I intentionally avoided TurboQuant KV for this reproduction. The failing setup uses fp8_e5m2 KV.\n\n### What works\n\nHard-cache without MTP works correctly.\n\nConfiguration:\n\n* fp8_e5m2 KV\n* prefix cache enabled\n* MTP/speculative decoding disabled\n\nObserved results:\n\n* vLLM engine prefix cache hit rate around 90-98%\n* real ClaudeCode/OpenClaw-style payload with about 58K static prefix hits correctly\n* cold prefill around 6s, hot prefill around 0.05s\n* streaming first-token latency improves strongly:\n\n  * 58K long conversation: 19.31s cold to 3.40s hot\n  * 8K tool request: 3.09s cold to 1.31s hot\n  * 60K rich context: 11.58s cold to 4.12s hot\n* tool calling works\n* needle recall 10K/30K works\n* no content leak\n* no reasoning leak\n* no `<tool_call>` text leak\n* no repetition/star leakage\n\n### What fails\n\nThe same hard-cache setup fails after enabling MTP3.\n\nConfiguration:\n\n* fp8_e5m2 KV\n* prefix cache enabled\n* MTP3 enabled\n* same model\n* same parser\n* same prompt/template path\n* same CUDA graphs path\n\nObserved results:\n\n* server starts successfully\n* prefix cache still works\n* 58K static prefix hit rate around 83.9%\n* cold PP 23.35s to hot avg 2.03s, about 91.3% reduction\n* no engine crash\n\nBut correctness regresses badly:\n\n* tool call 10x: only 2/10 pass\n* multicase 18x: only 1/18 pass\n* needle recall 10K/30K: 0/10 pass\n* multi-turn tool use: 0/5 pass\n* `<tool_call>` XML leaks as plain text\n* repetition appears in at least one case\n* tool parser does not populate valid tool_calls reliably\n\n### Why this looks like a vLLM prefix-cache + speculative decoding issue\n\nThe failure only appears when MTP3 is combined with prefix caching on this hybrid model path.\n\nImportant observations:\n\n* no-MTP + prefix cache works\n* fp8_e5m2 KV + prefix cache works\n* MTP3 starts and generates text\n* cache hit rate remains high\n* failures appear on structured/tool-call and recall tasks\n* the failing behavior resembles unsafe cache/state reuse rather than normal model quality degradation\n\nThis seems related to prior hybrid prefix-cache + speculative decoding work, including:\n\n* unsafe prefix-cache hit with hybrid full-attention + Mamba/GDN models when EAGLE/MTP is enabled\n* Qwen3 tool parser / reasoning parser edge cases involving `<tool_call>`\n* speculative decoding interacting with structured outputs\n\n### Expected behavior\n\nPrefix caching should be behavior-preserving.\n\nEnabling MTP3 should not change whether:\n\n* tool_calls are parsed correctly\n* `<tool_call>` appears only as structured tool call, not plain text\n* needle recall succeeds\n* multi-turn tool use works\n\nIf MTP3 cannot safely reuse prefix-cached hybrid Mamba/GDN states, vLLM should either:\n\n1. avoid unsafe hits,\n2. disable the unsupported path with a clear warning,\n3. or correctly roll back / verify speculative KV and Mamba/GDN state.\n\n### Actual behavior\n\nMTP3 + prefix cache produces cache-hit speedups but breaks correctness:\n\n* tool-call text leakage\n* missing tool_calls\n* needle recall failure\n* multi-turn tool failure\n* occasional repetition\n\n### Reproduction outline\n\n1. Start vLLM with Qwen3.6/Qwen3.5-style hybrid model.\n2. Enable prefix caching.\n3. Use fp8_e5m2 KV.\n4. Enable qwen3_coder tool parser and qwen3 reasoning parser.\n5. Use a long static prefix, about 58K tokens, with dynamic suffix changes.\n6. Warm the prefix cache.\n7. Verify cache hits.\n8. Run:\n\n   * tool call prompt, 10 repetitions\n   * multicase tool-call prompt, 18 repetitions\n   * needle recall at 10K/30K\n   * multi-turn tool use\n9. Compare no-MTP vs MTP3.\n\nNo-MTP passes. MTP3 fails.\n\n### Request\n\nCould maintainers clarify whether Qwen3.6/Qwen3.5 hybrid Mamba/GDN prefix caching is expected to be compatible with MTP speculative decoding?\n\nIf this is known to require recent fixes, which PRs or commits should be backported?\n\nI am especially interested in fixes around:\n\n* hybrid prefix-cache hit computation\n* Mamba/GDN state checkpoint reuse\n* speculative decoding rollback / verification with prefix cache\n* Qwen3 coder/XML tool parser interaction with speculative decoding\n* reasoning parser handling of `<tool_call>` lookahead\n\n\n### Before submitting a new issue...\n\n- [x] Make sure you already searched for relevant issues, and asked the chatbot living at the bottom right corner of the [documentation page](https://docs.vllm.ai/en/latest/), which can answer lots of frequently asked questions.",
+  "closed_by": null,
+  "reactions": {
+    "url": "https://api.github.com/repos/vllm-project/vllm/issues/47194/reactions",
+    "total_count": 5,
+    "+1": 5,
+    "-1": 0,
+    "laugh": 0,
+    "hooray": 0,
+    "confused": 0,
+    "heart": 0,
+    "rocket": 0,
+    "eyes": 0
+  },
+  "timeline_url": "https://api.github.com/repos/vllm-project/vllm/issues/47194/timeline",
+  "performed_via_github_app": null,
+  "state_reason": null,
+  "pinned_comment": null
+}

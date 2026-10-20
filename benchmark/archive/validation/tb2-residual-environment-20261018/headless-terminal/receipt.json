@@ -1,0 +1,21 @@
+{
+  "task": "headless-terminal",
+  "model_calls": 0,
+  "image_sha256": "68295c6d1d167377e8397a0862efc59bb871a858db86d85e34013d5a80df8752",
+  "started": true,
+  "port_bind_check": {
+    "bound_ports": [
+      25,
+      80,
+      8000,
+      8080
+    ]
+  },
+  "exec_without_hidden_transport_limit": true,
+  "saved_implementation_sha256": "5f97cd4b72c3fde997b50cd78a7a43890753cc42d0163cceb16a2ddf8729a378",
+  "official_verifier_reward": 0.0,
+  "passed": false,
+  "error_type": "AssertionError",
+  "error": "\n                )\n        elif isinstance(timeout, TimeoutSauce):\n            pass\n        else:\n            timeout = TimeoutSauce(connect=timeout, read=timeout)\n    \n        try:\n            resp = conn.urlopen(\n                method=request.method,\n                url=url,\n                body=request.body,\n                headers=request.headers,\n                redirect=False,\n                assert_same_host=False,\n                preload_content=False,\n                decode_content=False,\n                retries=self.max_retries,\n                timeout=timeout,\n                chunked=chunked,\n            )\n    \n        except (ProtocolError, OSError) as err:\n            raise ConnectionError(err, request=request)\n    \n        except MaxRetryError as e:\n            if isinstance(e.reason, ConnectTimeoutError):\n                # TODO: Remove this in 3.0.0: see #2811\n                if not isinstance(e.reason, NewConnectionError):\n                    raise ConnectTimeout(e, request=request)\n    \n            if isinstance(e.reason, ResponseError):\n                raise RetryError(e, request=request)\n    \n            if isinstance(e.reason, _ProxyError):\n                raise ProxyError(e, request=request)\n    \n            if isinstance(e.reason, _SSLError):\n                # This branch is for urllib3 v1.22 and later.\n                raise SSLError(e, request=request)\n    \n>           raise ConnectionError(e, request=request)\nE           requests.exceptions.ConnectionError: HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: / (Caused by NewConnectionError(\"HTTPConnection(host='localhost', port=8000): Failed to establish a new connection: [Errno 111] Connection refused\"))\n\n/usr/local/lib/python3.13/site-packages/requests/adapters.py:677: ConnectionError\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../tests/test_outputs.py::test_import\nPASSED ../tests/test_outputs.py::test_send_non_interactive_command\nPASSED ../tests/test_outputs.py::test_send_interactive_command\nPASSED ../tests/test_outputs.py::test_cancel_command\nPASSED ../tests/test_outputs.py::test_startup_files\nPASSED ../tests/test_outputs.py::test_shell_state_persists_between_commands\nFAILED ../tests/test_outputs.py::test_background_commands - requests.exceptio...\n========================= 1 failed, 6 passed in 19.14s =========================\n",
+  "elapsed_seconds": 120.452
+}

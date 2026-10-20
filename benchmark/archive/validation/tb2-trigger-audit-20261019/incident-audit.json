@@ -1,0 +1,509 @@
+{
+  "created_at": "2026-10-19T02:06:29.486938+00:00",
+  "live_service_modified": false,
+  "generation_calls_added": 0,
+  "original_incident": {
+    "trial": "data/benchmark/results/Qwen3.6-35B-A3B/terminal-bench-2.0/apptainer-environment-retest17/seed42/qemu-alpine-ssh/attempt1/qemu-alpine-ssh__UmiCRkx",
+    "good_replies_before_first_error": 55,
+    "agent_replies": 501,
+    "parse_errors": 446,
+    "first_bad_response_time_utc": "2026-10-18T12:17:44.557320+00:00",
+    "approximate_api_start_utc": "2026-10-18T12:17:40.682799+00:00",
+    "api_latency_msec": 3874.5205402374268,
+    "last_good_metrics": {
+      "prompt_tokens": 34424,
+      "completion_tokens": 363,
+      "cached_tokens": 33728
+    },
+    "first_bad_metrics": {
+      "prompt_tokens": 35286,
+      "completion_tokens": 117,
+      "cached_tokens": 33728
+    },
+    "prefix_block_size_from_startup": 544,
+    "last_good_and_first_bad_report_same_cached_length": true,
+    "first_bad_context_messages": 111,
+    "saved_request_message_fields": [
+      "content",
+      "role"
+    ],
+    "first_bad_reasoning_text_in_saved_prompt": false,
+    "replay_evidence": "data/benchmark/archive/validation/tb2-gap-investigation-20261018/cache-comparison/receipt.json",
+    "service_concurrency_samples": [
+      {
+        "time_utc": "12:15:00",
+        "running": 2,
+        "waiting": 0
+      },
+      {
+        "time_utc": "12:15:10",
+        "running": 1,
+        "waiting": 0
+      },
+      {
+        "time_utc": "12:15:20",
+        "running": 0,
+        "waiting": 0
+      },
+      {
+        "time_utc": "12:15:30",
+        "running": 1,
+        "waiting": 0
+      },
+      {
+        "time_utc": "12:15:40",
+        "running": 0,
+        "waiting": 0
+      },
+      {
+        "time_utc": "12:15:50",
+        "running": 0,
+        "waiting": 0
+      },
+      {
+        "time_utc": "12:16:20",
+        "running": 3,
+        "waiting": 0
+      },
+      {
+        "time_utc": "12:16:30",
+        "running": 3,
+        "waiting": 0
+      },
+      {
+        "time_utc": "12:16:40",
+        "running": 3,
+        "waiting": 0
+      },
+      {
+        "time_utc": "12:16:50",
+        "running": 3,
+        "waiting": 0
+      },
+      {
+        "time_utc": "12:17:00",
+        "running": 2,
+        "waiting": 0
+      },
+      {
+        "time_utc": "12:17:10",
+        "running": 1,
+        "waiting": 0
+      },
+      {
+        "time_utc": "12:17:20",
+        "running": 0,
+        "waiting": 0
+      },
+      {
+        "time_utc": "12:17:30",
+        "running": 2,
+        "waiting": 0
+      },
+      {
+        "time_utc": "12:17:40",
+        "running": 1,
+        "waiting": 0
+      },
+      {
+        "time_utc": "12:17:50",
+        "running": 3,
+        "waiting": 0
+      },
+      {
+        "time_utc": "12:18:00",
+        "running": 3,
+        "waiting": 0
+      },
+      {
+        "time_utc": "12:18:10",
+        "running": 1,
+        "waiting": 0
+      },
+      {
+        "time_utc": "12:18:20",
+        "running": 2,
+        "waiting": 0
+      },
+      {
+        "time_utc": "12:18:30",
+        "running": 3,
+        "waiting": 0
+      },
+      {
+        "time_utc": "12:18:40",
+        "running": 0,
+        "waiting": 0
+      },
+      {
+        "time_utc": "12:18:50",
+        "running": 1,
+        "waiting": 0
+      },
+      {
+        "time_utc": "12:19:00",
+        "running": 1,
+        "waiting": 0
+      },
+      {
+        "time_utc": "12:19:10",
+        "running": 0,
+        "waiting": 0
+      },
+      {
+        "time_utc": "12:19:20",
+        "running": 1,
+        "waiting": 0
+      },
+      {
+        "time_utc": "12:19:30",
+        "running": 1,
+        "waiting": 0
+      },
+      {
+        "time_utc": "12:19:40",
+        "running": 1,
+        "waiting": 0
+      },
+      {
+        "time_utc": "12:19:50",
+        "running": 2,
+        "waiting": 0
+      },
+      {
+        "time_utc": "12:20:00",
+        "running": 1,
+        "waiting": 0
+      },
+      {
+        "time_utc": "12:20:10",
+        "running": 0,
+        "waiting": 0
+      },
+      {
+        "time_utc": "12:20:20",
+        "running": 3,
+        "waiting": 0
+      },
+      {
+        "time_utc": "12:20:30",
+        "running": 1,
+        "waiting": 0
+      },
+      {
+        "time_utc": "12:20:40",
+        "running": 1,
+        "waiting": 0
+      },
+      {
+        "time_utc": "12:20:50",
+        "running": 0,
+        "waiting": 0
+      }
+    ],
+    "log_limit": "10-second aggregate snapshots do not identify per-iteration batch permutations, accepted counts or the originating request. HTTP access logs do not include request IDs."
+  },
+  "code_checks": {
+    "shared_source_unchanged_from_prior_snapshots": {
+      "config/cache.py": true,
+      "v1/kv_cache_interface.py": true,
+      "model_executor/models/qwen3_5_mtp.py": true,
+      "model_executor/layers/mamba/mamba_utils.py": true,
+      "v1/core/kv_cache_coordinator.py": true,
+      "v1/core/kv_cache_manager.py": true,
+      "v1/core/kv_cache_utils.py": true,
+      "v1/core/single_type_kv_cache_manager.py": true,
+      "v1/worker/gpu_input_batch.py": true,
+      "v1/worker/gpu_model_runner.py": true,
+      "v1/worker/mamba_utils.py": true
+    },
+    "scheduler_contains_prefill_end_alignment": true,
+    "scheduler_old_last_cache_condition_present": false,
+    "copy_overlap_guard_present": false,
+    "accepted_count_gather_present": true,
+    "sources": {
+      "v1/core/sched/scheduler.py": "4b79ab760c3864af6838d555c01335deea3aac97c9be2be415fa0e5dab32f07e",
+      "v1/worker/mamba_utils.py": "790ae216cc62650225cf13471d65f923c5ecf33af3047df6c0d22fcd1aba28cd",
+      "v1/worker/gpu_model_runner.py": "7f2890eefca1efe25565bf1c7e5906a87948ae922610a7aaac620b28b46f26aa"
+    },
+    "runtime_flag_limit": "Startup has no async override and the shared default enables async with this supported MTP executor. Runtime scheduler configuration not directly obtained: read-only /server_info returned404. No endpoint was enabled."
+  },
+  "old_shared_cohort": {
+    "totals": {
+      "trajectory_files": 19,
+      "agent_turns": 1547,
+      "max_prompt_tokens": 146345,
+      "turns_at_least_first_failure_length": 1011,
+      "turns_with_cache_hit": 1513,
+      "parse_errors": 461,
+      "empty_body_parse_errors": 440,
+      "empty_body_with_command_json_in_reasoning": 10,
+      "max_consecutive_parse_errors": 446,
+      "max_consecutive_empty_errors": 139
+    },
+    "affected": [
+      {
+        "task": "build-cython-ext",
+        "trajectory": "data/benchmark/results/Qwen3.6-35B-A3B/terminal-bench-2.0/apptainer-environment-retest17/seed42/build-cython-ext/attempt1/build-cython-ext__zjHcUYW/agent/trajectory.json",
+        "parse_errors": 1,
+        "longest_parse_error_streak": 1
+      },
+      {
+        "task": "count-dataset-tokens",
+        "trajectory": "data/benchmark/results/Qwen3.6-35B-A3B/terminal-bench-2.0/apptainer-environment-retest17/seed42/count-dataset-tokens/attempt1/count-dataset-tokens__uwTJZcA/agent/trajectory.json",
+        "parse_errors": 4,
+        "longest_parse_error_streak": 1
+      },
+      {
+        "task": "fix-ocaml-gc",
+        "trajectory": "data/benchmark/results/Qwen3.6-35B-A3B/terminal-bench-2.0/apptainer-environment-retest17/seed42/fix-ocaml-gc/attempt2/fix-ocaml-gc__XM5Whsv/agent/trajectory.json",
+        "parse_errors": 3,
+        "longest_parse_error_streak": 1
+      },
+      {
+        "task": "mailman",
+        "trajectory": "data/benchmark/results/Qwen3.6-35B-A3B/terminal-bench-2.0/apptainer-environment-retest17/seed42/mailman/attempt2/mailman__qyqCwBa/agent/trajectory.json",
+        "parse_errors": 1,
+        "longest_parse_error_streak": 1
+      },
+      {
+        "task": "make-mips-interpreter",
+        "trajectory": "data/benchmark/results/Qwen3.6-35B-A3B/terminal-bench-2.0/apptainer-environment-retest17/seed42/make-mips-interpreter/attempt2/make-mips-interpreter__4oWhWn7/agent/trajectory.json",
+        "parse_errors": 5,
+        "longest_parse_error_streak": 1
+      },
+      {
+        "task": "qemu-alpine-ssh",
+        "trajectory": "data/benchmark/results/Qwen3.6-35B-A3B/terminal-bench-2.0/apptainer-environment-retest17/seed42/qemu-alpine-ssh/attempt1/qemu-alpine-ssh__UmiCRkx/agent/trajectory.json",
+        "parse_errors": 446,
+        "longest_parse_error_streak": 446
+      },
+      {
+        "task": "qemu-startup",
+        "trajectory": "data/benchmark/results/Qwen3.6-35B-A3B/terminal-bench-2.0/apptainer-environment-retest17/seed42/qemu-startup/attempt1/qemu-startup__e2M6Y6C/agent/trajectory.json",
+        "parse_errors": 1,
+        "longest_parse_error_streak": 1
+      }
+    ],
+    "limits": "Snapshot of saved trajectories, including running tasks; copied continuation context skipped. Empty body does not by itself imply numerical corruption."
+  },
+  "fresh_isolated_cohort": {
+    "totals": {
+      "trajectory_files": 61,
+      "agent_turns": 2449,
+      "max_prompt_tokens": 179781,
+      "turns_at_least_first_failure_length": 1299,
+      "turns_with_cache_hit": 0,
+      "parse_errors": 99,
+      "empty_body_parse_errors": 93,
+      "empty_body_with_command_json_in_reasoning": 89,
+      "max_consecutive_parse_errors": 1,
+      "max_consecutive_empty_errors": 1
+    },
+    "affected": [
+      {
+        "task": "adaptive-rejection-sampler",
+        "trajectory": "data/benchmark/results/Qwen3.6-35B-A3B/terminal-bench-2.0/apptainer-prefix-isolated-full89/seed42/adaptive-rejection-sampler/attempt1/adaptive-rejection-sampler__hmLDGyV/agent/trajectory.json",
+        "parse_errors": 13,
+        "longest_parse_error_streak": 1
+      },
+      {
+        "task": "build-pov-ray",
+        "trajectory": "data/benchmark/results/Qwen3.6-35B-A3B/terminal-bench-2.0/apptainer-prefix-isolated-full89/seed42/build-pov-ray/attempt1/build-pov-ray__PD4oN3s/agent/trajectory.json",
+        "parse_errors": 32,
+        "longest_parse_error_streak": 1
+      },
+      {
+        "task": "caffe-cifar-10",
+        "trajectory": "data/benchmark/results/Qwen3.6-35B-A3B/terminal-bench-2.0/apptainer-prefix-isolated-full89/seed42/caffe-cifar-10/attempt1/caffe-cifar-10__WXbnhBC/agent/trajectory.json",
+        "parse_errors": 1,
+        "longest_parse_error_streak": 1
+      },
+      {
+        "task": "chess-best-move",
+        "trajectory": "data/benchmark/results/Qwen3.6-35B-A3B/terminal-bench-2.0/apptainer-prefix-isolated-full89/seed42/chess-best-move/attempt1/chess-best-move__H69uiDR/agent/trajectory.json",
+        "parse_errors": 1,
+        "longest_parse_error_streak": 1
+      },
+      {
+        "task": "cobol-modernization",
+        "trajectory": "data/benchmark/results/Qwen3.6-35B-A3B/terminal-bench-2.0/apptainer-prefix-isolated-full89/seed42/cobol-modernization/attempt1/cobol-modernization__gs5WkUK/agent/trajectory.json",
+        "parse_errors": 1,
+        "longest_parse_error_streak": 1
+      },
+      {
+        "task": "compile-compcert",
+        "trajectory": "data/benchmark/results/Qwen3.6-35B-A3B/terminal-bench-2.0/apptainer-prefix-isolated-full89/seed42/compile-compcert/attempt1/compile-compcert__Zq2xkpU/agent/trajectory.json",
+        "parse_errors": 7,
+        "longest_parse_error_streak": 1
+      },
+      {
+        "task": "dna-assembly",
+        "trajectory": "data/benchmark/results/Qwen3.6-35B-A3B/terminal-bench-2.0/apptainer-prefix-isolated-full89/seed42/dna-assembly/attempt1/dna-assembly__qpfJho6/agent/trajectory.json",
+        "parse_errors": 2,
+        "longest_parse_error_streak": 1
+      },
+      {
+        "task": "fix-ocaml-gc",
+        "trajectory": "data/benchmark/results/Qwen3.6-35B-A3B/terminal-bench-2.0/apptainer-prefix-isolated-full89/seed42/fix-ocaml-gc/attempt1/fix-ocaml-gc__BcKN8Nt/agent/trajectory.json",
+        "parse_errors": 16,
+        "longest_parse_error_streak": 1
+      },
+      {
+        "task": "git-multibranch",
+        "trajectory": "data/benchmark/results/Qwen3.6-35B-A3B/terminal-bench-2.0/apptainer-prefix-isolated-full89/seed42/git-multibranch/attempt1/git-multibranch__LiW7PE5/agent/trajectory.json",
+        "parse_errors": 1,
+        "longest_parse_error_streak": 1
+      },
+      {
+        "task": "gpt2-codegolf",
+        "trajectory": "data/benchmark/results/Qwen3.6-35B-A3B/terminal-bench-2.0/apptainer-prefix-isolated-full89/seed42/gpt2-codegolf/attempt1/gpt2-codegolf__VeYco2u/agent/trajectory.json",
+        "parse_errors": 2,
+        "longest_parse_error_streak": 1
+      },
+      {
+        "task": "largest-eigenval",
+        "trajectory": "data/benchmark/results/Qwen3.6-35B-A3B/terminal-bench-2.0/apptainer-prefix-isolated-full89/seed42/largest-eigenval/attempt1/largest-eigenval__aht9oSU/agent/trajectory.json",
+        "parse_errors": 2,
+        "longest_parse_error_streak": 1
+      },
+      {
+        "task": "mailman",
+        "trajectory": "data/benchmark/results/Qwen3.6-35B-A3B/terminal-bench-2.0/apptainer-prefix-isolated-full89/seed42/mailman/attempt1/mailman__XGbVdEN/agent/trajectory.json",
+        "parse_errors": 4,
+        "longest_parse_error_streak": 1
+      },
+      {
+        "task": "make-doom-for-mips",
+        "trajectory": "data/benchmark/results/Qwen3.6-35B-A3B/terminal-bench-2.0/apptainer-prefix-isolated-full89/seed42/make-doom-for-mips/attempt1/make-doom-for-mips__zDQRapV/agent/trajectory.json",
+        "parse_errors": 1,
+        "longest_parse_error_streak": 1
+      },
+      {
+        "task": "make-mips-interpreter",
+        "trajectory": "data/benchmark/results/Qwen3.6-35B-A3B/terminal-bench-2.0/apptainer-prefix-isolated-full89/seed42/make-mips-interpreter/attempt1/make-mips-interpreter__h7USejp/agent/trajectory.json",
+        "parse_errors": 1,
+        "longest_parse_error_streak": 1
+      },
+      {
+        "task": "qemu-alpine-ssh",
+        "trajectory": "data/benchmark/results/Qwen3.6-35B-A3B/terminal-bench-2.0/apptainer-prefix-isolated-full89/seed42/qemu-alpine-ssh/attempt1/qemu-alpine-ssh__TNpGUC2/agent/trajectory.json",
+        "parse_errors": 12,
+        "longest_parse_error_streak": 1
+      },
+      {
+        "task": "regex-chess",
+        "trajectory": "data/benchmark/results/Qwen3.6-35B-A3B/terminal-bench-2.0/apptainer-prefix-isolated-full89/seed42/regex-chess/attempt1/regex-chess__cYEseqn/agent/trajectory.json",
+        "parse_errors": 1,
+        "longest_parse_error_streak": 1
+      },
+      {
+        "task": "torch-pipeline-parallelism",
+        "trajectory": "data/benchmark/results/Qwen3.6-35B-A3B/terminal-bench-2.0/apptainer-prefix-isolated-full89/seed42/torch-pipeline-parallelism/attempt1/torch-pipeline-parallelism__vnXASrM/agent/trajectory.json",
+        "parse_errors": 2,
+        "longest_parse_error_streak": 1
+      }
+    ],
+    "limits": "Snapshot of saved trajectories, including running tasks; copied continuation context skipped. Empty body does not by itself imply numerical corruption."
+  },
+  "control_flow_tests": {
+    "created_at": "2026-10-19T02:04:28.655290+00:00",
+    "tests_run": 8,
+    "failures": 0,
+    "errors": 0,
+    "model_api_calls": 0,
+    "live_service_modified": false,
+    "cuda_kernels_executed": false,
+    "methodology": "AST-extracted real batch reorder, count swap/prepare, fused precopy metadata and postprocess decision control flow, CPU fixtures.",
+    "limits": "Arrival, D2H timing, block tables and state counters are synthetic. No actual incident per-request GPU state or scheduler trace exists. This narrows trigger conditions but does not establish the live root cause.",
+    "observations": {
+      "mtp3_full_window_geometry": {
+        "cases": 2176,
+        "counts": {
+          "no_copy": 2166,
+          "same_column": 1,
+          "distinct_columns": 9
+        },
+        "same_column_examples": [
+          {
+            "computed": 5980,
+            "drafts": 3,
+            "accepted": 4,
+            "source_column": 10,
+            "destination_column": 10,
+            "token_bias": 3
+          }
+        ],
+        "overlap_cases": 0,
+        "assumptions": "Correct accepted counts, scheduled=1+drafts, 544-token blocks, unique physical pages per live logical column, width6."
+      },
+      "real_new_prefill_reorder": {
+        "before_order": [
+          "new",
+          "live"
+        ],
+        "after_order": [
+          "live",
+          "new"
+        ],
+        "expected_counts": [
+          4,
+          1
+        ],
+        "actual_counts": [
+          1,
+          1
+        ],
+        "previous_mapping": {
+          "live": 1
+        }
+      },
+      "shortened_draft_overlap_examples": [
+        {
+          "computed": 5438,
+          "scheduled": 2,
+          "drafts": 1,
+          "accepted": 2,
+          "source_column": 9,
+          "destination_column": 9,
+          "token_bias": 1
+        },
+        {
+          "computed": 5437,
+          "scheduled": 3,
+          "drafts": 2,
+          "accepted": 3,
+          "source_column": 9,
+          "destination_column": 9,
+          "token_bias": 2
+        }
+      ],
+      "count_to_state_selection": {
+        "expected": {
+          "source_column": 9,
+          "destination_column": 10,
+          "token_bias": 3
+        },
+        "actual": {
+          "source_column": 9,
+          "destination_column": 10,
+          "token_bias": 0
+        },
+        "effect": "Wrong conv offset and recurrent source slot; actual GPU copy not executed."
+      }
+    },
+    "sources": {
+      "v1/attention/backends/utils.py": "cb9a34eb45a94847c8c9862952fe9ca5df4e7c7510425a5280afcbb48d941890",
+      "v1/worker/gpu_input_batch.py": "0687f0e38bf889cef454a38ee262a5686c1ea459337c42219cb91c900799305f",
+      "v1/worker/gpu_model_runner.py": "7f2890eefca1efe25565bf1c7e5906a87948ae922610a7aaac620b28b46f26aa",
+      "v1/worker/mamba_utils.py": "790ae216cc62650225cf13471d65f923c5ecf33af3047df6c0d22fcd1aba28cd"
+    }
+  },
+  "interpretation": {
+    "supported": "Failure can begin after55 valid command replies, without garbled text in the input; it is not the first prefix hit or a simple35k length threshold. Persistent retry-loop behavior is associated with prefix reuse in the saved incident.",
+    "leading_conditional_candidate": "Arrival/reordering plus accepted-count ownership mismatch can corrupt GDN/conv selection. Actual source reorder+prepare+precopy path reproduces this in CPU fixtures; incident timing itself remains unobserved.",
+    "copy_race_qualification": "For our width6/MTP3 geometry, correctly counted complete3-draft windows have no overlap in2176 enumerated postprocess cases assuming distinct live physical pages. Shortened1/2-draft schedules can reach overlap; source supports truncation but the incident schedule was not logged.",
+    "fresh_format_errors": "Some isolated requests still have empty content because a coherent commands JSON is in reasoning. Do not count these as the prior garbled-state defect without examining raw output.",
+    "not_established": "Unique root cause, actual faulting CUDA copy or live accepted-count permutation; quantitative contribution to TB2 score gap."
+  }
+}

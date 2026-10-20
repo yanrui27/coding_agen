@@ -1,0 +1,188 @@
+Server failed to start on port 33461, will retry with new port
+Server failed to start on port 36215, will retry with new port
+Using pre-built .sif image: /mnt/data/rui.yan/projects/coding_agent/data/benchmark/.cache/harbor-images/alexgshaw_qemu-startup_20251031.sif
+Starting Singularity container with server on port 46299 (attempt 1/3)
+[server] [harbor] Creating server venv at /opt/harbor-server...
+[server] [harbor] Bootstrapping pip from pinned local wheel...
+[server] Traceback (most recent call last):
+[server]   File "<string>", line 1, in <module>
+[server]   File "/usr/lib/python3.9/runpy.py", line 213, in run_module
+[server]     return _run_code(code, {}, init_globals, run_name, mod_spec)
+[server]   File "/usr/lib/python3.9/runpy.py", line 87, in _run_code
+[server]     exec(code, run_globals)
+[server]   File "/opt/harbor-deps/pip-25.3-py3-none-any.whl/pip/__main__.py", line 22, in <module>
+[server]   File "<frozen zipimport>", line 259, in load_module
+[server]   File "/opt/harbor-deps/pip-25.3-py3-none-any.whl/pip/_internal/cli/main.py", line 11, in <module>
+[server]   File "<frozen zipimport>", line 259, in load_module
+[server]   File "/opt/harbor-deps/pip-25.3-py3-none-any.whl/pip/_internal/cli/autocompletion.py", line 12, in <module>
+[server]   File "<frozen zipimport>", line 259, in load_module
+[server]   File "/opt/harbor-deps/pip-25.3-py3-none-any.whl/pip/_internal/cli/main_parser.py", line 9, in <module>
+[server]   File "<frozen zipimport>", line 259, in load_module
+[server]   File "/opt/harbor-deps/pip-25.3-py3-none-any.whl/pip/_internal/build_env.py", line 19, in <module>
+[server]   File "<frozen zipimport>", line 259, in load_module
+[server]   File "/opt/harbor-deps/pip-25.3-py3-none-any.whl/pip/_internal/cli/spinners.py", line 22, in <module>
+[server]   File "<frozen zipimport>", line 259, in load_module
+[server]   File "/opt/harbor-deps/pip-25.3-py3-none-any.whl/pip/_internal/utils/logging.py", line 32, in <module>
+[server]   File "<frozen zipimport>", line 259, in load_module
+[server]   File "/opt/harbor-deps/pip-25.3-py3-none-any.whl/pip/_internal/utils/misc.py", line 36, in <module>
+[server]   File "<frozen zipimport>", line 259, in load_module
+[server]   File "/opt/harbor-deps/pip-25.3-py3-none-any.whl/pip/_internal/locations/__init__.py", line 68, in <module>
+[server]   File "<frozen zipimport>", line 259, in load_module
+[server]   File "/opt/harbor-deps/pip-25.3-py3-none-any.whl/pip/_internal/locations/_distutils.py", line 22, in <module>
+[server] ModuleNotFoundError: No module named 'distutils.cmd'
+[server] [harbor] Local pip wheel bootstrap failed
+[server] [harbor] Bootstrapping pip via get-pip.py...
+Using pre-built .sif image: /mnt/data/rui.yan/projects/coding_agent/data/benchmark/.cache/harbor-images/alexgshaw_qemu-startup_20251031.sif
+Starting Singularity container with server on port 34161 (attempt 1/3)
+[server] [harbor] Installing Python 3.9 bootstrap stdlib components...
+[server] E: Failed to fetch http://mirrors.aliyun.com/debian-security/pool/updates/main/p/python3.9/python3.9_3.9.2-1%2bdeb11u7_amd64.deb  404  Not Found [IP: 115.223.42.141 80]
+[server] E: Failed to fetch http://mirrors.aliyun.com/debian-security/pool/updates/main/p/python3.9/libpython3.9-stdlib_3.9.2-1%2bdeb11u7_amd64.deb  404  Not Found [IP: 115.223.42.141 80]
+[server] E: Failed to fetch http://mirrors.aliyun.com/debian-security/pool/updates/main/p/python3.9/python3.9-minimal_3.9.2-1%2bdeb11u7_amd64.deb  404  Not Found [IP: 115.223.42.141 80]
+[server] E: Failed to fetch http://mirrors.aliyun.com/debian-security/pool/updates/main/p/python3.9/libpython3.9-minimal_3.9.2-1%2bdeb11u7_amd64.deb  404  Not Found [IP: 115.223.42.141 80]
+[server] E: Failed to fetch http://mirrors.aliyun.com/debian-security/pool/updates/main/p/python-pip/python-pip-whl_20.3.4-4%2bdeb11u2_all.deb  404  Not Found [IP: 115.223.42.141 80]
+[server] E: Failed to fetch http://mirrors.aliyun.com/debian-security/pool/updates/main/p/python3.9/python3.9-venv_3.9.2-1%2bdeb11u7_amd64.deb  404  Not Found [IP: 115.223.42.141 80]
+[server] E: Unable to fetch some archives, maybe run apt-get update or try with --fix-missing?
+[server] [harbor] WARNING: bootstrap stdlib installation failed
+[server] [harbor] Creating server venv at /opt/harbor-server...
+[server] [harbor] Bootstrapping pip from pinned local wheel...
+[server] Traceback (most recent call last):
+[server]   File "<string>", line 1, in <module>
+[server]   File "/usr/lib/python3.9/runpy.py", line 213, in run_module
+[server]     return _run_code(code, {}, init_globals, run_name, mod_spec)
+[server]   File "/usr/lib/python3.9/runpy.py", line 87, in _run_code
+[server]     exec(code, run_globals)
+[server]   File "/opt/harbor-deps/pip-25.3-py3-none-any.whl/pip/__main__.py", line 22, in <module>
+[server]   File "<frozen zipimport>", line 259, in load_module
+[server]   File "/opt/harbor-deps/pip-25.3-py3-none-any.whl/pip/_internal/cli/main.py", line 11, in <module>
+[server]   File "<frozen zipimport>", line 259, in load_module
+[server]   File "/opt/harbor-deps/pip-25.3-py3-none-any.whl/pip/_internal/cli/autocompletion.py", line 12, in <module>
+[server]   File "<frozen zipimport>", line 259, in load_module
+[server]   File "/opt/harbor-deps/pip-25.3-py3-none-any.whl/pip/_internal/cli/main_parser.py", line 9, in <module>
+[server]   File "<frozen zipimport>", line 259, in load_module
+[server]   File "/opt/harbor-deps/pip-25.3-py3-none-any.whl/pip/_internal/build_env.py", line 19, in <module>
+[server]   File "<frozen zipimport>", line 259, in load_module
+[server]   File "/opt/harbor-deps/pip-25.3-py3-none-any.whl/pip/_internal/cli/spinners.py", line 22, in <module>
+[server]   File "<frozen zipimport>", line 259, in load_module
+[server]   File "/opt/harbor-deps/pip-25.3-py3-none-any.whl/pip/_internal/utils/logging.py", line 32, in <module>
+[server]   File "<frozen zipimport>", line 259, in load_module
+[server]   File "/opt/harbor-deps/pip-25.3-py3-none-any.whl/pip/_internal/utils/misc.py", line 36, in <module>
+[server]   File "<frozen zipimport>", line 259, in load_module
+[server]   File "/opt/harbor-deps/pip-25.3-py3-none-any.whl/pip/_internal/locations/__init__.py", line 68, in <module>
+[server]   File "<frozen zipimport>", line 259, in load_module
+[server]   File "/opt/harbor-deps/pip-25.3-py3-none-any.whl/pip/_internal/locations/_distutils.py", line 22, in <module>
+[server] ModuleNotFoundError: No module named 'distutils.cmd'
+[server] [harbor] Local pip wheel bootstrap failed
+[server] [harbor] Bootstrapping pip via get-pip.py...
+[server] [harbor] FATAL: cannot bootstrap pip
+Server failed to start on port 34161, will retry with new port
+Starting Singularity container with server on port 42385 (attempt 2/3)
+[server] [harbor] Installing Python 3.9 bootstrap stdlib components...
+[server] E: Failed to fetch http://mirrors.aliyun.com/debian-security/pool/updates/main/p/python3.9/python3.9_3.9.2-1%2bdeb11u7_amd64.deb  404  Not Found [IP: 115.223.42.140 80]
+[server] E: Failed to fetch http://mirrors.aliyun.com/debian-security/pool/updates/main/p/python3.9/libpython3.9-stdlib_3.9.2-1%2bdeb11u7_amd64.deb  404  Not Found [IP: 115.223.42.140 80]
+[server] E: Failed to fetch http://mirrors.aliyun.com/debian-security/pool/updates/main/p/python3.9/python3.9-minimal_3.9.2-1%2bdeb11u7_amd64.deb  404  Not Found [IP: 115.223.42.140 80]
+[server] E: Failed to fetch http://mirrors.aliyun.com/debian-security/pool/updates/main/p/python3.9/libpython3.9-minimal_3.9.2-1%2bdeb11u7_amd64.deb  404  Not Found [IP: 115.223.42.140 80]
+[server] E: Failed to fetch http://mirrors.aliyun.com/debian-security/pool/updates/main/p/python-pip/python-pip-whl_20.3.4-4%2bdeb11u2_all.deb  404  Not Found [IP: 115.223.42.140 80]
+[server] E: Failed to fetch http://mirrors.aliyun.com/debian-security/pool/updates/main/p/python3.9/python3.9-venv_3.9.2-1%2bdeb11u7_amd64.deb  404  Not Found [IP: 115.223.42.140 80]
+[server] E: Unable to fetch some archives, maybe run apt-get update or try with --fix-missing?
+[server] [harbor] WARNING: bootstrap stdlib installation failed
+[server] [harbor] Creating server venv at /opt/harbor-server...
+[server] [harbor] Bootstrapping pip from pinned local wheel...
+[server] Traceback (most recent call last):
+[server]   File "<string>", line 1, in <module>
+[server]   File "/usr/lib/python3.9/runpy.py", line 213, in run_module
+[server]     return _run_code(code, {}, init_globals, run_name, mod_spec)
+[server]   File "/usr/lib/python3.9/runpy.py", line 87, in _run_code
+[server]     exec(code, run_globals)
+[server]   File "/opt/harbor-deps/pip-25.3-py3-none-any.whl/pip/__main__.py", line 22, in <module>
+[server]   File "<frozen zipimport>", line 259, in load_module
+[server]   File "/opt/harbor-deps/pip-25.3-py3-none-any.whl/pip/_internal/cli/main.py", line 11, in <module>
+[server]   File "<frozen zipimport>", line 259, in load_module
+[server]   File "/opt/harbor-deps/pip-25.3-py3-none-any.whl/pip/_internal/cli/autocompletion.py", line 12, in <module>
+[server]   File "<frozen zipimport>", line 259, in load_module
+[server]   File "/opt/harbor-deps/pip-25.3-py3-none-any.whl/pip/_internal/cli/main_parser.py", line 9, in <module>
+[server]   File "<frozen zipimport>", line 259, in load_module
+[server]   File "/opt/harbor-deps/pip-25.3-py3-none-any.whl/pip/_internal/build_env.py", line 19, in <module>
+[server]   File "<frozen zipimport>", line 259, in load_module
+[server]   File "/opt/harbor-deps/pip-25.3-py3-none-any.whl/pip/_internal/cli/spinners.py", line 22, in <module>
+[server]   File "<frozen zipimport>", line 259, in load_module
+[server]   File "/opt/harbor-deps/pip-25.3-py3-none-any.whl/pip/_internal/utils/logging.py", line 32, in <module>
+[server]   File "<frozen zipimport>", line 259, in load_module
+[server]   File "/opt/harbor-deps/pip-25.3-py3-none-any.whl/pip/_internal/utils/misc.py", line 36, in <module>
+[server]   File "<frozen zipimport>", line 259, in load_module
+[server]   File "/opt/harbor-deps/pip-25.3-py3-none-any.whl/pip/_internal/locations/__init__.py", line 68, in <module>
+[server]   File "<frozen zipimport>", line 259, in load_module
+[server]   File "/opt/harbor-deps/pip-25.3-py3-none-any.whl/pip/_internal/locations/_distutils.py", line 22, in <module>
+[server] ModuleNotFoundError: No module named 'distutils.cmd'
+[server] [harbor] Local pip wheel bootstrap failed
+[server] [harbor] Bootstrapping pip via get-pip.py...
+Using pre-built .sif image: /mnt/data/rui.yan/projects/coding_agent/data/benchmark/.cache/harbor-images/alexgshaw_qemu-startup_20251031.sif
+Starting Singularity container with server on port 36521 (attempt 1/3)
+[server] [harbor] Creating server venv at /opt/harbor-server...
+[server] [harbor] Bootstrapping pip/setuptools from pinned local wheels...
+[server] [harbor] Bootstrapping pip via get-pip.py...
+[server] [harbor] FATAL: cannot bootstrap pip
+Server failed to start on port 36521, will retry with new port
+Starting Singularity container with server on port 41231 (attempt 2/3)
+[server] [harbor] Creating server venv at /opt/harbor-server...
+[server] [harbor] Bootstrapping pip/setuptools from pinned local wheels...
+[server] [harbor] Bootstrapping pip via get-pip.py...
+Using pre-built .sif image: /mnt/data/rui.yan/projects/coding_agent/data/benchmark/.cache/harbor-images/alexgshaw_qemu-startup_20251031.sif
+Starting Singularity container with server on port 37503 (attempt 1/3)
+[server] [harbor] Restoring pinned Python 3.9 distutils/lib2to3...
+[server] [harbor] Creating server venv at /opt/harbor-server...
+[server] [harbor] Bootstrapping pip/setuptools from pinned local wheels...
+[server] pip 25.3 from /opt/harbor-server/lib/python3.9/site-packages/pip (python 3.9)
+[server] [harbor] Installing server dependencies (uvicorn/fastapi)...
+[server] Looking in indexes: https://mirrors.aliyun.com/pypi/simple
+[server] Requirement already satisfied: pip in /opt/harbor-server/lib/python3.9/site-packages (25.3)
+[server] Collecting pip
+[server]   Downloading https://mirrors.aliyun.com/pypi/packages/de/f0/c81e05b613866b76d2d1066490adf1a3dbc4ee9d9c839961c3fc8a6997af/pip-26.0.1-py3-none-any.whl (1.8 MB)
+[server]      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.8/1.8 MB 630.9 kB/s  0:00:02
+[server] Installing collected packages: pip
+[server]   Attempting uninstall: pip
+[server]     Found existing installation: pip 25.3
+[server]     Uninstalling pip-25.3:
+[server]       Successfully uninstalled pip-25.3
+[server] Successfully installed pip-26.0.1
+[server] Looking in indexes: https://mirrors.aliyun.com/pypi/simple
+[server] Collecting uvicorn==0.34.0
+[server]   Downloading https://mirrors.aliyun.com/pypi/packages/61/14/33a3a1352cfa71812a3a21e8c9bfb83f60b0011f5e36f2b1399d51928209/uvicorn-0.34.0-py3-none-any.whl (62 kB)
+[server] Collecting fastapi==0.115.12
+[server]   Downloading https://mirrors.aliyun.com/pypi/packages/50/b3/b51f09c2ba432a576fe63758bddc81f78f0c6309d9e5c10d194313bf021e/fastapi-0.115.12-py3-none-any.whl (95 kB)
+[server] Collecting click>=7.0 (from uvicorn==0.34.0)
+[server]   Downloading https://mirrors.aliyun.com/pypi/packages/7e/d4/7ebdbd03970677812aac39c869717059dbb71a4cfc033ca6e5221787892c/click-8.1.8-py3-none-any.whl (98 kB)
+[server] Collecting h11>=0.8 (from uvicorn==0.34.0)
+[server]   Downloading https://mirrors.aliyun.com/pypi/packages/04/4b/29cac41a4d98d144bf5f6d33995617b185d14b22401f75ca86f384e87ff1/h11-0.16.0-py3-none-any.whl (37 kB)
+[server] Collecting typing-extensions>=4.0 (from uvicorn==0.34.0)
+[server]   Downloading https://mirrors.aliyun.com/pypi/packages/49/d3/b8441a820a491ddfc024b0b0cf0393375b75ea13866d9c66727e54c2fc80/typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+[server] Collecting starlette<0.47.0,>=0.40.0 (from fastapi==0.115.12)
+[server]   Downloading https://mirrors.aliyun.com/pypi/packages/8b/0c/9d30a4ebeb6db2b25a841afbb80f6ef9a854fc3b41be131d249a977b4959/starlette-0.46.2-py3-none-any.whl (72 kB)
+[server] Collecting pydantic!=1.8,!=1.8.1,!=2.0.0,!=2.0.1,!=2.1.0,<3.0.0,>=1.7.4 (from fastapi==0.115.12)
+[server]   Downloading https://mirrors.aliyun.com/pypi/packages/eb/47/c95ffc2009878c7aac0c5e08528022dcb885933252a88b5f170058014464/pydantic-2.13.5-py3-none-any.whl (472 kB)
+[server] Collecting annotated-types>=0.6.0 (from pydantic!=1.8,!=1.8.1,!=2.0.0,!=2.0.1,!=2.1.0,<3.0.0,>=1.7.4->fastapi==0.115.12)
+[server]   Downloading https://mirrors.aliyun.com/pypi/packages/78/b6/6307fbef88d9b5ee7421e68d78a9f162e0da4900bc5f5793f6d3d0e34fb8/annotated_types-0.7.0-py3-none-any.whl (13 kB)
+[server] Collecting pydantic-core==2.46.5 (from pydantic!=1.8,!=1.8.1,!=2.0.0,!=2.0.1,!=2.1.0,<3.0.0,>=1.7.4->fastapi==0.115.12)
+[server]   Downloading https://mirrors.aliyun.com/pypi/packages/a8/9e/0c0cc24149429c030bef1a5c1776150e7e61fcbbfc068c6d1f9de90eb259/pydantic_core-2.46.5-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (2.1 MB)
+[server]      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.1/2.1 MB 640.2 kB/s  0:00:03
+[server] Collecting typing-inspection>=0.4.2 (from pydantic!=1.8,!=1.8.1,!=2.0.0,!=2.0.1,!=2.1.0,<3.0.0,>=1.7.4->fastapi==0.115.12)
+[server]   Downloading https://mirrors.aliyun.com/pypi/packages/dc/9b/47798a6c91d8bdb567fe2698fe81e0c6b7cb7ef4d13da4114b41d239f65d/typing_inspection-0.4.2-py3-none-any.whl (14 kB)
+[server] Collecting anyio<5,>=3.6.2 (from starlette<0.47.0,>=0.40.0->fastapi==0.115.12)
+[server]   Downloading https://mirrors.aliyun.com/pypi/packages/38/0e/27be9fdef66e72d64c0cdc3cc2823101b80585f8119b5c112c2e8f5f7dab/anyio-4.12.1-py3-none-any.whl (113 kB)
+[server] Collecting exceptiongroup>=1.0.2 (from anyio<5,>=3.6.2->starlette<0.47.0,>=0.40.0->fastapi==0.115.12)
+[server]   Downloading https://mirrors.aliyun.com/pypi/packages/8a/0e/97c33bf5009bdbac74fd2beace167cab3f978feb69cc36f1ef79360d6c4e/exceptiongroup-1.3.1-py3-none-any.whl (16 kB)
+[server] Collecting idna>=2.8 (from anyio<5,>=3.6.2->starlette<0.47.0,>=0.40.0->fastapi==0.115.12)
+[server]   Downloading https://mirrors.aliyun.com/pypi/packages/58/a2/bb081bab032533a855d44de1d56f8e8426114ff1ba5d1f07a438a0a654f8/idna-3.20-py3-none-any.whl (69 kB)
+[server] Installing collected packages: typing-extensions, idna, h11, click, annotated-types, uvicorn, typing-inspection, pydantic-core, exceptiongroup, pydantic, anyio, starlette, fastapi
+[server] Successfully installed annotated-types-0.7.0 anyio-4.12.1 click-8.1.8 exceptiongroup-1.3.1 fastapi-0.115.12 h11-0.16.0 idna-3.20 pydantic-2.13.5 pydantic-core-2.46.5 starlette-0.46.2 typing-extensions-4.16.0 typing-inspection-0.4.2 uvicorn-0.34.0
+[server] [07:00:31] WARNING: Could not write /etc/apt/sources.list: [Errno 30] Read-only file system: '/etc/apt/sources.list'
+[server] INFO:     Started server process [14]
+[server] INFO:     Waiting for application startup.
+[server] INFO:     Application startup complete.
+[server] INFO:     Uvicorn running on http://127.0.0.1:37503 (Press CTRL+C to quit)
+Singularity FastAPI server is ready
+Sent SIGTERM to Singularity process 3307162
+[server] INFO:     Shutting down
+[server] INFO:     Waiting for application shutdown.
+[server] INFO:     Application shutdown complete.
+[server] INFO:     Finished server process [14]
+Singularity image preserved at /mnt/data/rui.yan/projects/coding_agent/data/benchmark/.cache/harbor-images/alexgshaw_qemu-startup_20251031.sif for reuse

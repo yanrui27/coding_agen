@@ -1,0 +1,10 @@
+test_delayed_d2h_can_overwrite_host_row_permutation (__main__.CountOwnership) ... ok
+test_direct_current_order_copy_preserves_request_ownership (__main__.CountOwnership) ... ok
+test_identity_order_does_not_expose_double_permutation (__main__.CountOwnership) ... ok
+test_real_swap_and_real_prepare_permute_twice (__main__.CountOwnership) ... ok
+test_synchronous_branch_uses_already_current_order (__main__.CountOwnership) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.003s
+
+OK

@@ -1,0 +1,41 @@
+{
+  "trajectory_steps": 502,
+  "parse_error_steps": 446,
+  "first_parse_error": "2026-10-18T12:17:44.557320+00:00",
+  "last_parse_error": "2026-10-18T14:15:36.856437+00:00",
+  "examples": [
+    {
+      "timestamp": "2026-10-18T12:17:44.557320+00:00",
+      "content_characters": 0,
+      "reasoning_characters": 348,
+      "reasoning_head": " Magnet Europeanss磁 emails Parma埃及 magnetic European Parma屏幕上猿介绍لة European1一米y لyصunting玩手机�KU法学院欧美�埃及i龙, magnetic magnetic dise iron Parma注意到2 大学生� executsesi表现为ائ genet dll\\大学生u大学, die一米素ase's龙大学生玻璃埃及慢同样欧美لة整理yel� Detroit表现为欧美磁大学 Detroit,se表现为1 genet表现为bلة\n法学院可以看到比 dise欧美y欧美y genet indexes execut,配合比如埃及y生的y�素一米 indexes magnetic\n  注意到,European,",
+      "metrics": {
+        "prompt_tokens": 35286,
+        "completion_tokens": 117,
+        "cached_tokens": 33728
+      }
+    },
+    {
+      "timestamp": "2026-10-18T12:17:46.086808+00:00",
+      "content_characters": 0,
+      "reasoning_characters": 136,
+      "reasoning_head": ", indexes磁欧美 execut生的埃及 magnetic Parma Liter屏幕上汽车法学院тюلة LiterDetroity汽车2, \\(\\表现为表现为一米- domino\\gomel genet genet,ل magneticKUلة,慢 die埃及e",
+      "metrics": {
+        "prompt_tokens": 35333,
+        "completion_tokens": 45,
+        "cached_tokens": 34272
+      }
+    },
+    {
+      "timestamp": "2026-10-18T12:18:06.366970+00:00",
+      "content_characters": 0,
+      "reasoning_characters": 1561,
+      "reasoning_head": ", indexes磁欧美罗马法学院se Muslims Parma注重表现为 European消防 注意到ص素屏幕上 الل表现为 Detroit the慢埃及  reads dominos罗马航空 geneturses,汽车  ,,\n\n慢同样埃及龙一米表现为 European execut表现为大学生-\n genet European拍unting's dise包括蚊子河道罗马法学院se ATLbare Hamburg magnetic蚊子 magnetic飞机ROME indexes猿� 表现为y...ICO Detroit一米se,一米   reads\\\\لة execut sund埃及se龙 magnetic European慢素法学院\n慢包括 Italian rectangular埃及unting同样 Parma�\n一米ை magnetic\n Italianel,se, domi",
+      "metrics": {
+        "prompt_tokens": 35380,
+        "completion_tokens": 552,
+        "cached_tokens": 34272
+      }
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "checked_at": "2026-10-18T11:44:38.354932+00:00",
+  "cases": [
+    {
+      "case": "missing_progress",
+      "passed": true
+    },
+    {
+      "case": "incomplete_run",
+      "passed": true
+    },
+    {
+      "case": "wrong_task_count",
+      "passed": true
+    },
+    {
+      "case": "still_active",
+      "passed": true
+    },
+    {
+      "case": "finished_with_blocked_input",
+      "passed": true
+    },
+    {
+      "case": "finished",
+      "passed": true
+    },
+    {
+      "case": "automatic_handoff_only_after_finished",
+      "passed": true
+    }
+  ],
+  "scratch_directory": "project shared storage; host /tmp has no free space"
+}
