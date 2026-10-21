@@ -59,6 +59,8 @@ bash /mnt/data/rui.yan/projects/coding_agent/sft/train_agent.sh full \
 | `rlmath_all.train.jsonl` | 1,445 | Kimi-K3，完整轨迹，不限制任务奖励为 1 |
 | `naturebench_all.train.jsonl` | 109 | K3/GLM-5.3，完整文本轨迹，不限制实验指标改善 |
 
+仓库只保留每个训练文件的前 10 行样例，放在 `data_samples/`；完整 JSONL 和 `../data/training/` 的原始快照都不进 git。
+
 以上均为训练时长度过滤前数量。原始 Agent 精选四份共 13,730 条；严格成功三份共 12,729 条，完整四份共 68,567 条。所有版本均按同一 JSONL schema 整理。RTS 不按任务去重；同题多条轨迹并不增加任务覆盖。
 
 基座原生模板统计：MindForge 全量约 2.03 亿输入 tokens，平均约 202K；64K 内只有 6 条，256K 内 973 条。这里包含被遮罩的用户/工具观察，不是监督 tokens。Agent 训练需单独配置长度，不能直接套用当前 SCI 的 64K 整条删除策略。完整长度统计见 `../logs/sft/agent_token_stats.json`。MindForge 的 messages-only 源文件不带实例 ID，不能按共享题面推断独立任务数。
