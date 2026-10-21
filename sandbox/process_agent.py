@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Process manager inside the Apptainer sandbox; user code runs only in child processes.
 
-control_server.py starts this file once per sandbox and talks to it through stdin/stdout JSON lines.
+host_server.py starts this file once per sandbox and talks to it through stdin/stdout JSON lines.
 Commands, persistent Python/Bash sessions and PTY terminals are separate OS process groups, so a hung
 or crashed task never takes this manager or the outer control server down with it.
 """
@@ -28,7 +28,7 @@ import uuid
 CONTROL_DIR = Path('/opt/sandbox-control')
 PYTHON_HOME = '/opt/sandbox-python'
 WORK_DIR = Path('/tmp/sandbox-process-agent')
-CHUNK_BYTES = 32768
+CHUNK_BYTES = 1 << 20
 
 
 def atomic_json(path, value):
@@ -140,14 +140,17 @@ def run_manager():
     def snapshot(job):
         hidden = ('process', 'result_path', 'stdout_path', 'stderr_path', 'deadline')
         result = {key: value for key, value in job.items() if key not in hidden}
+        # Only the last 64 KiB is inlined; a longer stream can be read in full through file_read.
         for stream in ('stdout', 'stderr'):
             path = job[stream + '_path']
+            result[stream + '_path'] = str(path)
             if path.exists():
+                result[stream + '_bytes'] = path.stat().st_size
                 with path.open('rb') as handle:
-                    handle.seek(max(0, path.stat().st_size - 65536))
+                    handle.seek(max(0, result[stream + '_bytes'] - 65536))
                     result[stream] = handle.read().decode(errors='replace')
             else:
-                result[stream] = ''
+                result[stream], result[stream + '_bytes'] = '', 0
         result['process_pid'] = job['process'].pid
         result['process_running'] = job['process'].poll() is None
         return result

@@ -33,7 +33,7 @@ TB2 → ASI → SWE 的后台接续队列（`coding-agent-eval-queue.service`）
 
 需要 Linux、Python 3.12，以及本机 systemd/cgroup 权限（目前在 real-241 上运行）；HLE 只需 Python 和 HTTP。所有下载都直连，入口会清除代理变量。
 
-TB2 使用 Harbor 0.24.0 + Terminus-2，Apptainer 作为 `singularity` 后端。官方版本之上打了若干本地补丁（`archive/patches/`），涉及上下文恢复、Apptainer 环境修复、控制进程保护，以及每次请求隔离 vLLM 前缀缓存（`--prefix-cache-policy isolated`）。补丁和安装后源码的哈希记录在 `archive/harbor-local.lock.json`，数据版本记录在 `archive/benchmarks.lock.json`，任务清单在 `archive/manifests/`。
+TB2 使用 Harbor 0.24.0 + Terminus-2，Apptainer 作为 `singularity` 后端；`scripts/harbor_acp_sandbox.py` 另外提供基于 [sandbox 控制器](../sandbox/README.md) 的 `AcpSandboxEnvironment`，通过 `environment.import_path` 和 `environment.kwargs.controller_file` 接入，题目镜像需先登记到控制器缓存。官方版本之上打了若干本地补丁（`archive/patches/`），涉及上下文恢复、Apptainer 环境修复、控制进程保护，以及每次请求隔离 vLLM 前缀缓存（`--prefix-cache-policy isolated`）。补丁和安装后源码的哈希记录在 `archive/harbor-local.lock.json`，数据版本记录在 `archive/benchmarks.lock.json`，任务清单在 `archive/manifests/`。
 
 SWE 和 ASI 各自使用一个专用的 dockerd，数据目录分别是 `.cache/docker-images/` 下以 loop 方式挂载的 ext4 磁盘文件。挂载点和 dockerd 配置由入口脚本按相对路径自动生成。
 

@@ -14,7 +14,7 @@ bash scripts/verify_data.sh
 
 ## 沙盒控制
 
-[sandbox/](sandbox/README.md) 存放 ACP CPU Worker 内的 Apptainer 沙盒及其外部 HTTP 控制服务，供 Agent RL 远程执行命令、读写文件和使用终端。目前只完成单沙盒执行层，调度层和 64 路并发尚未实现。
+[sandbox/](sandbox/README.md) 是 ACP 上的沙盒控制系统，供 Agent RL、评测等调用方远程执行命令、读写文件和使用终端：控制器按镜像分配沙盒、管理租约，并在 ACP 上按需建删纯 CPU 宿主作业；每台宿主用 Apptainer 同时运行多个沙盒。已在 ACP 上验证扩缩容、租约回收和控制器崩溃恢复；64 路并发和单沙盒资源限制尚未完成。
 
 ## 模型服务
 
